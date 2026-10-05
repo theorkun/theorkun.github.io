@@ -245,3 +245,25 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 .story-prev{left:10px}.story-next{right:10px}
 .story-arrow:hover,#story-close:hover{background:#ffffff30}
 @media(max-width:760px){.memories{margin-top:20px;padding:20px 18px}.memories-heading{align-items:flex-start;flex-direction:column;gap:4px}.story-list{gap:18px}.story-button{width:86px}.story-ring{width:80px;height:80px}.memories-heading h2{font-size:18px}}
+
+/* Quiet introduction beside the family photographs. */
+.hero{max-width:1400px;background:#fffdf8;border-color:#decdaa;border-radius:24px;box-shadow:0 14px 40px -20px #07334838;overflow:hidden}
+.hero:before{display:none}
+.hero-carousel{border-radius:0}
+.carousel-images{min-height:480px;aspect-ratio:1/1}
+.hero-copy{padding:48px 12%;background:#fffdf8;color:#073348;border-left:1px solid #decdaa;overflow:visible}
+.hero-copy:before{inset:auto;left:-21px;top:calc(50% - 21px);width:42px;height:42px;border:1px solid #decdaa;border-radius:50%;background:#fffdf8 url('assets/selcuklu-rozet.svg') center/28px 28px no-repeat;filter:none;opacity:1;z-index:3}
+.hero-copy:after{inset:auto -35px -40px auto;width:230px;height:230px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;opacity:.035;z-index:-1}
+.hero .eyebrow{color:#08757d;font-size:11px;letter-spacing:2.5px;margin:0 0 22px}
+.hero h1{font:600 clamp(30px,3.3vw,46px)/1.2 'Cinzel',Georgia,serif;letter-spacing:0;margin:0 0 14px}
+.hero h1 em{display:block;font:700 clamp(38px,4.2vw,60px)/1.2 'Cinzel',Georgia,serif;color:#073348;letter-spacing:.3px;margin:4px 0 0}
+.hero .realname{font:500 15px/1.6 'Quicksand',sans-serif;letter-spacing:.6px;color:#536c78;margin:0}
+.hero .hero-intro{font:400 15px/1.9 'Poppins',Arial,sans-serif;color:#536c78;max-width:390px;margin:26px 0 30px}
+.hero .actions{flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px}
+.hero .button{background:#08757d;color:#fff;padding:13px 20px;border-radius:9px;font-size:13px}
+.hero .button:hover{background:#09636a}
+.hero .outline-button{background:transparent;color:#073348;border-color:#c7ab79;padding:12px 18px;border-radius:9px;font-size:13px}
+.hero .outline-button:hover{background:#f3ead9}
+@media(min-width:1800px){.hero .carousel-images{min-height:480px}}
+@media(max-width:1100px){.hero-copy{padding:36px 9%}.hero .hero-intro{font-size:14px}.hero .carousel-images{min-height:430px}}
+@media(max-width:760px){.hero,body:has(nav.open) .hero{border-radius:20px;grid-template-columns:1fr}.hero .carousel-images{min-height:0;height:auto;aspect-ratio:1/1}.hero-copy{padding:36px 8%;border-left:0;border-top:1px solid #decdaa}.hero-copy:before{left:calc(50% - 21px);top:-21px}.hero .eyebrow{margin-bottom:16px}.hero h1{font-size:30px;margin-bottom:12px}.hero h1 em{font-size:42px;margin-top:3px}.hero .hero-intro{margin:20px 0 24px;max-width:100%}.hero-copy:after{width:180px;height:180px}.hero .actions{flex-direction:row}}

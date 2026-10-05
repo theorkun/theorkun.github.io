@@ -1,7 +1,7 @@
 (() => {
   const slides = [
-    { image: 'slide-stage', photo: 'assets/ceyhani-saz.jpg', caption: 'Aile arşivinden · Sazıyla Aşık Ceyhani', lines: ['Ceyhani aktım çağladım', 'Aşkıyla gönül dağladım', 'Doğarken bile ağladım', 'Yaşarken yüzüm gülmüyor'], source: 'Aşık Ceyhani' },
-    { image: 'slide-young', photo: 'assets/fotograf.jpg', caption: 'Aile arşivinden · Gençlik yıllarında Durmuş Ali Sayıcı', lines: ['Anamdan doğdum doğalı', 'Yüzüm gülmedi gülmedi.', 'Kendi kendimi bileli', 'Yüzüm gülmedi gülmedi.'], source: 'Yüzüm Gülmedi · Aşık Ceyhani' }
+    { image: 'slide-stage', photo: 'assets/ceyhani-saz.jpg', caption: 'Aile arşivinden · Sazıyla Aşık Ceyhani' },
+    { image: 'slide-young', photo: 'assets/fotograf.jpg', caption: 'Aile arşivinden · Gençlik yıllarında Durmuş Ali Sayıcı' }
   ];
   const carousel = document.querySelector('.hero-carousel');
   const dots = [...document.querySelectorAll('[data-slide]')];
@@ -12,13 +12,6 @@
     const slide = slides[current];
     carousel.closest('.hero').style.setProperty('--slide-photo', `url("${slide.photo}")`);
     document.getElementById('slide-caption').textContent = slide.caption;
-    const quote = document.getElementById('slide-quote');
-    quote.replaceChildren();
-    slide.lines.forEach((line, i) => {
-      if (i) quote.append(document.createElement('br'));
-      quote.append(document.createTextNode(line));
-    });
-    document.getElementById('slide-quote-source').textContent = slide.source;
     document.getElementById('slide-count').textContent = `${current + 1} / ${slides.length}`;
     dots.forEach((dot, i) => dot.setAttribute('aria-pressed', String(i === current)));
   }
