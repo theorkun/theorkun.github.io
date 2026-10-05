@@ -220,6 +220,10 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 .welcome-copy>p:not(.eyebrow){font-size:14px;line-height:1.8;color:#536c78;margin-bottom:24px}
 .welcome-copy .button{background:#073348;color:#f4deb4;border:0;border-radius:8px}
 .welcome-copy .button:hover{background:#096373;transform:none}
+.welcome-personal-note{margin:0 0 24px;padding:18px 0 0;border-top:1px solid #decdaa}
+.welcome-personal-note h3{margin:0 0 10px;color:#08757d;font:600 15px/1.5 'Quicksand',sans-serif}
+.welcome-personal-note p{margin:0 0 10px;color:#536c78;font-size:13px;line-height:1.8}
+.welcome-personal-note span{color:#08757d;font:600 12px/1.5 'Quicksand',sans-serif}
 .welcome-close{position:absolute;right:12px;top:12px;z-index:1;display:grid;place-items:center;width:36px;height:36px;border:1px solid #decdaa;border-radius:50%;background:#fffdf8;color:#073348;font:24px/1 Arial,sans-serif}
 @media(max-width:600px){.welcome-layout{grid-template-columns:1fr;min-height:0}.welcome-photo{height:240px;min-height:0}.welcome-dialog .welcome-photo img{object-position:center 44%}.welcome-copy{padding:28px 24px}.welcome-copy h2{font-size:26px}.welcome-copy .button{width:100%}}
 
