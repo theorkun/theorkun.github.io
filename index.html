@@ -32,8 +32,21 @@
   <noscript><p>Mesajları okumak ve yazmak için tarayıcında JavaScript etkin olmalıdır.</p></noscript>
 </section>
 </main>
-<footer><div class="footer-identity"><div class="footer-name">Aşık Ceyhani<span>Durmuş Ali Sayıcı</span></div></div><p>Ailesinin sevgi ve özlemiyle.</p><a class="footer-button" href="#ana"><span class="control-label">Başa dön</span></a></footer>
+<footer><div class="footer-identity"><div class="footer-name">Aşık Ceyhani<span>Durmuş Ali Sayıcı</span></div></div><p>Ailesinin sevgi ve özlemiyle.</p><a class="footer-button" href="#ana"><span class="control-label">Başa dön</span></a><p class="copyright">Tüm hakları saklıdır. İzinsiz kopyalanamaz.</p></footer>
 <dialog id="lightbox"><div class="dialog-top"><p id="image-caption"></p><button id="close" aria-label="Fotoğrafı kapat"><span class="control-label">Kapat ×</span></button></div><img id="large-image" alt=""></dialog>
 <dialog id="poem-dialog" class="poem-dialog"><div class="dialog-top poem-dialog-top"><div><p class="eyebrow">ŞİİR</p><h3 id="poem-title"></h3></div><button id="poem-close" aria-label="Şiiri kapat"><span class="control-label">Kapat ×</span></button></div><div class="poem-modal-body"><p class="poem-modal-author" id="poem-author"></p><figure id="poem-manuscript" class="poem-modal-manuscript" hidden><figcaption>El yazısı aslı</figcaption><button class="poem-manuscript-viewer" type="button" data-image="assets/siir.jpg" data-alt="Yüzüm Gülmedi şiirinin el yazısı aslı" aria-label="El yazısı şiiri büyüt"><img src="assets/siir.jpg" alt="Yüzüm Gülmedi şiirinin el yazısı aslı" loading="lazy"></button></figure><div id="poem-content" class="poem-modal-content"></div></div></dialog>
-<script src="app.js"></script><script src="carousel.js"></script><script src="guestbook.js"></script>
+<dialog id="welcome-dialog" class="welcome-dialog" aria-labelledby="welcome-title" aria-describedby="welcome-description">
+  <button class="welcome-close" type="button" data-welcome-close aria-label="Duyuruyu kapat" autofocus>×</button>
+  <div class="welcome-layout">
+    <div class="welcome-photo"><img src="assets/ceyhani-saz.jpg" alt="Aşık Ceyhani saz çalarken" width="1536" height="1536"></div>
+    <div class="welcome-copy">
+      <p class="eyebrow">BİR ÖMRÜN SESİ, BİR GÖNLÜN SÖZÜ</p>
+      <h2 id="welcome-title">Aşık Ceyhani’nin<br>sitesi yayında!</h2>
+      <img class="welcome-ornament" src="assets/selcuklu-ayrac.svg" alt="" aria-hidden="true" width="400" height="52">
+      <p id="welcome-description">Şiirleri, türküleri ve hatıraları artık burada. Ailesinin sevgiyle hazırladığı bu arşive hoş geldiniz.</p>
+      <button class="button" type="button" data-welcome-close>Siteyi keşfet</button>
+    </div>
+  </div>
+</dialog>
+<script src="app.js"></script><script src="carousel.js"></script><script src="guestbook.js"></script><script src="welcome.js"></script>
 </body></html>
