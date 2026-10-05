@@ -36,12 +36,14 @@ nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 
 
 /* Navy, turquoise and gold motifs, drawn as scalable SVG assets. */
 :root{--gold:#bd9455;--line:#e5dccb}
-body{background:#faf7f0}
+body{background:#faf7f0 url('assets/selcuklu-arka-plan.svg') center top/180px 180px repeat}
 header{position:relative;isolation:isolate;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
 header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
 .header-identity,nav{position:relative;z-index:1}
-.brand-text{color:var(--navy);text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
-.brand-text>span{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:1px;margin-top:8px;color:#64716e}
+.brand{gap:14px;min-width:0;padding:16px 25px 16px 18px;border:1px solid #bd9455;border-radius:8px;background:#073348 url('assets/selcuklu-banner.svg') center/cover no-repeat;box-shadow:0 6px 18px #07334812}
+.brand-saz{display:block;flex:0 0 auto;width:48px;height:75px;object-fit:contain}
+.brand-text{color:#f4deb4;text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
+.brand-text>span{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:1px;margin-top:8px;color:#e1eeea}
 nav a,.menu{background:transparent;border:1px solid transparent;border-radius:6px}
 nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .hero{margin-top:32px;border:1px solid #d4bd91}
@@ -57,8 +59,8 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .archive-links a:hover small{color:#536c78}
 .section-heading{border:0;padding-bottom:35px}
 .section-heading:after{left:0;bottom:-5px;width:min(340px,100%);height:38px;background:url('assets/selcuklu-ayrac.svg') left center/contain no-repeat}
-.music,.gallery{background:#f0f4f2}
-.poetry{background:#faf7f0}
+.music,.gallery{background:#eaf1edb8}
+.poetry{background:transparent}
 .facts{background:#fffdf8;border-color:#decdaa;border-radius:14px}
 .dream{background:#f4efe4;border-left-color:#bd9455}
 .poem-card{background:#fffdf8;border-color:#c7ab79;box-shadow:0 6px 22px #07334808;border-radius:12px}
@@ -71,5 +73,7 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .poem-dialog h3,.poem-modal-author{color:#073348}
 footer{position:relative;border-top:0;padding-top:80px;background:#073348}
 footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none}
-@media(max-width:1100px) and (min-width:761px){header{flex-wrap:wrap;gap:22px;justify-content:center;padding-bottom:62px}.header-identity{justify-content:center}.brand-text>span{text-align:center}nav{justify-content:center;flex-wrap:wrap}}
+@media(max-width:1240px) and (min-width:761px){header{flex-wrap:wrap;gap:22px;justify-content:flex-start;padding-bottom:62px}.header-identity{justify-content:flex-start}.brand-text>span{text-align:left}nav{justify-content:flex-start;flex-wrap:wrap}}
 @media(max-width:760px){header,header:has(nav.open){display:block;min-height:0;padding:22px 5% 55px;border:0;background:#fffdf8;color:var(--navy)}header:after{height:28px;background-size:93.333px 28px}.brand-text{font-size:21px}.brand-text>span{font-size:14px;letter-spacing:.6px}.menu{border-color:#d5bd8e;background:#f6efdf}.hero,body:has(nav.open) .hero{margin-top:22px}.archive-links a{min-height:160px}.card-star{width:38px;height:38px}.section-heading{padding-bottom:30px}.section-heading:after{width:min(280px,100%);height:32px}footer{padding-top:70px}}
+@media(max-width:760px){.header-identity{gap:12px}.brand{gap:10px;padding:14px 16px 14px 12px}.brand-saz{width:38px;height:60px}.brand-text{font-size:20px}.brand-text>span{text-align:left;font-size:13px;letter-spacing:.4px}.menu{flex:0 0 auto;padding:9px 12px}body{background-size:140px 140px}}
+@media(max-width:430px){.header-identity{gap:8px}.brand{gap:8px;padding:12px 10px}.brand-saz{width:30px;height:50px}.brand-text{font-size:clamp(15px,4.5vw,19px);letter-spacing:0}.brand-text>span{font-size:12px;letter-spacing:0;margin-top:5px}.menu{padding:9px 10px;font-size:13px}}
