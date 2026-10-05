@@ -1,13 +1,12 @@
-AŞIK CEYHANİ — WEB SİTESİ
+AŞIK CEYHANİ — GÜNCEL WEB SİTESİ
 
-ZIP dosyasını bir klasöre çıkarın. index.html dosyasını çift tıklayarak siteyi açabilirsiniz.
+ZIP dosyasını çıkarın. index.html dosyasına çift tıklayarak siteyi açın.
+Düzenlemek için Visual Studio Code içinde Dosya > Klasör Aç ile asik-ceyhani klasörünü açın.
 
-Visual Studio Code ile düzenlemek için: Dosya > Klasör Aç yolundan asik-ceyhani klasörünü seçin.
-
-index.html: Sayfa içeriği ve şiirler
+index.html: İçerik
 style.css ve reference.css: Tasarım
-carousel.js: Fotoğraf ve alıntı kaydırıcısı
+carousel.js: Fotoğraf kaydırıcısı
 app.js: Menü ve fotoğraf büyütme
-assets: Fotoğraflar, yazı tipleri ve motifler
+assets: Fotoğraflar, motifler ve yazı tipleri
 
-YouTube kaydını izlemek için internet bağlantısı gerekir.
+YouTube için internet bağlantısı gerekir.
