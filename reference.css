@@ -72,6 +72,7 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .poem-card__tag{padding-right:35px}
 .poem-card strong,.poem-card__tag{color:#073348}
 .poem-card p{font-weight:600}
+.poetry .section-description{font-weight:600}
 .poem-card:hover,.poem-card:focus-visible{background:linear-gradient(145deg,#fffefb,#f5eddd);border-color:#a78043;box-shadow:0 4px 9px #0733480d,0 18px 34px -13px #07334845,10px 18px 36px -18px #bd945566}
 .poem-card:hover:after,.poem-card:focus-visible:after{opacity:.14;transform:rotate(22.5deg) scale(1.05)}
 @media(prefers-reduced-motion:reduce){.poem-card:after{transition:none}.poem-card:hover,.poem-card:focus-visible{transform:none}.poem-card:hover:after,.poem-card:focus-visible:after{transform:rotate(22.5deg)}}
