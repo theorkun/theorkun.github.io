@@ -108,6 +108,9 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 #HCB_comment_box #hcb_file,#HCB_comment_box #hcb_file_label{display:none}
 @media(max-width:760px){nav a:last-child{grid-column:auto}.guestbook-panel{padding:22px}#HCB_comment_box #hcb_submit{width:100%}}
 footer{flex-wrap:wrap}
+.footer-contact{display:flex;flex-direction:column;gap:4px;color:#f4deb4;font:700 15px/1.5 'Quicksand',sans-serif}
+.footer-contact span{font:400 13px/1.6 'Poppins',Arial,sans-serif;color:#c1dde5;overflow-wrap:anywhere}
+.footer-contact:hover span{text-decoration:underline;text-underline-offset:4px}
 footer .copyright{flex-basis:100%;width:100%;margin-top:8px;padding-top:20px;border-top:1px solid #dfbd8033;font-size:12px;line-height:1.7;color:#c1dde5}
 .welcome-dialog{position:fixed;max-width:760px;width:min(92vw,760px);max-height:88dvh;padding:0;border:1px solid #bd9455;border-radius:18px;background:#fffdf8;box-shadow:0 25px 80px #0004;overflow:auto}
 .welcome-dialog::backdrop{background:#073348c9}
