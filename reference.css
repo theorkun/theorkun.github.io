@@ -37,13 +37,13 @@ nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 
 /* Navy, turquoise and gold motifs, drawn as scalable SVG assets. */
 :root{--gold:#bd9455;--line:#e5dccb}
 body{background:#faf7f0 url('assets/selcuklu-arka-plan.svg') center top/180px 180px repeat}
-header{position:relative;isolation:isolate;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
+header{position:relative;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
 header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
 .header-identity,nav{position:relative;z-index:1}
 .header-identity{gap:16px}
-.header-flama{position:absolute;right:0;top:8px;display:block;width:72px;height:108px;object-fit:contain;pointer-events:none}
-header{padding-right:90px}
-.brand{gap:14px;min-width:0;padding:16px 25px 16px 18px;border:0;border-radius:0;background:transparent;box-shadow:none}
+.header-flama{position:static;display:block;flex:0 0 auto;width:60px;height:90px;object-fit:contain;pointer-events:none}
+.brand{gap:12px;min-width:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+nav{justify-content:flex-end;flex-wrap:wrap;min-width:0}
 .brand-saz{display:block;flex:0 0 auto;width:48px;height:75px;object-fit:contain}
 .brand-text{color:var(--navy);text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
 .brand-text>span{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:1px;margin-top:8px;color:#64716e}
@@ -76,16 +76,30 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .poem-dialog h3,.poem-modal-author{color:#073348}
 footer{position:relative;border-top:0;padding-top:80px;background:#073348}
 footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none}
-@media(max-width:1240px) and (min-width:761px){header{flex-wrap:wrap;gap:22px;justify-content:flex-start;padding-bottom:62px}.header-identity{justify-content:flex-start}.brand-text>span{text-align:left}nav{justify-content:flex-start;flex-wrap:wrap}}
+@media(max-width:1240px) and (min-width:761px){header{grid-template-columns:minmax(0,1fr);gap:22px;padding-bottom:62px}.header-identity{justify-content:flex-start}.brand-text>span{text-align:left}nav{justify-content:flex-start;flex-wrap:wrap}}
 @media(max-width:760px){header,header:has(nav.open){display:block;min-height:0;padding:22px 5% 55px;border:0;background:#fffdf8;color:var(--navy)}header:after{height:28px;background-size:93.333px 28px}.brand-text{font-size:21px}.brand-text>span{font-size:14px;letter-spacing:.6px}.menu{border-color:#d5bd8e;background:#f6efdf}.hero,body:has(nav.open) .hero{margin-top:22px}.archive-links a{min-height:160px}.card-star{width:38px;height:38px}.section-heading{padding-bottom:30px}.section-heading:after{width:min(280px,100%);height:32px}footer{padding-top:70px}}
-@media(max-width:760px){.header-identity{gap:12px}.brand{gap:10px;padding:14px 16px 14px 12px}.brand-saz{width:38px;height:60px}.brand-text{font-size:20px}.brand-text>span{text-align:left;font-size:13px;letter-spacing:.4px}.menu{flex:0 0 auto;padding:9px 12px}body{background-size:140px 140px}}
-@media(max-width:430px){.header-identity{gap:8px}.brand{gap:8px;padding:12px 10px}.brand-saz{width:30px;height:50px}.brand-text{font-size:clamp(15px,4.5vw,19px);letter-spacing:0}.brand-text>span{font-size:12px;letter-spacing:0;margin-top:5px}.menu{padding:9px 10px;font-size:13px}}
-@media(max-width:760px){header,header:has(nav.open){padding-right:58px}.header-identity{flex-wrap:wrap}.header-flama{right:0;top:22px;width:44px;height:66px}.menu{margin-left:auto}}
-@media(max-width:430px){header,header:has(nav.open){padding-right:48px}.header-identity{gap:6px}.brand{padding-inline:0}.header-flama{width:36px;height:54px}}
-.subpage main{min-height:60vh}
-.subpage .section{max-width:1440px;margin:0 auto;background:transparent}
+@media(max-width:760px){.header-identity{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}.brand{gap:10px;padding:0}.brand-saz{width:38px;height:60px}.brand-text{font-size:20px}.brand-text>span{text-align:left;font-size:13px;letter-spacing:.4px}.menu{padding:9px 12px}body{background-size:140px 140px}.header-flama{width:44px;height:66px}nav.open{width:100%;justify-content:stretch}}
+@media(max-width:430px){.header-identity{gap:8px}.brand{gap:6px}.brand-saz{width:26px;height:44px}.header-flama{width:32px;height:48px}.brand-text{font-size:clamp(15px,4.5vw,19px);letter-spacing:0}.brand-text>span{font-size:12px;letter-spacing:0;margin-top:5px}.menu{padding:9px 10px;font-size:13px}}
+.subpage main{width:88%;max-width:1250px;min-height:60vh;margin:0 auto;padding-top:28px}
+.back-home{display:inline-flex;align-items:center;min-height:40px;color:#096373;font:600 13px/1.5 'Quicksand',sans-serif}
+.back-home:hover{text-decoration:underline;text-underline-offset:4px}
+.subpage .section{width:100%;max-width:none;margin:0;padding:28px 0 72px;background:transparent}
 .subpage .section-title{font:700 clamp(30px,3vw,44px)/1.3 'Quicksand',sans-serif;letter-spacing:-.5px;margin:0}
 .subpage .section-heading .eyebrow{display:none}
+.subpage .section-heading{align-items:center;gap:24px;margin-bottom:44px}
+.subpage .bio-layout{grid-template-columns:260px minmax(0,1fr);gap:48px}
+.subpage .bio-copy{min-width:0;max-width:none}
+.subpage .music-layout{grid-template-columns:minmax(0,2fr) minmax(260px,1fr);gap:0;border:1px solid #decdaa;border-radius:18px}
+.subpage .video{width:100%;min-width:0;aspect-ratio:16/9}
+.subpage .record{min-width:0;padding:32px}
+.subpage .gallery figure{width:100%;max-width:900px;margin:0 auto;padding:16px;border:1px solid #decdaa;border-radius:18px;background:#fffdf8}
+.gallery-button{display:block;width:100%;padding:0;border:0;background:transparent;border-radius:12px;overflow:hidden}
+.subpage .gallery img{width:100%;height:auto;border-radius:12px}
+.subpage .gallery figcaption{margin:14px 4px 0}
+@media(max-width:1000px){.subpage .music-layout{grid-template-columns:minmax(0,1fr)}.subpage .record{padding:28px}.subpage .bio-layout{grid-template-columns:230px minmax(0,1fr);gap:30px}}
+@media(max-width:800px){.subpage .bio-layout{grid-template-columns:minmax(0,1fr);gap:28px}.subpage .bio-sidebar{position:static}.subpage .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.subpage .bio-sidebar blockquote{display:none}}
+@media(max-width:760px){.subpage main{width:88%;padding-top:20px}.subpage .section{padding:22px 0 48px}.subpage .section-heading{align-items:flex-start;gap:12px;margin-bottom:32px}.subpage .gallery figure{padding:10px}.subpage .bio-lead{font-size:20px}.subpage .record h3{font-size:25px}}
+@media(max-width:400px){.subpage .facts{grid-template-columns:minmax(0,1fr)}}
 
 /* Anonymous guestbook, styled to match the poem archive. */
 .guestbook{border-top:1px solid var(--line);background:#fffdf8d9}
