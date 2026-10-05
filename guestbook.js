@@ -25,8 +25,8 @@
     reply: 'Yanıtla',
     flag: 'Bildir',
     like: 'Beğen',
-    admin_link: '',
-    logout_link: '',
+    admin_link: 'Yönetici girişi',
+    logout_link: 'Çıkış yap',
     add_image: 'Fotoğraf ekle',
     mod_label: '(yönetici)',
     days_ago: 'gün önce',
@@ -67,6 +67,8 @@
     const script = document.createElement('script');
     const url = new URL('https://www.htmlcommentbox.com/jread');
     url.searchParams.set('page', window.hcb_user.PAGE);
+    // Public moderator reference from the owner's official embed code.
+    url.searchParams.set('mod', '$1$wq1rdBcg$dG7tLtCXm1VIIchtX2SGm1');
     // Form first, dates and spam filter; no email, website or login required.
     url.searchParams.set('opts', '22');
     url.searchParams.set('num', '10');
