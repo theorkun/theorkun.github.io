@@ -25,7 +25,7 @@
     reply: 'Yanıtla',
     flag: 'Bildir',
     like: 'Beğen',
-    admin_link: 'Yönetici girişi',
+    admin_link: '',
     logout_link: 'Çıkış yap',
     add_image: 'Fotoğraf ekle',
     mod_label: '(yönetici)',
