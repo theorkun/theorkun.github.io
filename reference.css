@@ -256,7 +256,7 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 .hero:before{display:none}
 .hero-carousel{border-radius:0}
 .carousel-images{min-height:480px;aspect-ratio:1/1}
-.hero-copy{padding:48px 12%;background:#fffdf8;color:#073348;border-left:1px solid #decdaa;overflow:visible}
+.hero-copy{padding:48px 12%;background:linear-gradient(110deg,#fffdf8ed,#fffdf8d6),url('assets/fotograf.jpg') center 40%/cover no-repeat;background-color:#fffdf8;color:#073348;border-left:1px solid #decdaa;overflow:visible}
 .hero-copy:before{inset:auto;left:-21px;top:calc(50% - 21px);width:42px;height:42px;border:1px solid #decdaa;border-radius:50%;background:#fffdf8 url('assets/selcuklu-rozet.svg') center/28px 28px no-repeat;filter:none;opacity:1;z-index:3}
 .hero-copy:after{inset:auto -35px -40px auto;width:230px;height:230px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;opacity:.035;z-index:-1}
 .hero .eyebrow{color:#08757d;font-size:11px;letter-spacing:2.5px;margin:0 0 22px}
