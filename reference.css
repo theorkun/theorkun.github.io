@@ -247,6 +247,17 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 @media(max-width:760px){.memories{margin-top:20px;padding:20px 18px}.memories-heading{align-items:flex-start;flex-direction:column;gap:4px}.story-list{gap:18px}.story-button{width:86px}.story-ring{width:80px;height:80px}.memories-heading h2{font-size:18px}}
 
 /* Quiet introduction beside the family photographs. */
+.verse-memory{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px;width:92%;max-width:1400px;margin:28px auto 0;padding:32px 6% 52px;border:1px solid #decdaa;border-radius:16px;background:linear-gradient(120deg,#fffdf8,#f4f3e9);box-shadow:0 6px 20px #07334805}
+.verse-memory-intro .eyebrow{font-size:10px;letter-spacing:2px;color:#08757d;margin:0 0 12px}
+.verse-memory-intro h2{font:600 clamp(21px,2.2vw,29px)/1.4 'Cinzel',Georgia,serif;color:#073348;margin:0 0 20px}
+.verse-memory-link{display:inline-flex;align-items:center;gap:12px;color:#08757d;font:600 13px/1.6 'Quicksand',sans-serif;text-decoration:underline;text-underline-offset:5px}
+.verse-memory-link:hover{color:#073348}
+.verse-memory-poem{margin:0;border-left:1px solid #d8c39f;padding-left:36px}
+.verse-memory-poem blockquote{margin:0;color:#073348;font:500 clamp(17px,1.6vw,21px)/1.8 'Quicksand',sans-serif}
+.verse-memory-poem figcaption{margin-top:12px;color:#64716e;font-size:12px}
+.verse-memory-poem cite{font-style:normal}
+.verse-memory-divider{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:min(280px,70%);height:30px;opacity:.65}
+@media(max-width:760px){.verse-memory{grid-template-columns:1fr;gap:22px;padding:28px 7% 48px}.verse-memory-intro h2{margin-bottom:14px}.verse-memory-poem{padding-left:20px}.verse-memory-poem blockquote{font-size:18px}}
 .hero-biography{margin:24px 0 28px;color:#536c78;font:400 14px/1.9 'Poppins',Arial,sans-serif}
 .hero-biography p{margin:0 0 16px}
 .hero-biography p:last-child{margin-bottom:0}
