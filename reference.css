@@ -66,12 +66,14 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .poetry{background:transparent}
 .facts{background:#fffdf8;border-color:#decdaa;border-radius:14px}
 .dream{background:#f4efe4;border-left-color:#bd9455}
-.poem-card{background:#fffdf8;border-color:#c7ab79;box-shadow:0 6px 22px #07334808;border-radius:12px}
+.poem-card{background:linear-gradient(145deg,#fffefb,#faf5eb);border-color:#c7ab79;box-shadow:0 3px 7px #07334808,0 12px 26px -12px #07334838,8px 14px 30px -18px #bd94554d;border-radius:12px;isolation:isolate}
 .poem-card:before{border-color:#e8dbc1;border-radius:7px}
-.poem-card:after{content:'';position:absolute;right:17px;top:15px;width:25px;height:25px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;pointer-events:none;opacity:.7}
+.poem-card:after{content:'';position:absolute;right:-28px;bottom:-42px;width:160px;height:160px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;filter:blur(3px);opacity:.09;pointer-events:none;z-index:-1;transform:rotate(22.5deg);transition:opacity .2s ease,transform .2s ease}
 .poem-card__tag{padding-right:35px}
 .poem-card strong,.poem-card__tag{color:#073348}
-.poem-card:hover,.poem-card:focus-visible{background:#f6eedf;border-color:#a78043;box-shadow:0 12px 28px #07334812}
+.poem-card:hover,.poem-card:focus-visible{background:linear-gradient(145deg,#fffefb,#f5eddd);border-color:#a78043;box-shadow:0 4px 9px #0733480d,0 18px 34px -13px #07334845,10px 18px 36px -18px #bd945566}
+.poem-card:hover:after,.poem-card:focus-visible:after{opacity:.14;transform:rotate(22.5deg) scale(1.05)}
+@media(prefers-reduced-motion:reduce){.poem-card:after{transition:none}.poem-card:hover,.poem-card:focus-visible{transform:none}.poem-card:hover:after,.poem-card:focus-visible:after{transform:rotate(22.5deg)}}
 .poem-dialog{background:#fffdf8;border-color:#c7ab79}
 .poem-dialog h3,.poem-modal-author{color:#073348}
 footer{position:relative;border-top:0;padding-top:80px;background:#073348}
