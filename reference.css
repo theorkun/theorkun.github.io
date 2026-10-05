@@ -133,19 +133,24 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 #HCB_comment_box .hcb-comment-tb button{color:#096373}
 #HCB_comment_box #hcb_file,#HCB_comment_box #hcb_file_label{display:none}
 @media(max-width:760px){nav a:last-child{grid-column:auto}.guestbook-panel{padding:22px}#HCB_comment_box #hcb_submit{width:100%}}
-footer{flex-wrap:wrap}
-.footer-contact{display:flex;flex-direction:column;gap:5px}
-.footer-contact h3{margin:0 0 3px;color:#f4deb4;font:700 15px/1.5 'Quicksand',sans-serif}
+footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:24px;padding-bottom:32px}
+.footer-name{font-size:22px}
+.footer-name span{color:#e0f2f1}
+.footer-contact{max-width:100%;justify-self:end}
+.footer-contact summary{cursor:pointer;color:#f0faf9;font:600 14px/1.5 'Quicksand',sans-serif;padding:8px 14px;border:1px solid #ffffff40;border-radius:8px}
+.footer-contact summary:hover{background:#ffffff0d}
+.footer-emails{display:flex;flex-direction:column;gap:5px;padding-top:12px}
 .footer-contact a{font:400 13px/1.6 'Poppins',Arial,sans-serif;color:#f0faf9;overflow-wrap:anywhere}
 .footer-contact a:hover{color:#f4deb4;text-decoration:underline;text-underline-offset:4px}
-.footer-bottom{flex-basis:100%;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 24px;margin-top:8px;padding-top:24px;border-top:1px solid #dfbd8033}
+.footer-bottom{grid-column:1/-1;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;margin-top:0;padding-top:20px;border-top:1px solid #ffffff26}
 footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
-.site-credit{display:inline-flex;align-items:center;gap:12px;max-width:100%;padding:13px 20px 13px 15px;border:1px solid #77e2dc;border-radius:12px;background:linear-gradient(135deg,#23c2bc,#0ab3ae);box-shadow:0 6px 18px #034d5633,inset 0 1px 0 #ffffff40;text-decoration:none;transition:background .2s,border-color .2s,box-shadow .2s}
-.site-credit>img{flex:0 0 auto;width:36px;height:36px;filter:drop-shadow(0 2px 3px #034d5626)}
+.site-credit{display:inline-flex;align-items:center;gap:9px;max-width:100%;padding:8px 13px;border:1px solid #77e2dc;border-radius:9px;background:linear-gradient(135deg,#23c2bc,#0ab3ae);box-shadow:0 3px 12px #034d5626;text-decoration:none;transition:background .2s,border-color .2s,box-shadow .2s}
+.site-credit>img{flex:0 0 auto;width:28px;height:28px;filter:drop-shadow(0 2px 3px #034d5626)}
 .site-credit-copy{display:flex;flex-direction:column;gap:3px}
 .site-credit-label{font:600 10px/1.5 'Poppins',Arial,sans-serif;letter-spacing:.6px;color:#06434b}
-.site-credit-name{font:700 18px/1.4 'Quicksand',sans-serif;letter-spacing:.3px;color:#073348}
+.site-credit-name{font:700 15px/1.4 'Quicksand',sans-serif;letter-spacing:.3px;color:#073348}
 .site-credit:hover,.site-credit:focus-visible{background:linear-gradient(135deg,#39cec7,#16bdb7);border-color:#a4f2eb;box-shadow:0 8px 22px #034d5640,inset 0 1px 0 #ffffff50}
+@media(max-width:600px){footer{grid-template-columns:minmax(0,1fr);gap:20px}.footer-contact{justify-self:start}.footer-bottom{align-items:flex-start;flex-direction:column;gap:16px}}
 .welcome-dialog{position:fixed;max-width:760px;width:min(92vw,760px);max-height:88dvh;padding:0;border:1px solid #bd9455;border-radius:18px;background:#fffdf8;box-shadow:0 25px 80px #0004;overflow:auto}
 .welcome-dialog::backdrop{background:#073348c9}
 .welcome-layout{display:grid;grid-template-columns:42% 58%;min-height:400px}
