@@ -4,12 +4,18 @@
   const stories = [
     { image: 'assets/ceyhani-saz.jpg', caption: 'Sazıyla, sözüyle Aşık Ceyhani.' },
     { image: 'assets/fotograf.jpg', caption: 'Gençlik yıllarından bir hatıra.' },
-    { image: 'assets/ceyhani-portre.jpeg', caption: 'Gülüşüyle hatıralarımızda…' }
+    { image: 'assets/ceyhani-portre.jpeg', caption: 'Gülüşüyle hatıralarımızda…' },
+    { image: 'assets/hatira-dogada.jpeg', caption: 'Doğadan bir hatıra.' },
+    { image: 'assets/hatira-daglar.jpeg', caption: 'Dağların arasında bir hatıra.' },
+    { image: 'assets/hatira-bayrak.jpeg', caption: 'Bayrağımızın gölgesinde.' },
+    { image: 'assets/hatira-etkinlik.jpeg', caption: 'Bir etkinlikten hatıra.' }
   ];
   const image = dialog.querySelector('#story-image');
   const caption = dialog.querySelector('#story-caption');
   const count = dialog.querySelector('#story-count');
-  const segments = [...dialog.querySelectorAll('.story-progress span')];
+  const progress = dialog.querySelector('.story-progress');
+  progress.replaceChildren(...stories.map(() => document.createElement('span')));
+  const segments = [...progress.children];
   const buttons = [...document.querySelectorAll('[data-story]')];
   const prev = dialog.querySelector('#story-prev');
   const next = dialog.querySelector('#story-next');
