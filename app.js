@@ -779,4 +779,3 @@ const sectionObserver = new IntersectionObserver(entries => {
   }
 }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
-
