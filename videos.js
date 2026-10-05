@@ -10,6 +10,8 @@
   const title = document.querySelector('#channel-now-playing');
   const watch = document.querySelector('#channel-watch-link');
   const status = document.querySelector('#channel-player-status');
+  const dialog = document.querySelector('#channel-video-dialog');
+  const close = document.querySelector('#channel-player-close');
   const batchSize = 12;
   let visibleCount = batchSize;
   let youtubePlayer = null;
@@ -60,6 +62,18 @@
   api.async = true;
   document.head.appendChild(api);
 
+  close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    if (playerReady && youtubePlayer) youtubePlayer.stopVideo();
+    else player.src = embedUrl(new URL(watch.href).searchParams.get('v'));
+    cards.forEach(card => card.setAttribute('aria-pressed', 'false'));
+  });
+
   function render() {
     const query = search.value.trim().toLocaleLowerCase('tr');
     const matches = cards.filter(card => card.dataset.videoTitle.toLocaleLowerCase('tr').includes(query));
@@ -83,17 +97,13 @@
     if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
     cards.forEach(item => item.setAttribute('aria-pressed', String(item === card)));
     status.hidden = true;
+    dialog.showModal();
     if (playerReady && youtubePlayer) youtubePlayer.loadVideoById(id);
     else player.src = embedUrl(id, true);
     player.title = card.dataset.videoTitle;
     title.textContent = card.dataset.videoTitle;
     watch.href = `https://www.youtube.com/watch?v=${id}`;
     title.focus({ preventScroll: true });
-    player.closest('.channel-player').scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'start'
-    });
   }));
-  if (cards[0]) cards[0].setAttribute('aria-pressed', 'true');
   render();
 })();
