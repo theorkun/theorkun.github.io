@@ -81,7 +81,7 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 @media(prefers-reduced-motion:reduce){.poem-card:after{transition:none}.poem-card:hover,.poem-card:focus-visible{transform:none}.poem-card:hover:after,.poem-card:focus-visible:after{transform:rotate(22.5deg)}}
 .poem-dialog{background:#fffdf8;border-color:#c7ab79}
 .poem-dialog h3,.poem-modal-author{color:#073348}
-footer{position:relative;border-top:0;padding-top:80px;background:#073348 url('assets/footer-turk-motifleri.svg') center top/200px 200px repeat}
+footer{position:relative;border-top:0;padding-top:80px;background:#08757d url('assets/footer-turk-motifleri.svg') center top/200px 200px repeat}
 footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none}
 @media(max-width:1240px) and (min-width:761px){header{grid-template-columns:minmax(0,1fr);gap:22px;padding-bottom:62px}.header-identity{justify-content:flex-start}.brand-text>span{text-align:left}nav{justify-content:flex-start;flex-wrap:wrap}}
 @media(max-width:760px){header,header:has(nav.open){display:block;min-height:0;padding:22px 5% 55px;border:0;background:#fffdf8;color:var(--navy)}header:after{height:28px;background-size:93.333px 28px}.brand-text{font-size:21px}.brand-text>span{font-size:14px;letter-spacing:.6px}.menu{border-color:#d5bd8e;background:#f6efdf}.hero,body:has(nav.open) .hero{margin-top:22px}.archive-links a{min-height:160px}.card-star{width:38px;height:38px}.section-heading{padding-bottom:30px}.section-heading:after{width:min(280px,100%);height:32px}footer{padding-top:70px}}
@@ -136,14 +136,14 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 footer{flex-wrap:wrap}
 .footer-contact{display:flex;flex-direction:column;gap:5px}
 .footer-contact h3{margin:0 0 3px;color:#f4deb4;font:700 15px/1.5 'Quicksand',sans-serif}
-.footer-contact a{font:400 13px/1.6 'Poppins',Arial,sans-serif;color:#c1dde5;overflow-wrap:anywhere}
+.footer-contact a{font:400 13px/1.6 'Poppins',Arial,sans-serif;color:#f0faf9;overflow-wrap:anywhere}
 .footer-contact a:hover{color:#f4deb4;text-decoration:underline;text-underline-offset:4px}
 .footer-bottom{flex-basis:100%;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 24px;margin-top:8px;padding-top:24px;border-top:1px solid #dfbd8033}
-footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#c1dde5}
+footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 .site-credit{display:inline-flex;align-items:center;gap:12px;max-width:100%;padding:11px 18px 11px 13px;border:1px solid #bd94555c;border-radius:10px;background:#ffffff06;text-decoration:none;transition:background .2s,border-color .2s}
 .site-credit>img{flex:0 0 auto;width:36px;height:36px}
 .site-credit-copy{display:flex;flex-direction:column;gap:3px}
-.site-credit-label{font:500 10px/1.5 'Poppins',Arial,sans-serif;letter-spacing:.6px;color:#b9cbd0}
+.site-credit-label{font:500 10px/1.5 'Poppins',Arial,sans-serif;letter-spacing:.6px;color:#f0faf9}
 .site-credit-name{font:700 18px/1.4 'Quicksand',sans-serif;letter-spacing:.3px;color:#f4deb4}
 .site-credit:hover{background:#dfbd8010;border-color:#dfbd80}
 .welcome-dialog{position:fixed;max-width:760px;width:min(92vw,760px);max-height:88dvh;padding:0;border:1px solid #bd9455;border-radius:18px;background:#fffdf8;box-shadow:0 25px 80px #0004;overflow:auto}
