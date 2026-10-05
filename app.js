@@ -338,7 +338,9 @@ Derdime bir çare gelmedi senden
 Hep seni düşündüm gün ile ayla
 Kına yak eline çık seyran eyle
 Bir selam yazdınmı vijdansız söyle
-Ceyhani hiç selam almadı senden`
+Ceyhani hiç selam almadı senden
+
+17.07.2025`
     },
     {
       title: 'YANARIM',
