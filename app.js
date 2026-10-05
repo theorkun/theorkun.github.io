@@ -16,6 +16,225 @@ if (poetrySection) {
   societalPoems.forEach(poem => poem.remove());
   const cards = [
     {
+      title: 'YANARIM',
+      author: 'Aşık Ceyhani',
+      preview: 'Elindedir fermanım',
+      poem: `Elindedir fermanım
+Kız kalmadı dermanım
+Yar aşkınla tutuştum
+İçin için yanarım
+
+Mecnun oldum aşkından
+Gözlerinden kaşından
+Bakışların gitmiyor
+Hayalimden düşümden
+
+Sevdan gitmiyor baştan
+Vurdun kız beni döşten
+Bir deri kemik kaldım
+Kesildim ekmek aştan
+
+Yardım eyle yaradan
+Ölürüm bu yaradan
+Kız sevdayın yüzünden
+Gideceğim buradan
+
+Vaz geçmez bu Ceyhani
+Sözüne oldum gani
+Düşündüm bulamadım
+Niye sevmezsin beni
+
+Yüreğime koydun gam
+Evlerinin önü çam
+Yar seni sevdim diye
+Düşman oldu Sarıçam
+
+30-10-2025`
+    },
+    {
+      title: 'SEVSİN SENİ',
+      author: 'Aşık Ceyhani',
+      preview: 'Kız peşinden koşa koşa',
+      poem: `Kız peşinden koşa koşa
+Yoruldum güzel yoruldum
+Kalbimi çevirdin taşa
+Yoruldum güzel yoruldum
+
+Sevdanla geçirdim dünü
+Hemi dünü hem bu günü
+Cilvenden usandım yıldım
+Kim severse sevsin seni
+
+Deli divane edenim
+Aklım gitti sen nedenim
+Hemi gönlüm hem bedenim
+Yoruldum güzel yoruldum
+
+İlk aşkımsın bil sen bunu
+Hep çektin yar zora beni
+Nazından yıldı Ceyhani
+Kim severse sevsin seni
+
+13-01-2024`
+    },
+    {
+      title: 'ÇEKERİM',
+      author: 'Aşık Ceyhani',
+      preview: 'Çaresiz bir derde düştüm çekerim',
+      poem: `Çaresiz bir derde düştüm çekerim
+Yıllar koydum geçmez yılın üstüne
+Belki gelin diye hergün bakarım
+Oturdum beklerim yolun üstüne
+
+Yıllar geçti sönmez içimdeki kor
+Kör olsun kaderin iki gözü kör
+Bülbülüm kondurmaz dalına o yar
+Kondurmuş kargayı gülün üstüne
+
+Aşık olan yarin aşkıyla yanmış
+Kimi Kerem ile Aslı’ya dönmüş
+Nasıl bulmuş ise gelipte konmuş
+Bir yaban arısı balın üstüne
+
+Sevdiğim sarartıp beni soldurma
+Çektirdiğin yeter candan yıldırma
+Ceyhaniyi ömür boyu kaldırma
+Uzatta yatayım kolun üstüne
+
+09.10.2025`
+    },
+    {
+      title: 'SOLDURDUN BENİ',
+      author: 'Aşık Ceyhani',
+      preview: 'Güzel gözlerine tutulu kaldım',
+      poem: `Güzel gözlerine tutulu kaldım
+Aşkınla söyledip çaldırdın beni
+Son baharda düşen yaprak misali
+Yel vurmuş gül gibi soldurdun beni
+
+Hiç umrunda değil derde saldığın
+Olmadı yarama merhem çaldığın
+İçinde sevdanla senin olduğun
+Kaynayan kazana daldırdın beni
+
+Don vurdu kurudu gülüm kalmadı
+Peşinde koşmaktan halim kalmadı
+Bana etmediği zulüm kalmadı
+Canımdan bezdirip yıldırdın beni
+
+Razıyım sevdiğim kölen olmaya
+Kölen olup hep yanında kalmaya
+Azrail gelmesin  canım almaya
+Der Ceyhani zaten öldürdün beni
+
+30.09.2025`
+    },
+    {
+      title: 'KÖYLÜ GÜZELİ',
+      author: 'Aşık Ceyhani',
+      preview: 'Göksu kenarında gördüm bir suna',
+      poem: `Göksu kenarında gördüm bir suna
+Sordum fekeliymiş köylü güzeli
+Işıldıyor yüzü dönmüştür güne
+Sordum fekeliymiş köylü güzeli.
+
+Başında eşalpı yakışmış yüze
+Tarifin sığmıyor saz ile söze
+Serdi yüreğimi kor olmuş köze
+Sordum fekeliymiş köylü güzeli.
+
+Yeni doğmuş aya benziyor kaşı
+Erciyes tepesi gibidir döşü
+Mest eyledi beni bakıp gülüşü
+Sordum fekeliymiş köylü güzeli.
+
+Güzelliğin baki sende silinmez
+Hurimi perimi neysin bilinmez
+Ceyhani böylesi burda bulunmaz
+Sordum fekeliymiş köylü güzeli.
+
+Aşık Ceyhani
+28.09.2025`
+    },
+    {
+      title: 'YÜZÜM GÜLMÜYOR',
+      author: 'Aşık Ceyhani',
+      preview: 'Vicdansıza gönül verme',
+      poem: `Vicdansıza gönül verme
+Hiç kadri kıymet bilmiyor
+Sır verip önüne serme
+Derdine derman olmuyor
+
+Türlü dert verir özüne
+Yaşlar indirir gözüne
+Kulak vermez bir sözüne
+Tatlı kelamdan almıyor
+
+Ceyhani aktım çağladım
+Aşkıyla gönül dağladım
+Doğarken bile ağladım
+Yaşarken yüzüm gülmüyor
+
+27.09.2025`
+    },
+    {
+      title: 'OLDUM',
+      author: 'Aşık Ceyhani',
+      preview: 'Kayboldu gözümün feri',
+      poem: `Kayboldu gözümün feri
+Yakını göremez oldum
+Elimi tutmadan biri
+Evime giremez oldum
+
+Ararım eski halimi
+Kaldıramıyom kolumu
+Yıkarım ama elimi
+Yüzüme süremez oldum
+
+Ruhum bedenim yoruldu
+Gönlüm feleğe darıldı
+Düştümde belim kırıldı
+Ayakta duramaz oldum
+
+Ceyhani çoğaldı acım
+Yıkıldı tahtımla tacım
+Kendime yetmiyor gücüm
+Bir işe yaramaz oldum
+
+20.09.2025`
+    },
+    {
+      title: 'GÜN',
+      author: 'Aşık Ceyhani',
+      preview: 'Nasıl devirdeyiz tarif edeyim',
+      poem: `Nasıl devirdeyiz tarif edeyim
+Tosunla düvenin gırıştığı gün
+Borcu olan demez borcum ödeyim
+Alacaklı borçlu darıştığı gün.
+
+Yalan dolan ile çürüdü özler
+Nefis esir almış görmüyor gözler
+Birbirine girmiş seçilmez izler
+At ile it izi garıştığı gün
+
+Gün güne çoğalır gözde çapaklar
+Kapattı gözleri şişti kapaklar
+Birbirine düşman olan köpekler
+Kemikler başında barıştığı gün.
+
+Hırsız çekilmiyor gayrı hesaba
+Hakem taraflıdır  bozuk müsaba
+Kurban alkış tutar olmuş kasaba
+Bıçağın iliğe eriştiği gün.
+
+İşte  Ceyhaniyi  bunlardır üzen
+Nedense hep haklı,  mazlumu ezen.
+Nerede adalet, nerede düzen
+Tosbayla tavşanın yarıştığı gün
+
+13.09.2021`
+    },
+    {
       title: 'Yüzüm Gülmedi',
       author: 'Aşık Ceyhani',
       preview: 'Anamdan doğdum doğalı',
