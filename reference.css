@@ -1,4 +1,4 @@
-/* Wide photographic panel, inspired by the supplied reference. */
+/* Photographic panel with Seljuk geometric ornaments. */
 :root{--turquoise:#179f99;--navy:#073348;--line:#dce8eb}
 body{background-color:#f2f4f7;background-image:linear-gradient(#f2f4f7ed,#f2f4f7ed),url('assets/selcuklu-geometri.svg')}
 header{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:22px 4%;background:#fff;color:var(--navy);border-top:4px solid var(--turquoise);border-bottom:1px solid var(--line)}
@@ -33,25 +33,43 @@ nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 
 @media(max-width:1100px){header{gap:20px;padding:20px 4%}.brand-text{font-size:25px}nav{gap:0}nav a{padding:11px 12px}.hero-copy{padding:40px 7%}.carousel-images{min-height:510px}.hero-quote{margin:23px 0}.hero-quote blockquote{font-size:21px}.hero .actions{flex-direction:column;align-items:flex-start}}
 @media(max-width:760px){header,header:has(nav.open){display:block;background:#fff;color:var(--navy);padding:17px 5%}.header-identity{display:flex;justify-content:space-between}.brand-text{font-size:23px}.menu{color:var(--navy);border-color:#bed8da;background:#f0f7f7}nav{padding:18px 0 0}nav a{border-color:#dce8eb}nav a:last-child{grid-column:1/-1}.hero,body:has(nav.open) .hero{width:92%;margin-top:20px;grid-template-columns:1fr;border-radius:26px}.hero-carousel{border-radius:26px}.carousel-images{aspect-ratio:1/1;min-height:0;height:auto}.hero .carousel-images img{position:absolute;height:100%;max-height:none}.hero-carousel figcaption{padding:36px 18px 48px}.carousel-dots{bottom:7px}.carousel-count{bottom:20px;right:20px}.carousel-arrow{width:46px;height:46px}#slide-prev{left:13px}#slide-next{right:13px}.hero-copy{padding:35px 8% 38px}.hero h1,.hero h1 em{font-size:34px;line-height:1.3;margin:0 0 10px}.hero .eyebrow{font-size:14px;margin-bottom:15px}.hero-quote blockquote{font-size:21px}.hero-quote{margin:23px 0 26px}.hero .actions{flex-direction:row;flex-wrap:wrap}.archive-links{width:92%;margin-top:20px;gap:12px}.archive-links a{min-height:145px}.archive-links strong{font-size:15px}.archive-links small{font-size:14px}.section{padding:55px 6%}}
 @media(max-width:380px){.hero-copy{padding:30px 7%}.hero-quote blockquote{font-size:19px}.brand-text{font-size:21px}.hero h1,.hero h1 em{font-size:30px}.hero .actions{flex-direction:column}.archive-links strong{font-size:14px}}
-/* The geometric motif supplied by the family. */
-body{background-color:#fff;background-image:linear-gradient(#ffffffb3,#ffffffb3),url('assets/turk-motifi.jpg');background-size:auto,880px auto;background-repeat:repeat}
-header{background-color:#fff;background-image:linear-gradient(#fffffff2,#fffffff2),url('assets/turk-motifi.jpg');background-size:auto,660px auto}
-nav a,.menu{background-color:#fff;background-image:linear-gradient(#ffffffe0,#ffffffe0),url('assets/turk-motifi.jpg');background-size:auto,440px auto;border:1px solid #cddfe1}
-nav a:hover,nav a.active{background-color:#d4f0ed;background-image:linear-gradient(#d4f0ede0,#d4f0ede0),url('assets/turk-motifi.jpg');border-color:#159f99;color:#065e59}
-.archive-links a{background-color:white;background-image:linear-gradient(#ffffffcc,#ffffffcc),url('assets/turk-motifi.jpg');background-size:auto,660px auto;border-color:#cadbdc}
-.archive-links a:after{display:none}
-.archive-links a:hover{background-color:#179f99;background-image:linear-gradient(#179f99e8,#179f99e8),url('assets/turk-motifi.jpg');color:white}
-.archive-links a:hover small,.archive-links a:hover .card-star{color:white}
-.music,.gallery{background-color:#eef7f7;background-image:linear-gradient(#eef7f7d9,#eef7f7d9),url('assets/turk-motifi.jpg');background-size:auto,880px auto}
-@media(max-width:760px){body,.music,.gallery{background-size:auto,660px auto}header,header:has(nav.open){background-image:linear-gradient(#fffffff2,#fffffff2),url('assets/turk-motifi.jpg');background-size:auto,660px auto}.archive-links a{background-size:auto,440px auto}}
-/* Logo-free decorative header; plain page background. */
-body{background:#fff}
-.music,.gallery{background:#eef7f7}
-header{position:relative;isolation:isolate;min-height:145px;padding-top:25px;padding-bottom:55px;border-top:0;border-bottom:10px solid #aaa;background:#fff url('assets/baslik-motifi.png') center top/cover no-repeat}
-header:after{content:'';position:absolute;left:50%;bottom:-63px;transform:translateX(-50%);width:125px;height:112px;background:url('assets/baslik-motifi.png') center bottom/auto 180px no-repeat;pointer-events:none;z-index:-1}
+
+/* Navy, turquoise and gold motifs, drawn as scalable SVG assets. */
+:root{--gold:#bd9455;--line:#e5dccb}
+body{background:#faf7f0}
+header{position:relative;isolation:isolate;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
+header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
 .header-identity,nav{position:relative;z-index:1}
-.brand-text{color:#073348;text-shadow:0 1px 3px white}.brand-text>span{color:#425e68}
-.hero{margin-top:70px}
-@media(max-width:760px){header,header:has(nav.open){min-height:130px;padding:22px 5% 50px;border-bottom:10px solid #aaa;background:#fff url('assets/baslik-motifi.png') center top/auto 260px repeat-x}header:after{bottom:-53px;width:110px;height:97px;background-size:auto 155px}.hero,body:has(nav.open) .hero{margin-top:60px}}
-.brand-text>span{font-size:18px;font-weight:600;line-height:1.5;letter-spacing:1.4px;margin-top:8px}
-@media(max-width:760px){.brand-text>span{font-size:16px;letter-spacing:1px}}
+.brand-text{color:var(--navy);text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
+.brand-text>span{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:1px;margin-top:8px;color:#64716e}
+nav a,.menu{background:transparent;border:1px solid transparent;border-radius:6px}
+nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
+.hero{margin-top:32px;border:1px solid #d4bd91}
+.hero-copy:after{background:linear-gradient(120deg,#073348e8,#086b73ed)}
+.hero .eyebrow{color:#ecd0a0}
+.hero .button{background:#dfbd80;color:#073348;border-radius:8px}
+.hero .button:hover{background:#f0d7aa}
+.hero .outline-button{border-color:#d5bd8e80;border-radius:8px}
+.archive-links a{background:#fffdf8;border:1px solid #decdaa;border-radius:14px;min-height:166px;padding:24px 16px;box-shadow:0 5px 20px #07334805}
+.archive-links a:after{display:none}
+.card-star{width:44px;height:44px;margin-bottom:14px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;mask:none;-webkit-mask:none}
+.archive-links a:hover{background:#f3ead9;border-color:#bd9455;color:#073348}
+.archive-links a:hover small{color:#536c78}
+.section-heading{border:0;padding-bottom:35px}
+.section-heading:after{left:0;bottom:-5px;width:min(340px,100%);height:38px;background:url('assets/selcuklu-ayrac.svg') left center/contain no-repeat}
+.music,.gallery{background:#f0f4f2}
+.poetry{background:#faf7f0}
+.facts{background:#fffdf8;border-color:#decdaa;border-radius:14px}
+.dream{background:#f4efe4;border-left-color:#bd9455}
+.poem-card{background:#fffdf8;border-color:#c7ab79;box-shadow:0 6px 22px #07334808;border-radius:12px}
+.poem-card:before{border-color:#e8dbc1;border-radius:7px}
+.poem-card:after{content:'';position:absolute;right:17px;top:15px;width:25px;height:25px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;pointer-events:none;opacity:.7}
+.poem-card__tag{padding-right:35px}
+.poem-card strong,.poem-card__tag{color:#073348}
+.poem-card:hover,.poem-card:focus-visible{background:#f6eedf;border-color:#a78043;box-shadow:0 12px 28px #07334812}
+.poem-dialog{background:#fffdf8;border-color:#c7ab79}
+.poem-dialog h3,.poem-modal-author{color:#073348}
+footer{position:relative;border-top:0;padding-top:80px;background:#073348}
+footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none}
+@media(max-width:1100px) and (min-width:761px){header{flex-wrap:wrap;gap:22px;justify-content:center;padding-bottom:62px}.header-identity{justify-content:center}.brand-text>span{text-align:center}nav{justify-content:center;flex-wrap:wrap}}
+@media(max-width:760px){header,header:has(nav.open){display:block;min-height:0;padding:22px 5% 55px;border:0;background:#fffdf8;color:var(--navy)}header:after{height:28px;background-size:93.333px 28px}.brand-text{font-size:21px}.brand-text>span{font-size:14px;letter-spacing:.6px}.menu{border-color:#d5bd8e;background:#f6efdf}.hero,body:has(nav.open) .hero{margin-top:22px}.archive-links a{min-height:160px}.card-star{width:38px;height:38px}.section-heading{padding-bottom:30px}.section-heading:after{width:min(280px,100%);height:32px}footer{padding-top:70px}}
