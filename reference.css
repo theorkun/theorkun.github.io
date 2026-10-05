@@ -108,12 +108,18 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 #HCB_comment_box #hcb_file,#HCB_comment_box #hcb_file_label{display:none}
 @media(max-width:760px){nav a:last-child{grid-column:auto}.guestbook-panel{padding:22px}#HCB_comment_box #hcb_submit{width:100%}}
 footer{flex-wrap:wrap}
-.footer-contact{display:flex;flex-direction:column;gap:4px;color:#f4deb4;font:700 15px/1.5 'Quicksand',sans-serif}
-.footer-contact span{font:400 13px/1.6 'Poppins',Arial,sans-serif;color:#c1dde5;overflow-wrap:anywhere}
-.footer-contact:hover span{text-decoration:underline;text-underline-offset:4px}
-.footer-bottom{flex-basis:100%;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:8px;padding-top:20px;border-top:1px solid #dfbd8033}
-footer .copyright,footer .site-credit{margin:0;font-size:12px;line-height:1.7;color:#c1dde5}
-.site-credit a{color:#f4deb4;text-decoration:underline;text-underline-offset:3px}
+.footer-contact{display:flex;flex-direction:column;gap:5px}
+.footer-contact h3{margin:0 0 3px;color:#f4deb4;font:700 15px/1.5 'Quicksand',sans-serif}
+.footer-contact a{font:400 13px/1.6 'Poppins',Arial,sans-serif;color:#c1dde5;overflow-wrap:anywhere}
+.footer-contact a:hover{color:#f4deb4;text-decoration:underline;text-underline-offset:4px}
+.footer-bottom{flex-basis:100%;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 24px;margin-top:8px;padding-top:24px;border-top:1px solid #dfbd8033}
+footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#c1dde5}
+.site-credit{display:inline-flex;align-items:center;gap:12px;max-width:100%;padding:11px 18px 11px 13px;border:1px solid #bd94555c;border-radius:10px;background:#ffffff06;text-decoration:none;transition:background .2s,border-color .2s}
+.site-credit>img{flex:0 0 auto;width:36px;height:36px}
+.site-credit-copy{display:flex;flex-direction:column;gap:3px}
+.site-credit-label{font:500 10px/1.5 'Poppins',Arial,sans-serif;letter-spacing:.6px;color:#b9cbd0}
+.site-credit-name{font:700 18px/1.4 'Quicksand',sans-serif;letter-spacing:.3px;color:#f4deb4}
+.site-credit:hover{background:#dfbd8010;border-color:#dfbd80}
 .welcome-dialog{position:fixed;max-width:760px;width:min(92vw,760px);max-height:88dvh;padding:0;border:1px solid #bd9455;border-radius:18px;background:#fffdf8;box-shadow:0 25px 80px #0004;overflow:auto}
 .welcome-dialog::backdrop{background:#073348c9}
 .welcome-layout{display:grid;grid-template-columns:42% 58%;min-height:400px}
