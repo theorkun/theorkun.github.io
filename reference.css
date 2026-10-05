@@ -40,6 +40,8 @@ body{background:#faf7f0 url('assets/selcuklu-arka-plan.svg') center top/180px 18
 header{position:relative;isolation:isolate;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
 header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
 .header-identity,nav{position:relative;z-index:1}
+.header-identity{gap:16px}
+.header-flama{display:block;flex:0 0 auto;width:72px;height:108px;object-fit:contain}
 .brand{gap:14px;min-width:0;padding:16px 25px 16px 18px;border:0;border-radius:0;background:transparent;box-shadow:none}
 .brand-saz{display:block;flex:0 0 auto;width:48px;height:75px;object-fit:contain}
 .brand-text{color:var(--navy);text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
@@ -77,6 +79,8 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 @media(max-width:760px){header,header:has(nav.open){display:block;min-height:0;padding:22px 5% 55px;border:0;background:#fffdf8;color:var(--navy)}header:after{height:28px;background-size:93.333px 28px}.brand-text{font-size:21px}.brand-text>span{font-size:14px;letter-spacing:.6px}.menu{border-color:#d5bd8e;background:#f6efdf}.hero,body:has(nav.open) .hero{margin-top:22px}.archive-links a{min-height:160px}.card-star{width:38px;height:38px}.section-heading{padding-bottom:30px}.section-heading:after{width:min(280px,100%);height:32px}footer{padding-top:70px}}
 @media(max-width:760px){.header-identity{gap:12px}.brand{gap:10px;padding:14px 16px 14px 12px}.brand-saz{width:38px;height:60px}.brand-text{font-size:20px}.brand-text>span{text-align:left;font-size:13px;letter-spacing:.4px}.menu{flex:0 0 auto;padding:9px 12px}body{background-size:140px 140px}}
 @media(max-width:430px){.header-identity{gap:8px}.brand{gap:8px;padding:12px 10px}.brand-saz{width:30px;height:50px}.brand-text{font-size:clamp(15px,4.5vw,19px);letter-spacing:0}.brand-text>span{font-size:12px;letter-spacing:0;margin-top:5px}.menu{padding:9px 10px;font-size:13px}}
+@media(max-width:760px){.header-identity{flex-wrap:wrap}.header-flama{width:44px;height:66px}.menu{margin-left:auto}}
+@media(max-width:430px){.header-identity{gap:6px}.brand{padding-inline:0}.header-flama{width:36px;height:54px}}
 .subpage main{min-height:60vh}
 .subpage .section{max-width:1440px;margin:0 auto;background:transparent}
 .subpage .section-title{font:700 clamp(30px,3vw,44px)/1.3 'Quicksand',sans-serif;letter-spacing:-.5px;margin:0}
