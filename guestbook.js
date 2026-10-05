@@ -1,85 +1,97 @@
 (() => {
   const section = document.querySelector('#ziyaretci-defteri');
   if (!section) return;
-
-  const repo = 'theorkun/theorkun.github.io';
-  const prefix = '[Ziyaretçi Defteri] ';
-  const form = section.querySelector('form');
-  const list = section.querySelector('.guestbook-entries');
   const status = section.querySelector('[role="status"]');
-  const refresh = section.querySelector('.guestbook-refresh');
+  const retry = section.querySelector('.guestbook-retry');
   let loading = false;
 
-  form.hidden = false;
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const name = form.elements.visitorName.value.trim();
-    const message = form.elements.visitorMessage.value.trim();
-    if (!name || !message) {
-      status.textContent = 'Lütfen adını ve mesajını yaz.';
-      (!name ? form.elements.visitorName : form.elements.visitorMessage).focus();
-      return;
+  // Keep a single thread across index.html, anchors and query strings.
+  window.hcb_user = {
+    PAGE: 'https://theorkun.github.io/',
+    MAX_CHARS: 1000,
+    comments_header: 'Ziyaretçi mesajları',
+    name_label: 'Adın veya takma adın (isteğe bağlı)',
+    content_label: 'Mesajını buraya yaz…',
+    submit: 'Mesajı gönder',
+    anonymous: 'Bir ziyaretçi',
+    no_comments_msg: 'Henüz mesaj yok. İlk hatırayı sen bırak.',
+    add: 'Bir mesaj bırak',
+    again: 'Yeni bir mesaj yaz',
+    said: '',
+    showing: 'Gösterilen',
+    to: '–',
+    prev_page: '← Önceki mesajlar',
+    next_page: 'Sonraki mesajlar →',
+    reply: 'Yanıtla',
+    flag: 'Bildir',
+    like: 'Beğen',
+    admin_link: '',
+    logout_link: '',
+    add_image: 'Fotoğraf ekle',
+    mod_label: '(yönetici)',
+    days_ago: 'gün önce',
+    hours_ago: 'saat önce',
+    minutes_ago: 'dakika önce',
+    within_the_last_minute: 'az önce',
+    msg_thankyou: 'Mesajın yayımlandı. Hatıranı paylaştığın için teşekkürler!',
+    msg_approval: 'Bu mesaj yönetici onayını bekliyor.',
+    msg_approval_required: 'Teşekkürler! Mesajın yönetici onayından sonra görünecek.',
+    err_bad_html: 'Lütfen mesajını düz metin olarak yaz.',
+    err_bad_email: 'Geçerli bir e-posta adresi yaz.',
+    err_too_frequent: 'Yeni bir mesaj göndermeden önce birkaç saniye bekle.',
+    err_comment_empty: 'Lütfen önce mesajını yaz.',
+    err_denied: 'Mesaj gönderilemedi. Lütfen tekrar dene.',
+    err_unknown: 'Mesaj gönderilemedi. Lütfen tekrar dene.',
+    err_spam: 'Mesaj spam filtresine takıldı.',
+    err_blocked: 'Mesaj yorum servisi tarafından engellendi.',
+    are_you_sure: 'Bu mesajı uygunsuz olarak bildirmek istiyor musun?',
+    onload() {
+      loading = false;
+      status.hidden = true;
+      retry.hidden = true;
+      const name = document.querySelector('#hcb_form_name');
+      const message = document.querySelector('#hcb_form_content');
+      if (name) name.setAttribute('aria-label', window.hcb_user.name_label);
+      if (message) message.setAttribute('aria-label', 'Mesajın');
     }
-    const url = new URL(`https://github.com/${repo}/issues/new`);
-    url.searchParams.set('title', prefix + name);
-    url.searchParams.set('body', `Ad: ${name}\n\n${message}`);
-    window.location.assign(url.href);
-  });
+  };
 
-  async function loadEntries() {
+  function loadGuestbook() {
     if (loading) return;
     loading = true;
-    refresh.disabled = true;
-    list.setAttribute('aria-busy', 'true');
-    status.textContent = 'Mesajlar yükleniyor…';
-    try {
-      const response = await fetch(`https://api.github.com/repos/${repo}/issues?state=open&sort=created&direction=desc&per_page=100`, {
-        headers: { Accept: 'application/vnd.github+json' },
-        signal: AbortSignal.timeout(12000)
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const issues = await response.json();
-      if (!Array.isArray(issues)) throw new Error('Invalid response');
-      const entries = issues.filter(issue => !issue.pull_request && typeof issue.title === 'string' && issue.title.startsWith(prefix)).slice(0, 20);
-      const fragment = document.createDocumentFragment();
-      for (const entry of entries) {
-        const article = document.createElement('article');
-        article.className = 'guestbook-entry';
-        const heading = document.createElement('h3');
-        heading.textContent = entry.title.slice(prefix.length);
-        const message = document.createElement('p');
-        const body = typeof entry.body === 'string' ? entry.body : '';
-        message.textContent = body.replace(/^Ad: [^\r\n]*\r?\n\r?\n/, '');
-        const time = document.createElement('time');
-        const date = new Date(entry.created_at);
-        if (!Number.isNaN(date.getTime())) {
-          time.dateTime = date.toISOString();
-          time.textContent = date.toLocaleDateString('tr-TR', { timeZone: 'Europe/Istanbul', day: 'numeric', month: 'long', year: 'numeric' });
-        }
-        article.append(heading, time, message);
-        fragment.appendChild(article);
-      }
-      list.replaceChildren(fragment);
-      status.textContent = entries.length ? 'Son ziyaretçi mesajları.' : 'Henüz mesaj yok. İlk hatırayı sen bırak.';
-    } catch {
-      status.textContent = 'Mesajlar şu anda yüklenemedi. Tekrar deneyebilir veya tüm mesajlar bağlantısından okuyabilirsin.';
-    } finally {
+    status.hidden = false;
+    status.textContent = 'Ziyaretçi defteri yükleniyor…';
+    retry.hidden = true;
+    const previous = document.querySelector('#guestbook-service');
+    if (previous) previous.remove();
+    const script = document.createElement('script');
+    const url = new URL('https://www.htmlcommentbox.com/jread');
+    url.searchParams.set('page', window.hcb_user.PAGE);
+    // Form first, dates and spam filter; no email, website or login required.
+    url.searchParams.set('opts', '22');
+    url.searchParams.set('num', '10');
+    script.id = 'guestbook-service';
+    script.src = url.href;
+    script.async = true;
+    script.onerror = () => {
       loading = false;
-      refresh.disabled = false;
-      list.setAttribute('aria-busy', 'false');
-    }
+      status.hidden = false;
+      status.textContent = 'Ziyaretçi defteri yüklenemedi. Lütfen tekrar dene.';
+      retry.hidden = false;
+    };
+    document.head.appendChild(script);
   }
 
-  refresh.addEventListener('click', loadEntries);
+  retry.addEventListener('click', loadGuestbook);
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {
         observer.disconnect();
-        loadEntries();
+        loadGuestbook();
       }
     }, { rootMargin: '200px' });
     observer.observe(section);
   } else {
-    loadEntries();
+    loadGuestbook();
   }
 })();

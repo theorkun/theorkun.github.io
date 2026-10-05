@@ -21,23 +21,14 @@
 
 <section id="ziyaretci-defteri" class="guestbook section" aria-labelledby="guestbook-title">
   <div class="section-heading"><div><p class="eyebrow">02 / HATIRALAR</p><h2 id="guestbook-title" class="section-title">Ziyaretçi Defteri</h2></div><p class="section-description">Bir selam, bir hatıra bırak.</p></div>
-  <div class="guestbook-layout">
-    <form class="guestbook-form" hidden aria-describedby="guestbook-note">
-      <label for="visitor-name">Adın</label>
-      <input id="visitor-name" name="visitorName" type="text" autocomplete="name" maxlength="60" required placeholder="Adın veya takma adın">
-      <label for="visitor-message">Mesajın</label>
-      <textarea id="visitor-message" name="visitorMessage" rows="5" maxlength="800" required placeholder="Aşık Ceyhani ve şiirleri hakkında bir hatıra…"></textarea>
-      <p id="guestbook-note">Mesajını yayımlamak için GitHub hesabınla devam et. Açılan sayfada gönderimini tamamladığında mesajın burada görünür. Mesajlar herkese açıktır.</p>
-      <button class="button" type="submit">GitHub ile devam et</button>
-    </form>
-    <div class="guestbook-messages">
-      <div class="guestbook-toolbar"><h3>Defterden</h3><button class="guestbook-refresh" type="button">Yenile</button></div>
-      <p class="guestbook-status" role="status" aria-live="polite">Ziyaretçi mesajları burada görünür.</p>
-      <div class="guestbook-entries" aria-busy="false"></div>
-      <a class="guestbook-all" href="https://github.com/theorkun/theorkun.github.io/issues?q=is%3Aissue%20is%3Aopen%20%22%5BZiyaret%C3%A7i%20Defteri%5D%22%20in%3Atitle">Tüm mesajları oku ↗</a>
-    </div>
+  <p class="guestbook-intro">Bir selam, bir hatıra… Hesap açmadan mesajını bırakabilirsin.</p>
+  <div class="guestbook-panel">
+    <p class="guestbook-status" role="status" aria-live="polite">Ziyaretçi defteri yükleniyor…</p>
+    <button class="guestbook-retry" type="button" hidden>Tekrar dene</button>
+    <div id="HCB_comment_box"></div>
   </div>
-  <noscript><p>Ziyaretçi defterini <a href="https://github.com/theorkun/theorkun.github.io/issues/new?title=%5BZiyaret%C3%A7i%20Defteri%5D%20">GitHub üzerinden imzalayabilirsin</a>.</p></noscript>
+  <p class="guestbook-note">Yorumlar herkese açıktır ve <a href="https://www.htmlcommentbox.com/privacy.html">HTML Comment Box</a> hizmetinde saklanır.</p>
+  <noscript><p>Mesajları okumak ve yazmak için tarayıcında JavaScript etkin olmalıdır.</p></noscript>
 </section>
 </main>
 <footer><div class="footer-identity"><div class="footer-name">Aşık Ceyhani<span>Durmuş Ali Sayıcı</span></div></div><p>Ailesinin sevgi ve özlemiyle.</p><a class="footer-button" href="#ana"><span class="control-label">Başa dön</span></a></footer>
