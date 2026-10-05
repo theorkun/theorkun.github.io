@@ -16,6 +16,102 @@ if (poetrySection) {
   societalPoems.forEach(poem => poem.remove());
   const cards = [
     {
+      "title": "YETMEZMİ BE",
+      "author": "Aşık Ceyhani",
+      "preview": "Şikayetim sana yarim",
+      "poem": "Şikayetim sana yarim\nÇektirdiğin yetmezmi be\nGözlerimden sicim gibi\nDöktürdüğün yetmezmi be\n\nKaybettim gözden ferimi\nBilsen nolur değerimi\nAşkın ile ciğerimi\nYaktırdığın yetmezmi be\n\nCeyhaniye yapma oyun\nBu işte çok senin payın\nEllerin içinde boyun\nBüktürdüğün yetmezmi be\n\n12.07.2025"
+    },
+    {
+      "title": "ŞEREFSİZ",
+      "author": "Aşık Ceyhani",
+      "preview": "Yalaka yağdanlık iki yüzlüdür",
+      "poem": "Yalaka yağdanlık iki yüzlüdür\nDost görünür ama düşman şerefsiz\nBol palavra sıkar yalan sözlüdür\nKahpelikten olmaz pişman şerefsiz\n\nGüvenip dönersen sırtından vurur\nDostum bilirsinde arkadan ürür\nAtarsan kemiği havlamaz durur\nKemik ile olur şişman şerefsiz\n\nAraman bunlarda vijdan yoktur ki\nHer sözü hazmeder mide boktur ki\nÖyle fazladır öyle çoktur ki\nÇekmez günahını beş man şerefsiz\n\nCeyhani bunlara verilmez değer\nKula kulluk yapar boynunu eğer\nNe yürek bulunur nede var ciğer\nOlunmaz sizinle eşmen şerefsiz\n\n( eşmen ) arkadaş, yoldaş demektir.\n\n12.07.2025"
+    },
+    {
+      "title": "SEVİYORUM",
+      "author": "Aşık Ceyhani",
+      "preview": "Selvi boylu ince belli",
+      "poem": "Selvi boylu ince belli\nYar seni çok seviyorum\nİnanmıyorsan Allah’a\nSor seni çok seviyorum\n\nYoktur cihanda benzerin\nMelekler yoldaşın senin\nSol yüzünde iki benin\nVar seni çok seviyorum\n\nSevdan yapıştı canıma\nHasret kaldım cananıma\nHem dinim hem imanıma\nGör seni çok seviyorum\n\nDeme aşkın gereğine\nAtma beni ırağına\nCeyhaniyi yüreğine\nÖr seni çok seviyorum\n\n11.07.2025"
+    },
+    {
+      "title": "DEĞİL TABİ",
+      "author": "Aşık Ceyhani",
+      "preview": "Barış diye tutturanlar",
+      "poem": "Barış diye tutturanlar\nSinler sizden değil tabi\nPkk nın katlettiği\nBinler sizden değil tabi\n\nPusu kurup yaktıkları\nTürlü mermi sıktıkları\nMehmetçikten döktükleri\nKanlar sizden değil tabi\n\nŞehit yakını sancılı\nAğlar analı bacılı\nYaşadığı o acılı\nGünler sizden değil tabi\n\nDer Cayhani söyle neden\nDönmüyor toprağa giden\nBayrağa sarılı beden\nCanlar sizden değil tabi\n\n10.07.2025"
+    },
+    {
+      "title": "BUNADA ŞÜKÜR  😀",
+      "author": "Aşık Ceyhani",
+      "preview": "Otuz yıl çalıştım belim büküldü",
+      "poem": "Otuz yıl çalıştım belim büküldü\nHamdolsun halime bunda şükür\nYeni alamıyom pabuç söküldü\nHamdolsun halime bunada şükür.\n\nEmekli olmuştum bir heves ile\nGeçinmek dert oldu bitmiyor çile\nPazara giderim dolmuyor file\nHamdolsun halime bunada şükür.\n\nYalancıktan mutlu görünüyorum\nİnsan saymıyorlar yeriniyorum\nPadişahım için sürünüyorum\nHamdolsun halime bunada şükür\n\nBir dilim karpuzu beş kişi yerim\nSonunda yarabbi çok şükür derim\nArabaya binmem yaya giderim\nHamdolsun halime bunada şükür\n\nBU işe bir çözüm bulamıyorum\nBirileri gibi çalamıyorum\nMakarnayı bile alamıyorum\nHamdolsun halime bunada şükür.\n\nSarayımda vardır hanlar hamamlar\nCeyhani doymuyor doymaz yanyamlar\nZam yok maaşıma artıyor gamlar\nHamdolsun halime bunada şükür.\n\n03.07.2025"
+    },
+    {
+      "title": "KİME NE FAYDASI OLDU ?",
+      "author": "Aşık Ceyhani",
+      "preview": "Uzun yıllar başımızda",
+      "poem": "Uzun yıllar başımızda\nKime ne faydası oldu ?\nZehir oldu aşımızda\nKime ne faydası oldu ?\n\nDoymuyor saraya köşke\nAdaletli olsa keşke\nKendi yandaşından başka\nKime ne faydası oldu ?\n\nOrtaktı işin başında\nHocasıydı her işinde\nFetöcülerin dışında\nKime ne faydası oldu ?\n\nVarmı hukuk ve adalet\nHiç hoş değil, bu delalet\nÇıkarına eder alet\nKime ne faydası oldu ?\n\nYoksulluklar çoğalıyor\nSabır deyip oyalıyor\nEmekliler, kan ağlıyor\nKime ne faydası oldu ?\n\nCeyhaniyim budur halin\nBelli değil sağın solun\nHer yöne dönüyor dilin\nKime ne faydası oldu ?\n\n17.05.2025"
+    },
+    {
+      "title": "güzel",
+      "author": "Aşık Ceyhani",
+      "preview": "Türkiyeyi gezeli",
+      "poem": "Türkiyeyi gezeli\nGörmedim ben ezeli\nKoca dünyayı gezsen\nYok yarimden güzeli\n\nOy ninnoşom ninnoşum\nSeni sevdim bir hoşum\nRakı içmedim amma\nGözlerinden sahoşum\n\nHem sararardım hem soldum\nKız peşinden yoruldum\nSeni sevmişim diye\nDerdinden verem oldum\n\n11.02.2025"
+    },
+    {
+      "title": "ÖLDÜR BENİ",
+      "author": "Aşık Ceyhani",
+      "preview": "Güzel gözlerini sevdiğim dilber",
+      "poem": "Güzel gözlerini sevdiğim dilber\nYa güldür yüzümü ya öldür beni\nNeler çekiyorum aşkından neler\nYa güldür yüzümü ya öldür beni\n\nBenim ile aşkın cengine girme\nÇekip kılıcını boynuma vurma\nGözünü severim ortada durma\nYa güldür yüzümü ya öldür beni\n\nÇekerim sevdanı ben senelerce\nAkar göz yaşlarım inceden ince\nİşkence bu yaptığın yar işkence\nYa güldür yüzümü ya öldür beni\n\nCeyhaniyim yapıyorum sana ün\nÇıkma yükseklere Engin ol Engin\nNe sevdiğin belli ne sevmediğin\nYa güldür yüzümü ya öldür beni.\n\n06.10.2024"
+    },
+    {
+      "title": "GEÇMİYOR",
+      "author": "Aşık Ceyhani",
+      "preview": "Sen yoksun yarim burada",
+      "poem": "Sen yoksun yarim burada\nGeçmiyor günler geçmiyor\nDoğmaz güneş bu arada\nGeçmiyor günler geçmiyor\nHasretin veriyor çile\nÇekiyorum bile bile\nBir günüm bedel bir yıla\nGeçmiyor günler geçmiyor\nYıla dönüyor bir ayım\nBen bende değilim zayım\nSanki sensiz zindandayım\nGeçmiyor günler geçmiyor\nCeyhani çekmeyen bilmez\nAh ederim yüzüm gülmez\nBeklerim selamın gelmez\nGeçmiyor günler geçmiyor\n\n29.09.2024"
+    },
+    {
+      "title": "BUNLAR",
+      "author": "Aşık Ceyhani",
+      "preview": "Hırsızlar kılıktan kılığa girdi",
+      "poem": "Hırsızlar kılıktan kılığa girdi\nKuzu postu giymiş çakaldır onlar\nHak etmeden alıp yutmaktır derdi\nKuzu postu giymiş çakaldır bunlar\n\nHiç insandan çakal olurmu deme\nYaptıklarına bak oluyor ama\nYeterki süt olsun fark etmez meme\nKuzu postu giymiş çakaldır onlar\n\nKarınları doyar açtır gözleri\nBaşından sonuna yalan sözleri\nHiç utanma  olmaz pişkin yüzleri\nKuzu postu giymiş çakaldır bunlar\n\nCeyhani söyleme sözü boşuna\nMundar olanların gitmez hoşuna\nTakılmış  giderler  birin peşine\nKuzu postu giymiş çakaldır bunlar\n\n10.09.2024"
+    },
+    {
+      "title": "SONU BİTMİYOR",
+      "author": "Aşık Ceyhani",
+      "preview": "Anamdan doğalı düştüm bu yola",
+      "poem": "Anamdan doğalı düştüm bu yola\nYürürüm yürürüm sonu bitmiyor\nUykular dışında vermedim mola\nYürürüm yürürüm sonu bitmiyor\n\nAman dilediğim oldu ellerden\nÇok taşlandım yamuk yumuk dillerden\nGahı çamur gahı tozlu yollardan\nYürürüm yürürüm sonu bitmiyor\n\nAra sıra kaderime darıldım\nBulanıktım aka aka duruldum\nYüce yüce dağ aşmaktan yoruldum\nYürürüm yürürüm sonu bitmiyor\n\nCeyhani  salından kimler tutacak\nVakit akşam üstü güneş batacak\nÇok yaklaştım bugün yarın bitecek\nYürürüm yürürüm sonu bitmiyor\n\n08.09.2024"
+    },
+    {
+      "title": "MİLLET",
+      "author": "Aşık Ceyhani",
+      "preview": "Yalanım var ise vurun yüzüme",
+      "poem": "Yalanım var ise vurun yüzüme\nSizden öncesini arıyor millet\nİtirazı olan varsa sözüme\nYaşıyor olanı görüyor millet\n\nHadi ben yalanım doğruyu sen de\nGerçeği bileyim sayende bende\nDaha ucuz almak için, şimdide\nEkmek kuyruğuna giriyor millet\n.\nSadaka verirsin bize yılda bir\nDertlerimiz aynı bizde çile bir\nGit pazara halkı dinle hele bir\nArkandan beddua veriyor millet\n\nEmekli toruna açar oldu el\nCeyhani seslenir gel insafa gel\nNe kemer kalmıştır ne sıkacak bel\nYokluğun altında eriyor millet\n\n29.08.2024"
+    },
+    {
+      "title": "GÖZÜMSÜN",
+      "author": "Aşık Ceyhani",
+      "preview": "Bulanıktım duruldum",
+      "poem": "Bulanıktım duruldum\nKız peşinden yoruldum\nGülüşün güzel ama\nGözlerine vuruldum\n\nOy ninnoşum ninnoşum\nSevdan ile bir hoşum\nRakı içmedim amma\nGözlerinden sarhoşum\n\nAtaşım var tütemem\nYanar yanar bitemem\nÖyle sevdim ki seni\nNe yapsanda atamam\n\nCeyhaniyim sızımsın\nYüreğimde közümsün\nŞu Cihana değişmem\nBenim iki gözümsün\n\n28.08.2024"
+    },
+    {
+      "title": "SENİN YÜZÜNDEN",
+      "author": "Aşık Ceyhani",
+      "preview": "Bitmiyor içimde sızım",
+      "poem": "Bitmiyor içimde sızım\nSenin yüzünden yüzünden\nGece gündüz uykusuzum\nSenin yüzünden yüzünden\n\nİdamsa sevmenin suçu\nAs boynumdan dola saçı\nGözlerine vuruldum ben\nİşledim yar ben bu suçu\n\nGam kederle dolu destim\nLal eyledin bende sustum\nEy sevdiğim sana küstüm\nSenin yüzden yüzünden\n\nBu Ceyhani sana aşık\nSensin bu gönlüme ışık\nCiğerlerim delik deşik\nSenin yüzünden yüzünden\n\n26.08.2024"
+    },
+    {
+      "title": "BENİM SEVDİĞİM SEVDİĞİM",
+      "author": "Aşık Ceyhani",
+      "preview": "Hoş bakışlı tatlı dili",
+      "poem": "Hoş bakışlı tatlı dili\nBenim sevdiğim sevdiğim\nSelvi boylu ince belli\nBenim sevdiğim sevdiğim\n\nGeldiği yer acep nere\nGöktenmi indin bu yere\nBenziyorsun meleklere\nBenim sevdiğim sevdiğim\n\nİki yanağın gamzeli\nSevmişim seni ezeli\nAdananın en güzeli\nBenim sevdiğim sevdiğim\n\nCeyhani sevdanı çeker\nHasretinden boyun büker\nÇiğ düşmüş Gül gibi kokar\nBenim sevdiğim sevdiğim\n\n26.08.2024"
+    },
+    {
+      "title": "ÖLME",
+      "author": "Aşık Ceyhani",
+      "preview": "Ne acılar çektim senin yüzünden",
+      "poem": "Ne acılar çektim senin yüzünden\nBana yaptığını çekmeden ölme\nHiç eksik olmasın aksın gözünden\nKan ile yaşları dökmeden ölme\n\nDuman çöksün gözleriyin ferine\nCiğer yaraların insin derine\nSevenin kalmasın düşmanlarına\nEl açıpta boyun bükmeden ölme\n\nMorarsın bedenin olsun kapkara\nHayal edip eski günleri ara\nBiri gelir diye sen kapılara\nUmutla bekleyip bakmadan ölme\n\nKökten yıkılasın kurusun dalın\nEğrilsin kolların çot olsun elin\nBacağın tutmasın kırılsın belin\nHer yerinde yara çıkmadan ölme\n\nÖlünce olmasın tutan yasını\nBıraktı  Ceyhani yar sevdasını\nAlmasın Azrail son nefesini\nO tatlı canından bıkmadan  ölme\n\n24.08.2024"
+    },
+    {
       title: 'TURNAM',
       author: 'Aşık Ceyhani',
       preview: 'Adanaya doğru uçan',
