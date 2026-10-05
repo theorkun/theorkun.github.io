@@ -247,6 +247,15 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 @media(max-width:760px){.memories{margin-top:20px;padding:20px 18px}.memories-heading{align-items:flex-start;flex-direction:column;gap:4px}.story-list{gap:18px}.story-button{width:86px}.story-ring{width:80px;height:80px}.memories-heading h2{font-size:18px}}
 
 /* Quiet introduction beside the family photographs. */
+.artist-successor{display:flex;align-items:center;gap:22px;margin:24px 0 32px;padding:24px;border:1px solid #d8c39f;border-radius:14px;background:linear-gradient(120deg,#fffdf8,#edf5f0)}
+.artist-successor-motif{flex:0 0 auto;object-fit:contain;opacity:.75}
+.artist-successor-copy{min-width:0}
+.bio-copy .artist-successor-label{margin:0 0 7px;font:600 10px/1.5 'Quicksand',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#08757d}
+.artist-successor h4{margin:0 0 8px;font:700 21px/1.4 'Quicksand',sans-serif;color:#073348}
+.bio-copy .artist-successor-copy>p:not(.artist-successor-label){margin:0 0 14px;font-size:14px;line-height:1.7;color:#536c78}
+.artist-successor a{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:8px;background:#08757d;color:#fff;font:600 13px/1.5 'Quicksand',sans-serif}
+.artist-successor a:hover{background:#09636a}
+@media(max-width:600px){.artist-successor{gap:16px;padding:20px}.artist-successor h4{font-size:18px}.artist-successor-motif{width:34px;height:54px}}
 .verse-memory{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px;width:92%;max-width:1400px;margin:28px auto 0;padding:32px 6% 52px;border:1px solid #decdaa;border-radius:16px;background:linear-gradient(120deg,#fffdf8,#f4f3e9);box-shadow:0 6px 20px #07334805}
 .verse-memory-intro .eyebrow{font-size:10px;letter-spacing:2px;color:#08757d;margin:0 0 12px}
 .verse-memory-intro h2{font:600 clamp(21px,2.2vw,29px)/1.4 'Cinzel',Georgia,serif;color:#073348;margin:0 0 20px}
