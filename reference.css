@@ -247,6 +247,11 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 @media(max-width:760px){.memories{margin-top:20px;padding:20px 18px}.memories-heading{align-items:flex-start;flex-direction:column;gap:4px}.story-list{gap:18px}.story-button{width:86px}.story-ring{width:80px;height:80px}.memories-heading h2{font-size:18px}}
 
 /* Quiet introduction beside the family photographs. */
+.hero-biography{margin:24px 0 28px;color:#536c78;font:400 14px/1.9 'Poppins',Arial,sans-serif}
+.hero-biography p{margin:0 0 16px}
+.hero-biography p:last-child{margin-bottom:0}
+.hero-biography time{color:#073348;font-weight:600}
+.hero-portrait figcaption{padding:28px 24px 18px;bottom:0;right:auto}
 .hero{max-width:1400px;background:#fffdf8;border-color:#decdaa;border-radius:24px;box-shadow:0 14px 40px -20px #07334838;overflow:hidden}
 .hero:before{display:none}
 .hero-carousel{border-radius:0}
