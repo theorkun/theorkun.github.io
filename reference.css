@@ -153,3 +153,31 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#c1dde5}
 .welcome-copy .button:hover{background:#096373;transform:none}
 .welcome-close{position:absolute;right:12px;top:12px;z-index:1;display:grid;place-items:center;width:36px;height:36px;border:1px solid #decdaa;border-radius:50%;background:#fffdf8;color:#073348;font:24px/1 Arial,sans-serif}
 @media(max-width:600px){.welcome-layout{grid-template-columns:1fr;min-height:0}.welcome-photo{height:210px;min-height:0}.welcome-dialog .welcome-photo img{object-position:center 44%}.welcome-copy{padding:28px 24px}.welcome-copy h2{font-size:26px}.welcome-copy .button{width:100%}}
+
+.memories{width:92%;max-width:1680px;margin:28px auto 0;padding:24px 28px;border:1px solid #e5dccb;border-radius:18px;background:#fffdf8cc}
+.memories-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+.memories-heading h2{font:700 20px/1.4 'Quicksand',sans-serif;color:var(--navy);letter-spacing:0}
+.memories-heading>span{font-size:12px;color:var(--muted)}
+.story-list{display:flex;gap:28px;overflow-x:auto;padding:6px 4px 12px;scroll-snap-type:x proximity}
+.story-button{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:9px;width:108px;padding:0;border:0;background:transparent;color:var(--navy);font:600 12px/1.5 'Quicksand',sans-serif;scroll-snap-align:start}
+.story-ring{display:block;width:100px;height:100px;padding:3px;border-radius:50%;background:linear-gradient(35deg,#f4c15f,#d85c41 45%,#b54279 75%,#755a9b);transition:transform .2s}
+.story-ring img{display:block;width:100%;height:100%;border:3px solid #fffdf8;border-radius:50%;object-fit:cover}
+.story-button[data-story="2"] img{object-position:center 44%}
+.story-button:hover .story-ring{transform:translateY(-3px)}
+.story-button.is-seen .story-ring{background:#b9c7c7}
+.story-dialog{width:min(94vw,420px);max-width:420px;max-height:90dvh;padding:0;border:1px solid #ffffff26;border-radius:16px;background:#062b3b;overflow:hidden}
+.story-dialog::backdrop{background:#061c2af0}
+.story-viewer{position:relative;height:min(80dvh,700px);min-height:280px;isolation:isolate;background:#062b3b}
+.story-dialog .story-image{position:absolute;inset:0;width:100%;height:100%;max-height:none;margin:0;object-fit:contain}
+.story-top{position:absolute;inset:0 0 auto;padding:12px 14px 32px;background:linear-gradient(#0009,transparent)}
+.story-progress{display:flex;gap:5px;margin-bottom:12px}
+.story-progress span{flex:1;height:3px;border-radius:4px;background:#ffffff40}
+.story-progress .is-viewed{background:white}
+.story-identity{display:flex;align-items:center;gap:10px;font:700 14px/1.5 'Quicksand',sans-serif;color:white}
+#story-count{font-size:11px;font-weight:500;color:#d9e7e9;margin-left:auto}
+#story-close{width:36px;height:36px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:#ffffff15;color:white;font:28px/1 Arial,sans-serif}
+.story-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:48px;padding:0;border:1px solid #ffffff30;border-radius:10px;background:#062b3b70;color:white;font:34px/1 Arial,sans-serif}
+.story-prev{left:10px}.story-next{right:10px}
+.story-arrow:hover,#story-close:hover{background:#ffffff30}
+.story-caption{position:absolute;inset:auto 0 0;margin:0;padding:45px 22px 24px;background:linear-gradient(transparent,#000b);color:white;font:600 15px/1.7 'Quicksand',sans-serif;text-align:center;pointer-events:none}
+@media(max-width:760px){.memories{margin-top:20px;padding:20px 18px}.memories-heading{align-items:flex-start;flex-direction:column;gap:4px}.story-list{gap:18px}.story-button{width:86px}.story-ring{width:80px;height:80px}.memories-heading h2{font-size:18px}}
