@@ -40,10 +40,10 @@ body{background:#faf7f0 url('assets/selcuklu-arka-plan.svg') center top/180px 18
 header{position:relative;isolation:isolate;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
 header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
 .header-identity,nav{position:relative;z-index:1}
-.brand{gap:14px;min-width:0;padding:16px 25px 16px 18px;border:1px solid #bd9455;border-radius:8px;background:#073348 url('assets/selcuklu-banner.svg') center/cover no-repeat;box-shadow:0 6px 18px #07334812}
+.brand{gap:14px;min-width:0;padding:16px 25px 16px 18px;border:0;border-radius:0;background:transparent;box-shadow:none}
 .brand-saz{display:block;flex:0 0 auto;width:48px;height:75px;object-fit:contain}
-.brand-text{color:#f4deb4;text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
-.brand-text>span{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:1px;margin-top:8px;color:#e1eeea}
+.brand-text{color:var(--navy);text-shadow:none;font-family:'Cinzel',Georgia,serif;font-size:27px;letter-spacing:.5px}
+.brand-text>span{font-size:16px;font-weight:600;line-height:1.5;letter-spacing:1px;margin-top:8px;color:#64716e}
 nav a,.menu{background:transparent;border:1px solid transparent;border-radius:6px}
 nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .hero{margin-top:32px;border:1px solid #d4bd91}
