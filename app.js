@@ -698,7 +698,9 @@ Tosbayla tavşanın yarıştığı gün
   const existingGrid = poetrySection.querySelector('.poem-grid');
   const grid = document.createElement('div');
   grid.className = 'poem-grid';
-  cards.forEach(item => {
+  const previewLimit = Number(poetrySection.dataset.previewLimit);
+  const visibleCards = previewLimit > 0 ? cards.slice(0, previewLimit) : cards;
+  visibleCards.forEach(item => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'poem-card';
