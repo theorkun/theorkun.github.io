@@ -9,8 +9,56 @@
   const player = document.querySelector('#channel-player');
   const title = document.querySelector('#channel-now-playing');
   const watch = document.querySelector('#channel-watch-link');
+  const status = document.querySelector('#channel-player-status');
   const batchSize = 12;
   let visibleCount = batchSize;
+  let youtubePlayer = null;
+  let playerReady = false;
+
+  function embedUrl(id, autoplay = false) {
+    const url = new URL(`https://www.youtube.com/embed/${id}`);
+    url.searchParams.set('enablejsapi', '1');
+    url.searchParams.set('playsinline', '1');
+    url.searchParams.set('hl', 'tr');
+    if (autoplay) url.searchParams.set('autoplay', '1');
+    if (/^https?:$/.test(window.location.protocol)) {
+      url.searchParams.set('origin', window.location.origin);
+    }
+    return url.href;
+  }
+
+  function showPlayerError(event) {
+    const messages = {
+      100: 'Bu video kaldırılmış veya gizli olarak ayarlanmış. Başka bir video seçebilirsiniz.',
+      101: 'Bu videonun site içinde oynatılmasına izin verilmiyor. YouTube’da izle bağlantısını kullanabilirsiniz.',
+      150: 'Bu videonun site içinde oynatılmasına izin verilmiyor. YouTube’da izle bağlantısını kullanabilirsiniz.',
+      153: 'YouTube site adresini doğrulayamadı. Sayfayı normal tarayıcıda theorkun.github.io üzerinden açın veya YouTube’da izle bağlantısını kullanın.'
+    };
+    status.textContent = messages[event.data] || 'YouTube oynatıcıyı açamadı. YouTube’da izle bağlantısını kullanabilir veya başka bir video seçebilirsiniz.';
+    status.hidden = false;
+  }
+
+  // Identify the actual hosting origin, including local HTTP previews.
+  if (cards[0]) player.src = embedUrl(cards[0].dataset.videoId);
+  if (window.location.protocol === 'file:') {
+    status.textContent = 'Dosya önizlemesinde YouTube oynatıcısı çalışmayabilir. Videoları theorkun.github.io/videolar.html üzerinden açabilirsiniz.';
+    status.hidden = false;
+  }
+  window.onYouTubeIframeAPIReady = () => {
+    youtubePlayer = new window.YT.Player(player, {
+      events: {
+        onReady() { playerReady = true; },
+        onError: showPlayerError,
+        onStateChange(event) {
+          if (event.data === 1) status.hidden = true;
+        }
+      }
+    });
+  };
+  const api = document.createElement('script');
+  api.src = 'https://www.youtube.com/iframe_api';
+  api.async = true;
+  document.head.appendChild(api);
 
   function render() {
     const query = search.value.trim().toLocaleLowerCase('tr');
@@ -34,7 +82,9 @@
     const id = card.dataset.videoId;
     if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
     cards.forEach(item => item.setAttribute('aria-pressed', String(item === card)));
-    player.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&hl=tr`;
+    status.hidden = true;
+    if (playerReady && youtubePlayer) youtubePlayer.loadVideoById(id);
+    else player.src = embedUrl(id, true);
     player.title = card.dataset.videoTitle;
     title.textContent = card.dataset.videoTitle;
     watch.href = `https://www.youtube.com/watch?v=${id}`;
