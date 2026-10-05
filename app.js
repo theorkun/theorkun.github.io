@@ -672,6 +672,7 @@ const sectionObserver = new IntersectionObserver(entries => {
   for (const entry of entries) {
     if (!entry.isIntersecting) continue;
     nav.querySelectorAll('a').forEach(link => {
+      if (!link.getAttribute('href').startsWith('#')) return;
       const active = link.getAttribute('href') === '#' + entry.target.id;
       link.classList.toggle('active', active);
       if (active) link.setAttribute('aria-current', 'location');
