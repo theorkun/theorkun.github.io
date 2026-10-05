@@ -136,7 +136,8 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:24px;padding-bottom:32px}
 .footer-name{font-size:22px}
 .footer-name span{color:#e0f2f1}
-.footer-contact{max-width:100%;justify-self:end}
+.footer-contact{max-width:100%;align-self:flex-start}
+.footer-legal{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0}
 .footer-contact summary{cursor:pointer;color:#f0faf9;font:600 14px/1.5 'Quicksand',sans-serif;padding:8px 14px;border:1px solid #ffffff40;border-radius:8px}
 .footer-contact summary:hover{background:#ffffff0d}
 .footer-emails{display:flex;flex-direction:column;gap:5px;padding-top:12px}
