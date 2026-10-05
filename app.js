@@ -780,14 +780,3 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
 document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
 
-const creatorDialog = document.querySelector('#creator-dialog');
-const creatorButton = document.querySelector('.site-credit');
-if (creatorDialog && creatorButton) {
-  creatorButton.addEventListener('click', () => creatorDialog.showModal());
-  document.querySelector('#creator-close').addEventListener('click', () => creatorDialog.close());
-  creatorDialog.addEventListener('click', event => {
-    if (event.target !== creatorDialog) return;
-    const rect = creatorDialog.getBoundingClientRect();
-    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) creatorDialog.close();
-  });
-}

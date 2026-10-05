@@ -156,6 +156,12 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 @media(max-width:760px){.guestbook-invitation-card{flex-wrap:wrap;gap:16px;padding:24px}.guestbook-invitation-motif{width:44px;height:44px}.guestbook-invitation-copy{flex-basis:calc(100% - 60px)}.guestbook-invitation-copy h2{font-size:22px}.guestbook-invitation-link{width:100%}}
 .guestbook{border-top:1px solid var(--line);background:#fffdf8d9}
 .guestbook-intro{color:#536c78;font-size:15px;margin-bottom:24px}
+.son-note{display:flex;align-items:flex-start;gap:18px;margin:0 0 24px;padding:24px;border:1px solid #d8c39f;border-radius:14px;background:linear-gradient(120deg,#f5eee0,#edf5f0)}
+.son-note>img{flex:0 0 auto;margin-top:2px;opacity:.7}
+.son-note h2{margin:0 0 12px;font:600 18px/1.4 'Quicksand',sans-serif;color:#073348}
+.son-note p{margin:0 0 14px;color:#536c78;font:400 14px/1.9 'Poppins',Arial,sans-serif}
+.son-note-signature{color:#08757d;font:600 12px/1.5 'Quicksand',sans-serif}
+@media(max-width:600px){.son-note{padding:20px;gap:12px}.son-note>img{width:26px;height:26px}}
 .guestbook-panel{max-width:900px;padding:28px;background:#fffdf8;border:1px solid #decdaa;border-radius:14px}
 .guestbook-status{font-size:14px;color:var(--muted)}
 .guestbook-retry{padding:10px 18px;border:1px solid #decdaa;border-radius:8px;background:#f4efe4;color:var(--navy)}
@@ -199,14 +205,6 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 .site-credit-label{font:600 10px/1.5 'Poppins',Arial,sans-serif;letter-spacing:.6px;color:#06434b}
 .site-credit-name{font:700 15px/1.4 'Quicksand',sans-serif;letter-spacing:.3px;color:#073348}
 .site-credit:hover,.site-credit:focus-visible{background:linear-gradient(135deg,#39cec7,#16bdb7);border-color:#a4f2eb;box-shadow:0 8px 22px #034d5640,inset 0 1px 0 #ffffff50}
-.site-credit{cursor:pointer;text-align:left}
-footer .site-credit-note{max-width:240px;text-align:center;color:#e0f2f1;font:400 11px/1.7 'Quicksand',sans-serif;margin:-3px 0 0}
-.creator-dialog{width:min(90vw,520px);padding:28px;border:1px solid #c7ab79;border-radius:16px;background:#fffdf8;box-shadow:0 20px 70px #0004}
-.creator-dialog::backdrop{background:#073348c9;backdrop-filter:blur(3px)}
-.creator-dialog .creator-eyebrow{color:#08757d;font:600 13px/1.5 'Quicksand',sans-serif}
-.creator-dialog .creator-ornament{width:220px;height:28px;object-fit:contain;margin:8px 0 20px}
-.creator-dialog h2{margin:0 0 18px;color:#073348;font:600 25px/1.4 'Cinzel',Georgia,serif}
-.creator-dialog>p{margin:0;color:#536c78;font:400 14px/1.9 'Poppins',Arial,sans-serif}
 @media(max-width:600px){footer{grid-template-columns:minmax(0,1fr);gap:20px}.footer-contact{justify-self:start}.footer-bottom{align-items:flex-start;flex-direction:column;gap:16px}}
 .welcome-dialog{position:fixed;max-width:900px;width:min(94vw,900px);max-height:90dvh;padding:0;border:1px solid #bd9455;border-radius:18px;background:#fffdf8;box-shadow:0 25px 80px #0004;overflow:auto}
 .welcome-dialog::backdrop{background:#073348c9}
