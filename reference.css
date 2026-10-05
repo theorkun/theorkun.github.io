@@ -161,6 +161,8 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 .son-note h2{margin:0 0 12px;font:600 18px/1.4 'Quicksand',sans-serif;color:#073348}
 .son-note p{margin:0 0 14px;color:#536c78;font:400 14px/1.9 'Poppins',Arial,sans-serif}
 .son-note-signature{color:#08757d;font:600 12px/1.5 'Quicksand',sans-serif}
+.son-note-section{padding-top:30px;padding-bottom:60px}
+.son-note-section .son-note{margin:0;max-width:900px;margin-inline:auto}
 @media(max-width:600px){.son-note{padding:20px;gap:12px}.son-note>img{width:26px;height:26px}}
 .guestbook-panel{max-width:900px;padding:28px;background:#fffdf8;border:1px solid #decdaa;border-radius:14px}
 .guestbook-status{font-size:14px;color:var(--muted)}
