@@ -19,13 +19,13 @@
 <section class="memories" aria-label="Fotoğraf hikâyeleri">
   <div class="memories-heading"><h2>Hatıralardan</h2><span>Bir fotoğraf, bir hikâye.</span></div>
   <div class="story-list">
-    <button class="story-button" type="button" data-story="0" aria-label="Sazıyla Aşık Ceyhani hikâyesini aç"><span class="story-ring"><img src="assets/ceyhani-saz.jpg" alt="" width="100" height="100"></span><span>Sazıyla</span></button>
-    <button class="story-button" type="button" data-story="1" aria-label="Gençlik yılları hikâyesini aç"><span class="story-ring"><img src="assets/fotograf.jpg" alt="" width="100" height="100"></span><span>Gençlik yılları</span></button>
-    <button class="story-button" type="button" data-story="2" aria-label="Bir hatıra hikâyesini aç"><span class="story-ring"><img src="assets/ceyhani-portre.jpeg" alt="" width="100" height="100"></span><span>Bir hatıra</span></button>
-    <button class="story-button" type="button" data-story="3" aria-label="Doğadan bir hatıra hikâyesini aç"><span class="story-ring"><img src="assets/hatira-dogada.jpeg" alt="" width="100" height="100" loading="lazy"></span><span>Doğada</span></button>
-    <button class="story-button" type="button" data-story="4" aria-label="Dağların arasında hikâyesini aç"><span class="story-ring"><img src="assets/hatira-daglar.jpeg" alt="" width="100" height="100" loading="lazy"></span><span>Dağlarda</span></button>
-    <button class="story-button" type="button" data-story="5" aria-label="Bayrağımızın gölgesinde hikâyesini aç"><span class="story-ring"><img src="assets/hatira-bayrak.jpeg" alt="" width="100" height="100" loading="lazy"></span><span>Bayrağımız</span></button>
-    <button class="story-button" type="button" data-story="6" aria-label="Bir etkinlikten hatıra hikâyesini aç"><span class="story-ring"><img src="assets/hatira-etkinlik.jpeg" alt="" width="100" height="100" loading="lazy"></span><span>Etkinlikten</span></button>
+    <button class="story-button" type="button" data-story="0" aria-label="Sazıyla Aşık Ceyhani hikâyesini aç"><span class="story-ring"><img src="assets/ceyhani-saz.jpg" alt="" width="100" height="100"></span></button>
+    <button class="story-button" type="button" data-story="1" aria-label="Gençlik yılları hikâyesini aç"><span class="story-ring"><img src="assets/fotograf.jpg" alt="" width="100" height="100"></span></button>
+    <button class="story-button" type="button" data-story="2" aria-label="Bir hatıra hikâyesini aç"><span class="story-ring"><img src="assets/ceyhani-portre.jpeg" alt="" width="100" height="100"></span></button>
+    <button class="story-button" type="button" data-story="3" aria-label="Doğadan bir hatıra hikâyesini aç"><span class="story-ring"><img src="assets/hatira-dogada.jpeg" alt="" width="100" height="100" loading="lazy"></span></button>
+    <button class="story-button" type="button" data-story="4" aria-label="Dağların arasında hikâyesini aç"><span class="story-ring"><img src="assets/hatira-daglar.jpeg" alt="" width="100" height="100" loading="lazy"></span></button>
+    <button class="story-button" type="button" data-story="5" aria-label="Bayrağımızın gölgesinde hikâyesini aç"><span class="story-ring"><img src="assets/hatira-bayrak.jpeg" alt="" width="100" height="100" loading="lazy"></span></button>
+    <button class="story-button" type="button" data-story="6" aria-label="Bir etkinlikten hatıra hikâyesini aç"><span class="story-ring"><img src="assets/hatira-etkinlik.jpeg" alt="" width="100" height="100" loading="lazy"></span></button>
   </div>
 </section>
 
@@ -61,13 +61,12 @@
     </div>
   </div>
 </dialog>
-<dialog id="story-dialog" class="story-dialog" aria-labelledby="story-author" aria-describedby="story-caption">
+<dialog id="story-dialog" class="story-dialog" aria-labelledby="story-author">
   <div class="story-viewer">
     <img id="story-image" class="story-image" alt="">
     <div class="story-top"><div class="story-progress" aria-hidden="true"><span></span><span></span><span></span></div><div class="story-identity"><span id="story-author">Aşık Ceyhani</span><span id="story-count"></span><button id="story-close" type="button" aria-label="Hikâyeyi kapat" autofocus>×</button></div></div>
     <button id="story-prev" class="story-arrow story-prev" type="button" aria-label="Önceki hikâye">‹</button>
     <button id="story-next" class="story-arrow story-next" type="button" aria-label="Sonraki hikâye">›</button>
-    <p id="story-caption" class="story-caption" aria-live="polite"></p>
   </div>
 </dialog>
 <script src="app.js"></script><script src="carousel.js"></script><script src="guestbook.js"></script><script src="welcome.js"></script><script src="stories.js"></script>

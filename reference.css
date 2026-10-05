@@ -183,5 +183,4 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#c1dde5}
 .story-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:48px;padding:0;border:1px solid #ffffff30;border-radius:10px;background:#062b3b70;color:white;font:34px/1 Arial,sans-serif}
 .story-prev{left:10px}.story-next{right:10px}
 .story-arrow:hover,#story-close:hover{background:#ffffff30}
-.story-caption{position:absolute;inset:auto 0 0;margin:0;padding:45px 22px 24px;background:linear-gradient(transparent,#000b);color:white;font:600 15px/1.7 'Quicksand',sans-serif;text-align:center;pointer-events:none}
 @media(max-width:760px){.memories{margin-top:20px;padding:20px 18px}.memories-heading{align-items:flex-start;flex-direction:column;gap:4px}.story-list{gap:18px}.story-button{width:86px}.story-ring{width:80px;height:80px}.memories-heading h2{font-size:18px}}

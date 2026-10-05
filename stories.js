@@ -11,7 +11,6 @@
     { image: 'assets/hatira-etkinlik.jpeg', caption: 'Bir etkinlikten hatıra.' }
   ];
   const image = dialog.querySelector('#story-image');
-  const caption = dialog.querySelector('#story-caption');
   const count = dialog.querySelector('#story-count');
   const progress = dialog.querySelector('.story-progress');
   progress.replaceChildren(...stories.map(() => document.createElement('span')));
@@ -25,7 +24,6 @@
     current = (index + stories.length) % stories.length;
     image.src = stories[current].image;
     image.alt = stories[current].caption;
-    caption.textContent = stories[current].caption;
     count.textContent = `${current + 1} / ${stories.length}`;
     segments.forEach((segment, i) => segment.classList.toggle('is-viewed', i <= current));
     buttons[current].classList.add('is-seen');
