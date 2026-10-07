@@ -313,3 +313,30 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 /* Ornamental tree of life across the full header. */
 header:before{content:'';position:absolute;inset:0 0 36px;background:url('assets/hayat-agaci.svg') center/185px 162px repeat;opacity:.14;pointer-events:none;z-index:0}
 @media(max-width:760px){header:before{bottom:28px;background-size:155px 136px;opacity:.12}}
+
+/* Illustrated guide to the site's Anatolian weaving-inspired motifs. */
+.motif-guide-intro{max-width:900px;margin-bottom:38px;color:#536c78;font:400 15px/1.9 'Poppins',Arial,sans-serif}
+.motif-guide-intro p{margin:0 0 16px}
+.motif-group-title{margin:40px 0 24px;font:600 24px/1.5 'Quicksand',sans-serif;color:#073348}
+.motif-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.motif-guide-card{border:1px solid #decdaa;border-radius:16px;overflow:hidden;background:#fffdf8;box-shadow:0 6px 22px #07334808}
+.motif-preview{display:grid;place-items:center;min-height:230px;margin:0;padding:24px;background:linear-gradient(135deg,#f4eddf,#e5f0ea);border-bottom:1px solid #e5dccb}
+.motif-preview img{display:block;width:auto;max-width:100%;height:180px;object-fit:contain}
+.motif-preview--strip img{width:100%;height:auto;max-height:130px}
+.motif-preview--pattern{background:#ece3cf}
+.motif-preview--pattern img,.motif-preview--footer img{width:180px;height:180px}
+.motif-preview--footer{background:#08757d}
+.motif-guide-copy{padding:26px}
+.motif-kind{color:#08757d;font:600 10px/1.5 'Quicksand',sans-serif;letter-spacing:1.4px;text-transform:uppercase}
+.motif-guide-copy h3{margin:9px 0 15px;font:700 22px/1.4 'Quicksand',sans-serif;color:#073348}
+.motif-guide-copy p{margin:0 0 14px;color:#536c78;font:400 14px/1.85 'Poppins',Arial,sans-serif}
+.motif-guide-copy p:last-child{margin-bottom:0}
+.motif-guide-copy strong{color:#073348;font-weight:600}
+.motif-source{display:block;margin-top:9px;color:#08757d;font-size:12px;text-decoration:underline;text-underline-offset:4px}
+.motif-guide-note{margin:36px 0 0;padding:26px;border:1px solid #d8c39f;border-radius:14px;background:#f3eedf}
+.motif-guide-note h2{margin:0 0 15px;font:600 20px/1.4 'Quicksand',sans-serif;color:#073348}
+.motif-guide-note p{margin:0 0 14px;color:#536c78;font:400 14px/1.85 'Poppins',Arial,sans-serif}
+.motif-guide-note p:last-child{margin-bottom:0}
+.footer-motif-link{color:#f0faf9;font:500 12px/1.6 'Quicksand',sans-serif;text-decoration:underline;text-underline-offset:4px}
+.footer-motif-link:hover{color:#f4deb4}
+@media(max-width:760px){.motif-guide-grid{grid-template-columns:minmax(0,1fr);gap:20px}.motif-preview{min-height:200px;padding:20px}.motif-preview img{height:155px}.motif-preview--strip img{height:auto}.motif-guide-copy,.motif-guide-note{padding:22px}.motif-group-title{font-size:21px}.motif-guide-copy h3{font-size:21px}}
