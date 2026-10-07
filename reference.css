@@ -36,9 +36,9 @@ nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 
 
 /* Anatolian kilim motifs in navy, turquoise and gold. */
 :root{--gold:#bd9455;--line:#e5dccb}
-html{background:#dce8e3 url('assets/kilim-kenar.svg') center top/180px 180px repeat}
-@media(min-width:761px){html{background:#073348 url('assets/kilim-kenar-zemini.svg') center top/240px 240px repeat;background-attachment:fixed}}
-body{width:94%;max-width:1360px;margin:24px auto;background:#faf7f0 url('assets/kilim-arka-plan.svg') center top/180px 180px repeat;border:1px solid #c5d4cb;border-radius:18px}
+html{background-color:#b8d0cf;background-image:radial-gradient(ellipse at 0% 18%,#138f94a6,transparent 52%),radial-gradient(ellipse at 100% 75%,#07334875,transparent 58%),radial-gradient(ellipse at 85% 5%,#e7ddc8,transparent 45%),linear-gradient(135deg,#c9ded8,#9bbabd);background-attachment:fixed}
+body{position:relative;isolation:isolate;width:94%;max-width:1360px;margin:24px auto;background:transparent;border:1px solid #ffffffa6;border-radius:18px;box-shadow:0 16px 60px #07334820}
+body:before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:#fffdf8d6 url('assets/kilim-arka-plan.svg') center top/180px 180px repeat;-webkit-backdrop-filter:blur(24px) saturate(120%);backdrop-filter:blur(24px) saturate(120%);pointer-events:none}
 header{border-radius:17px 17px 0 0}
 footer{border-radius:0 0 17px 17px}
 header{position:relative;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
@@ -374,7 +374,7 @@ header:before{content:'';position:absolute;inset:0 0 36px;background:url('assets
 /* Keep the sections aligned inside the centered site. */
 body:not(.subpage) .hero,body:not(.subpage) .home-biography,body:not(.subpage) .home-legacy{max-width:1280px}
 body:not(.subpage) .poetry{width:92%;max-width:1280px;margin:0 auto;padding:56px 20px}
-@media(max-width:760px){body{width:100%;max-width:none;margin:0;border:0;border-radius:0;background:#faf7f0 url('assets/kilim-arka-plan.svg') center top/140px 140px repeat;background-attachment:scroll}header,footer{border-radius:0}body:not(.subpage) .poetry{padding:48px 0}}
+@media(max-width:760px){body{width:100%;max-width:none;margin:0;border:0;border-radius:0;background:#faf7f0 url('assets/kilim-arka-plan.svg') center top/140px 140px repeat;background-attachment:scroll;box-shadow:none}body:before{display:none}header,footer{border-radius:0}body:not(.subpage) .poetry{padding:48px 0}}
 @media(max-width:760px){.home-legacy{grid-template-columns:minmax(0,1fr);gap:20px;margin-bottom:32px}.home-legacy>section{padding:26px}.home-legacy p:not(.eyebrow){font-size:13px;margin-bottom:18px}}
 .footer-motif-link{color:#f0faf9;font:500 12px/1.6 'Quicksand',sans-serif;text-decoration:underline;text-underline-offset:4px}
 .footer-motif-link:hover{color:#f4deb4}
