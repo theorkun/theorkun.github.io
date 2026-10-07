@@ -1,6 +1,6 @@
-/* Photographic panel with Seljuk geometric ornaments. */
+/* Photographic panel with Anatolian weaving ornaments. */
 :root{--turquoise:#179f99;--navy:#073348;--line:#dce8eb}
-body{background-color:#f2f4f7;background-image:linear-gradient(#f2f4f7ed,#f2f4f7ed),url('assets/selcuklu-geometri.svg')}
+body{background-color:#f2f4f7;background-image:linear-gradient(#f2f4f7ed,#f2f4f7ed),url('assets/kilim-arka-plan.svg')}
 header{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:22px 4%;background:#fff;color:var(--navy);border-top:4px solid var(--turquoise);border-bottom:1px solid var(--line)}
 .header-identity{padding:0;justify-content:flex-start}.brand-text{font-size:28px}.brand-text>span{color:#607480;text-align:left;font-size:12px;letter-spacing:2px}
 nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 18px;border-radius:12px}nav a:hover,nav a.active{color:#087e7a;background:#e7f5f3;border-color:#c4e5e2}
@@ -34,11 +34,11 @@ nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 
 @media(max-width:760px){header,header:has(nav.open){display:block;background:#fff;color:var(--navy);padding:17px 5%}.header-identity{display:flex;justify-content:space-between}.brand-text{font-size:23px}.menu{color:var(--navy);border-color:#bed8da;background:#f0f7f7}nav{padding:18px 0 0}nav a{border-color:#dce8eb}nav a:last-child{grid-column:1/-1}.hero,body:has(nav.open) .hero{width:92%;margin-top:20px;grid-template-columns:1fr;border-radius:26px}.hero-carousel{border-radius:26px}.carousel-images{aspect-ratio:1/1;min-height:0;height:auto}.hero .carousel-images img{position:absolute;height:100%;max-height:none}.hero-carousel figcaption{padding:36px 18px 48px}.carousel-dots{bottom:7px}.carousel-count{bottom:20px;right:20px}.carousel-arrow{width:46px;height:46px}#slide-prev{left:13px}#slide-next{right:13px}.hero-copy{padding:35px 8% 38px}.hero h1,.hero h1 em{font-size:34px;line-height:1.3;margin:0 0 10px}.hero .eyebrow{font-size:14px;margin-bottom:15px}.hero-quote blockquote{font-size:21px}.hero-quote{margin:23px 0 26px}.hero .actions{flex-direction:row;flex-wrap:wrap}.archive-links{width:92%;margin-top:20px;gap:12px}.archive-links a{min-height:145px}.archive-links strong{font-size:15px}.archive-links small{font-size:14px}.section{padding:55px 6%}}
 @media(max-width:380px){.hero-copy{padding:30px 7%}.hero-quote blockquote{font-size:19px}.brand-text{font-size:21px}.hero h1,.hero h1 em{font-size:30px}.hero .actions{flex-direction:column}.archive-links strong{font-size:14px}}
 
-/* Navy, turquoise and gold motifs, drawn as scalable SVG assets. */
+/* Anatolian kilim motifs in navy, turquoise and gold. */
 :root{--gold:#bd9455;--line:#e5dccb}
-body{background:#faf7f0 url('assets/selcuklu-arka-plan.svg') center top/180px 180px repeat}
+body{background:#faf7f0 url('assets/kilim-arka-plan.svg') center top/180px 180px repeat}
 header{position:relative;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
-header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
+header:after{content:'';position:absolute;inset:auto 0 0;height:36px;background:url('assets/kilim-bordur.svg') left center/120px 36px repeat-x;pointer-events:none;z-index:0;transform:none;width:auto}
 .header-identity,nav{position:relative;z-index:1}
 .header-identity{gap:16px}
 .header-flama{position:static;display:block;flex:0 0 auto;width:60px;height:90px;object-fit:contain;pointer-events:none}
@@ -57,18 +57,18 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .hero .outline-button{border-color:#d5bd8e80;border-radius:8px}
 .archive-links a{background:#fffdf8;border:1px solid #decdaa;border-radius:14px;min-height:166px;padding:24px 16px;box-shadow:0 5px 20px #07334805}
 .archive-links a:after{display:none}
-.card-star{width:44px;height:44px;margin-bottom:14px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;mask:none;-webkit-mask:none}
+.card-star{width:44px;height:44px;margin-bottom:14px;background:url('assets/kocboynuzu.svg') center/contain no-repeat;mask:none;-webkit-mask:none}
 .archive-links a:hover{background:#f3ead9;border-color:#bd9455;color:#073348}
 .archive-links a:hover small{color:#536c78}
 .section-heading{border:0;padding-bottom:35px}
-.section-heading:after{left:0;bottom:-5px;width:min(340px,100%);height:38px;background:url('assets/selcuklu-ayrac.svg') left center/contain no-repeat}
+.section-heading:after{left:0;bottom:-5px;width:min(340px,100%);height:38px;background:url('assets/kilim-ayrac.svg') left center/contain no-repeat}
 .music,.gallery{background:#eaf1edb8}
 .poetry{background:transparent}
 .facts{background:#fffdf8;border-color:#decdaa;border-radius:14px}
 .dream{background:#f4efe4;border-left-color:#bd9455}
 .poem-card{background:linear-gradient(145deg,#fffefb,#faf5eb);border-color:#c7ab79;box-shadow:0 3px 7px #07334808,0 12px 26px -12px #07334838,8px 14px 30px -18px #bd94554d;border-radius:12px;isolation:isolate}
 .poem-card:before{border-color:#e8dbc1;border-radius:7px}
-.poem-card:after{content:'';position:absolute;right:-28px;bottom:-42px;width:160px;height:160px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;filter:blur(3px);opacity:.09;pointer-events:none;z-index:-1;transform:rotate(22.5deg);transition:opacity .2s ease,transform .2s ease}
+.poem-card:after{content:'';position:absolute;right:-28px;bottom:-42px;width:160px;height:160px;background:url('assets/kocboynuzu.svg') center/contain no-repeat;filter:blur(3px);opacity:.09;pointer-events:none;z-index:-1;transform:rotate(0deg);transition:opacity .2s ease,transform .2s ease}
 .poem-card__tag{padding-right:35px}
 .poem-card strong,.poem-card__tag{color:#073348}
 .poem-card p{font-weight:600}
@@ -78,12 +78,12 @@ nav a:hover,nav a.active{color:#073348;background:#f3ead9;border-color:#d7bc88}
 .poetry-more .outline-button{display:inline-flex;align-items:center;gap:14px;border:1px solid #bd9455;border-radius:10px;padding:14px 24px;background:#fffdf8;color:#073348;font-weight:700;box-shadow:0 5px 18px #0733480a}
 .poetry-more .outline-button:hover{background:#f3ead9;border-color:#a78043}
 .poem-card:hover,.poem-card:focus-visible{background:linear-gradient(145deg,#fffefb,#f5eddd);border-color:#a78043;box-shadow:0 4px 9px #0733480d,0 18px 34px -13px #07334845,10px 18px 36px -18px #bd945566}
-.poem-card:hover:after,.poem-card:focus-visible:after{opacity:.14;transform:rotate(22.5deg) scale(1.05)}
-@media(prefers-reduced-motion:reduce){.poem-card:after{transition:none}.poem-card:hover,.poem-card:focus-visible{transform:none}.poem-card:hover:after,.poem-card:focus-visible:after{transform:rotate(22.5deg)}}
+.poem-card:hover:after,.poem-card:focus-visible:after{opacity:.14;transform:rotate(0deg) scale(1.05)}
+@media(prefers-reduced-motion:reduce){.poem-card:after{transition:none}.poem-card:hover,.poem-card:focus-visible{transform:none}.poem-card:hover:after,.poem-card:focus-visible:after{transform:rotate(0deg)}}
 .poem-dialog{background:#fffdf8;border-color:#c7ab79}
 .poem-dialog h3,.poem-modal-author{color:#073348}
-footer{position:relative;border-top:0;padding-top:80px;background:#08757d url('assets/footer-turk-motifleri.svg') center top/200px 200px repeat}
-footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background:url('assets/selcuklu-bordur.svg') left center/120px 36px repeat-x;pointer-events:none}
+footer{position:relative;border-top:0;padding-top:80px;background:#08757d url('assets/footer-kilim.svg') center top/200px 200px repeat}
+footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background:url('assets/kilim-bordur.svg') left center/120px 36px repeat-x;pointer-events:none}
 @media(max-width:1240px) and (min-width:761px){header{grid-template-columns:minmax(0,1fr);gap:22px;padding-bottom:62px}.header-identity{justify-content:flex-start}.brand-text>span{text-align:left}nav{justify-content:flex-start;flex-wrap:wrap}}
 @media(max-width:760px){header,header:has(nav.open){display:block;min-height:0;padding:22px 5% 55px;border:0;background:#fffdf8;color:var(--navy)}header:after{height:28px;background-size:93.333px 28px}.brand-text{font-size:21px}.brand-text>span{font-size:14px;letter-spacing:.6px}.menu{border-color:#d5bd8e;background:#f6efdf}.hero,body:has(nav.open) .hero{margin-top:22px}.archive-links a{min-height:160px}.card-star{width:38px;height:38px}.section-heading{padding-bottom:30px}.section-heading:after{width:min(280px,100%);height:32px}footer{padding-top:70px}}
 @media(max-width:760px){.header-identity{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}.brand{gap:10px;padding:0}.brand-saz{width:38px;height:60px}.brand-text{font-size:20px}.brand-text>span{text-align:left;font-size:13px;letter-spacing:.4px}.menu{padding:9px 12px}body{background-size:140px 140px}.header-flama{width:44px;height:66px}nav.open{width:100%;justify-content:stretch}}
@@ -127,7 +127,7 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 .channel-video-play{position:absolute;left:14px;bottom:12px;display:grid;place-items:center;width:38px;height:38px;border:1px solid #ffffff70;border-radius:50%;background:#08757de6;color:white;font-size:14px;box-shadow:0 2px 12px #0003}
 .channel-video-duration{position:absolute;right:9px;bottom:9px;padding:3px 6px;border-radius:4px;background:#073348e6;color:#fff;font:600 11px 'Quicksand',sans-serif}
 .channel-video-title{position:relative;width:100%;padding:17px 34px 12px 8px;font:600 15px/1.6 'Quicksand',sans-serif}
-.channel-video-title:after{content:'';position:absolute;right:7px;top:20px;width:18px;height:18px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;opacity:.5}
+.channel-video-title:after{content:'';position:absolute;right:7px;top:20px;width:18px;height:18px;background:url('assets/kocboynuzu.svg') center/contain no-repeat;opacity:.5}
 @media(prefers-reduced-motion:reduce){.channel-video-card:hover{transform:none}}
 .channel-more{display:flex;justify-content:center;margin-top:28px}
 .channel-more button{padding:13px 24px;border:1px solid #08757d;border-radius:9px;background:#08757d;color:#fff;cursor:pointer;font:600 14px 'Quicksand',sans-serif}
@@ -292,8 +292,8 @@ footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
 .hero-carousel{border-radius:0}
 .carousel-images{min-height:480px;aspect-ratio:1/1}
 .hero-copy{z-index:3;padding:48px 12%;background:linear-gradient(110deg,#fffdf8ed,#fffdf8d6),url('assets/fotograf.jpg') center 40%/cover no-repeat;background-color:#fffdf8;color:#073348;border-left:1px solid #decdaa;overflow:visible}
-.hero-copy:before{inset:auto;left:-21px;top:calc(50% - 21px);width:42px;height:42px;border:1px solid #decdaa;border-radius:50%;background:#fffdf8 url('assets/selcuklu-rozet.svg') center/28px 28px no-repeat;filter:none;opacity:1;z-index:3}
-.hero-copy:after{inset:auto -35px -40px auto;width:230px;height:230px;background:url('assets/selcuklu-rozet.svg') center/contain no-repeat;opacity:.035;z-index:-1}
+.hero-copy:before{inset:auto;left:-21px;top:calc(50% - 21px);width:42px;height:42px;border:1px solid #decdaa;border-radius:50%;background:#fffdf8 url('assets/kocboynuzu.svg') center/28px 28px no-repeat;filter:none;opacity:1;z-index:3}
+.hero-copy:after{inset:auto -35px -40px auto;width:230px;height:230px;background:url('assets/kocboynuzu.svg') center/contain no-repeat;opacity:.035;z-index:-1}
 .hero .eyebrow{color:#08757d;font-size:11px;letter-spacing:2.5px;margin:0 0 22px}
 .hero h1{font:600 clamp(30px,3.3vw,46px)/1.2 'Cinzel',Georgia,serif;letter-spacing:0;margin:0 0 14px}
 .hero h1 em{display:block;font:700 clamp(38px,4.2vw,60px)/1.2 'Cinzel',Georgia,serif;color:#073348;letter-spacing:.3px;margin:4px 0 0}
