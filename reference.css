@@ -318,6 +318,15 @@ header:before{content:'';position:absolute;inset:0 0 36px;background:url('assets
 .motif-guide-intro{max-width:900px;margin-bottom:38px;color:#536c78;font:400 15px/1.9 'Poppins',Arial,sans-serif}
 .motif-guide-tagline{max-width:780px;margin:18px 0 0;color:#08757d;font:600 clamp(16px,1.6vw,20px)/1.6 'Quicksand',sans-serif}
 .motif-guide-intro p{margin:0 0 16px}
+.culture-logo{border:1px solid #decdaa;border-radius:16px;background:#fffdf8;overflow:hidden}
+.culture-logo-image{display:flex;justify-content:center;margin:0;padding:28px;background:#f7f7f5;border-bottom:1px solid #e5dccb}
+.culture-logo-image img{display:block;width:100%;max-width:560px;height:auto;object-fit:contain}
+.culture-logo-copy{max-width:940px;margin:auto;padding:32px}
+.culture-logo-copy .motif-kind{margin:0 0 12px}
+.culture-logo-copy h2{margin:0 0 18px;color:#073348;font:700 25px/1.4 'Quicksand',sans-serif}
+.culture-logo-copy p:not(.motif-kind){margin:0 0 16px;color:#536c78;font:400 14px/1.85 'Poppins',Arial,sans-serif}
+.culture-logo-copy p:last-child{margin-bottom:0}
+@media(max-width:760px){.culture-logo-image{padding:16px}.culture-logo-copy{padding:22px}.culture-logo-copy h2{font-size:22px}}
 .motif-group-title{margin:40px 0 24px;font:600 24px/1.5 'Quicksand',sans-serif;color:#073348}
 .motif-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .motif-guide-card{border:1px solid #decdaa;border-radius:16px;overflow:hidden;background:#fffdf8;box-shadow:0 6px 22px #07334808}
