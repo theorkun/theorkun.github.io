@@ -37,8 +37,8 @@ nav{margin:0;padding:0;gap:8px;max-width:none;font-size:14px}nav a{padding:12px 
 /* Anatolian kilim motifs in navy, turquoise and gold. */
 :root{--gold:#bd9455;--line:#e5dccb}
 html{background:#dce8e3 url('assets/kilim-kenar.svg') center top/180px 180px repeat}
+@media(min-width:761px){html{background:#073348 url('assets/kilim-kenar-zemini.svg') center top/240px 240px repeat;background-attachment:fixed}}
 body{width:94%;max-width:1360px;margin:24px auto;background:#faf7f0 url('assets/kilim-arka-plan.svg') center top/180px 180px repeat;border:1px solid #c5d4cb;border-radius:18px}
-@media(min-width:1240px){body:before,body:after{content:'';position:fixed;top:0;bottom:0;width:clamp(26px,calc((100vw - 1360px)/2 - 28px),104px);background:#087f87 url('assets/kilim-dikey-bordur.svg') center top/100% auto repeat-y;pointer-events:none}body:before{left:max(8px,calc((100vw - 1360px)/4 - 52px))}body:after{right:max(8px,calc((100vw - 1360px)/4 - 52px))}}
 header{border-radius:17px 17px 0 0}
 footer{border-radius:0 0 17px 17px}
 header{position:relative;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:24px;min-height:138px;padding:28px 4% 68px;border:0;background:#fffdf8;color:var(--navy)}
