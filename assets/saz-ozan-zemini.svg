@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360" fill="none">
+  <defs>
+    <g id="saz" stroke="#f1e4cb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-5 12V-45h10v57c8 7 20 23 20 36 0 17-11 28-25 28s-25-11-25-28c0-13 12-29 20-36Z"/>
+      <path d="M-2-43v99M2-43v99M-5-31H5M-5-20H5M-5-9H5M-5 2H5M-9 57H9M-5-41h-6M5-35h6M-5-29h-6"/>
+    </g>
+  </defs>
+  <path fill="#073348" d="M0 0h360v360H0z"/>
+  <path fill="#08757d" d="m180 34 146 146-146 146L34 180Z"/>
+  <path stroke="#f1e4cb" stroke-width="2" opacity=".22" d="m180 49 131 131-131 131L49 180Z"/>
+  <!-- A seated folk poet with a long-necked baglama: a contemporary site illustration. -->
+  <g stroke="#f1e4cb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M155 92c0-13 9-23 22-23s22 10 22 23-9 26-22 26-22-13-22-26Z"/>
+    <path d="M165 116v10m24-10v10m-24 0-24 9-18 35 21 17m45-61 24 9 23 32m-23-18-9 35m-54-35 8 35m-4 31-5 26 25 17m24-48 12 31-25 17M154 238l-26 34h47m24-34 28 34h-42"/>
+    <path d="M143 184c-16-4-35 4-39 20-5 18 9 33 25 32 20-1 31-24 29-39Z"/>
+    <path d="m149 190 119-72 6 9-119 73m5-8 109-67m-32 15 5 8m-22 2 5 8m-23 3 5 8m-23 3 5 8m-23 3 5 8M113 217l23 10m-17-17 135-82m-134 87 136-84m-135 89 137-86" stroke-width="2"/>
+    <path d="m134 176 15 15 10 1m61-23 14-3 7 8m27-56-2-8m8 17 8-1"/>
+  </g>
+  <use href="#saz" transform="translate(44 42) rotate(-32) scale(.65)"/>
+  <use href="#saz" transform="translate(316 318) rotate(148) scale(.65)"/>
+  <g stroke="#f1e4cb" stroke-width="2" stroke-linecap="round">
+    <path d="M287 40h30m-24 10h24m-30 10h20M43 300h30m-30 10h24m-14 10h20"/>
+  </g>
+</svg>
