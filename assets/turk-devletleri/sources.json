@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "buyuk-hun",
+    "name": "Büyük Hun",
+    "file": "buyuk-hun.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Xiongnu_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "bati-hun",
+    "name": "Batı Hun",
+    "file": "bati-hun.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Bat%C4%B1_Hun_Devleti_Bayra%C4%9F%C4%B1.svg",
+    "artist": "Gonuldagi",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "attributionRequired": "true"
+  },
+  {
+    "slug": "avrupa-hun",
+    "name": "Avrupa Hun",
+    "file": "avrupa-hun.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Huns_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "ak-hun",
+    "name": "Ak Hun",
+    "file": "ak-hun.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Hephthalites_(16_Great_Turkic_Empires)_2.svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "gokturk",
+    "name": "Göktürk",
+    "file": "gokturk.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_G%C3%B6kt%C3%BCrks_Khaganate.svg",
+    "artist": "Jelican9",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "avar",
+    "name": "Avar",
+    "file": "avar.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Avar_Khaganate_(16_Great_Turkic_Empires)_2.svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "hazar",
+    "name": "Hazar",
+    "file": "hazar.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Khazars_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "uygur",
+    "name": "Uygur",
+    "file": "uygur.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Uyghur_Khaganate_(16_Great_Turkic_Empires)_2.svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "karahanli",
+    "name": "Karahanlılar",
+    "file": "karahanli.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Kara-Khanid_Khanate_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "gazneli",
+    "name": "Gazneliler",
+    "file": "gazneli.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Ghaznavids_(16_Great_Turkic_Empires)_2.svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "selcuklu",
+    "name": "Büyük Selçuklu",
+    "file": "selcuklu.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Seljuk_Empire_(16_Great_Turkic_Empires)_1.svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "harzemsah",
+    "name": "Harzemşahlar",
+    "file": "harzemsah.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Khwarazmian_Empire_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "altinordu",
+    "name": "Altınordu",
+    "file": "altinordu.svg",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Golden_Horde_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "timur",
+    "name": "Timur",
+    "file": "timur.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Timurid_Empire_(16_Great_Turkic_Empires).svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "babur",
+    "name": "Babür",
+    "file": "babur.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_Mughal_Empire_(16_Great_Turkic_Empires)_2.svg",
+    "artist": "Kirsehirlitv",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": "false"
+  },
+  {
+    "slug": "osmanli",
+    "name": "Osmanlı",
+    "file": "osmanli.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Ottoman_Empire_(eight_pointed_star).svg",
+    "artist": "Dbl2010",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "attributionRequired": "false"
+  }
+]
