@@ -318,7 +318,7 @@ header:before{content:'';position:absolute;inset:0 0 36px;background:url('assets
 .motif-guide-intro{max-width:900px;margin-bottom:38px;color:#536c78;font:400 15px/1.9 'Poppins',Arial,sans-serif}
 .motif-guide-tagline{max-width:780px;margin:18px 0 0;color:#08757d;font:600 clamp(16px,1.6vw,20px)/1.6 'Quicksand',sans-serif}
 .motif-guide-intro p{margin:0 0 16px}
-.culture-logo{border:1px solid #decdaa;border-radius:16px;background:#fffdf8;overflow:hidden}
+.culture-logo{margin-top:36px;border:1px solid #decdaa;border-radius:16px;background:#fffdf8;overflow:hidden}
 .culture-logo-image{display:flex;justify-content:center;margin:0;padding:20px;background:#f7f7f5;border-bottom:1px solid #e5dccb}
 .culture-logo-image img{display:block;width:100%;max-width:380px;height:auto;object-fit:contain}
 .culture-logo-copy{max-width:940px;margin:auto;padding:24px}
