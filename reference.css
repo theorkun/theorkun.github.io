@@ -338,6 +338,7 @@ header:before{content:'';position:absolute;inset:0 0 36px;background:url('assets
 .motif-guide-note h2{margin:0 0 15px;font:600 20px/1.4 'Quicksand',sans-serif;color:#073348}
 .motif-guide-note p{margin:0 0 14px;color:#536c78;font:400 14px/1.85 'Poppins',Arial,sans-serif}
 .motif-guide-note p:last-child{margin-bottom:0}
+.motif-colour-chip{display:inline-block;width:22px;height:22px;margin-right:10px;vertical-align:middle;border-radius:5px;background:#073348;border:1px solid #bd9455}
 .footer-motif-link{color:#f0faf9;font:500 12px/1.6 'Quicksand',sans-serif;text-decoration:underline;text-underline-offset:4px}
 .footer-motif-link:hover{color:#f4deb4}
 @media(max-width:760px){.motif-guide-grid{grid-template-columns:minmax(0,1fr);gap:20px}.motif-preview{min-height:200px;padding:20px}.motif-preview img{height:155px}.motif-preview--strip img{height:auto}.motif-guide-copy,.motif-guide-note{padding:22px}.motif-group-title{font-size:21px}.motif-guide-copy h3{font-size:21px}}
