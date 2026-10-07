@@ -709,7 +709,7 @@ Tosbayla tavşanın yarıştığı gün
     button.dataset.author = item.author;
     button.dataset.poem = item.poem;
     button.dataset.manuscript = item.title === 'Yüzüm Gülmedi' ? 'assets/siir.jpg' : '';
-    button.innerHTML = `<span class="poem-card__tag">${item.author}</span><svg class="poem-card__saz" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M32 5 17 29m4 2L36 7M17 27c-5-2-10 1-11 6-1 5 4 10 9 9 6-1 8-6 5-11m-5 1 7 7m-9-9 4 4m13-22 5 5m-8-2 5 5M8 35l5 5"/></svg><strong>${item.title}</strong><p>${item.preview}</p>`;
+    button.innerHTML = `<span class="poem-card__tag">${item.author}</span><img class="poem-card__saz" src="assets/saz-motifi.svg" alt="" aria-hidden="true" width="80" height="144"><strong>${item.title}</strong><p>${item.preview}</p>`;
     if (item.title === 'Yüzüm Gülmedi') {
       const manuscriptImage = document.createElement('img');
       manuscriptImage.className = 'poem-card__manuscript';
