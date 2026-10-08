@@ -19,6 +19,10 @@
     spread.classList.toggle('is-single', last - current === 1);
     spread.classList.toggle('is-cover', current === 0);
     pages.forEach((page, index) => { page.hidden = index < current || index >= last; });
+    pages.slice(Math.max(0, current - 1), current + 2).forEach(page => {
+      const image = page.querySelector('img');
+      if (image) image.loading = 'eager';
+    });
     previous.disabled = current === 0;
     next.disabled = last === pages.length;
     status.textContent = current === 0 ? 'Kapak · Saz ile Söz' : last - current === 1 ? `Sayfa ${current + 1} / ${pages.length}` : `Sayfa ${current + 1}–${last} / ${pages.length}`;
@@ -50,10 +54,14 @@
     face.hidden = false;
     sheet.append(face);
     spread.append(sheet);
+    // Reveal the next scan beneath the turning paper instead of swapping at the end.
+    const destination = destinationFor(direction);
+    pages.forEach((page, index) => { page.hidden = index !== destination; });
     return sheet;
   }
   function angleFor(direction, amount) {
-    return `rotateY(${direction * -165 * amount}deg)`;
+    const curve = Math.sin(Math.PI * amount);
+    return `translateZ(${20 * curve}px) rotateY(${direction * -175 * amount}deg) rotateZ(${direction * -.3 * curve}deg)`;
   }
   async function finishTurn(direction, sheet, amount, commit) {
     flipping = true;
@@ -61,10 +69,15 @@
     spread.classList.add('is-turning');
     try {
       if (!reducedMotion.matches && sheet.animate) {
-        await sheet.animate([
-          { transform: angleFor(direction, amount) },
-          { transform: angleFor(direction, commit ? 1 : 0) }
-        ], { duration: Math.max(120, 600 * (commit ? 1 - amount : amount)), easing: 'cubic-bezier(.22,.65,.25,1)', fill: 'forwards' }).finished;
+        const target = commit ? 1 : 0;
+        const frames = [0, .2, .5, .8, 1].map(offset => ({
+          offset,
+          transform: angleFor(direction, amount + (target - amount) * offset)
+        }));
+        await sheet.animate(frames, {
+          duration: commit ? Math.max(850, 1450 * (1 - amount)) : Math.max(450, 900 * amount),
+          easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards'
+        }).finished;
       }
       if (commit) current = destination;
     } finally {
