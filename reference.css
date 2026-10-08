@@ -390,3 +390,70 @@ body:not(.subpage) .poetry{width:92%;max-width:1580px;margin:0 auto;padding:56px
 .background-music-close{padding:0;width:28px;height:32px;flex:0 0 auto;border:0;background:transparent;color:#536c78;font:24px/1 Arial,sans-serif}
 @media(max-width:600px){.background-music{left:12px;bottom:12px;max-width:calc(100vw - 24px)}.background-music-panel{gap:9px;padding:10px}.background-music-title{max-width:135px}.background-music-panel>img{width:18px;height:34px}}
 @media(max-width:760px){.motif-guide-grid{grid-template-columns:minmax(0,1fr);gap:20px}.motif-preview{min-height:200px;padding:20px}.motif-preview img{height:155px}.motif-preview--strip img{height:auto}.motif-guide-copy,.motif-guide-note{padding:22px}.motif-group-title{font-size:21px}.motif-guide-copy h3{font-size:21px}}
+
+/* Consistent spacing for the portrait, reading cards and smaller screens. */
+.hero{padding:0;min-height:0;grid-template-columns:52% 48%}
+.hero-copy{padding:44px 10%}
+.hero h1{font-size:clamp(32px,3vw,48px);line-height:1.2}
+.hero h1 em{font-size:clamp(44px,4vw,68px);line-height:1.15}
+.hero .realname{font-size:16px;line-height:1.7}
+.hero .realname+.actions{margin-top:30px}
+.hero .button{padding:14px 24px;min-height:46px}
+.home-biography{grid-template-columns:minmax(0,1fr) minmax(0,2.6fr);gap:32px;padding:32px 36px}
+.home-biography-copy{font-size:15px;line-height:1.9;max-width:960px}
+.home-legacy{gap:24px}
+.home-legacy>section{padding:32px 36px}
+body:not(.subpage) .poetry{padding:56px 0}
+.section-heading{margin-bottom:30px}
+.poem-grid{gap:20px}
+.poem-card{height:auto;min-height:218px;padding:26px 24px;border-width:1px;border-radius:16px;box-shadow:0 8px 22px -14px #07334845}
+.poem-card:before{inset:7px;border-radius:10px;border-color:#e5d8c0}
+.poem-card:after{width:140px;height:140px;right:-22px;bottom:-38px;opacity:.065}
+.poem-card__tag{font-size:10px;letter-spacing:1.4px;margin-bottom:20px}
+.poem-card__saz{top:20px;right:23px;width:22px;height:40px}
+.poem-card strong{font-size:clamp(19px,1.5vw,24px);line-height:1.4;letter-spacing:0;margin:0 0 18px;overflow-wrap:anywhere}
+.poem-card p{font-size:14px;line-height:1.65;font-weight:600;max-height:none;color:#536c78}
+.poem-card:hover,.poem-card:focus-visible{box-shadow:0 12px 28px -14px #07334850}
+.poem-card--manuscript strong,.poem-card--manuscript p{max-width:calc(100% - 66px)}
+.poetry-more{margin-top:28px}
+.poem-dialog{max-height:90dvh;overflow-y:auto}
+.background-music-panel{width:min(350px,calc(100vw - 24px))}
+.background-music-copy{flex:1}
+.background-music-toggle{min-height:44px}
+.background-music-close{width:36px;height:44px}
+@media(min-width:761px){.hero .carousel-images{height:clamp(420px,34vw,620px);min-height:0;aspect-ratio:auto}.hero .carousel-images img{object-fit:contain}.hero-portrait figcaption{font-size:12px;padding:36px 24px 18px}}
+@media(min-width:560px) and (max-width:1100px){.poem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  header,header:has(nav.open){padding:18px 5% 50px}
+  .header-identity .menu{min-height:44px}
+  nav.open{gap:8px;padding-top:16px}
+  nav a{min-height:44px;display:flex;align-items:center;justify-content:center;font-size:12px;padding:10px 8px}
+  .hero,body:has(nav.open) .hero{grid-template-columns:minmax(0,1fr);min-height:0;padding:0;margin-top:20px}
+  .hero-copy{padding:32px 8% 34px}
+  .hero h1{font-size:28px;margin-bottom:10px}
+  .hero h1 em{font-size:42px}
+  .hero .realname{font-size:15px}
+  .hero .eyebrow{font-size:10px;letter-spacing:1.6px;margin-bottom:14px}
+  .hero .realname+.actions{margin-top:22px}
+  .hero .carousel-images{height:auto;min-height:0;aspect-ratio:1/1}
+  .home-biography{grid-template-columns:minmax(0,1fr);gap:18px;margin-top:20px;padding:26px}
+  .home-biography-copy{font-size:14px;line-height:1.85}
+  .home-legacy{gap:18px;margin-bottom:28px}
+  .home-legacy>section{padding:26px}
+  .home-legacy p:not(.eyebrow){font-size:14px;line-height:1.8}
+  body:not(.subpage) .poetry{padding:40px 0}
+  .section-heading{gap:10px;padding-bottom:26px;margin-bottom:26px}
+  .section-description{font-size:13px}
+  .poem-grid{gap:16px}
+  .poem-card{min-height:190px;padding:24px}
+  .poem-card strong{font-size:21px;margin-bottom:16px}
+  .poetry-more .outline-button{width:100%;justify-content:center;font-size:13px;padding:14px 16px}
+  .subpage main{width:92%}
+  .subpage .bio-layout{gap:24px}
+  .footer-bottom{align-items:center;text-align:center}
+  .footer-legal{align-items:center}
+  .footer-credit-contact{align-self:center}
+  .background-music{bottom:max(12px,env(safe-area-inset-bottom))}
+}
+@media(max-width:380px){.brand{gap:6px}.header-flama{width:28px;height:42px}.brand-saz{width:24px;height:42px}.brand-text{font-size:15px}.brand-text>span{font-size:10px;letter-spacing:0}.header-identity{gap:8px}.header-identity .menu{padding:9px 10px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.poem-card,.poem-card:after{transition:none}}
