@@ -25,7 +25,7 @@
     });
     previous.disabled = current === 0;
     next.disabled = last === pages.length;
-    status.textContent = current === 0 ? 'Kapak · Saz ile Söz' : last - current === 1 ? `Sayfa ${current + 1} / ${pages.length}` : `Sayfa ${current + 1}–${last} / ${pages.length}`;
+    status.textContent = current === 0 ? 'Kapak · Sazıyla Sözüyle' : last - current === 1 ? `Sayfa ${current + 1} / ${pages.length}` : `Sayfa ${current + 1}–${last} / ${pages.length}`;
     next.textContent = current === 0 ? 'Kitabı aç →' : 'Sonraki →';
     progress.max = pages.length;
     progress.value = last;
