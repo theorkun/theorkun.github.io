@@ -10,6 +10,10 @@
   const spread = reader.querySelector('.book-spread');
   const smallScreen = window.matchMedia('(max-width:760px)');
   let current = 0;
+  let flipping = false;
+  let drag = null;
+  let suppressClickUntil = 0;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)');
   const step = () => smallScreen.matches ? 1 : 2;
   function render() {
     if (!smallScreen.matches && current > 0) current = 1 + Math.floor((current - 1) / 2) * 2;
@@ -31,15 +35,95 @@
     option.textContent = `${index + 1}. ${page.dataset.title}`;
     contents.append(option);
   });
+  function destinationFor(direction) {
+    return current === 0 && direction > 0 ? 1 : current === 1 && direction < 0 ? 0 : current + direction * step();
+  }
+  function canTurn(direction) {
+    const destination = destinationFor(direction);
+    return destination >= 0 && destination < pages.length;
+  }
+  function createSheet(direction) {
+    const visible = pages.filter(page => !page.hidden);
+    const sheet = document.createElement('div');
+    sheet.className = `book-turn-sheet ${direction > 0 ? 'turn-forward' : 'turn-backward'}`;
+    sheet.setAttribute('aria-hidden', 'true');
+    sheet.inert = true;
+    const face = (direction > 0 ? visible[visible.length - 1] : visible[0]).cloneNode(true);
+    face.hidden = false;
+    sheet.append(face);
+    spread.append(sheet);
+    return sheet;
+  }
+  function angleFor(direction, amount) {
+    return `rotateY(${direction * -165 * amount}deg)`;
+  }
+  async function finishTurn(direction, sheet, amount, commit) {
+    flipping = true;
+    const destination = destinationFor(direction);
+    spread.classList.add('is-turning');
+    try {
+      if (!reducedMotion.matches && sheet.animate) {
+        await sheet.animate([
+          { transform: angleFor(direction, amount) },
+          { transform: angleFor(direction, commit ? 1 : 0) }
+        ], { duration: Math.max(120, 600 * (commit ? 1 - amount : amount)), easing: 'cubic-bezier(.22,.65,.25,1)', fill: 'forwards' }).finished;
+      }
+      if (commit) current = destination;
+    } finally {
+      sheet.remove();
+      spread.classList.remove('is-turning');
+      flipping = false;
+      render();
+    }
+  }
   function turn(direction) {
-    const destination = current === 0 && direction > 0 ? 1 : current === 1 && direction < 0 ? 0 : current + direction * step();
-    if (destination < 0 || destination >= pages.length) return;
-    current = destination;
-    render();
+    if (flipping || drag || !canTurn(direction)) return;
+    finishTurn(direction, createSheet(direction), 0, true);
   }
   previous.addEventListener('click', () => turn(-1));
   next.addEventListener('click', () => turn(1));
-  contents.addEventListener('change', () => { current = Number(contents.value); render(); });
+  contents.addEventListener('change', () => {
+    if (flipping || drag) { contents.value = String(current); return; }
+    current = Number(contents.value); render();
+  });
+  spread.addEventListener('dragstart', event => event.preventDefault());
+  spread.addEventListener('pointerdown', event => {
+    if (flipping || drag || !event.isPrimary || event.button !== 0 || event.target.closest('a')) return;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, amount: 0, sheet: null, direction: 0 };
+  });
+  spread.addEventListener('pointermove', event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    const dx = event.clientX - drag.x;
+    const dy = event.clientY - drag.y;
+    if (!drag.sheet) {
+      if (Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx)) { drag = null; return; }
+      if (Math.abs(dx) < 10) return;
+      drag.direction = dx < 0 ? 1 : -1;
+      if (!canTurn(drag.direction)) { drag = null; return; }
+      drag.sheet = createSheet(drag.direction);
+      spread.classList.add('is-turning');
+      spread.setPointerCapture(event.pointerId);
+    }
+    event.preventDefault();
+    const width = spread.getBoundingClientRect().width;
+    drag.amount = Math.max(0, Math.min(.95, (drag.direction > 0 ? -dx : dx) / Math.max(1, width * .65)));
+    drag.sheet.style.transform = angleFor(drag.direction, drag.amount);
+  });
+  function releaseDrag(event, cancelled = false) {
+    if (!drag || event.pointerId !== drag.id) return;
+    const released = drag;
+    drag = null;
+    if (spread.hasPointerCapture(event.pointerId)) spread.releasePointerCapture(event.pointerId);
+    if (!released.sheet) return;
+    suppressClickUntil = Date.now() + 400;
+    finishTurn(released.direction, released.sheet, released.amount, !cancelled && released.amount >= .18);
+  }
+  spread.addEventListener('pointerup', event => releaseDrag(event));
+  spread.addEventListener('pointercancel', event => releaseDrag(event, true));
+  spread.addEventListener('lostpointercapture', event => releaseDrag(event, true));
+  spread.addEventListener('click', event => {
+    if (Date.now() < suppressClickUntil || flipping) { event.preventDefault(); event.stopImmediatePropagation(); }
+  }, true);
   reader.addEventListener('keydown', event => {
     if (event.target.closest('select,input,textarea')) return;
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
