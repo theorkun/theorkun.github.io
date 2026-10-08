@@ -10,7 +10,6 @@
   const spread = reader.querySelector('.book-spread');
   const smallScreen = window.matchMedia('(max-width:760px)');
   let current = 0;
-  let fontSize = 18;
   const step = () => smallScreen.matches ? 1 : 2;
   function render() {
     if (!smallScreen.matches && current > 0) current = 1 + Math.floor((current - 1) / 2) * 2;
@@ -48,13 +47,37 @@
       turn(event.key === 'ArrowRight' ? 1 : -1);
     }
   });
-  reader.querySelectorAll('[data-font-change]').forEach(button => {
+  const scanDialog = document.querySelector('#scan-dialog');
+  const scanImage = document.querySelector('#scan-image');
+  const zoomOut = document.querySelector('#scan-zoom-out');
+  const zoomIn = document.querySelector('#scan-zoom-in');
+  let zoom = 100;
+  function updateZoom() {
+    scanImage.style.width = `${zoom}%`;
+    document.querySelector('#scan-zoom-value').textContent = `${zoom}%`;
+    zoomOut.disabled = zoom === 100;
+    zoomIn.disabled = zoom === 300;
+  }
+  reader.querySelectorAll('[data-scan]').forEach(button => {
     button.addEventListener('click', () => {
-      fontSize = Math.max(16, Math.min(22, fontSize + Number(button.dataset.fontChange)));
-      reader.style.setProperty('--reading-size', `${fontSize}px`);
-      reader.querySelector('[data-font-change="-1"]').disabled = fontSize === 16;
-      reader.querySelector('[data-font-change="1"]').disabled = fontSize === 22;
+      scanImage.src = button.dataset.scan;
+      scanImage.alt = button.dataset.scanTitle;
+      document.querySelector('#scan-title').textContent = button.dataset.scanTitle;
+      zoom = 100;
+      updateZoom();
+      scanDialog.showModal();
+      const viewport = scanDialog.querySelector('.scan-viewport');
+      viewport.scrollTop = 0;
+      viewport.scrollLeft = 0;
     });
+  });
+  zoomOut.addEventListener('click', () => { zoom = Math.max(100, zoom - 50); updateZoom(); });
+  zoomIn.addEventListener('click', () => { zoom = Math.min(300, zoom + 50); updateZoom(); });
+  document.querySelector('#scan-close').addEventListener('click', () => scanDialog.close());
+  scanDialog.addEventListener('click', event => {
+    if (event.target !== scanDialog) return;
+    const rect = scanDialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) scanDialog.close();
   });
   smallScreen.addEventListener('change', render);
   reader.querySelectorAll('[data-reader-controls]').forEach(element => { element.hidden = false; });
