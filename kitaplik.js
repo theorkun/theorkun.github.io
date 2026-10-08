@@ -8,15 +8,13 @@
   const status = reader.querySelector('#book-status');
   const progress = reader.querySelector('progress');
   const spread = reader.querySelector('.book-spread');
-  const smallScreen = window.matchMedia('(max-width:760px)');
   let current = 0;
   let flipping = false;
   let drag = null;
   let suppressClickUntil = 0;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion:reduce)');
-  const step = () => smallScreen.matches ? 1 : 2;
+  const step = () => 1;
   function render() {
-    if (!smallScreen.matches && current > 0) current = 1 + Math.floor((current - 1) / 2) * 2;
     const last = Math.min(current + (current === 0 ? 1 : step()), pages.length);
     spread.classList.toggle('is-single', last - current === 1);
     spread.classList.toggle('is-cover', current === 0);
@@ -163,7 +161,6 @@
     const rect = scanDialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) scanDialog.close();
   });
-  smallScreen.addEventListener('change', render);
   reader.querySelectorAll('[data-reader-controls]').forEach(element => { element.hidden = false; });
   render();
 })();
