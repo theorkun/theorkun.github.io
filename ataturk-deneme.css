@@ -1,0 +1,5 @@
+/* Temporary header logo trial. The original flama asset is preserved. */
+.header-ataturk-trial{position:static;display:block;flex:0 0 auto;width:80px;height:90px;object-fit:contain;pointer-events:none}
+@media(max-width:760px){.header-ataturk-trial{width:52px;height:66px}}
+@media(max-width:430px){.header-ataturk-trial{width:40px;height:48px}}
+@media(max-width:380px){.header-ataturk-trial{width:34px;height:42px}}
