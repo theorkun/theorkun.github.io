@@ -1,4 +1,8 @@
 (() => {
+  // The outer page keeps the same Audio instance while inner site pages change.
+  try {
+    if (window.parent !== window && window.parent.ceyhaniNavigation) return;
+  } catch (_) {}
   const storageKey = 'ceyhani-background-music';
   const readPreference = () => {
     try { return JSON.parse(sessionStorage.getItem(storageKey)) || {}; }
@@ -65,6 +69,7 @@
         update();
         save();
       };
+      document.addEventListener('ceyhani-pause-music', pause);
       toggle.addEventListener('click', () => audio.paused && mode !== 'playing' ? play() : pause());
       close.addEventListener('click', () => {
         pause();
@@ -98,6 +103,7 @@
         }
       });
       window.addEventListener('pagehide', save);
+      document.addEventListener('ceyhani-page-change', save);
       if (mode === 'closed') {
         panel.hidden = true;
         reopen.hidden = false;
