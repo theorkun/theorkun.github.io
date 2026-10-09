@@ -74,7 +74,7 @@
     const destination = destinationFor(direction);
     spread.classList.add('is-turning');
     try {
-      if (!reducedMotion.matches && sheet.animate) {
+      if (!reducedMotion.matches && !document.documentElement.classList.contains('a11y-reduced-motion') && sheet.animate) {
         const target = commit ? 1 : 0;
         const frames = [0, .2, .5, .8, 1].map(offset => ({
           offset,

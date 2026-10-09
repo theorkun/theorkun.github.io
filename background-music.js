@@ -92,7 +92,7 @@
       document.addEventListener('click', event => {
         if (event.target.closest('.channel-video-card')) {
           if (mode === 'playing' || autoStartWanted) pause();
-        } else if (autoStartWanted && audio.paused && !event.target.closest('.background-music')) {
+        } else if (autoStartWanted && audio.paused && !event.target.closest('.background-music, .accessibility-widget, #accessibility-dialog')) {
           // A visitor's first click can start audio when automatic playback was blocked.
           play();
         }

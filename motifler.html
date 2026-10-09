@@ -7,11 +7,12 @@
 <meta name="description" content="Âşık Ceyhanî’nin dijital dünyadaki kültürel kimliği: Anadolu dokuma motifleri, saz figürü, renkler ve tasarımın taşıdığı anlamlar.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23087f99'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EC%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="reference.css">
+<link rel="stylesheet" href="accessibility.css?v=1">
 </head>
 <body class="subpage">
 <a class="skip" href="#main-content">İçeriğe geç</a>
 <header><div class="header-identity"><a class="brand" href="index.html#ana"><img class="header-flama" src="assets/ataturk-flama.png" alt="Türk bayrağı ve Mustafa Kemal Atatürk portreli flama" width="1024" height="1536"><img class="brand-saz" src="assets/saz-motifi.svg" alt="" aria-hidden="true" width="64" height="100"><span class="brand-text">Aşık Ceyhani<span>Durmuş Ali Sayıcı</span></span></a><button class="menu" aria-expanded="false" aria-controls="nav">Menü</button></div><nav id="nav" aria-label="Ana menü"><a href="index.html#ana">Ana Sayfa</a><a href="hayati.html">Hayatı</a><a href="videolar.html">Videolar</a><a href="siirler.html">Şiirleri</a><a href="kitaplik.html">Dijital Kitaplık</a><a href="fotograflar.html">Fotoğrafları</a><a class="active" aria-current="page" href="motifler.html">Kültürel Kimlik</a></nav></header>
-<main id="main-content">
+<main id="main-content" tabindex="-1">
 <a class="back-home" href="index.html">← Ana sayfaya dön</a>
 <section id="motifler" class="motif-guide section" aria-labelledby="motif-guide-title">
   <div class="section-heading"><div><h1 id="motif-guide-title" class="section-title">KÜLTÜREL KİMLİK</h1><p class="motif-guide-tagline">Geçmişten gelen izler, dijital dünyada yaşayan bir miras</p></div></div>
@@ -53,8 +54,9 @@
 
 </main>
 <footer><div class="footer-identity"><div class="footer-name">Aşık Ceyhani<span>Durmuş Ali Sayıcı</span></div></div><div class="footer-bottom"><div class="footer-legal"><a class="footer-motif-link" href="motifler.html">Kültürel Kimlik</a><p class="copyright">© 2026 — Her Hakkı Saklıdır. Kopyalanamaz, değiştirilemez.</p></div><div class="footer-credit-contact"><a class="site-credit" href="mailto:orkunsayici88@gmail.com"><img src="assets/kocboynuzu.svg" alt="" aria-hidden="true" width="36" height="36"><span class="site-credit-copy"><span class="site-credit-label">Tasarım ve Yazılım</span><span class="site-credit-name">Orkun Sayıcı</span></span></a><details class="footer-contact"><summary>Bize Ulaşın</summary><div class="footer-emails"><a href="mailto:orkunsayici88@gmail.com">orkunsayici88@gmail.com</a><a href="mailto:oguzhansayici@gmail.com">oguzhansayici@gmail.com</a></div></details></div></div></footer>
-<dialog id="lightbox"><div class="dialog-top"><p id="image-caption"></p><button id="close" aria-label="Fotoğrafı kapat"><span class="control-label">Kapat ×</span></button></div><img id="large-image" alt=""></dialog>
-<dialog id="poem-dialog" class="poem-dialog"><div class="dialog-top poem-dialog-top"><div><p class="eyebrow">ŞİİR</p><h3 id="poem-title"></h3></div><button id="poem-close" aria-label="Şiiri kapat"><span class="control-label">Kapat ×</span></button></div><div class="poem-modal-body"><p class="poem-modal-author" id="poem-author"></p><figure id="poem-manuscript" class="poem-modal-manuscript" hidden><figcaption>El yazısı aslı</figcaption><button class="poem-manuscript-viewer" type="button" data-image="assets/siir.jpg" data-alt="Yüzüm Gülmedi şiirinin el yazısı aslı" aria-label="El yazısı şiiri büyüt"><img src="assets/siir.jpg" alt="Yüzüm Gülmedi şiirinin el yazısı aslı" loading="lazy"></button></figure><div id="poem-content" class="poem-modal-content"></div></div></dialog>
+<dialog id="lightbox" aria-labelledby="image-caption"><div class="dialog-top"><p id="image-caption"></p><button id="close" aria-label="Fotoğrafı kapat"><span class="control-label">Kapat ×</span></button></div><img id="large-image" alt=""></dialog>
+<dialog id="poem-dialog" class="poem-dialog" aria-labelledby="poem-title"><div class="dialog-top poem-dialog-top"><div><p class="eyebrow">ŞİİR</p><h3 id="poem-title"></h3></div><button id="poem-close" aria-label="Şiiri kapat"><span class="control-label">Kapat ×</span></button></div><div class="poem-modal-body"><p class="poem-modal-author" id="poem-author"></p><figure id="poem-manuscript" class="poem-modal-manuscript" hidden><figcaption>El yazısı aslı</figcaption><button class="poem-manuscript-viewer" type="button" data-image="assets/siir.jpg" data-alt="Yüzüm Gülmedi şiirinin el yazısı aslı" aria-label="El yazısı şiiri büyüt"><img src="assets/siir.jpg" alt="Yüzüm Gülmedi şiirinin el yazısı aslı" loading="lazy"></button></figure><div id="poem-content" class="poem-modal-content"></div></div></dialog>
 <script src="app.js"></script><script src="background-music.js"></script>
 
+<script src="accessibility.js?v=1"></script>
 </body></html>
