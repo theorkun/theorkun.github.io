@@ -37,6 +37,11 @@
 .accessibility-footer>span{color:#617372;font:400 10px/1.6 'Poppins',sans-serif}
 .accessibility-reset{min-height:44px;padding:8px 14px;border:1px solid #d9cbae;border-radius:10px;background:transparent;color:#075e65;font:600 12px/1.5 'Poppins',sans-serif}
 .accessibility-reset:hover{background:#f1ece2}
+.accessibility-keyboard{margin-top:18px;border:1px solid #e6dfd1;border-radius:12px;padding:0 12px}
+.accessibility-keyboard summary{min-height:44px;padding:11px 0;color:#075e65;font:600 12px/1.8 'Poppins',sans-serif;cursor:pointer}
+.accessibility-keyboard p{margin:0 0 14px;color:#526665;font:400 12px/1.9 'Poppins',sans-serif}
+.accessibility-keyboard kbd{display:inline-block;padding:0 4px;border:1px solid #d9cbae;border-radius:4px;background:#f6f2e9;color:#263d4b;font:inherit}
+.scan-viewport:focus-visible,.poem-modal-content:focus-visible{outline-offset:-4px}
 :where(a,button,input,textarea,select,summary,[tabindex]):focus-visible{outline:3px solid #08757d;outline-offset:4px}
 .skip{z-index:100;padding:12px 18px}
 #main-content:focus{outline:none}

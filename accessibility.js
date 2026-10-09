@@ -28,6 +28,7 @@
       <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h6"/>')}</span><span class="accessibility-option-copy"><strong>Hareketleri azalt</strong><span>Daha sakin sayfa geçişleri.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="motion" aria-label="Hareketleri azalt"><span aria-hidden="true"></span></span></label>
       <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<path d="M10 13a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-2 2M14 11a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l2-2M5 23h14"/>')}</span><span class="accessibility-option-copy"><strong>Bağlantıları belirginleştir</strong><span>Bağlantıların altını çizin.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="links" aria-label="Bağlantıların altını çiz"><span aria-hidden="true"></span></span></label>
     </div>
+    <details class="accessibility-keyboard"><summary>Klavyeyle nasıl kullanırım?</summary><p><kbd>Tab</kbd> ile ilerleyin, <kbd>Shift</kbd> + <kbd>Tab</kbd> ile geri dönün. Düğmeleri <kbd>Enter</kbd> veya boşluk tuşuyla kullanın. Açılır pencereleri <kbd>Esc</kbd> ile kapatın. Kitapta ve ana fotoğraflarda sağ ve sol ok tuşlarıyla gezinin.</p></details>
     <div class="accessibility-footer"><span>Tercihleriniz hatırlanır.</span><button type="button" class="accessibility-reset">Sıfırla</button></div>`;
   document.body.append(widget, dialog);
   const opener = widget.querySelector('button');

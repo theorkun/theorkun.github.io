@@ -1,14 +1,27 @@
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('#nav');
+function closeNavigation() {
+  menu.setAttribute('aria-expanded', 'false');
+  nav.classList.remove('open');
+}
 menu.addEventListener('click', () => {
   const open = menu.getAttribute('aria-expanded') !== 'true';
   menu.setAttribute('aria-expanded', String(open));
   nav.classList.toggle('open', open);
 });
 nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  menu.setAttribute('aria-expanded', 'false');
-  nav.classList.remove('open');
+  closeNavigation();
 }));
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || menu.getAttribute('aria-expanded') !== 'true') return;
+  if (document.querySelector('dialog[open]')) return;
+  event.preventDefault();
+  closeNavigation();
+  menu.focus({ preventScroll: true });
+});
+document.addEventListener('focusin', event => {
+  if (!menu.contains(event.target) && !nav.contains(event.target)) closeNavigation();
+});
 const poetrySection = document.querySelector('#siirleri');
 if (poetrySection) {
   const existingLayout = poetrySection.querySelector('.poem-layout');
