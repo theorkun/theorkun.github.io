@@ -19,13 +19,16 @@
   dialog.id = 'accessibility-dialog';
   dialog.className = 'accessibility-dialog';
   dialog.setAttribute('aria-labelledby', 'accessibility-title');
-  dialog.innerHTML = `<div class="accessibility-heading"><h2 id="accessibility-title">Erişilebilirlik</h2><button type="button" data-close aria-label="Erişilebilirlik ayarlarını kapat">×</button></div>
-    <p>Okuma deneyimini kendinize göre düzenleyin.</p>
-    <fieldset><legend>Yazı boyutu</legend><div class="accessibility-size"><button type="button" data-smaller aria-label="Yazıları küçült">A−</button><output aria-live="polite" aria-label="Yazı boyutu">100%</output><button type="button" data-larger aria-label="Yazıları büyüt">A+</button></div></fieldset>
-    <label><input type="checkbox" data-setting="contrast"> Yüksek kontrast</label>
-    <label><input type="checkbox" data-setting="motion"> Hareketleri azalt</label>
-    <label><input type="checkbox" data-setting="links"> Bağlantıların altını çiz</label>
-    <button type="button" class="accessibility-reset">Ayarları sıfırla</button>`;
+  const optionIcon = path => `<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
+  dialog.innerHTML = `<div class="accessibility-heading"><div><p class="accessibility-eyebrow">OKUMA AYARLARI</p><h2 id="accessibility-title">Size göre bir deneyim</h2></div><button type="button" data-close aria-label="Erişilebilirlik ayarlarını kapat">×</button></div>
+    <p class="accessibility-intro">Dizeleri daha rahat okumak için küçük dokunuşlar.</p>
+    <fieldset><legend>Yazı boyutu</legend><div class="accessibility-size"><button type="button" data-smaller aria-label="Yazıları küçült">A−</button><div class="accessibility-size-value"><output aria-live="polite" aria-label="Yazı boyutu">100%</output><span>okuma boyutu</span></div><button type="button" data-larger aria-label="Yazıları büyüt">A+</button></div></fieldset>
+    <div class="accessibility-options">
+      <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/>')}</span><span class="accessibility-option-copy"><strong>Yüksek kontrast</strong><span>Yazıları daha belirgin görün.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="contrast" aria-label="Yüksek kontrast"><span aria-hidden="true"></span></span></label>
+      <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h6"/>')}</span><span class="accessibility-option-copy"><strong>Hareketleri azalt</strong><span>Daha sakin sayfa geçişleri.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="motion" aria-label="Hareketleri azalt"><span aria-hidden="true"></span></span></label>
+      <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<path d="M10 13a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-2 2M14 11a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l2-2M5 23h14"/>')}</span><span class="accessibility-option-copy"><strong>Bağlantıları belirginleştir</strong><span>Bağlantıların altını çizin.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="links" aria-label="Bağlantıların altını çiz"><span aria-hidden="true"></span></span></label>
+    </div>
+    <div class="accessibility-footer"><span>Tercihleriniz hatırlanır.</span><button type="button" class="accessibility-reset">Sıfırla</button></div>`;
   document.body.append(widget, dialog);
   const opener = widget.querySelector('button');
   const smaller = dialog.querySelector('[data-smaller]');
