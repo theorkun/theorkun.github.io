@@ -8,6 +8,8 @@
   const status = reader.querySelector('#book-status');
   const progress = reader.querySelector('progress');
   const spread = reader.querySelector('.book-spread');
+  const chapterButtons = [...reader.querySelectorAll('[data-book-section]')];
+  const jumpMenu = reader.querySelector('.reader-jump');
   let current = 0;
   let flipping = false;
   let drag = null;
@@ -30,6 +32,10 @@
     progress.max = pages.length;
     progress.value = last;
     contents.value = String(current);
+    chapterButtons.forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.bookSection === pages[current].dataset.section));
+      button.disabled = !pages.some(page => page.dataset.section === button.dataset.bookSection);
+    });
   }
   pages.forEach((page, index) => {
     const option = document.createElement('option');
@@ -93,10 +99,19 @@
   }
   previous.addEventListener('click', () => turn(-1));
   next.addEventListener('click', () => turn(1));
-  contents.addEventListener('change', () => {
-    if (flipping || drag) { contents.value = String(current); return; }
-    current = Number(contents.value); render();
-  });
+  function jumpTo(index) {
+    if (flipping || drag || !Number.isInteger(index) || index < 0 || index >= pages.length) {
+      contents.value = String(current);
+      return;
+    }
+    current = index;
+    if (jumpMenu) jumpMenu.open = false;
+    render();
+  }
+  contents.addEventListener('change', () => jumpTo(Number(contents.value)));
+  chapterButtons.forEach(button => button.addEventListener('click', () => {
+    jumpTo(pages.findIndex(page => page.dataset.section === button.dataset.bookSection));
+  }));
   spread.addEventListener('dragstart', event => event.preventDefault());
   spread.addEventListener('pointerdown', event => {
     if (flipping || drag || !event.isPrimary || event.button !== 0 || event.target.closest('a')) return;
@@ -175,5 +190,6 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) scanDialog.close();
   });
   reader.querySelectorAll('[data-reader-controls]').forEach(element => { element.hidden = false; });
+  reader.classList.add('is-ready');
   render();
 })();
