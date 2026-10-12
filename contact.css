@@ -1,0 +1,12 @@
+.contact-dialog{width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:26px;border:1px solid #dcc9a6;border-radius:18px;background:#fffdf8;color:#263d4b;box-shadow:0 20px 70px #07334830}
+.contact-dialog::backdrop{background:#07334890;backdrop-filter:blur(3px)}
+.contact-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.contact-heading h2{margin:0;color:#073348;font:700 26px/1.4 'Quicksand',sans-serif}
+.contact-heading button{min-width:44px;min-height:44px;border:1px solid #dcc9a6;border-radius:50%;background:transparent;color:#073348;font-size:25px}
+.contact-dialog>p{font-size:13px;margin:14px 0 18px}
+.contact-dialog>label{display:block;margin-bottom:7px;font-size:12px;font-weight:600}
+.contact-dialog>input{width:100%;min-height:46px;margin-bottom:18px;padding:10px 12px;border:1px solid #adc5c4;border-radius:8px;background:#fff;color:#073348;font:500 15px/1.6 'Poppins',sans-serif}
+.contact-dialog>a,.contact-copy{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;margin:9px 0;padding:10px 14px;border:1px solid #08757d;border-radius:9px;background:transparent;color:#08757d;font:600 13px/1.6 'Poppins',sans-serif;text-align:center}
+.contact-dialog>.contact-webmail{background:#08757d;color:#fff}
+.contact-dialog>.contact-note{font-size:11px;color:#526a73;margin-bottom:0}
+.contact-dialog>.contact-status{min-height:22px;margin:12px 0 0;font-size:12px;color:#08757d}
