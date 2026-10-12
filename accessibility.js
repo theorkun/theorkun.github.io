@@ -1,40 +1,53 @@
 (() => {
-  const root = document.documentElement;
-  const key = 'ceyhani-accessibility';
-  const defaults = { size: 100, contrast: false, motion: false, links: false };
-  let settings = { ...defaults };
-  try {
-    const saved = JSON.parse(localStorage.getItem(key));
-    if (saved) settings = {
-      size: [100, 125, 150, 175, 200].includes(saved.size) ? saved.size : 100,
-      contrast: saved.contrast === true, motion: saved.motion === true, links: saved.links === true
-    };
-  } catch (_) { /* Preferences remain usable when storage is unavailable. */ }
-
-  const widget = document.createElement('div');
-  widget.className = 'accessibility-widget';
-  widget.innerHTML = `<button type="button" class="accessibility-open" aria-haspopup="dialog" aria-controls="accessibility-dialog" aria-label="Erişilebilirlik ayarlarını aç">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M3 8l9 2 9-2M12 10v5m0 0l-5 7m5-7l5 7"/></svg><span>Erişilebilirlik</span></button>`;
-  const dialog = document.createElement('dialog');
-  dialog.id = 'accessibility-dialog';
-  dialog.className = 'accessibility-dialog';
-  dialog.setAttribute('aria-labelledby', 'accessibility-title');
-  const optionIcon = path => `<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
-  dialog.innerHTML = `<div class="accessibility-heading"><div><p class="accessibility-eyebrow">OKUMA AYARLARI</p><h2 id="accessibility-title">Size göre bir deneyim</h2></div><button type="button" data-close aria-label="Erişilebilirlik ayarlarını kapat">×</button></div>
-    <p class="accessibility-intro">Dizeleri daha rahat okumak için küçük dokunuşlar.</p>
-    <fieldset><legend>Yazı boyutu</legend><div class="accessibility-size"><button type="button" data-smaller aria-label="Yazıları küçült">A−</button><div class="accessibility-size-value"><output aria-live="polite" aria-label="Yazı boyutu">100%</output><span>okuma boyutu</span></div><button type="button" data-larger aria-label="Yazıları büyüt">A+</button></div></fieldset>
-    <div class="accessibility-options">
-      <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/>')}</span><span class="accessibility-option-copy"><strong>Yüksek kontrast</strong><span>Yazıları daha belirgin görün.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="contrast" aria-label="Yüksek kontrast"><span aria-hidden="true"></span></span></label>
-      <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h6"/>')}</span><span class="accessibility-option-copy"><strong>Hareketleri azalt</strong><span>Daha sakin sayfa geçişleri.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="motion" aria-label="Hareketleri azalt"><span aria-hidden="true"></span></span></label>
-      <label class="accessibility-option"><span class="accessibility-option-icon">${optionIcon('<path d="M10 13a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-2 2M14 11a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l2-2M5 23h14"/>')}</span><span class="accessibility-option-copy"><strong>Bağlantıları belirginleştir</strong><span>Bağlantıların altını çizin.</span></span><span class="accessibility-switch"><input type="checkbox" data-setting="links" aria-label="Bağlantıların altını çiz"><span aria-hidden="true"></span></span></label>
-    </div>
-    <details class="accessibility-keyboard"><summary>Klavyeyle nasıl kullanırım?</summary><p><kbd>Tab</kbd> ile ilerleyin, <kbd>Shift</kbd> + <kbd>Tab</kbd> ile geri dönün. Düğmeleri <kbd>Enter</kbd> veya boşluk tuşuyla kullanın. Açılır pencereleri <kbd>Esc</kbd> ile kapatın. Kitapta ve ana fotoğraflarda sağ ve sol ok tuşlarıyla gezinin.</p></details>
-    <div class="accessibility-footer"><span>Tercihleriniz hatırlanır.</span><button type="button" class="accessibility-reset">Sıfırla</button></div>`;
-  document.body.append(widget, dialog);
+  const root = document.documentElement, key = 'ceyhani-accessibility';
+  const defaults = { size:100, contrast:false, motion:false, links:false, light:false, color:0, saturation:0, images:false, easy:false, warm:false, font:false, line:false, mask:false, cursor:false, height:0, align:0, focus:false };
+  const levels = {size:[100,125,150,175,200],color:[0,1,2],saturation:[0,1,2,3],height:[0,1,2,3],align:[0,1,2]};
+  function readSettings() {
+    let saved;
+    try { saved = JSON.parse(localStorage.getItem(key)); } catch (_) {}
+    const next = {...defaults};
+    for (const name of Object.keys(defaults)) next[name] = levels[name] ? (levels[name].includes(saved?.[name]) ? saved[name] : defaults[name]) : saved?.[name] === true;
+    return next;
+  }
+  let settings = readSettings();
+  const icon = path => `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
+  const options = [
+    ['structure','Sayfa Yap?s?','<rect x="3" y="3" width="6" height="6"/><rect x="15" y="15" width="6" height="6"/><path d="M6 9v9h9M12 6h9M18 6v6"/>'],
+    ['light','Albino Modu','<circle cx="12" cy="4" r="2"/><path d="M4 9h16M12 7v8M12 15l-4 7m4-7l4 7"/>'],
+    ['color','Renk K?r? Modu','<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'],
+    ['focus','Odak Takibi','<path d="M8 12V5a2 2 0 0 1 4 0v6l3-1 5 2-2 8H9l-5-6a2 2 0 0 1 3-2l1 1"/>'],
+    ['saturation','Doygunluk Modu','<path d="M12 2S5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13z"/><path d="M12 5v16"/>'],
+    ['contrast','Kontrast Modu','<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/>'],
+    ['size','Metin B?y?tme','<circle cx="10" cy="10" r="7"/><path d="M15 15l6 6M7 10h6M10 7v6"/>'],
+    ['images','Resimleri Gizle','<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 3l18 18M4 17l5-5M13 13l3-3 5 6"/>'],
+    ['links','Linkleri Vurgula','<path d="M10 13a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-2 2M14 11a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l2-2"/>'],
+    ['easy','Kolay Okuma','<path d="M5 19L12 4l7 15M8 13h8M4 22h16"/>'],
+    ['warm','Mavi I??k Filtresi','<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12l1 1M5 19l1-1M18 6l1-1"/>'],
+    ['motion','Animasyonlar? Durdur','<circle cx="12" cy="12" r="9"/><path d="M6 6l12 12"/>'],
+    ['font','Okunakl? Font','<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 17l5-10 5 10M9 13h6"/>'],
+    ['line','Okuma ?izgisi','<path d="M3 17h18M3 5h18M3 9h12M3 13h15"/>'],
+    ['mask','Okuma Maskesi','<path d="M3 5h18v4H3zM3 15h18v4H3z" fill="currentColor"/>'],
+    ['cursor','B?y?k ?mle?','<path d="M5 3v17l5-5 4 6 3-2-4-6h7z"/>'],
+    ['height','Sat?r Y?ksekli?i','<path d="M6 3v18M3 6l3-3 3 3M3 18l3 3 3-3M13 5h8M13 12h8M13 19h8"/>'],
+    ['align','Metin Hizalama','<path d="M3 4h18M3 9h12M3 14h18M3 19h12"/>']
+  ];
+  const descriptions = { light:'A??k zemin ve koyu yaz?',color:'Gri tonlar veya mavi-sar? g?r?n?m',focus:'?mlecin ?zerindeki ba?lant? ve d??meyi odaklar; otomatik t?klamaz',font:'Arial fontu ve daha geni? harf aral???',warm:'Ekran renklerine s?cak bir ton ekler' };
+  const widget = document.createElement('div'); widget.className = 'accessibility-widget';
+  widget.innerHTML = `<button type="button" class="accessibility-open" aria-haspopup="dialog" aria-controls="accessibility-dialog" aria-label="Eri?ilebilirlik ayarlar?n? a?">${icon(options[1][2])}<span>Eri?ilebilirlik</span></button>`;
+  const dialog = document.createElement('dialog'); dialog.id = 'accessibility-dialog'; dialog.className = 'accessibility-dialog';
+  dialog.setAttribute('aria-labelledby','accessibility-title');
+  dialog.innerHTML = `<div class="accessibility-heading"><div><p class="accessibility-eyebrow">S?ZE G?RE B?R DENEY?M</p><h2 id="accessibility-title">Eri?ilebilirlik</h2></div><button type="button" data-close aria-label="Eri?ilebilirlik ayarlar?n? kapat">?</button></div>
+    <div class="accessibility-body"><p class="accessibility-intro">Bir karta dokunarak ayar? a??n. Noktal? kartlara tekrar dokunarak seviyeyi de?i?tirin.</p>
+    <div class="accessibility-grid">${options.map(([name,label,path]) => `<button type="button" class="accessibility-card" data-setting="${name}" ${name === 'structure' ? 'aria-expanded="false" aria-controls="accessibility-structure"' : 'aria-pressed="false"'} ${descriptions[name] ? `title="${descriptions[name]}"` : ''}>${icon(path)}<span class="accessibility-card-label">${label}</span>${levels[name] ? `<span class="accessibility-dots" aria-hidden="true">${levels[name].slice(1).map(() => '<i></i>').join('')}</span>` : '<span class="accessibility-card-check" aria-hidden="true">?</span>'}<span class="accessibility-card-value"></span></button>`).join('')}</div>
+    <section id="accessibility-structure" class="accessibility-structure" aria-label="Sayfa ba?l?klar?" hidden><h3>Sayfa ba?l?klar?</h3><div></div></section>
+    <details class="accessibility-keyboard"><summary>Klavyeyle nas?l kullan?r?m?</summary><p>Tab ile ilerleyin, Shift + Tab ile geri d?n?n. Enter veya bo?luk ile se?im yap?n. Esc ile paneli kapat?n. Kitapta ok tu?lar?yla sayfa ?evirin.</p></details></div>
+    <div class="accessibility-footer"><button type="button" class="accessibility-reset">? Ayarlar? S?f?rla</button><span>Tercihleriniz bu taray?c?da saklan?r.</span></div>`;
+  const guide = document.createElement('div'); guide.className = 'accessibility-reading-guide'; guide.setAttribute('aria-hidden','true');
+  document.body.append(widget,dialog,guide);
   const opener = widget.querySelector('button');
-  const smaller = dialog.querySelector('[data-smaller]');
-  const larger = dialog.querySelector('[data-larger]');
-  const output = dialog.querySelector('output');
+  let closeFocusTarget = null;
+  const cards = [...dialog.querySelectorAll('[data-setting]')];
+  const structure = dialog.querySelector('#accessibility-structure');
   const originalFonts = new Map();
   let pending = false;
 
@@ -48,7 +61,7 @@
     if (settings.size === 100) return;
     const measurements = [];
     document.body.querySelectorAll('*').forEach(element => {
-      if (element.closest('.accessibility-widget, #accessibility-dialog, svg') ||
+      if (element.closest('.accessibility-widget, #accessibility-dialog, .accessibility-reading-guide, svg') ||
           ['SCRIPT', 'STYLE', 'OPTION'].includes(element.tagName)) return;
       const hasText = [...element.childNodes].some(node => node.nodeType === 3 && node.textContent.trim());
       if (!hasText && !element.matches('input, textarea, select')) return;
@@ -66,29 +79,76 @@
     pending = true;
     requestAnimationFrame(() => { pending = false; resizeText(); });
   }
-  function apply() {
-    root.classList.toggle('a11y-high-contrast', settings.contrast);
-    root.classList.toggle('a11y-reduced-motion', settings.motion);
-    root.classList.toggle('a11y-underlined-links', settings.links);
-    root.classList.toggle('a11y-large-text', settings.size > 100);
-    output.textContent = `${settings.size}%`;
-    smaller.disabled = settings.size === 100;
-    larger.disabled = settings.size === 200;
-    dialog.querySelectorAll('[data-setting]').forEach(input => { input.checked = settings[input.dataset.setting]; });
-    resizeText();
-    try { localStorage.setItem(key, JSON.stringify(settings)); } catch (_) {}
+  function valueLabel(name) {
+    if (name === 'size') return settings.size === 100 ? '' : `${settings.size}%`;
+    if (name === 'color') return ['', 'Gri tonlar', 'Mavi / sar?'][settings.color];
+    if (name === 'saturation') return ['', 'D???k', 'Y?ksek', 'Renksiz'][settings.saturation];
+    if (name === 'height') return ['', '1.8', '2.2', '2.6'][settings.height];
+    if (name === 'align') return ['', 'Sola', 'Ortaya'][settings.align];
+    return settings[name] ? 'A??k' : '';
   }
-  opener.addEventListener('click', () => dialog.showModal());
-  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => opener.focus({ preventScroll: true }));
-  smaller.addEventListener('click', () => { settings.size = Math.max(100, settings.size - 25); apply(); });
-  larger.addEventListener('click', () => { settings.size = Math.min(200, settings.size + 25); apply(); });
-  dialog.querySelectorAll('[data-setting]').forEach(input => input.addEventListener('change', () => {
-    settings[input.dataset.setting] = input.checked; apply();
+  function apply(persist = true) {
+    const classes = {contrast:'high-contrast',motion:'reduced-motion',links:'underlined-links',light:'light',images:'hide-images',easy:'easy',warm:'warm',font:'readable-font',line:'reading-line',mask:'reading-mask',cursor:'large-cursor'};
+    for (const [name,className] of Object.entries(classes)) root.classList.toggle(`a11y-${className}`,settings[name]);
+    root.classList.toggle('a11y-large-text',settings.size > 100);
+    for (const name of ['color','saturation','height','align']) root.dataset[`a11y${name[0].toUpperCase()}${name.slice(1)}`] = String(settings[name]);
+    cards.forEach(card => {
+      const name = card.dataset.setting; if (name === 'structure') return;
+      const active = levels[name] ? settings[name] !== defaults[name] : settings[name];
+      card.setAttribute('aria-pressed',String(active));
+      const value = valueLabel(name);
+      card.setAttribute('aria-label',`${options.find(option => option[0] === name)[1]}: ${value || 'Kapal?'}`);
+      const output = card.querySelector('.accessibility-card-value');
+      if (output.textContent !== value) output.textContent = value;
+      card.querySelectorAll('.accessibility-dots i').forEach((dot,i) => dot.classList.toggle('active',levels[name]?.indexOf(settings[name]) === i + 1));
+    });
+    resizeText();
+    if (persist) try {localStorage.setItem(key,JSON.stringify(settings));} catch (_) {}
+  }
+  function toggleStructure(card) {
+    structure.hidden = !structure.hidden; card.setAttribute('aria-expanded',String(!structure.hidden));
+    if (structure.hidden) return;
+    const list = structure.querySelector('div'); list.replaceChildren();
+    document.querySelectorAll('main h1, main h2, main h3').forEach(heading => {
+      if (heading.closest('[hidden]')) return;
+      const button = document.createElement('button'); button.type = 'button'; button.textContent = heading.textContent;
+      button.addEventListener('click',() => {
+        closeFocusTarget = heading; dialog.close(); const tabindex = heading.getAttribute('tabindex'); heading.setAttribute('tabindex','-1');
+        heading.scrollIntoView({block:'start'}); heading.focus({preventScroll:true});
+        heading.addEventListener('blur',() => tabindex === null ? heading.removeAttribute('tabindex') : heading.setAttribute('tabindex',tabindex),{once:true});
+      }); list.appendChild(button);
+    });
+    if (!list.children.length) list.textContent = 'Bu sayfada ba?l?k bulunamad?.';
+    structure.scrollIntoView({block:'nearest'});
+  }
+  cards.forEach(card => card.addEventListener('click',() => {
+    const name = card.dataset.setting; if (name === 'structure') {toggleStructure(card);return;}
+    if (levels[name]) settings[name] = levels[name][(levels[name].indexOf(settings[name]) + 1) % levels[name].length];
+    else settings[name] = !settings[name];
+    if (name === 'light' && settings.light) settings.contrast = false;
+    if (name === 'contrast' && settings.contrast) settings.light = false;
+    if (name === 'line' && settings.line) settings.mask = false;
+    if (name === 'mask' && settings.mask) settings.line = false;
+    apply();
   }));
-  dialog.querySelector('.accessibility-reset').addEventListener('click', () => { settings = { ...defaults }; apply(); });
-  window.addEventListener('resize', scheduleResize);
-  new MutationObserver(scheduleResize).observe(document.body, { childList: true, subtree: true });
+  opener.addEventListener('click',() => dialog.showModal());
+  dialog.querySelector('[data-close]').addEventListener('click',() => dialog.close());
+  dialog.addEventListener('close',() => {const target = closeFocusTarget || opener; closeFocusTarget = null; target.focus({preventScroll:true});});
+  dialog.querySelector('.accessibility-reset').addEventListener('click',() => {
+    settings = {...defaults}; structure.hidden = true;
+    cards.find(card => card.dataset.setting === 'structure').setAttribute('aria-expanded','false'); apply();
+  });
+  function trackReading(y) {if (settings.line || settings.mask) root.style.setProperty('--a11y-reading-y',`${Math.max(0,Math.min(innerHeight,y))}px`);}
+  document.addEventListener('pointermove',event => trackReading(event.clientY),{passive:true});
+  document.addEventListener('focusin',event => {const bounds = event.target.getBoundingClientRect();trackReading(bounds.top + bounds.height / 2);});
+  document.addEventListener('pointerover',event => {
+    if (!settings.focus || event.pointerType === 'touch' || dialog.open) return;
+    const target = event.target.closest('a[href], button, input, select, textarea, summary');
+    if (target && !target.disabled && !target.closest('.accessibility-widget')) target.focus({preventScroll:true});
+  });
+  window.addEventListener('storage',event => {if (event.key === key) {settings = readSettings();apply(false);}});
+  window.addEventListener('resize',scheduleResize);
+  new MutationObserver(scheduleResize).observe(document.body,{childList:true,subtree:true});
   if (document.fonts) document.fonts.ready.then(scheduleResize);
   apply();
 })();
