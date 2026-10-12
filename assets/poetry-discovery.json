@@ -1,0 +1,252 @@
+{
+  "poems": [
+    {
+      "title": "YETMEZMİ BE",
+      "poemNo": 1,
+      "theme": "Aşk"
+    },
+    {
+      "title": "ŞEREFSİZ",
+      "poemNo": 2,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "SEVİYORUM",
+      "poemNo": 3,
+      "theme": "Aşk"
+    },
+    {
+      "title": "DEĞİL TABİ",
+      "poemNo": 4,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "BUNADA ŞÜKÜR  😀",
+      "poemNo": 5,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "KİME NE FAYDASI OLDU ?",
+      "poemNo": 6,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "güzel",
+      "poemNo": 7,
+      "theme": "Aşk"
+    },
+    {
+      "title": "ÖLDÜR BENİ",
+      "poemNo": 8,
+      "theme": "Aşk"
+    },
+    {
+      "title": "GEÇMİYOR",
+      "poemNo": 9,
+      "theme": "Özlem"
+    },
+    {
+      "title": "BUNLAR",
+      "poemNo": 10,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "SONU BİTMİYOR",
+      "poemNo": 11,
+      "theme": "Hayat ve Kader"
+    },
+    {
+      "title": "MİLLET",
+      "poemNo": 12,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "GÖZÜMSÜN",
+      "poemNo": 13,
+      "theme": "Aşk"
+    },
+    {
+      "title": "SENİN YÜZÜNDEN",
+      "poemNo": 14,
+      "theme": "Aşk"
+    },
+    {
+      "title": "BENİM SEVDİĞİM SEVDİĞİM",
+      "poemNo": 15,
+      "theme": "Aşk"
+    },
+    {
+      "title": "ÖLME",
+      "poemNo": 16,
+      "theme": "Aşk"
+    },
+    {
+      "title": "TURNAM",
+      "poemNo": 17,
+      "theme": "Özlem"
+    },
+    {
+      "title": "VURGUN YEDİM",
+      "poemNo": 18,
+      "theme": "Hayat ve Kader"
+    },
+    {
+      "title": "SENDEN",
+      "poemNo": 19,
+      "theme": "Aşk"
+    },
+    {
+      "title": "DİYEMİ",
+      "poemNo": 20,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "DEDİ",
+      "poemNo": 21,
+      "theme": "Aşk"
+    },
+    {
+      "title": "KARAR ALDINIZ",
+      "poemNo": 22,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "HATIRLA",
+      "poemNo": 23,
+      "theme": "Aşk"
+    },
+    {
+      "title": "AĞLA GÖZÜM AĞLA",
+      "poemNo": 24,
+      "theme": "Hayat ve Kader"
+    },
+    {
+      "title": "OY OY TÜRKİYEM",
+      "poemNo": 25,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "ONUN",
+      "poemNo": 26,
+      "theme": "Aşk"
+    },
+    {
+      "title": "DÜŞTÜM",
+      "poemNo": 27,
+      "theme": "Aşk"
+    },
+    {
+      "title": "SENDEN",
+      "poemNo": 28,
+      "theme": "Aşk"
+    },
+    {
+      "title": "YANARIM",
+      "poemNo": 29,
+      "theme": "Aşk"
+    },
+    {
+      "title": "SEVSİN SENİ",
+      "poemNo": 30,
+      "theme": "Aşk"
+    },
+    {
+      "title": "ÇEKERİM",
+      "poemNo": 31,
+      "theme": "Özlem"
+    },
+    {
+      "title": "SOLDURDUN BENİ",
+      "poemNo": 32,
+      "theme": "Aşk"
+    },
+    {
+      "title": "KÖYLÜ GÜZELİ",
+      "poemNo": 33,
+      "theme": "Aşk"
+    },
+    {
+      "title": "YÜZÜM GÜLMÜYOR",
+      "poemNo": 34,
+      "theme": "Aşk"
+    },
+    {
+      "title": "OLDUM",
+      "poemNo": 35,
+      "theme": "Hayat ve Kader"
+    },
+    {
+      "title": "GÜN",
+      "poemNo": 36,
+      "theme": "Toplumsal"
+    },
+    {
+      "title": "Yüzüm Gülmedi",
+      "poemNo": 37,
+      "theme": "Hayat ve Kader",
+      "bookPage": 10
+    },
+    {
+      "title": "Cumadan Cumaya",
+      "poemNo": 38,
+      "theme": "Aşk"
+    },
+    {
+      "title": "Yel Yel",
+      "poemNo": 39,
+      "theme": "Özlem"
+    },
+    {
+      "title": "Olur",
+      "poemNo": 40,
+      "theme": "Hayat ve Kader"
+    },
+    {
+      "title": "YAŞ ATMIŞA DAYANINCA",
+      "poemNo": 41,
+      "theme": "Hayat ve Kader"
+    },
+    {
+      "title": "Olmuşum Ben",
+      "poemNo": 42,
+      "theme": "Hayat ve Kader"
+    }
+  ],
+  "daily": [
+    {
+      "title": "SEVİYORUM",
+      "verse": "Selvi boylu ince belli",
+      "poemNo": 3
+    },
+    {
+      "title": "GÖZÜMSÜN",
+      "verse": "Bulanıktım duruldum",
+      "poemNo": 13
+    },
+    {
+      "title": "TURNAM",
+      "verse": "Adanaya doğru uçan",
+      "poemNo": 17
+    },
+    {
+      "title": "KÖYLÜ GÜZELİ",
+      "verse": "Göksu kenarında gördüm bir suna",
+      "poemNo": 33
+    },
+    {
+      "title": "Yüzüm Gülmedi",
+      "verse": "Anamdan doğdum doğalı",
+      "poemNo": 37
+    },
+    {
+      "title": "Yel Yel",
+      "verse": "Yel yel savrulup dolaşıyor,",
+      "poemNo": 39
+    },
+    {
+      "title": "Olur",
+      "verse": "Ahlâğın bittiği yerde,",
+      "poemNo": 40
+    }
+  ]
+}

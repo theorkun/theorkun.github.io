@@ -192,4 +192,13 @@
   reader.querySelectorAll('[data-reader-controls]').forEach(element => { element.hidden = false; });
   reader.classList.add('is-ready');
   render();
+  function openLinkedPage() {
+    const match = /^#sayfa-(\d+)$/.exec(location.hash);
+    if (match && Number(match[1]) >= 1 && Number(match[1]) <= pages.length) {
+      jumpTo(Number(match[1]) - 1);
+      reader.scrollIntoView({ block: 'start' });
+    }
+  }
+  window.addEventListener('hashchange', openLinkedPage);
+  openLinkedPage();
 })();

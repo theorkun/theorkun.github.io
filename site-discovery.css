@@ -1,0 +1,39 @@
+.discovery-panel{margin:24px 0;padding:24px;border:1px solid #dcc9a6;border-radius:16px;background:#fffdf8}
+.discovery-panel h2,.discovery-panel h3{color:#073348;font-family:'Quicksand',sans-serif}
+.discovery-panel .eyebrow{color:#08757d}
+.discovery-search{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,220px) auto;align-items:end;gap:14px}
+.discovery-search label{display:flex;flex-direction:column;gap:6px;color:#263d4b;font-size:13px;font-weight:600}
+.discovery-search :is(input,select){width:100%;min-height:48px;padding:11px 12px;border:1px solid #adc5c4;border-radius:9px;background:#fff;color:#263d4b;font:400 14px/1.6 'Poppins',sans-serif}
+.discovery-search button{min-height:48px;padding:11px 16px;border:1px solid #08757d;border-radius:9px;background:#08757d;color:white;font-size:13px}
+.discovery-search button:disabled{opacity:.5;cursor:default}
+.discovery-results{margin:14px 0 0;color:#526a73;font-size:12px}
+.discovery-note{margin:6px 0 0;font-size:11px;color:#526a73}
+.poem-card[hidden],.discovery-panel[hidden],.discovery-manuscript-link[hidden]{display:none!important}
+.discovery-empty{padding:22px;border:1px dashed #adc5c4;border-radius:12px;color:#263d4b;text-align:center}
+.daily-verse{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px;margin:24px 0;padding:22px 26px;border:1px solid #dcc9a6;border-left:4px solid #08757d;border-radius:14px;background:#fffdf8}
+.daily-verse .eyebrow{margin:0;color:#08757d;font-size:10px;white-space:nowrap}
+.daily-verse blockquote{margin:0 0 5px;color:#073348;font:600 22px/1.5 'Quicksand',sans-serif}
+.daily-verse cite{font:400 11px/1.6 'Poppins',sans-serif;color:#526a73}
+.daily-verse a,.discovery-inline-link,.discovery-manuscript-link{color:#08757d;text-decoration:underline;text-underline-offset:4px;font-size:13px;font-weight:600}
+.discovery-manuscript-link{display:inline-flex;min-height:44px;align-items:center;grid-column:1/-1;margin-top:12px}
+.discovery-timeline{margin:24px 0 32px;padding:26px;border:1px solid #dcc9a6;border-radius:16px;background:#fffdf8}
+.discovery-timeline h2{font:700 26px/1.4 'Quicksand',sans-serif;color:#073348;margin-bottom:8px}
+.discovery-timeline ol{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.discovery-timeline li{position:relative;padding:14px 0 0;border-top:2px solid #adc5c4}
+.discovery-timeline li::before{content:'';position:absolute;left:0;top:-6px;width:10px;height:10px;border-radius:50%;background:#08757d}
+.discovery-timeline strong{color:#08757d;font-size:12px}
+.discovery-timeline h3{margin:7px 0;font:700 18px/1.4 'Quicksand',sans-serif;color:#073348}
+.discovery-timeline p{font-size:13px;line-height:1.8;margin:0}
+.discovery-timeline figure{display:flex;gap:14px;align-items:center;margin:20px 0 0}
+.discovery-timeline figure img{width:72px;height:88px;object-fit:cover;border-radius:8px}
+.discovery-timeline figcaption{font-size:12px;color:#526a73}
+.discovery-archive{display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;margin:24px 0;padding:24px 26px;border:1px solid #dcc9a6;border-radius:16px;background:#f4f1e9}
+.discovery-archive h2{font:700 23px/1.4 'Quicksand',sans-serif;margin-bottom:10px;color:#073348}
+.discovery-archive p{margin:0;font-size:13px;line-height:1.8}
+.discovery-archive a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border-radius:9px;background:#08757d;color:white;font-size:13px;font-weight:600}
+.discovery-sources{display:grid;gap:18px;margin:24px 0}
+.discovery-sources article{padding:24px;border:1px solid #dcc9a6;border-radius:14px;background:#fffdf8}
+.discovery-sources :is(h2,h3){font:700 22px/1.5 'Quicksand',sans-serif;color:#073348;margin-bottom:12px}
+.discovery-sources p,.discovery-sources li{font-size:14px;line-height:1.9}
+.discovery-footer-link{display:block;width:fit-content;margin:20px auto 0;color:inherit;text-decoration:underline;text-underline-offset:4px;font-size:12px}
+@media(max-width:700px){.discovery-search{grid-template-columns:1fr}.daily-verse,.discovery-archive{grid-template-columns:1fr;gap:12px;padding:20px}.daily-verse blockquote{font-size:20px}.discovery-timeline{padding:20px}.discovery-timeline ol{grid-template-columns:1fr;gap:18px}.discovery-panel{padding:18px}.discovery-archive a{justify-self:start}}
