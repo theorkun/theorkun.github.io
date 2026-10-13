@@ -1,11 +1,9 @@
-.footer-state-flags{grid-column:1/-1;width:100%;justify-self:stretch;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:28px clamp(10px,1.2vw,20px);align-items:center;margin:0;padding:12px 0 18px;overflow:visible}
-.footer-state-flag{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:0;text-decoration:none;border-radius:0}
-.footer-state-flag img{display:block;width:min(78px,100%);height:auto;aspect-ratio:1;object-fit:contain;padding:4px;border-radius:0;border:1px solid #ffffff35;background:#ffffff04;opacity:.32;filter:grayscale(.8) saturate(.55);transform:scale(1);transition:opacity .25s,filter .25s,transform .25s,box-shadow .25s}
-.footer-state-flag--turkiye{grid-column:1/-1;justify-self:center;width:90px;max-width:100%}
-.footer-state-flag--turkiye img{width:100%}
-.footer-state-flag:hover img,.footer-state-flag:focus-visible img{opacity:1;filter:none;transform:scale(1.06);box-shadow:0 4px 16px #052a3a40}
-.footer-state-flag-label{position:absolute;left:50%;bottom:calc(100% + 6px);z-index:3;transform:translateX(-50%);padding:5px 9px;border:1px solid #d6c398;border-radius:6px;background:#fffdf8;color:#073348;font:600 10px/1.5 'Quicksand',sans-serif;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s}
-.footer-state-flag:hover .footer-state-flag-label,.footer-state-flag:focus-visible .footer-state-flag-label{opacity:1;visibility:visible}
+.footer-state-flags{grid-column:1/-1;width:100%;min-width:0;justify-self:stretch;display:flex;flex-wrap:nowrap;justify-content:space-between;gap:clamp(5px,.6vw,10px);align-items:center;margin:0;padding:12px 4px 18px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#ffffff60 transparent}
+.footer-state-flag{position:relative;display:flex;align-items:center;justify-content:center;flex:1 0 44px;max-width:64px;min-width:44px;min-height:44px;aspect-ratio:1;padding:0;text-decoration:none;border:1px solid #ffffffb0;border-radius:0;background:#fff;overflow:hidden}
+.footer-state-flag img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;padding:4px;border-radius:0;border:0;background:transparent;opacity:.3;filter:grayscale(1);transition:opacity .25s,filter .25s}
+.footer-state-flag--turkiye{flex:1 0 44px;max-width:64px;min-width:44px}
+.footer-state-flag:hover img,.footer-state-flag:focus-visible img{opacity:1;filter:none;transform:none;box-shadow:none}
+.footer-state-flag-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .flag-image-credits{margin:20px 0;padding:16px 20px;border:1px solid #dcc9a6;border-radius:12px;background:#fffdf8}
 .flag-image-credits summary{min-height:44px;display:flex;align-items:center;color:#08757d;font:600 14px/1.6 'Quicksand',sans-serif;cursor:pointer}
 .flag-image-credits ul{margin:12px 0 0;padding-left:20px}
@@ -14,5 +12,4 @@
 .a11y-high-contrast .footer-state-flag img{opacity:1;filter:none}
 .a11y-reduced-motion .footer-state-flag:hover img,.a11y-reduced-motion .footer-state-flag:focus-visible img{transform:none}
 @media(prefers-reduced-motion:reduce){.footer-state-flag:hover img,.footer-state-flag:focus-visible img{transform:none}}
-@media(max-width:760px){.footer-state-flags{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 12px;width:100%}.footer-state-flag-label{font-size:9px}.footer-state-flag img{width:min(66px,100%)}.footer-state-flag--turkiye{width:78px}.footer-state-flag--turkiye img{width:100%}}
-@media(max-width:380px){.footer-state-flags{gap:16px 12px}.footer-state-flag img{padding:4px}}
+@media(max-width:760px){.footer-state-flags{justify-content:flex-start;gap:8px}.footer-state-flag,.footer-state-flag--turkiye{flex:0 0 52px;max-width:52px}.footer-state-flag img{padding:3px}}
