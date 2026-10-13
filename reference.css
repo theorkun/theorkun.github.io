@@ -214,6 +214,7 @@ footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;g
 .footer-contact a:hover{color:#f4deb4;text-decoration:underline;text-underline-offset:4px}
 .footer-bottom{grid-column:1/-1;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;margin-top:0;padding-top:20px;border-top:1px solid #ffffff26}
 footer .copyright{margin:0;font-size:12px;line-height:1.7;color:#f0faf9}
+.visitor-counter{margin:0;color:#dfd6c2;font:400 11px/1.6 'Poppins',Arial,sans-serif}
 .site-credit{display:inline-flex;align-items:center;gap:9px;max-width:100%;padding:8px 13px;border:1px solid #77e2dc;border-radius:9px;background:linear-gradient(135deg,#23c2bc,#0ab3ae);box-shadow:0 3px 12px #034d5626;text-decoration:none;transition:background .2s,border-color .2s,box-shadow .2s}
 .site-credit>img{flex:0 0 auto;width:28px;height:28px;filter:drop-shadow(0 2px 3px #034d5626)}
 .site-credit-copy{display:flex;flex-direction:column;gap:3px}
