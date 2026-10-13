@@ -1,7 +1,7 @@
 .footer-state-flags{grid-column:1/-1;width:100%;justify-self:stretch;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:28px clamp(10px,1.2vw,20px);align-items:center;margin:0;padding:12px 0 18px;overflow:visible}
 .footer-state-flag{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:0;text-decoration:none;border-radius:0}
-.footer-state-flag img{display:block;width:min(104px,100%);height:auto;aspect-ratio:1;object-fit:contain;padding:4px;border-radius:0;border:1px solid #ffffff35;background:#ffffff04;opacity:.32;filter:grayscale(.8) saturate(.55);transform:scale(1);transition:opacity .25s,filter .25s,transform .25s,box-shadow .25s}
-.footer-state-flag--turkiye{grid-column:1/-1;justify-self:center;width:120px;max-width:100%}
+.footer-state-flag img{display:block;width:min(78px,100%);height:auto;aspect-ratio:1;object-fit:contain;padding:4px;border-radius:0;border:1px solid #ffffff35;background:#ffffff04;opacity:.32;filter:grayscale(.8) saturate(.55);transform:scale(1);transition:opacity .25s,filter .25s,transform .25s,box-shadow .25s}
+.footer-state-flag--turkiye{grid-column:1/-1;justify-self:center;width:90px;max-width:100%}
 .footer-state-flag--turkiye img{width:100%}
 .footer-state-flag:hover img,.footer-state-flag:focus-visible img{opacity:1;filter:none;transform:scale(1.06);box-shadow:0 4px 16px #052a3a40}
 .footer-state-flag-label{position:absolute;left:50%;bottom:calc(100% + 6px);z-index:3;transform:translateX(-50%);padding:5px 9px;border:1px solid #d6c398;border-radius:6px;background:#fffdf8;color:#073348;font:600 10px/1.5 'Quicksand',sans-serif;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s}
@@ -14,5 +14,5 @@
 .a11y-high-contrast .footer-state-flag img{opacity:1;filter:none}
 .a11y-reduced-motion .footer-state-flag:hover img,.a11y-reduced-motion .footer-state-flag:focus-visible img{transform:none}
 @media(prefers-reduced-motion:reduce){.footer-state-flag:hover img,.footer-state-flag:focus-visible img{transform:none}}
-@media(max-width:760px){.footer-state-flags{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 12px;width:100%}.footer-state-flag-label{font-size:9px}.footer-state-flag img{width:min(90px,100%)}.footer-state-flag--turkiye{width:106px}.footer-state-flag--turkiye img{width:100%}}
+@media(max-width:760px){.footer-state-flags{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 12px;width:100%}.footer-state-flag-label{font-size:9px}.footer-state-flag img{width:min(66px,100%)}.footer-state-flag--turkiye{width:78px}.footer-state-flag--turkiye img{width:100%}}
 @media(max-width:380px){.footer-state-flags{gap:16px 12px}.footer-state-flag img{padding:4px}}
