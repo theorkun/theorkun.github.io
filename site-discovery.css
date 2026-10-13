@@ -45,6 +45,9 @@
 .daily-verse-launch[hidden]{display:none}
 .daily-verse-launch button{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:10px 18px;border:1px solid #adc5c4;border-radius:30px;background:#fffdf8;color:#08757d;font:600 12px/1.6 'Quicksand',sans-serif}
 .daily-verse-launch button:hover{background:#eef5f0;border-color:#08757d}
+.hero-copy .actions{align-items:center;flex-wrap:wrap}
+.actions .daily-verse-launch:not([hidden]){display:block;margin:0}
+.actions .daily-verse-launch button{min-height:48px;padding:12px 18px;border-radius:8px;background:transparent}
 .daily-verse-dialog{width:min(410px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:26px;border:1px solid #dcc9a6;border-radius:18px;background:#fffdf8;color:#073348;text-align:center;box-shadow:0 20px 70px #07334825}
 .daily-verse-dialog::backdrop{background:#07334880;backdrop-filter:blur(3px)}
 .daily-verse-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;margin-bottom:16px}
