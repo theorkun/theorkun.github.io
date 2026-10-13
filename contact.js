@@ -4,7 +4,7 @@
   dialog.setAttribute('aria-labelledby', 'contact-title');
   dialog.innerHTML = `<div class="contact-heading"><h2 id="contact-title">Bize ulaşın</h2><button type="button" data-contact-close aria-label="İletişim penceresini kapat">×</button></div>
     <p>E-postanızı nasıl yazmak istersiniz?</p>
-    <label for="contact-address">E-posta adresimiz</label><input id="contact-address" type="text" value="info@ceyhani.com.tr" readonly>
+    <label for="contact-address">E-posta adresimiz</label><input id="contact-address" type="text" value="iletisim@ceyhani.com.tr" readonly>
     <a class="contact-webmail" target="_blank" rel="noopener">Gmail’de yaz ↗</a>
     <a class="contact-localmail">Posta uygulamasında aç</a>
     <button type="button" class="contact-copy">Adresi kopyala</button>
@@ -19,7 +19,7 @@
     const link = event.target.closest('a[href^="mailto:"]');
     if (!link || link.closest('.contact-dialog')) return;
     const mail = new URL(link.href);
-    if (mail.pathname !== 'info@ceyhani.com.tr') return;
+    if (mail.pathname !== 'iletisim@ceyhani.com.tr') return;
     event.preventDefault();
     opener = link;
     const gmail = new URL('https://mail.google.com/mail/');
