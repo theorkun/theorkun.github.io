@@ -357,7 +357,7 @@ header:before{content:'';position:absolute;inset:0 0 36px;background:url('assets
 .hero .realname+.actions{margin-top:28px}
 .home-biography{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:36px;align-items:start;width:92%;max-width:1400px;margin:28px auto 0;padding:32px;border:1px solid #decdaa;border-radius:16px;background:#fffdf8}
 .home-biography-heading .eyebrow{margin:0 0 14px;color:#08757d;font-size:10px;letter-spacing:1.6px}
-.home-biography h2{margin:0;color:#073348;font:600 clamp(20px,2vw,25px)/1.4 'Quicksand',sans-serif}
+.home-biography h2{margin:0;color:#526269;font:600 clamp(20px,2vw,25px)/1.4 'Quicksand',sans-serif}
 .home-biography-copy{min-width:0;color:#536c78;font:400 14px/1.85 'Poppins',Arial,sans-serif}
 .home-biography-copy p{margin:0 0 16px}
 .home-biography-copy time{color:#073348;font-weight:600}
