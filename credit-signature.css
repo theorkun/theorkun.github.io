@@ -1,16 +1,13 @@
 /* Signature inspired by the stone form and engraved texture of the Orhun inscriptions. */
+@font-face{font-family:'Hickory Jack';src:url('assets/fonts/hickory-jack.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
 footer .site-credit{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-width:0;width:min(360px,100%);max-width:100%;min-height:106px;padding:16px 22px 46px;border:0;border-radius:0;overflow:hidden;background:transparent;box-shadow:none;text-decoration:none}
 footer .site-credit::before{content:'';position:absolute;left:22px;right:22px;bottom:12px;height:28px;z-index:-1;background:url('assets/orhun-horizontal.svg') center/contain no-repeat;opacity:.85;pointer-events:none;transition:opacity .2s}
 footer .site-credit::after{content:none}
 footer .site-credit>img{display:none}
 footer .site-credit-copy{align-items:center;gap:7px;min-width:0;text-align:center}
 footer .site-credit-label{color:#dfd6c2;font:500 9px/1.5 'Poppins',Arial,sans-serif;letter-spacing:1.3px;text-transform:uppercase}
-footer .site-credit-name{display:block;width:290px;max-width:100%;color:#fff5df;font:600 20px/1.4 'Quicksand',sans-serif;letter-spacing:.2px;text-transform:none;font-variant:normal}
-footer .credit-lettering{display:block;width:100%;max-width:100%;height:auto}
-footer .credit-name-text{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-:is(.a11y-hide-images,.a11y-light,.a11y-large-text) footer .credit-lettering{display:none!important}
-:is(.a11y-hide-images,.a11y-light,.a11y-large-text) footer .credit-name-text{position:static;display:block;width:auto;height:auto;overflow:visible;clip-path:none;white-space:normal}
+footer .site-credit-name{display:block;width:290px;max-width:100%;color:#fff5df;font:400 40px/1.4 'Hickory Jack','Quicksand',sans-serif;letter-spacing:normal;text-transform:none;font-variant:normal;overflow-wrap:break-word}
 footer .site-credit:hover,footer .site-credit:focus-visible{background:transparent;border:0;box-shadow:none}
 footer .site-credit:hover::before,footer .site-credit:focus-visible::before{opacity:1}
 .a11y-high-contrast footer .site-credit::before,.a11y-high-contrast footer .site-credit::after,.a11y-hide-images footer .site-credit::before,.a11y-hide-images footer .site-credit::after{background:none!important}
-@media(max-width:400px){footer .site-credit{padding:16px 18px 46px}footer .site-credit::before{left:18px;right:18px}}
+@media(max-width:400px){footer .site-credit{padding:16px 18px 46px}footer .site-credit::before{left:18px;right:18px}footer .site-credit-name{font-size:36px}}
