@@ -1,0 +1,16 @@
+.footer-state-flags{grid-column:1/-1;width:min(820px,100%);justify-self:center;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:14px 22px;align-items:center;margin:0;padding:0;overflow:visible}
+.footer-state-flag{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:3px;text-decoration:none;border-radius:12px}
+.footer-state-flag img{display:block;width:66px;max-width:100%;height:42px;object-fit:cover;border-radius:50%;border:1px solid #ffffff50;opacity:.32;filter:grayscale(.8) saturate(.55);transform:scale(1);transition:opacity .25s,filter .25s,transform .25s,box-shadow .25s}
+.footer-state-flag:hover img,.footer-state-flag:focus-visible img{opacity:1;filter:none;transform:scale(1.12);box-shadow:0 4px 16px #052a3a40}
+.footer-state-flag-label{position:absolute;left:50%;bottom:calc(100% + 6px);z-index:3;transform:translateX(-50%);padding:5px 9px;border:1px solid #d6c398;border-radius:6px;background:#fffdf8;color:#073348;font:600 10px/1.5 'Quicksand',sans-serif;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s}
+.footer-state-flag:hover .footer-state-flag-label,.footer-state-flag:focus-visible .footer-state-flag-label{opacity:1;visibility:visible}
+.flag-image-credits{margin:20px 0;padding:16px 20px;border:1px solid #dcc9a6;border-radius:12px;background:#fffdf8}
+.flag-image-credits summary{min-height:44px;display:flex;align-items:center;color:#08757d;font:600 14px/1.6 'Quicksand',sans-serif;cursor:pointer}
+.flag-image-credits ul{margin:12px 0 0;padding-left:20px}
+.flag-image-credits li{margin-bottom:8px;font-size:12px;line-height:1.8}
+.flag-image-credits a{text-decoration:underline;text-underline-offset:3px;color:#08757d}
+.a11y-high-contrast .footer-state-flag img{opacity:1;filter:none}
+.a11y-reduced-motion .footer-state-flag:hover img,.a11y-reduced-motion .footer-state-flag:focus-visible img{transform:none}
+@media(prefers-reduced-motion:reduce){.footer-state-flag:hover img,.footer-state-flag:focus-visible img{transform:none}}
+@media(max-width:760px){.footer-state-flags{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 16px;width:min(420px,100%)}.footer-state-flag-label{font-size:9px}.footer-state-flag img{width:60px;height:39px}}
+@media(max-width:380px){.footer-state-flags{gap:10px 8px}.footer-state-flag img{width:52px;height:35px}}
