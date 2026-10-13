@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 50" role="img" aria-labelledby="name">
+  <title id="name">Orkun Sayıcı</title>
+  <!-- Custom lettering study from the user's reference; not the original typeface. -->
+  <g fill="none" stroke="#fff5df" stroke-width="5.6" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M4 8 15 10 26 8V39L15 41 4 39Z"/>
+    <path d="M39 42V18L47 16 58 18"/>
+    <path d="M70 5V42M88 16 70 29 91 40"/>
+    <path d="M102 16V39L113 41 125 39V16"/>
+    <path d="M140 42V18L151 16 162 18V42"/>
+    <path d="M207 9 195 7 183 9V23L195 25 207 23V39L195 41 183 39"/>
+    <path d="M223 18 235 16 247 18V39L235 41 223 39V28L235 26 247 28"/>
+    <path d="M260 16V30L271 32 282 30M282 16V44L270 47 260 45"/>
+    <path d="M293 16V42"/>
+    <path d="M330 18 319 16 308 18V39L319 41 330 39"/>
+    <path d="M344 16V42"/>
+  </g>
+</svg>
