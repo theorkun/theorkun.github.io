@@ -160,7 +160,9 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 .subpage .guestbook-panel{box-shadow:0 8px 26px #07334808}
 @media(max-width:760px){.guestbook-invitation-card{flex-wrap:wrap;gap:16px;padding:24px}.guestbook-invitation-motif{width:44px;height:44px}.guestbook-invitation-copy{flex-basis:calc(100% - 60px)}.guestbook-invitation-copy h2{font-size:22px}.guestbook-invitation-link{width:100%}}
 .guestbook{border-top:1px solid var(--line);background:#fffdf8d9}
-.guestbook-intro{color:#536c78;font-size:15px;margin-bottom:24px}
+.guestbook-intro{max-width:900px;margin:0 0 24px;padding:24px 28px;border:1px solid #d8c39f;border-radius:16px;background:linear-gradient(120deg,#fffdf8,#eff8f5);box-shadow:0 8px 24px #07334808;color:#536c78;font-size:15px;line-height:1.8}
+.guestbook-intro-cta{display:block;margin-top:12px;padding-top:12px;border-top:1px solid #decdaa;color:#08757d;font:600 18px/1.5 'Quicksand',sans-serif;text-align:center}
+@media(max-width:600px){.guestbook-intro{padding:20px}.guestbook-intro-cta{font-size:16px}}
 .son-note{display:flex;align-items:flex-start;gap:18px;margin:0 0 24px;padding:24px;border:1px solid #d8c39f;border-radius:14px;background:linear-gradient(120deg,#f5eee0,#edf5f0)}
 .son-note>img{flex:0 0 auto;margin-top:2px;opacity:.7}
 .son-note h2{margin:0 0 12px;font:600 18px/1.4 'Quicksand',sans-serif;color:#073348}
@@ -194,7 +196,9 @@ footer:before{content:'';position:absolute;inset:0 0 auto;height:36px;background
 footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:24px;padding-bottom:32px}
 .footer-identity{grid-column:1/-1;justify-content:center;text-align:center;width:100%}
 .footer-identity--reserved{visibility:hidden;pointer-events:none}
-.footer-legal .footer-name{text-align:left}
+.footer-legal .footer-name{text-align:center}
+#ana .hero-copy{align-items:center;text-align:center}
+#ana .hero-copy .actions{width:100%;justify-content:center}
 .footer-credit-contact{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:100%}
 .footer-credit-contact .footer-contact{align-self:center}
 .footer-name{font-size:22px}
@@ -391,6 +395,9 @@ body:not(.subpage) .poetry{width:92%;max-width:1580px;margin:0 auto;padding:56px
 .background-music-title{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#073348;font:600 12px/1.5 'Quicksand',sans-serif}
 .background-music-status{color:#64716e;font:400 10px/1.5 'Poppins',Arial,sans-serif}
 .background-music-toggle,.background-music-reopen{padding:9px 12px;border:0;border-radius:7px;background:#08757d;color:#fff;font:600 12px/1.5 'Quicksand',sans-serif}
+.background-music-reopen{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:7px 16px 7px 8px;border:1px solid #d8c39f;border-radius:999px;background:linear-gradient(135deg,#073348,#08757d);box-shadow:0 5px 16px #07334830;color:#fffdf8;transition:background .2s,box-shadow .2s}
+.background-music-reopen:hover{background:linear-gradient(135deg,#0a4558,#0a8583);box-shadow:0 7px 20px #07334840}
+.background-music-reopen-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#f4deb4;color:#073348;font:700 18px/1 Arial,sans-serif}
 .background-music-close{padding:0;width:28px;height:32px;flex:0 0 auto;border:0;background:transparent;color:#536c78;font:24px/1 Arial,sans-serif}
 @media(max-width:600px){.background-music{left:12px;bottom:12px;max-width:calc(100vw - 24px)}.background-music-panel{gap:9px;padding:10px}.background-music-title{max-width:135px}.background-music-panel>img{width:18px;height:34px}}
 @media(max-width:760px){.motif-guide-grid{grid-template-columns:minmax(0,1fr);gap:20px}.motif-preview{min-height:200px;padding:20px}.motif-preview img{height:155px}.motif-preview--strip img{height:auto}.motif-guide-copy,.motif-guide-note{padding:22px}.motif-group-title{font-size:21px}.motif-guide-copy h3{font-size:21px}}

@@ -29,7 +29,7 @@
       const widget = document.createElement('aside');
       widget.className = 'background-music';
       widget.setAttribute('aria-label', 'Arka plan müziği');
-      widget.innerHTML = '<div class="background-music-panel"><img src="assets/saz-motifi.svg" alt="" aria-hidden="true" width="22" height="40"><div class="background-music-copy"><span class="background-music-title"></span><span class="background-music-status" role="status" aria-live="polite">Çalmaya hazır</span></div><button class="background-music-toggle" type="button">Çal</button><button class="background-music-close" type="button" aria-label="Müziği kapat">×</button></div><button class="background-music-reopen" type="button" hidden>Müziği aç ♫</button>';
+      widget.innerHTML = '<div class="background-music-panel"><img src="assets/saz-motifi.svg" alt="" aria-hidden="true" width="22" height="40"><div class="background-music-copy"><span class="background-music-title"></span><span class="background-music-status" role="status" aria-live="polite">Çalmaya hazır</span></div><button class="background-music-toggle" type="button">Çal</button><button class="background-music-close" type="button" aria-label="Müziği kapat">×</button></div><button class="background-music-reopen" type="button" hidden><span class="background-music-reopen-icon" aria-hidden="true">♫</span><span>Müziği aç</span></button>';
       document.body.appendChild(widget);
       const panel = widget.querySelector('.background-music-panel');
       const toggle = widget.querySelector('.background-music-toggle');
