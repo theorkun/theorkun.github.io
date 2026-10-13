@@ -390,7 +390,7 @@ body:not(.subpage) .poetry{width:92%;max-width:1580px;margin:0 auto;padding:56px
 .background-music{position:fixed;left:20px;bottom:20px;z-index:25;max-width:calc(100vw - 40px)}
 .background-music-panel{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #d8c39f;border-radius:12px;background:#fffdf8;box-shadow:0 5px 18px #07334818}
 .background-music [hidden]{display:none}
-.background-music-panel>img{flex:0 0 auto;object-fit:contain}
+.background-music-icon{position:relative;flex:0 0 auto;display:grid;place-items:center;width:38px;height:38px;border:1px solid #d8c39f;border-radius:50%;background:linear-gradient(145deg,#fff8e8,#f0dfba);color:#08757d;font:700 20px/1 Georgia,serif;box-shadow:inset 0 0 0 3px #fffdf8,0 2px 7px #07334816}
 .background-music-copy{min-width:0;display:flex;flex-direction:column;gap:3px}
 .background-music-title{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#073348;font:600 12px/1.5 'Quicksand',sans-serif}
 .background-music-status{color:#64716e;font:400 10px/1.5 'Poppins',Arial,sans-serif}
@@ -399,7 +399,7 @@ body:not(.subpage) .poetry{width:92%;max-width:1580px;margin:0 auto;padding:56px
 .background-music-reopen:hover{background:linear-gradient(135deg,#0a4558,#0a8583);box-shadow:0 7px 20px #07334840}
 .background-music-reopen-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#f4deb4;color:#073348;font:700 18px/1 Arial,sans-serif}
 .background-music-close{padding:0;width:28px;height:32px;flex:0 0 auto;border:0;background:transparent;color:#536c78;font:24px/1 Arial,sans-serif}
-@media(max-width:600px){.background-music{left:12px;bottom:12px;max-width:calc(100vw - 24px)}.background-music-panel{gap:9px;padding:10px}.background-music-title{max-width:135px}.background-music-panel>img{width:18px;height:34px}}
+@media(max-width:600px){.background-music{left:12px;bottom:12px;max-width:calc(100vw - 24px)}.background-music-panel{gap:9px;padding:10px}.background-music-title{max-width:135px}.background-music-icon{width:34px;height:34px;font-size:18px}}
 @media(max-width:760px){.motif-guide-grid{grid-template-columns:minmax(0,1fr);gap:20px}.motif-preview{min-height:200px;padding:20px}.motif-preview img{height:155px}.motif-preview--strip img{height:auto}.motif-guide-copy,.motif-guide-note{padding:22px}.motif-group-title{font-size:21px}.motif-guide-copy h3{font-size:21px}}
 
 /* Consistent spacing for the portrait, reading cards and smaller screens. */
