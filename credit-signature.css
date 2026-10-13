@@ -1,12 +1,12 @@
 /* Signature inspired by the stone form and engraved texture of the Orhun inscriptions. */
-footer .site-credit{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-width:270px;max-width:100%;min-height:120px;padding:20px 26px 52px;border:1px solid #dfcba140;border-radius:10px;overflow:hidden;background:#ffffff05;box-shadow:none;text-decoration:none;transition:border-color .2s,background .2s}
+footer .site-credit{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;min-width:240px;max-width:100%;min-height:106px;padding:16px 22px 46px;border:0;border-radius:0;overflow:hidden;background:transparent;box-shadow:none;text-decoration:none}
 footer .site-credit::before{content:'';position:absolute;left:22px;right:22px;bottom:12px;height:28px;z-index:-1;background:url('assets/orhun-horizontal.svg') center/contain no-repeat;opacity:.85;pointer-events:none;transition:opacity .2s}
 footer .site-credit::after{content:none}
 footer .site-credit>img{display:none}
 footer .site-credit-copy{align-items:center;gap:7px;min-width:0;text-align:center}
 footer .site-credit-label{color:#dfd6c2;font:500 9px/1.5 'Poppins',Arial,sans-serif;letter-spacing:1.3px;text-transform:uppercase}
-footer .site-credit-name{color:#fff5df;font:500 20px/1.4 'Cinzel',Georgia,serif;letter-spacing:.2px}
-footer .site-credit:hover,footer .site-credit:focus-visible{background:#ffffff10;border-color:#f4dfb5;box-shadow:none}
+footer .site-credit-name{color:#fff5df;font:600 20px/1.4 'Quicksand',sans-serif;letter-spacing:.2px;text-transform:none;font-variant:normal}
+footer .site-credit:hover,footer .site-credit:focus-visible{background:transparent;border:0;box-shadow:none}
 footer .site-credit:hover::before,footer .site-credit:focus-visible::before{opacity:1}
 .a11y-high-contrast footer .site-credit::before,.a11y-high-contrast footer .site-credit::after,.a11y-hide-images footer .site-credit::before,.a11y-hide-images footer .site-credit::after{background:none!important}
-@media(max-width:400px){footer .site-credit{min-width:0;width:min(270px,100%);padding:18px 20px 50px}footer .site-credit::before{left:18px;right:18px}footer .site-credit-name{font-size:18px}}
+@media(max-width:400px){footer .site-credit{min-width:0;width:min(240px,100%);padding:16px 18px 46px}footer .site-credit::before{left:18px;right:18px}footer .site-credit-name{font-size:18px}}
