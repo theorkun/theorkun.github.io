@@ -66,6 +66,16 @@
     openLinkedPoem();
     const daily = document.querySelector('#daily-verse');
     if (daily && archive.daily.length) {
+      const launcher = document.querySelector('#daily-verse-launch');
+      const openButton = launcher.querySelector('button');
+      openButton.addEventListener('click', () => daily.showModal());
+      daily.querySelector('[data-daily-close]').addEventListener('click', () => daily.close());
+      daily.addEventListener('close', () => openButton.focus({ preventScroll: true }));
+      daily.addEventListener('click', event => {
+        if (event.target !== daily) return;
+        const bounds = daily.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) daily.close();
+      });
       let previousDay;
       function updateVerse() {
         const day = dateKey(new Date());
@@ -75,7 +85,7 @@
         daily.querySelector('blockquote').textContent = item.verse;
         daily.querySelector('cite').textContent = `Âşık Ceyhani · ${item.title}`;
         daily.querySelector('a').href = `siirler.html#siir-${item.poemNo}`;
-        daily.hidden = false;
+        launcher.hidden = false;
       }
       updateVerse();
       window.setInterval(updateVerse, 60000);

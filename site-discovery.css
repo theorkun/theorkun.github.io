@@ -41,4 +41,17 @@
 .discovery-sources :is(h2,h3){font:700 22px/1.5 'Quicksand',sans-serif;color:#073348;margin-bottom:12px}
 .discovery-sources p,.discovery-sources li{font-size:14px;line-height:1.9}
 .discovery-footer-link{display:block;width:fit-content;margin:20px auto 0;color:inherit;text-decoration:underline;text-underline-offset:4px;font-size:12px}
+.daily-verse-launch{display:flex;justify-content:center;margin:18px 0 24px}
+.daily-verse-launch[hidden]{display:none}
+.daily-verse-launch button{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:10px 18px;border:1px solid #adc5c4;border-radius:30px;background:#fffdf8;color:#08757d;font:600 12px/1.6 'Quicksand',sans-serif}
+.daily-verse-launch button:hover{background:#eef5f0;border-color:#08757d}
+.daily-verse-dialog{width:min(410px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:26px;border:1px solid #dcc9a6;border-radius:18px;background:#fffdf8;color:#073348;text-align:center;box-shadow:0 20px 70px #07334825}
+.daily-verse-dialog::backdrop{background:#07334880;backdrop-filter:blur(3px)}
+.daily-verse-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;margin-bottom:16px}
+.daily-verse-dialog-header h2{margin:0;color:#08757d;font:700 20px/1.4 'Quicksand',sans-serif}
+.daily-verse-dialog-header button{width:44px;min-height:44px;border:1px solid #dcc9a6;border-radius:50%;background:transparent;color:#073348;font-size:25px}
+.daily-verse-dialog>img{width:30px;height:30px;object-fit:contain;margin:4px 0 14px;opacity:.65}
+.daily-verse-dialog blockquote{margin:0 0 16px;font:600 25px/1.6 'Quicksand',sans-serif;color:#073348;text-wrap:balance}
+.daily-verse-dialog cite{display:block;font:400 11px/1.8 'Poppins',sans-serif;color:#526a73}
+.daily-verse-dialog>a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:18px;padding:10px 16px;border-radius:8px;background:#08757d;color:white;font:600 12px/1.5 'Quicksand',sans-serif}
 @media(max-width:700px){.discovery-search{grid-template-columns:1fr}.daily-verse{display:block;padding:22px 4px}.daily-verse blockquote{font-size:22px}.daily-verse .eyebrow{flex-direction:row;justify-content:flex-start;margin-bottom:14px;gap:10px}.daily-verse .eyebrow::before{width:24px;height:24px}.daily-verse>div{padding-left:16px}.daily-verse>a{margin-left:16px}.discovery-archive{grid-template-columns:1fr;gap:12px;padding:20px}.discovery-timeline{padding:20px}.discovery-timeline ol{grid-template-columns:1fr;gap:18px}.discovery-panel{padding:18px}.discovery-archive a{justify-self:start}}
