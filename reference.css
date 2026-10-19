@@ -469,3 +469,12 @@ body:not(.subpage) .poetry{padding:56px 0}
 }
 @media(max-width:380px){.brand{gap:6px}.header-flama{width:28px;height:42px}.brand-saz{width:24px;height:42px}.brand-text{font-size:15px}.brand-text>span{font-size:10px;letter-spacing:0}.header-identity{gap:8px}.header-identity .menu{padding:9px 10px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.poem-card,.poem-card:after{transition:none}}
+
+.subpage .gallery .archive-saz-photo{max-width:560px;margin-top:26px}
+
+/* Archive photographs regain their original colours on interaction. */
+.gallery .gallery-button img{filter:grayscale(1);transition:filter .4s ease,transform .4s ease}
+.gallery .gallery-button:focus-visible img,.gallery .gallery-button:active img{filter:grayscale(0)}
+@media(hover:hover){.gallery .gallery-button:hover img{filter:grayscale(0);transform:scale(1.015)}}
+@media(prefers-reduced-motion:reduce){.gallery .gallery-button img{transition:none}.gallery .gallery-button:hover img{transform:none}}
+.a11y-reduced-motion .gallery .gallery-button img{transition:none}.a11y-reduced-motion .gallery .gallery-button:hover img{transform:none}

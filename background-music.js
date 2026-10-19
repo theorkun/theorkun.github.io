@@ -5,11 +5,11 @@
   } catch (_) {}
   const storageKey = 'ceyhani-background-music';
   const readPreference = () => {
-    try { return JSON.parse(sessionStorage.getItem(storageKey)) || {}; }
+    try { return JSON.parse(window.CeyhaniCookies?.read('sessionStorage',storageKey)) || {}; }
     catch { return {}; }
   };
   const savePreference = value => {
-    try { sessionStorage.setItem(storageKey, JSON.stringify(value)); }
+    try { window.CeyhaniCookies?.write('sessionStorage',storageKey,JSON.stringify(value)); }
     catch { /* Playback remains available when storage is disabled. */ }
   };
 

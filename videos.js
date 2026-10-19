@@ -41,12 +41,12 @@
   }
 
   // Identify the actual hosting origin, including local HTTP previews.
-  if (cards[0]) player.src = embedUrl(cards[0].dataset.videoId);
+  if (cards[0] && window.CeyhaniCookies?.allows('media')) player.src = embedUrl(cards[0].dataset.videoId);
   if (window.location.protocol === 'file:') {
     status.textContent = 'Dosya önizlemesinde YouTube oynatıcısı çalışmayabilir. Videoları theorkun.github.io/videolar.html üzerinden açabilirsiniz.';
     status.hidden = false;
   }
-  window.onYouTubeIframeAPIReady = () => {
+  function initializePlayer() {
     youtubePlayer = new window.YT.Player(player, {
       events: {
         onReady() { playerReady = true; },
@@ -56,11 +56,14 @@
         }
       }
     });
-  };
-  const api = document.createElement('script');
-  api.src = 'https://www.youtube.com/iframe_api';
-  api.async = true;
-  document.head.appendChild(api);
+  }
+  if (window.CeyhaniCookies?.allows('media')) window.CeyhaniYouTube.load().then(initializePlayer).catch(error => {
+    status.textContent = error.message;status.hidden = false;
+  });
+  document.addEventListener('ceyhani-pause-video', () => {
+    if (dialog.open) dialog.close();
+    else if (playerReady && youtubePlayer) youtubePlayer.pauseVideo();
+  });
 
   close.addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
@@ -70,7 +73,7 @@
   });
   dialog.addEventListener('close', () => {
     if (playerReady && youtubePlayer) youtubePlayer.stopVideo();
-    else player.src = embedUrl(new URL(watch.href).searchParams.get('v'));
+    else if (window.CeyhaniCookies?.allows('media')) player.src = embedUrl(new URL(watch.href).searchParams.get('v'));
     cards.forEach(card => card.setAttribute('aria-pressed', 'false'));
   });
 
@@ -93,6 +96,7 @@
     render();
   });
   cards.forEach(card => card.addEventListener('click', () => {
+    if (!window.CeyhaniCookies?.allows('media')) { window.CeyhaniCookies?.open(); return; }
     const id = card.dataset.videoId;
     if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
     cards.forEach(item => item.setAttribute('aria-pressed', String(item === card)));

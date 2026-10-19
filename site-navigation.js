@@ -1,5 +1,5 @@
 (() => {
-  const pages = new Set(['index.html', 'hayati.html', 'videolar.html', 'siirler.html', 'kitaplik.html', 'fotograflar.html', 'motifler.html', 'ceyhaniye-yaz.html', 'kaynakca.html']);
+  const pages = new Set(['index.html', 'hayati.html', 'videolar.html', 'siirler.html', 'kitaplik.html', 'fotograflar.html', 'motifler.html', 'ceyhaniye-yaz.html', 'kaynakca.html', 'cerez-politikasi.html']);
   const initial = new URL(location.href);
   const directory = initial.pathname.slice(0, initial.pathname.lastIndexOf('/') + 1);
   const isSitePage = url => url.origin === initial.origin &&

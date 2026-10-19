@@ -1,4 +1,5 @@
 (() => {
+  if (!window.CeyhaniCookies?.decided()) return;
   const dialog = document.querySelector('#welcome-dialog');
   if (!dialog || typeof dialog.showModal !== 'function') return;
   dialog.querySelectorAll('[data-welcome-close]').forEach(button => {

@@ -1,0 +1,83 @@
+{
+  "title": "Ceyhani’den Türküler",
+  "volume": 0.35,
+  "tracks": [
+    {
+      "id": "turkleriz-biz",
+      "title": "Türkleriz Biz",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/ceyhani-turkleriz.mp3",
+      "bytes": 5412709
+    },
+    {
+      "id": "bir-nazar",
+      "title": "Bir Nazar Eyledim Hoş Cemaline",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/bir-nazar.mp3",
+      "bytes": 4182236
+    },
+    {
+      "id": "bundan-sonra",
+      "title": "Bundan Sonra",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/bundan-sonra.mp3",
+      "bytes": 909525
+    },
+    {
+      "id": "gayri",
+      "title": "Gayrı",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/gayri.mp3",
+      "bytes": 1221794
+    },
+    {
+      "id": "askin-beni",
+      "title": "Aşkın Beni Deli Eyledi",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/askin-beni.mp3",
+      "bytes": 977387
+    },
+    {
+      "id": "beni-yakan",
+      "title": "Beni Böyle Yakan Güzel",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/beni-yakan.mp3",
+      "bytes": 736834
+    },
+    {
+      "id": "benim",
+      "title": "Benim",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/benim.mp3",
+      "bytes": 1596238
+    },
+    {
+      "id": "intizar",
+      "title": "İntizar",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/intizar.mp3",
+      "bytes": 6049581
+    },
+    {
+      "id": "surmeli",
+      "title": "Sürmeli",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/surmeli.mp3",
+      "bytes": 1009481
+    },
+    {
+      "id": "vicdanin",
+      "title": "Vijdanın Yokmu Senin",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/vicdanin.mp3",
+      "bytes": 1219067
+    },
+    {
+      "id": "su-mezarda",
+      "title": "Şu Mezarda",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/su-mezarda.mp3",
+      "bytes": 1801385
+    }
+  ]
+}

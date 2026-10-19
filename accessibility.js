@@ -4,7 +4,7 @@
   const levels = {size:[100,125,150,175,200],color:[0,1,2],saturation:[0,1,2,3],height:[0,1,2,3],align:[0,1,2]};
   function readSettings() {
     let saved;
-    try { saved = JSON.parse(localStorage.getItem(key)); } catch (_) {}
+    try { saved = JSON.parse(window.CeyhaniCookies?.read('localStorage',key)); } catch (_) {}
     const next = {...defaults};
     for (const name of Object.keys(defaults)) next[name] = levels[name] ? (levels[name].includes(saved?.[name]) ? saved[name] : defaults[name]) : saved?.[name] === true;
     return next;
@@ -103,7 +103,7 @@
       card.querySelectorAll('.accessibility-dots i').forEach((dot,i) => dot.classList.toggle('active',levels[name]?.indexOf(settings[name]) === i + 1));
     });
     resizeText();
-    if (persist) try {localStorage.setItem(key,JSON.stringify(settings));} catch (_) {}
+    if (persist) try {window.CeyhaniCookies?.write('localStorage',key,JSON.stringify(settings));} catch (_) {}
   }
   function toggleStructure(card) {
     structure.hidden = !structure.hidden; card.setAttribute('aria-expanded',String(!structure.hidden));

@@ -57,6 +57,13 @@
   };
 
   function loadGuestbook() {
+    if (!window.CeyhaniCookies?.allows('comments')) {
+      status.hidden = false;
+      status.textContent = 'Ziyaretçi mesajlarını görmek veya yazmak için çerez tercihlerinden Ziyaretçi defteri kategorisine izin verebilirsiniz.';
+      retry.textContent = 'Çerez tercihlerini aç';
+      retry.hidden = false;
+      return;
+    }
     if (loading) return;
     loading = true;
     status.hidden = false;
@@ -84,7 +91,10 @@
     document.head.appendChild(script);
   }
 
-  retry.addEventListener('click', loadGuestbook);
+  retry.addEventListener('click', () => {
+    if (!window.CeyhaniCookies?.allows('comments')) window.CeyhaniCookies?.open();
+    else loadGuestbook();
+  });
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {

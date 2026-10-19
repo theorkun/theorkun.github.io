@@ -1,4 +1,5 @@
 (() => {
+  if (!window.CeyhaniCookies?.allows('statistics')) return;
   const legal = document.querySelector('.footer-legal');
   const copyright = legal?.querySelector('.copyright');
   if (!legal || !copyright) {
