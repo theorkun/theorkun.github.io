@@ -10,6 +10,7 @@
     if(!state.tracks.length)return;model=state;
     const playing=state.mode==='playing',track=state.tracks[state.index];
     $('musicPlayer').classList.toggle('is-playing',playing);
+    $('musicPlayer').classList.toggle('effects-active',playing&&!document.hidden);
     $('musicCurrent').textContent=track.title;$('musicArtist').textContent=track.artist||'Aşık Ceyhani';
     $('musicPlayingLabel').textContent=playing?'ŞİMDİ ÇALIYOR':'SEÇİLİ TÜRKÜ';
     $('musicPlay').innerHTML=playing?pauseIcon:playIcon;
@@ -61,6 +62,7 @@
   });
   $('musicReload').addEventListener('click',()=>window.location.reload());
   document.addEventListener('ceyhani-music-ready',connect);window.addEventListener('pageshow',connect);
+  document.addEventListener('visibilitychange',()=>{if(api)render(api.getState());});
   window.addEventListener('pagehide',()=>{unsubscribe?.();unsubscribe=null;api=null;if(timer)clearInterval(timer);timer=null;});
   connect();
   if(!api)timer=setInterval(()=>{connect();if(++attempts>=150&&!api){clearInterval(timer);timer=null;$('musicStatus').textContent='Müzik listesi yüklenemedi. Bağlantınızı kontrol edip yeniden deneyin.';$('musicReload').hidden=false;}},100);
