@@ -1,0 +1,6 @@
+.motif-colour-chip--turquoise{background:var(--turquoise,#179f99)}
+.culture-script-preview{display:grid;justify-items:center;gap:14px;margin:20px 0 24px;padding:25px 18px;border:1px solid #bd9455;border-radius:10px;background:#073348}
+.culture-script-preview img{display:block;width:min(100%,420px);height:auto}
+.culture-script-preview figcaption{color:#e9d9b7;font:400 11px/1.7 'Poppins',Arial,sans-serif;text-align:center}
+.culture-script-note .culture-script-caption{padding-top:15px;border-top:1px solid #d8c39f;font-size:12px}
+@media(max-width:600px){.culture-script-preview{padding:20px 13px}.culture-script-preview figcaption{font-size:10px}}
