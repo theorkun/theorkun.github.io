@@ -1,14 +1,4 @@
 .motif-colour-chip--turquoise{background:var(--turquoise,#179f99)}
-@font-face{font-family:'Noto Old Turkic';src:url('assets/fonts/noto-sans-old-turkic.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;unicode-range:U+10C00-10C4F}
-.culture-letter-heading{margin:26px 0 12px;font:600 20px/1.5 'Quicksand',sans-serif;color:#073348}
-.culture-letter-table-wrap{max-width:100%;overflow-x:auto;margin:20px 0;border:1px solid #d8c39f;border-radius:10px}
-.culture-letter-table{width:100%;border-collapse:collapse;background:#fffdf8;color:#073348;font:400 13px/1.7 'Poppins',Arial,sans-serif}
-.culture-letter-table caption{padding:14px;text-align:left;color:#536c78;font-size:12px}
-.culture-letter-table th,.culture-letter-table td{padding:12px 16px;text-align:left;vertical-align:middle;border-top:1px solid #e4dac5}
-.culture-letter-table th{background:#e7efea;font-weight:600}.culture-letter-table td:first-child{min-width:120px}
-.culture-rune{font:400 30px/1.4 'Noto Old Turkic','Segoe UI Historic',sans-serif;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
-.culture-script-note .culture-letter-note{font-size:12px;color:#536c78}
-@media(max-width:600px){.culture-letter-table th,.culture-letter-table td{padding:10px 9px;font-size:11px}.culture-letter-table td:first-child{min-width:82px}.culture-rune{font-size:24px}}
 .culture-script-preview{display:grid;justify-items:center;gap:14px;margin:20px 0 24px;padding:25px 18px;border:1px solid #bd9455;border-radius:10px;background:#073348}
 .culture-script-preview img{display:block;width:min(100%,420px);height:auto}
 .culture-script-preview figcaption{color:#e9d9b7;font:400 11px/1.7 'Poppins',Arial,sans-serif;text-align:center}
