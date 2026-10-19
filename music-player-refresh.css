@@ -50,3 +50,24 @@
 @media(prefers-reduced-motion:reduce){.music-saz-halo,.music-saz-art:before{animation:none}.music-track-button{transition:none}}
 .a11y-reduced-motion .music-saz-halo,.a11y-reduced-motion .music-saz-art:before{animation:none}
 .a11y-high-contrast .music-saz-halo,.a11y-high-contrast .music-saz-art:before{animation:none}
+/* Compact heading: remove space inherited from the site's generic header. */
+.music-page #main-content{padding-top:0}
+.music-breadcrumb{display:none}
+.music-page .music-page-heading{min-height:0;margin:0 0 22px;padding:0 0 20px;align-items:flex-start;border-top:0;background:transparent}
+.music-page-heading:before,.music-page-heading:after{content:none}
+.music-page-heading .music-eyebrow{margin:0 0 6px}
+.music-page-heading .music-total{margin-top:8px}
+/* Decorative SVGs share one small local asset; only transforms are animated. */
+.music-saz-motifs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.music-saz-motifs img{position:absolute;width:65px;height:117px;object-fit:contain;opacity:.13;animation:saz-motif-float 17s ease-in-out infinite;animation-play-state:paused}
+.music-saz-motifs img:nth-child(1){left:4%;top:19%;--motif-angle:-28deg;--motif-drift:16px;animation-delay:-4s}
+.music-saz-motifs img:nth-child(2){left:30%;top:48%;width:43px;height:78px;--motif-angle:24deg;--motif-drift:-13px;animation-duration:21s;animation-delay:-9s}
+.music-saz-motifs img:nth-child(3){right:4%;top:26%;width:73px;height:131px;--motif-angle:31deg;--motif-drift:-17px;animation-duration:19s;animation-delay:-12s}
+.music-saz-motifs img:nth-child(4){right:24%;top:-10%;width:51px;height:92px;--motif-angle:-19deg;--motif-drift:12px;animation-duration:23s;animation-delay:-3s}
+.music-feature-player.effects-visible .music-saz-motifs img{animation-play-state:running}
+@keyframes saz-motif-float{0%,100%{transform:translate(0,9px) rotate(var(--motif-angle))}50%{transform:translate(var(--motif-drift),-14px) rotate(calc(var(--motif-angle) + 9deg))}}
+.music-saz-art .music-saz-caption{inset:0 0 auto;padding:10px 22px;max-width:none;border-bottom:1px solid #e9d9b71a;background:#ffffff05}
+@media(max-width:520px){.music-page .music-page-heading{padding-top:0;margin-bottom:20px}.music-saz-art .music-saz-caption{inset:0 0 auto;padding:9px 20px}.music-saz-motifs img{opacity:.11}}
+@media(prefers-reduced-motion:reduce){.music-saz-motifs img{animation:none;transform:rotate(var(--motif-angle))}}
+.a11y-reduced-motion .music-saz-motifs img{animation:none;transform:rotate(var(--motif-angle))}
+.a11y-high-contrast .music-saz-motifs{display:none}

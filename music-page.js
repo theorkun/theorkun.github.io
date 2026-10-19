@@ -11,6 +11,7 @@
     const playing=state.mode==='playing',track=state.tracks[state.index];
     $('musicPlayer').classList.toggle('is-playing',playing);
     $('musicPlayer').classList.toggle('effects-active',playing&&!document.hidden);
+    $('musicPlayer').classList.toggle('effects-visible',!document.hidden);
     $('musicCurrent').textContent=track.title;$('musicArtist').textContent=track.artist||'Aşık Ceyhani';
     $('musicPlayingLabel').textContent=playing?'ŞİMDİ ÇALIYOR':'SEÇİLİ TÜRKÜ';
     $('musicPlay').innerHTML=playing?pauseIcon:playIcon;
