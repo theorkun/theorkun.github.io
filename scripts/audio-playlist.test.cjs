@@ -61,5 +61,15 @@ test('all eleven recordings include the original Turkleriz first, exclude duplic
   const data=JSON.parse(fs.readFileSync(path.join(root,'assets/audio-playlist.json'),'utf8'));assert.equal(data.tracks.length,11);assert.equal(new Set(data.tracks.map(t=>t.id)).size,11);
   assert.equal(data.tracks[0].title,'Türkleriz Biz');assert.equal(data.tracks[0].source,'assets/ceyhani-turkleriz.mp3');
   for(const t of data.tracks){const bytes=fs.readFileSync(path.join(root,t.source));assert.equal(bytes.length,t.bytes);assert.ok(bytes.length>100000);assert.ok(bytes.subarray(0,3).toString()==='ID3'||bytes[0]===255);}
-  for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="audio-playlist.js\?v=1"/);assert.doesNotMatch(html,/src="youtube-playlist.js/);}
+  for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="audio-playlist.js\?v=[^"]+"/);assert.doesNotMatch(html,/src="youtube-playlist.js/);}
+});
+test('large player API shares one audio instance and keeps subscribers synchronized with compact controls',async()=>{
+  const h=await harness(),api=h.window.ceyhaniMusic,updates=[];
+  const off=api.subscribe(state=>updates.push(state));assert.equal(updates.at(-1).mode,'playing');
+  await api.select(1);assert.equal(h.nodes.length,1);assert.equal(h.nodes[0].src,tracks[1].source);assert.equal(h.$('.ap-current').textContent,tracks[1].title);assert.equal(updates.at(-1).index,1);
+  api.seek(42);assert.equal(h.nodes[0].currentTime,42);assert.equal(updates.at(-1).position,42);
+  api.setVolume(0.6);assert.equal(h.nodes[0].volume,0.6);assert.equal(h.$('.ap-volume').value,60);
+  await h.click('play');assert.equal(updates.at(-1).mode,'paused');await api.togglePlay();assert.equal(h.$('[data-ap="play"]').attrs['aria-label'],'Müziği durdur');
+  const copy=api.getState();copy.tracks[0].title='changed';assert.notEqual(api.getState().tracks[0].title,'changed');
+  off();const count=updates.length;h.nodes[0].listeners.timeupdate();assert.equal(updates.length,count);
 });

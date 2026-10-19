@@ -75,7 +75,7 @@
     }
   }
   function scheduleResize() {
-    if (pending) return;
+    if (pending || settings.size === 100) return;
     pending = true;
     requestAnimationFrame(() => { pending = false; resizeText(); });
   }
@@ -140,7 +140,7 @@
   });
   function trackReading(y) {if (settings.line || settings.mask) root.style.setProperty('--a11y-reading-y',`${Math.max(0,Math.min(innerHeight,y))}px`);}
   document.addEventListener('pointermove',event => trackReading(event.clientY),{passive:true});
-  document.addEventListener('focusin',event => {const bounds = event.target.getBoundingClientRect();trackReading(bounds.top + bounds.height / 2);});
+  document.addEventListener('focusin',event => {if (!settings.line && !settings.mask) return;const bounds = event.target.getBoundingClientRect();trackReading(bounds.top + bounds.height / 2);});
   document.addEventListener('pointerover',event => {
     if (!settings.focus || event.pointerType === 'touch' || dialog.open) return;
     const target = event.target.closest('a[href], button, input, select, textarea, summary');

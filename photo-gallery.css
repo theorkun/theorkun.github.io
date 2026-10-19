@@ -27,3 +27,10 @@ body.photo-archive{background:#f5f4ef}
 @media(max-width:620px){.archive-grid{grid-template-columns:minmax(0,1fr)}.photo-archive .archive-gallery .archive-card{padding:10px}.photo-archive .archive-card .gallery-button{padding:16px}.photo-archive .archive-card figcaption{padding:18px 7px 9px;gap:13px}.archive-card-copy strong{font-size:17px}.archive-expand{opacity:1;transform:none}.archive-ending{align-items:start;flex-direction:column;gap:10px}.archive-intro{gap:12px}.archive-intro>p{max-width:220px}.photo-archive #lightbox{width:96vw;padding:12px;border-radius:9px}.photo-archive #image-caption{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.photo-archive .archive-card,.photo-archive .archive-card .gallery-button img,.archive-expand{transition:none}.photo-archive .archive-card .gallery-button:hover img{transform:none}}
 .a11y-reduced-motion .archive-card,.a11y-reduced-motion .archive-card .gallery-button img,.a11y-reduced-motion .archive-expand{transition:none}.a11y-reduced-motion .archive-card .gallery-button:hover img{transform:none}
+/* Full frames stay visible; colour is the only scroll effect. */
+.photo-archive .archive-card .gallery-button img{position:absolute;inset:18px;width:calc(100% - 36px);height:calc(100% - 36px);object-fit:contain;transition:filter .65s ease}
+.photo-archive .archive-card.is-revealed .gallery-button img{filter:grayscale(0)}
+.photo-archive .archive-grid{height:auto;max-height:none;overflow:visible}
+@media(max-width:620px){.photo-archive .archive-card .gallery-button img{inset:16px;width:calc(100% - 32px);height:calc(100% - 32px)}}
+@media(prefers-reduced-motion:reduce){.photo-archive .archive-card .gallery-button img{transition:none}}
+.a11y-reduced-motion .archive-card .gallery-button img{transition:none}
