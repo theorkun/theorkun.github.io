@@ -5,7 +5,7 @@
     const get = type => Number(parts.find(part => part.type === type).value);
     return Math.floor(Date.UTC(get('year'), get('month') - 1, get('day')) / 86400000);
   }
-  fetch('assets/poetry-discovery.json').then(response => {
+  fetch('assets/poetry-discovery.json?v=archive-76').then(response => {
     if (!response.ok) throw new Error('Arşiv bilgisi yüklenemedi');
     return response.json();
   }).then(archive => {

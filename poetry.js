@@ -682,7 +682,211 @@ Tosbayla tavşanın yarıştığı gün
       author: 'Aşık Ceyhani',
       preview: 'Bu sevdayla sinem yandı',
       poem: 'Bu sevdayla sinem yandı tutuşuyor,\nKerem misaliyim kül olmuşum ben.\nAhu zarımla tüm semayı tutuyor,\nDeli poyraz gibi yel olmuşum ben.\n\nHemi içerimde hemi bedende,\nBir zalimdir beni böyle edende.\nGözüm yaşı deryalara gidende,\nDereler coşturan sel olmuşum ben.\n\nSanki deprem vurdu her yanımı,\nAklım gelir gider kendinden geçik.\nKimi abdal diyor, kimi kaşık,\nEllerin gözünde del olmuşum ben.\n\nRazıyım sözüne, razıyım yar ben,\nCeyhani boynuma dolasan uran.\nİster adak gibi istersen kurban,\nKes boynumu sana, kul olmuşum ben.'
-    }
+    },
+{
+    "title": "Selam verdim almıyorsun",
+    "author": "Aşık Ceyhani",
+    "preview": "Selam verdim almıyorsun",
+    "poem": "Selam verdim almıyorsun\nBurnunmu büyüdü senin\nDost kıymeti bilmiyorsun\nBurnunmu büyüdü senin\n\nBu hal firavunun hali\nEdiyorsun beni deli\nAynı gargamel misali\nBurnunmu büyüdü senin.\n\nGayrı selam vermem sana\nDönüpte bakmam o yana\nSultanmı oldun cihana\nBurnunmu büyüdü senin\n\nCeyhaniyi kırıyorsun\nCiğerimden vuruyorsun\nKendin büyük görüyorsun\nBurnunmu büyüdü senin\n\n19.08.2024"
+  },
+  {
+    "title": "Hasretin sinemi yakıp kavurur",
+    "author": "Aşık Ceyhani",
+    "preview": "Hasretin sinemi yakıp kavurur",
+    "poem": "Hasretin sinemi yakıp kavurur\nGözlerimin suyu akar sevdiğim\nMejnunmuyum yada divanemiyim\nAşkın beni kökten yıkar sevdiğim\n\nSevip sevilmeyi yar sende buldum\nSevdan söyletiyor sevdanla çaldım\nGüzel gözleriyin esiri oldum\nİlla beni sana çeker sevdiğim\n\nZülüfün sallanır yar lüle lüle\nKokusu benzermi açılmış güle\nSen zaten bellisin hayalin bile\nBana burcu burcu kokar sevdiğim.\n\nBu ceyhani senin sevdanı çeker\nElleri koynunda boynunu büker\nAşkın öyle ateş güneşi yakar\nKorkarım suyuda yakar sevdiğim\n\n18.08.2024"
+  },
+  {
+    "title": "BOŞ BANA",
+    "author": "Aşık Ceyhani",
+    "preview": "Unumu eledim eleği astım",
+    "poem": "Unumu eledim eleği astım\nYalan dünya gelmez gayrı hoş bana\nDeli poyraz gibi yıllarca estim\nYaz aylarım bile şimdi kış bana\n\nYıldım bağırmaktan kısıldı sesim\nMerdiven çıkamam yetmez nefesim\nHepsi sizin olsun yoktur hevesim\nKonaklar saraylar gelir boş bana\n\nBir kuşum dalımdan uçmuş gibiyim\nYazlıktan kışlağa göçmüş gibiyim\nGüneşte gölgeden geçmiş gibiyim\nYaşadığım günler sanki düş bana\n\nCeyhani almadım türlü hazları\nÇekemez oldum ben cilve nazları\nİstemem cenette huri kızları\nSevdiceğim olsun orda eş\n\n30.04.2024"
+  },
+  {
+    "title": "Bütün insanları sınav etseler",
+    "author": "Aşık Ceyhani",
+    "preview": "Bütün insanları sınav etseler",
+    "poem": "Bütün insanları sınav etseler\nKimi sıfır alır kimi on çeker\nHer kafa içinde bir beyin vardır\nKimi gram gelmez kimi ton çeker.\n\nSakın cahillerin  attığı taştan\nÇıkarır insanı çileden baştan\nAvcı avı vurmuş kan akar döşten\nZalim sevinirken mazlum can çeker.\n\nİnsanlığa karşı yapar hatalar\nGörmezden gelirler suçu öteler\nİt iti ısırmaz demiş atalar\nBilir birbirini çünkü kan çeker.\n\n21.04.2024"
+  },
+  {
+    "title": "CANIM SIKILIYOR",
+    "author": "Aşık Ceyhani",
+    "preview": "Ne keyfim var nede neşem",
+    "poem": "Ne keyfim var nede neşem\nCanım sıkılıyor benim\nGücüm yok yürüyüp koşam\nCanım sıkılıyor benim.\n\nİpek kumaş giyenler var\nŞükür edin diyenler var\nHakkımızı yiyenler var\nCanım sıkılıyor benim\n\nHer şeye kafa yormaktan\nBıktım strese girmekten\nOturup evde durmaktan\nCanım sıkılıyor benim.\n\nİstakozla doyanlar var\nMidemizi oyanlar var\nMemleketi soyanlar var\nCanım sıkılıyor benim.\n\nBulanığım değil arı\nÇekiyorum Ahu zarı\nEttim ben benden firarı\nCanım sıkılıyor benim.\n\nBu Ceyhani gayrı ölsün\nÜzerine toprak dolsun\nBöyle hayat olmaz olsun\nCanım sıkılıyor benim\n\n16.04.2024"
+  },
+  {
+    "title": "Öldürün beni",
+    "author": "Aşık Ceyhani",
+    "preview": "Erenler zehir getirin",
+    "poem": "Erenler zehir getirin\nBal ile öldürmen beni\nBağrıma diken batırın\nGül ile öldürmen beni\n\nYar diyerek yana yana\nCan veririm ben  canana\nSevdiceğim kıysın bana\nEl ile öldürmen beni\n\nBir aşktır düştü özüme\nYanarım kendi közüme\nLeyla görünüp gözüme\nÇöl ile öldürmen beni\n\nYar aşkıyla düştüm gama\nSaldı beni demden deme\nAsın kesin yüzün ama\nDil ile öldürmen beni\n\n02.04.2024"
+  },
+  {
+    "title": "Heyacan basıyor seni  görünce",
+    "author": "Aşık Ceyhani",
+    "preview": "Heyacan basıyor seni  görünce",
+    "poem": "Heyacan basıyor seni  görünce\nSara tutmuş gibi titrer her yanım\nSenin ile bir sohbete girince\nDilim lal oluyor çekilir kanım.\n\nSevdiğim mah yüzün bana göstersen\nBaşım alıp yar bağrına yastarsan\nKavuşmamız için kurban istersen\nKes boynumdan feda olsun bu canım.\n\nBilirim sevdiğim bana kıymazsın\nSen meleksin şeytanlara uymazsın\nDuymayanlar duydu bir sen duymazsın\nSemayı titretir feryat figanım.\n\n02.04.2024"
+  },
+  {
+    "title": "DÜNYA",
+    "author": "Aşık Ceyhani",
+    "preview": "Bir yanın ateştir bir yanın buzlu",
+    "poem": "Bir yanın ateştir bir yanın buzlu\nDondurursun hemde yakarsın dünya\nKim bilir içinde ne sırlar gizli\nBir baştan bir başa akarsın dünya\n\nBilemedim nedir sendeki coşku\nVirana çevirin sarayı köşkü.\nZalime verirsin  serveti aşkı\nParayla kendine çekersin dünya.\n\nHeves bırakmadın sana bakmaya\nMahkum ettin böyle yaşlar dökmeye\nDaha doymadınmı beni yakmaya\nÜzerime korlar dökersin dünya.\n\nCeyhaniyi koydun çileye gama\nGönlüm yırtılmıştır tutmuyor yama\nBilirim azrail değilsin ama\nRuhumu kökünden sökersin dünya.\n\n14.09.2023"
+  },
+  {
+    "title": "YAVAŞ YAVAŞ",
+    "author": "Aşık Ceyhani",
+    "preview": "Geçipte karşıma tebessüm eyle",
+    "poem": "Geçipte karşıma tebessüm eyle\nAla gözlüm nolur gül yavaş yavaş.\nPerişanım sensiz çekerim böyle\nHergün eriyorum bil yavaş yavaş.\n\nEsen ürüzgarda kokun kokuyor\nMest eyleyip beni sana çekiyor.\nSicim gibi gözüm yaşı akıyor\nZülfün mendil eyle sil yavaş yavaş.\n\nHasretinden böyle canım ezgindir\nGüldür gayrı nolur gönül üzgündür.\nİlaç kar etmiyor yaram azgındır\nDerdime lokman ol gel yavaş yavaş.\n\nCeyhani yar diye diye sızlarsın\nGelir diye çıkar yolu gözlersin\nAçılmış sinende benden gizlersin\nGoncaları dersin el yavaş yavaş.\n\n14.08.2023"
+  },
+  {
+    "title": "Kız seni canımdan fazla sevmiştim",
+    "author": "Aşık Ceyhani",
+    "preview": "Kız seni canımdan fazla sevmiştim",
+    "poem": "Kız seni canımdan fazla sevmiştim\nBen sana kendimi sevdiremedim\nRuhumla, bedenim özle sevmiştim\nBen sana kendimi sevdiremedim.\n\nBenimkisi hayal düşümüş meğer\nSevdan  dertlerime başımış meğer\nTaşıdığın kalbin daşımış meğer\nBen sana kendimi sevdiremedim.\n\nMecnuna sevdirdim keşe sevdirdim\nAklını yitirmiş başa sevdirdim\nDağlara toprağa taşa sevdirdim\nBen sana kendimi sevdiremedim.\n\nCeyhani gönlümün sen oldun ilki\nDeseydin ölürdüm sen bana ölki\nBir gavuru sevsem severdi belki\nBen sana kendimi sevdiremedim.\n\n25.02.2023"
+  },
+  {
+    "title": "GÜL PERİ",
+    "author": "Aşık Ceyhani",
+    "preview": "Hemi gülsün hemde peri",
+    "poem": "Hemi gülsün hemde peri\nAdını Gül peri koydum\nSevdiğim gözümün feri\nAdını Gül peri koydum.\n\nAçtın gönlümde yara kız\nBu yaraya bi çare kız\nRuhuma gıda  Kara kız\nAdını Gül peri koydum.\n\nCeyhani derdim azalı\nDeğildim böyle ezeli\nGözümde dünya güzeli\nAdını Gül peri koydum.\n\n08.09.2022"
+  },
+  {
+    "title": "FAYDA BEKLEME",
+    "author": "Aşık Ceyhani",
+    "preview": "Karekteri bozuk olan",
+    "poem": "Karekteri bozuk olan\nKullardan fayda bekleme\nSözlerinde varsa yalan\nDillerden fayda bekleme.\n\nTürlü renklere bezenen\nHaram lokmaya özenen\nYetim hakkına uzanan\nEllerden fayda bekleme.\n\nAvanta peşinde gezen\nGarip gurabayı ezen\nSazda tutmuyorsa düzen\nTellerden fayda bekleme.\n\nSel suyu bulanık akar\nBir kibrit ormanı yakar\nArıya verdiysen şeker\nBallardan fayda bekleme\n\nCeyhani insanlık arar\nVerirse çevreye zarar\nSakal bıyık neye yarar\nKıllardan fayda bekleme.\n\n13.08.2022"
+  },
+  {
+    "title": "SENİ GÖRÜNCE",
+    "author": "Aşık Ceyhani",
+    "preview": "Neden bilmem ama böyle oluyom",
+    "poem": "Neden bilmem ama böyle oluyom\nHeyacan tutuyor seni görünce\nNefesim kesilir sanki ölüyom\nHeyacan tutuyor seni görünce\n\nDilim zor dönüyor ağzım kuruyor\nNabız yükseliyor kalbim vuruyor\nGözlerim dünyayı bir hoş görüyor\nHeyacan tutuyor seni görünce.\n\nÇok düşündüm acep olaki neden\nIslatır yüzümü ter olup geden\nTir tir titriyorum durmuyor beden\nHeyacan tutuyor seni görünce.\n\nSevdanla yanmışım dönmüşüm küle\nBir kıvılcım iner boyunumdan bele\nSen zaten bellisin resminde bile\nHeyacan tutuyor seni görünce\n\nCeyhaniyim seni göresim gelir\nYana düşen zülfün öresim gelir\nYüzümü yüzüne süresin gelir\nHeyacan tutuyor seni görünce.\n04-08-2022"
+  },
+  {
+    "title": "Yusufu kuyuya atanlar gibi",
+    "author": "Aşık Ceyhani",
+    "preview": "Yusufu kuyuya atanlar gibi",
+    "poem": "Yusufu kuyuya atanlar gibi\nSende beni aşka attın Kara kız\nEsir alıp köle tutanlar gibi\nSende beni öyle ettin Kara kız.\n\nSana söylüyorum duy kahve gözlü\nHasretin çekerim yar gizli gizli\nÖmrümde görmedim sen gibi nazlı\nBakıp kaşlarını çattın Kara kız.\n\nAşk nedir bilmezdim senden eveli\nCeyhani mahlasım,ben durmuş ali\nOlmuşum sayende serseri deli\nBeni türlü hale kattın Kara kız.\n04-08-2022"
+  },
+  {
+    "title": "Süphandereli",
+    "author": "Aşık Ceyhani",
+    "preview": "Bu sözlerim sana süphandereli",
+    "poem": "Bu sözlerim sana süphandereli\nBu kadar siyaset yapma be gardaş\nTürk değilmi bunlar söyle nereli\nBu kadar siyaset yapma be gardaş\n\nHasta olduğunda kime gidersin\nTabipler olmasa bilmem nidersin\nDoktorlara neden sen kin güdersin\nBu kadar siyaset yapma be gardaş.\n\nTÜSİAD dediğin cumhur yanlısı\nÖdüller verdiler devlet şanlısı\nHükümeti över değil kanlısı\nBu kadar siyaset yapma be gardaş\n\nCeyhani tabipler başımın tacı\nOnlar olmaz ise hayat çok acı\nHükümetler gider onlar kalıcı\nBu kadar siyaset yapma be gardaş.\n22.07.2022"
+  },
+  {
+    "title": "Sevda seni benden beter",
+    "author": "Aşık Ceyhani",
+    "preview": "Sevda seni benden beter",
+    "poem": "Sevda seni benden beter\nEder inşallah inşallah\nNere gitsen senle gider\nKeder inşallah inşallah\n\nSevdanla çektirin bana\nKeyf alırsın kana kana\nKötü vursun birgün sana\nKader inşallah inşallah\n\n19.07.2022"
+  },
+  {
+    "title": "TURNALAR",
+    "author": "Aşık Ceyhani",
+    "preview": "Adana’ya doğru giden turnalar",
+    "poem": "Adana’ya doğru giden turnalar\nKara kıza benden selam söyleyin\nSevdası sinemde açtı yaralar\nKara kıza benden selam söyleyin\n\nSevip sevilmenin  olmuyor yaşı\nGitmiyor aklımdan hayali düşü\nSİze yalvarırım ey turna kuşu\nKara kıza benden selam söyleyin\n\nCeyhani sevdiğim başımın tacı\nGizli Sevda verir ruhuma acı\nO yar ile bana olun aracı\nKara kıza benden selam söyleyin\n\n26.06.2022"
+  },
+  {
+    "title": "EĞER",
+    "author": "Aşık Ceyhani",
+    "preview": "Bade diye bana uzatsan zehir",
+    "poem": "Bade diye bana uzatsan zehir\nİçerim yanımda olursan eğer.\nYolumuza engel olsada nehir\nGeçerim yanımda olursan eğer.\n\nBile geçirelim baharı kışı\nBeraber kuralım hayali düşü\nOlalım sevdiğim muhabbet kuşu\nUçarım yanımda olursan eğer.\n\nGadanı alayım düşürme zora\nAçarsan kapanmaz sinemde yara\nİste bu diyardan başka diyara\nGöçerim yanımda olursan eğer.\n\nCeyhani boş yere geçmesin hayat\nSenin ile bulsun ömrüm nihayet\nTut elimden gidek der isen şayet\nKaçarım yanımda olursan eğer.\n06.05.2022"
+  },
+  {
+    "title": "ALKIŞ TUTUYOR",
+    "author": "Aşık Ceyhani",
+    "preview": "Dünyadamı  böyle yoksa bizdemi",
+    "poem": "Dünyadamı  böyle yoksa bizdemi\nEzilen ezene alkış tutuyor\nAkıldamı sorun yoksa gözdemi\nEzilen ezene alkış tutuyor\n\nYalancı her yöne çevirir dili\nNe söylese  alkış tutuyor deli\nHani şu deveyle diken misali\nEzilen ezene alkış tutuyor\n\nBardağı bardakla kırma hilesi\nKarıştır kinleştir işin alası\nBöylesine derim çağın kölesi\nEzilen ezene alkış tutuyor.\n\nAdalet yok olmuş ezen ezene\nHiç insan denirmii gavli bozana\nCeyhani isyanım böyle düzene\nEzilen ezene alkış tutuyor.\n30-4-2020"
+  },
+  {
+    "title": "Göz yaşlarım ince ince",
+    "author": "Aşık Ceyhani",
+    "preview": "Göz yaşlarım ince ince",
+    "poem": "Göz yaşlarım ince ince\nAkıyor seni görünce\nNeredeydin senelerce\nYenimi çıktın karşıma.\n\nVurdu kader yara açtı\nTohum gibi yere saçtı\nDer Ceyhani gençlik geçti\nYenimi çıktın karşıma\n13.03.2022"
+  },
+  {
+    "title": "KARA KIZ",
+    "author": "Aşık Ceyhani",
+    "preview": "Ölüp geri gelsem dünyaya bida",
+    "poem": "Ölüp geri gelsem dünyaya bida\nSeni seveceğim  gene Kara Kız.\nMalımı mülkümü alsında hüda\nYalnız seni versin bana Kara Kız.\n\nCeyhaniyim beni gelip görseler\nAyağıma bu dünyayı serseler\nHuri kızlarıyla peri verseler\nDeğişmemki seni buna Kara kız.\n13.03.2022"
+  },
+  {
+    "title": "BOŞ OLDUĞUNU",
+    "author": "Aşık Ceyhani",
+    "preview": "Sizin gibi bende gezdim bir zaman",
+    "poem": "Sizin gibi bende gezdim bir zaman\n Sanmıştım dünyanın hoş olduğunu.\nBen yanıldım sizler aman ha aman\nKabirde anladım boş olduğunu\n\nNerde benim aklım alıp kandıran\nTürlü süsleriyle başım döndüren.\nBilirmisin cehennemi söndüren\n ALLAH  için akan  yaş olduğunu\n\nDünyada fazla mal  burada zulüm.\nHesabı zorumuş dönmüyor dilim.\nNerede servetim sermayem malım\nAnladımki iki taş  olduğunu\n\nİbret al Ceyhani göçüp gideni\nTerk etmesin sakın aklın bedeni.\nNarı cehenneme girme  nedeni\nUnutma akılsız  baş  olduğunu.\n\n24.12.2021"
+  },
+  {
+    "title": "ADAM OL ADAM",
+    "author": "Aşık Ceyhani",
+    "preview": "Çıksada önüne çeşitli engel",
+    "poem": "Çıksada önüne çeşitli engel\nHedefine giden adam ol adam.\nUçma yükseklerde engine ingel.\nHedefine giden adam ol adam.\n\nBelki sana hain diyenler olur\nKınayanlar olur yerenler olur.\nVaz geç diye akıl verenler olur\nHedefine giden adam ol adam.\n\nDoğruları haykır sakın sıkılma\nTehditlerden korkup iki bükülme\nCan ver ama sakın yere yıkılma\nHedefine giden adam ol adam.\n\nCeyhani örnek ol hep duruşunla\nIşık saç etrafa bu görüşünle.\nDeğer kazanaman lira kuruşunla\nHedefine giden adam ol adam\n\n28.09.2021"
+  },
+  {
+    "title": "GELSENE",
+    "author": "Aşık Ceyhani",
+    "preview": "Gönlümün sultanı başımın tacı",
+    "poem": "Gönlümün sultanı başımın tacı\nHasretinden hasta oldum gelsene.\nBana şifa vermez doktor ilacı\nHazan yemiş gibi soldum gelsene.\n\nBedenim kıpramaz dondu kasıldı\nÇıkmıyor avazım sesim kısıldı.\nYemem içemem bitti hepsi kesildi\nBir deri bir kemik kaldım gelsene.\n\nGünlerdir beklerim ben beni üzdüm\nDuramam sözümde gavili bozdum.\nBelki okun diye mektuplar yazdım\nPosta ile haber saldım gelsene.\n\nAzrail acımaz gözüm yaşına\nÖleceğim belli oldu aşina.\nBir fatiha oku mezar başına\nSevdiğim ceyhani öldü gelsene.\n24.08.2021"
+  },
+  {
+    "title": "Karıştı izleri bilinmez oldu",
+    "author": "Aşık Ceyhani",
+    "preview": "Karıştı izleri bilinmez oldu",
+    "poem": "Karıştı izleri bilinmez oldu\nÇakal belli değil kurt belli değil\nHer yanımız insan benzeri doldu\nKalleş belli değil mert belli değil.\n\nAklı boş çoğaldı, sardı ulusu\nKonuşmaya korkar aklı dolusu\nBirbirine girmiş türlü çalısı\nPıynar belli değil murt belli değil.\n\nDost dediğin  güven vermiyor dosta\nGüçlüler zayıfa koyuyor posta\nCeyhaniyim bitmiş insanlık hasta\nŞifa belli değil dert belli değil.\n\n22.08.2021"
+  },
+  {
+    "title": "Demirkazığın",
+    "author": "Aşık Ceyhani",
+    "preview": "Etekleri yeşil üzeri beyaz",
+    "poem": "Etekleri yeşil üzeri beyaz\nNe güzel süsü var demirkazığın\nGündüzleri serin gecesi ayaz\nSeherde sisi var demirkazığın\n\nTürlü kuş sesleri gelir koyakta\nArı var çiçekte morunda akta\nBeş vakit kıyamda durur ayakta\nBuluttan fesi var demirkazığın.\n\nOlsada söylese bu dağın dili\nNe kavimler gördü acep kim bili\nBurcu burcu kokar nergizi gülü\nSormayın nesi var demirkazığın\n\nCeyhaniyim burda neler var neler\nGeyikler kuzlamış oğlağı meler\nŞu anda inceden yağmur çiseler\nDumanlı pusu var demirkazığın.\n\n14.05.2014"
+  },
+  {
+    "title": "Nasıl bir illetmiş hapsolduk eve",
+    "author": "Aşık Ceyhani",
+    "preview": "Nasıl bir illetmiş hapsolduk eve",
+    "poem": "Nasıl bir illetmiş hapsolduk eve\nSıkıldım ben böyle günden usandım\nKalmadı gönlümde döküldü sıva\nHem bu günden hemde dünden usandım\n\nİçimdeki gamı derdi dökemem\nGelenim var diye yola bakamam\nKapanıp kalmışım evden çıkamam\nBir evin içinde dönden usandım.\n\nLebalep diyerek tutmuştu kaydı\nRizede başlattı her yere yaydı\nSonrada milleti içeri koydu\nBurdan söylüyorum senden usandım.\n02.05.2021"
+  },
+  {
+    "title": "ZEYNO",
+    "author": "Aşık Ceyhani",
+    "preview": "Güzel gülüşüne güzel gözüne",
+    "poem": "Güzel gülüşüne güzel gözüne\nVuruldum neyleyim sana be Zeyno\nDoyamam bakmaya o mah yüzüne\nOlurum görünce fena be Zeyno\n\nSana olan sevgim göğe erişti\nYanar ciğerlerim soldu kırıştı\nYüreğimden geçip cana karıştı\nAdın damarımda kana be Zeyno\n27.04.2021"
+  },
+  {
+    "title": "SEVDİĞİM",
+    "author": "Aşık Ceyhani",
+    "preview": "Sarıp sarmalayıp bana dokunsan",
+    "poem": "Sarıp sarmalayıp bana dokunsan\nTene değil girsen kalbe sevdiğim.\nDuam olup hep dilimde okunsan\nGitme ömür boyu kal be sevdiğim.\n\nCananım ol benim ahirde burda\nAdın derman verir bendeki derde.\nAcı şu halime bırakma narda\nEyleme beni sen kül be sevdiğim.\n\nMaşuk ister daim yare kavuşmak\nYakışmaz sevene kavga döğüşmek.\nRuhuma gıdadır senle sevişmek\nBen bülbülüm sende gül' be sevdiğim.\n\nEzeli gönlümde benim birimsin\nÜryanım dünyada birtek varımsın.\nHer iki cihanda yarsın yarimsin\nCeyhani kapında kul be sevdiğim\n\n01.02.2021"
+  },
+  {
+    "title": "ÇAY PARASI VERE VERE USANDIM",
+    "author": "Aşık Ceyhani",
+    "preview": "Bugün ellibirde gene ütüldüm",
+    "poem": "Bugün ellibirde gene ütüldüm\nÇay parası vere vere usandım\nKumpasa uğradım gardaş satıldım\nÇay parası vere vere usandım.\n\nMisis ile Adana’nın arası\nÖldürüyor ütülmenin yarası\nGetti çocukların ekmek parası\nÇay parası vere vere usandım.\n\nOn iki çay içtik,cola gerisi\nBilmem kaçı siyah,üçtü sarısı\nBitirdim maaşı uçtu yarısı\nÇay parası vere vere usandım.\n\nCeyhani sıkıntım başıma vurdu\nBoşaldı cüzdanım dostlarım gördü\nSağolsun kahveci biraz borç verdi\nÇay parası vere vere usandım.\n\n27.01.2021"
+  },
+  {
+    "title": "BENİM",
+    "author": "Aşık Ceyhani",
+    "preview": "Dokunmayın nolur bırakın aksın",
+    "poem": "Dokunmayın nolur bırakın aksın\nGözlerimden yaşı silmeyin benim\nBırakın ortada cenazem koksun\nBedenime çukur,bulmayın benim.\n\nSavurdunuz beni ordan oraya\nAcımayıp bıraktınız araya\nYüreğimde açtığınız yaraya\nİstemiyom merhem olmayın benim.\n\nEklediniz bin bir,benim sözüme\nDom dom kurşunları atıp izime.\nPişmiş kelle gibi, bakıp yüzüme\nYalandan yüzüme gülmeyin benim.\n\nİstediniz beni mutlu olmasın\nCeyhani ağlasın yüzü gülmesin\nMezarım olursa kimse bilmesin\nİstemem kabrime gelmeyin benim.\n23.01.2021"
+  },
+  {
+    "title": "GELİR SANA DOĞRU (16.01.2021)",
+    "author": "Aşık Ceyhani",
+    "preview": "Deli gönlüm aşk nehrine",
+    "poem": "Deli gönlüm aşk nehrine\nDüştü gelir sana doğru\nAklımı başımdan aldın\nŞaştı gelir sana doğru.\n\nSanma sana çok ırağım\nSensin benim son durağım.\nSevgin ile bu yüreğim\nTaşdı gelir sana doğru.\n\nCeyhani'ye sensin sebep\nSoruyorum vermen cevap\nCiğerlerim oldu kebap\nPişdi  gider  sana doğru.\n16.01.2021"
+  },
+  {
+    "title": "GELİR SANA DOĞRU (27.11.2020)",
+    "author": "Aşık Ceyhani",
+    "preview": "Deli gönlüm aşk nehrine",
+    "poem": "Deli gönlüm aşk nehrine\nDüştü gelir sana doğru\nAklımı başımdan aldın\nŞaştı gelir sana doğru.\n\nSanma sana çok ırağım\nSensin benim son durağım.\nSevgin ile bu yüreğim\nTaşdı gelir sana doğru.\n\nCeyhani'ye sensin sebep\nSoruyorum vermen cevap\nCiğerlerim oldu kebap\nPişTi  gider  sana doğru.\n\n27.11.2020"
+  },
+  {
+    "title": "DOKTOR BEY",
+    "author": "Aşık Ceyhani",
+    "preview": "Düşmüyor tansiyon başım dönüyor",
+    "poem": "Düşmüyor tansiyon başım dönüyor\nDengesizim düştüm yere doktor bey.\nGözlerim dumanlı feri sönüyor\nGörürüm etrafı kara doktor bey.\n\nSanırım azrail beni yokluyor\nHaktan alacağı emri bekliyor.\nKalbim dayanmıyor küt küt tıklıyor\nCiğerlerim zaten yara doktor bey.\n\nÇokmu ağır durum söyle bileyim\nDuamı edeyim hazır olayım\nGurbette yavrum var haber salayım.\nGelsin çocuklarım bura doktor bey\n\nCeyhani ne oldu böyle bilmedim\nHüzünden olurmu çünkü gülmedim.\nÖlmekten hiç korkmam murad almadım\nÇok oldu düşeli nara doktor bey."
+  }
   ];
 
   const existingGrid = poetrySection.querySelector('.poem-grid');
