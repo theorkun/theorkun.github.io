@@ -870,16 +870,10 @@ Tosbayla tavşanın yarıştığı gün
     "poem": "Dokunmayın nolur bırakın aksın\nGözlerimden yaşı silmeyin benim\nBırakın ortada cenazem koksun\nBedenime çukur,bulmayın benim.\n\nSavurdunuz beni ordan oraya\nAcımayıp bıraktınız araya\nYüreğimde açtığınız yaraya\nİstemiyom merhem olmayın benim.\n\nEklediniz bin bir,benim sözüme\nDom dom kurşunları atıp izime.\nPişmiş kelle gibi, bakıp yüzüme\nYalandan yüzüme gülmeyin benim.\n\nİstediniz beni mutlu olmasın\nCeyhani ağlasın yüzü gülmesin\nMezarım olursa kimse bilmesin\nİstemem kabrime gelmeyin benim.\n23.01.2021"
   },
   {
-    "title": "GELİR SANA DOĞRU (16.01.2021)",
+    "title": "GELİR SANA DOĞRU",
     "author": "Aşık Ceyhani",
     "preview": "Deli gönlüm aşk nehrine",
     "poem": "Deli gönlüm aşk nehrine\nDüştü gelir sana doğru\nAklımı başımdan aldın\nŞaştı gelir sana doğru.\n\nSanma sana çok ırağım\nSensin benim son durağım.\nSevgin ile bu yüreğim\nTaşdı gelir sana doğru.\n\nCeyhani'ye sensin sebep\nSoruyorum vermen cevap\nCiğerlerim oldu kebap\nPişdi  gider  sana doğru.\n16.01.2021"
-  },
-  {
-    "title": "GELİR SANA DOĞRU (27.11.2020)",
-    "author": "Aşık Ceyhani",
-    "preview": "Deli gönlüm aşk nehrine",
-    "poem": "Deli gönlüm aşk nehrine\nDüştü gelir sana doğru\nAklımı başımdan aldın\nŞaştı gelir sana doğru.\n\nSanma sana çok ırağım\nSensin benim son durağım.\nSevgin ile bu yüreğim\nTaşdı gelir sana doğru.\n\nCeyhani'ye sensin sebep\nSoruyorum vermen cevap\nCiğerlerim oldu kebap\nPişTi  gider  sana doğru.\n\n27.11.2020"
   },
   {
     "title": "DOKTOR BEY",
