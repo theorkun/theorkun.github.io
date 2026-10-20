@@ -19,7 +19,7 @@ async function harness({blockFirst=false,functional=false,stored=null,child=fals
     pause(){this.pauses++;}
   }
   const window={addEventListener:(k,fn)=>listeners[k]=fn,CeyhaniCookies:{read:()=>functional&&stored?JSON.stringify(stored):null,write:(...args)=>{if(functional)writes.push(JSON.parse(args[2]));}}};window.parent=child?{ceyhaniNavigation:{},ceyhaniMusic:{startIfWanted:()=>events.push('parent-play')}}:window;
-  const context=vm.createContext({window,document,Audio,Event:class{constructor(type){this.type=type;}},fetch:async url=>{fetches++;assert.equal(url,'assets/audio-playlist.json');return {ok:true,json:async()=>({tracks,volume:0.35})};}});
+  const context=vm.createContext({window,document,Audio,Event:class{constructor(type){this.type=type;}},fetch:async url=>{fetches++;assert.match(url,/^assets\/audio-playlist\.json(?:\?v=[a-z0-9-]+)?$/);return {ok:true,json:async()=>({tracks,volume:0.35})};}});
   await vm.runInContext(fs.readFileSync(path.join(root,'audio-playlist.js'),'utf8'),context);
   const widget=document.body.child,$=s=>widget.querySelector(s);
   return {nodes,sources,writes,listeners,events,window,document,fetches:()=>fetches,$,click:async name=>$(`[data-ap="${name}"]`).listeners.click(),select:async i=>$('.ap-tracks').listeners.click({target:{closest:()=>({dataset:{audioIndex:String(i)}})}})};
@@ -57,8 +57,8 @@ test('failed audio can be retried, and opening a video pauses playback',async()=
   const h=await harness();h.nodes[0].listeners.error();assert.match(h.$('.ap-status').textContent,/yüklenemedi/);await h.click('play');assert.equal(h.sources.length,2);assert.match(h.$('.ap-status').textContent,/Şimdi çalıyor/);
   h.listeners['ceyhani-pause-music']();assert.match(h.$('.ap-status').textContent,/Video için/);assert.equal(h.$('[data-ap="play"]').attrs['aria-label'],'Müziği çal');
 });
-test('all eleven recordings include the original Turkleriz first, exclude duplicates and use an image-free MP3 list on every page',()=>{
-  const data=JSON.parse(fs.readFileSync(path.join(root,'assets/audio-playlist.json'),'utf8'));assert.equal(data.tracks.length,11);assert.equal(new Set(data.tracks.map(t=>t.id)).size,11);
+test('all 21 recordings include the original Turkleriz first and distinct supplied versions and use an image-free MP3 list on every page',()=>{
+  const data=JSON.parse(fs.readFileSync(path.join(root,'assets/audio-playlist.json'),'utf8'));assert.equal(data.tracks.length,21);assert.equal(new Set(data.tracks.map(t=>t.id)).size,21);
   assert.equal(data.tracks[0].title,'Türkleriz Biz');assert.equal(data.tracks[0].source,'assets/ceyhani-turkleriz.mp3');
   for(const t of data.tracks){const bytes=fs.readFileSync(path.join(root,t.source));assert.equal(bytes.length,t.bytes);assert.ok(bytes.length>100000);assert.ok(bytes.subarray(0,3).toString()==='ID3'||bytes[0]===255);}
   for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="audio-playlist.js\?v=[^"]+"/);assert.doesNotMatch(html,/src="youtube-playlist.js/);}

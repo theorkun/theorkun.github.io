@@ -11,7 +11,7 @@
   } catch (_) {}
   let config,tracks;
   try {
-    const response=await fetch('assets/audio-playlist.json');if(!response.ok)throw Error();config=await response.json();
+    const response=await fetch('assets/audio-playlist.json?v=tracks-21');if(!response.ok)throw Error();config=await response.json();
     const seen=new Set();tracks=config.tracks.filter(t=>typeof t.id==='string'&&typeof t.title==='string'&&/^(?:assets\/music\/[a-z0-9-]+\.mp3|assets\/ceyhani-turkleriz\.mp3)$/.test(t.source)&&!seen.has(t.id)&&seen.add(t.id));
     if(!tracks.length)return;
   } catch (_) { return; }

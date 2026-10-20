@@ -78,6 +78,76 @@
       "artist": "Aşık Ceyhani",
       "source": "assets/music/su-mezarda.mp3",
       "bytes": 1801385
+    },
+    {
+      "id": "aglama-gozlerim",
+      "title": "Ağlama Gözlerim Mevlam Kerimdir",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/aglama-gozlerim.mp3",
+      "bytes": 14759416
+    },
+    {
+      "id": "ahu-gozlum",
+      "title": "Ahu Gözlüm",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/ahu-gozlum.mp3",
+      "bytes": 12353761
+    },
+    {
+      "id": "eder-insallah",
+      "title": "Eder İnşallah İnşallah",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/eder-insallah.mp3",
+      "bytes": 7690953
+    },
+    {
+      "id": "atisma-hakki",
+      "title": "Aşık Hakkı ile Atışma",
+      "artist": "Aşık Ceyhani ve Aşık Hakkı",
+      "source": "assets/music/atisma-hakki.mp3",
+      "bytes": 8786279
+    },
+    {
+      "id": "turkleriz-320kbps",
+      "title": "Türkleriz (320 kbps)",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/turkleriz-320kbps.mp3",
+      "bytes": 13573066
+    },
+    {
+      "id": "ah-neyleyim",
+      "title": "Ah Neyleyim Gönül",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/ah-neyleyim.mp3",
+      "bytes": 7175936
+    },
+    {
+      "id": "kusturdum-gonlumu",
+      "title": "Küstürdüm Gönlümü Güldüremedim",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/kusturdum-gonlumu.mp3",
+      "bytes": 13987825
+    },
+    {
+      "id": "yarim-kokun",
+      "title": "Yarim Kokun Bana Koksun",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/yarim-kokun.mp3",
+      "bytes": 6606686
+    },
+    {
+      "id": "bagisla-sevdigim",
+      "title": "Bağışla Sevdiğim Hakkı Seversen",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/bagisla-sevdigim.mp3",
+      "bytes": 7238180
+    },
+    {
+      "id": "vicdanin-320kbps",
+      "title": "Vicdanın Yok mu Senin (320 kbps)",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/vicdanin-320kbps.mp3",
+      "bytes": 9479608
     }
   ]
 }
