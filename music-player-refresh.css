@@ -82,3 +82,12 @@
 .music-player-note{margin-top:12px}.music-player-status{margin-top:9px}
 @media(min-width:521px) and (max-width:760px){.music-saz-art{height:auto;min-height:240px}.music-player-body{padding:19px}.music-saz-inscription{max-width:85px}}
 @media(max-width:520px){.music-saz-art{height:140px;min-height:0}.music-player-body{padding:18px 20px}.music-player-body h2{font-size:23px}.music-main-controls .music-play{width:52px;height:52px}.music-saz-inscription{font-size:16px;bottom:20px;left:17px;max-width:75px}.music-saz-side{font-size:7px;bottom:12px}.music-saz-art .music-saz-caption{padding:7px 17px;font-size:7px}}
+/* Player first, followed by the full playlist in one centred column. */
+.music-page #main-content{max-width:720px}
+.music-library .music-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+.music-player-column{position:static}
+.music-feature-player{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.music-saz-art{height:auto;min-height:270px;border-bottom:0;border-right:1px solid #a7dcb9}
+.music-player-body{padding:23px}
+.music-player-note{display:none}
+@media(max-width:520px){.music-feature-player{display:block}.music-saz-art{height:140px;min-height:0;border-right:0;border-bottom:1px solid #a7dcb9}.music-player-body{padding:18px 20px}.music-library .music-layout{gap:20px}}
