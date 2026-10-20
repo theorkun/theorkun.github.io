@@ -1,0 +1,20 @@
+/* Shared mobile navigation, scoped to the site's top header. */
+@media(max-width:760px){
+  body>header,body>header.is-menu-open{padding:16px 4% 44px;min-width:0;min-height:0}
+  body>header>.header-identity{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;width:100%}
+  body>header .brand{display:flex;align-items:center;flex:1 1 0;gap:8px;min-width:0;max-width:100%}
+  body>header .header-flama{width:30px;height:46px;flex-shrink:0}
+  body>header .brand-saz{width:27px;height:46px;flex-shrink:0}
+  body>header .brand-text{min-width:0;white-space:normal;overflow-wrap:anywhere;font-size:clamp(16px,4.2vw,21px);letter-spacing:0;line-height:1.3}
+  body>header .brand-text>span{font-size:clamp(10px,2.7vw,12px);letter-spacing:0;line-height:1.5;margin-top:4px;text-align:left}
+  body>header .menu{display:none;flex:0 0 auto;min-width:62px;min-height:44px;padding:9px 10px;border:1px solid #d5bd8e;border-radius:8px;color:#073348;background:#f6efdf;font:600 12px/1.5 'Quicksand',sans-serif}
+  body>header.menu-ready .menu{display:block}
+  body>header>#nav,body>header>#nav.open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;min-width:0;gap:8px;height:auto;max-height:none;margin:14px 0 0;padding:12px 0 0;overflow:visible;border-top:1px solid #e3d7be}
+  body>header.menu-ready>#nav:not(.open){display:none}
+  body>header>#nav>a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:46px;padding:10px 7px;border:1px solid #e5dccb;border-radius:8px;background:#fffdf8;font:600 12px/1.5 'Quicksand',sans-serif;text-align:center;white-space:normal;overflow-wrap:anywhere;grid-column:auto}
+  body>header>#nav>a.active,body>header>#nav>a[aria-current=page]{border-color:#b8d8d0;background:#e8f3ee;color:#076863}
+  body>header>.mobile-turkuler{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:9px 13px;font-size:12px}
+  body>header.is-menu-open>.mobile-turkuler{display:none}
+  body>header :is(a,button):focus-visible{outline:3px solid #08757d;outline-offset:3px}
+}
+@media(max-width:350px){body>header>.header-identity{gap:8px}body>header .brand{gap:6px}body>header .header-flama{width:25px;height:40px}body>header .brand-saz{width:22px;height:39px}body>header .menu{min-width:58px}body>header>#nav>a{font-size:11px}}
