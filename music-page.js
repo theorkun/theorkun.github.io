@@ -3,7 +3,7 @@
   const $=id=>document.getElementById(id);
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clock=value=>{const n=Number.isFinite(value)&&value>0?Math.floor(value):0;return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;};
-  let api=null,unsubscribe=null,timer=null,attempts=0,listKey='',model=null;
+  let api=null,unsubscribe=null,timer=null,attempts=0,listKey='',model=null,expanded=false;
   const playIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg>';
   const pauseIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm7 0h4v14h-4z"/></svg>';
   function render(state){
@@ -28,11 +28,15 @@
     $('musicVolume').value=Math.round(state.volume*100);$('musicVolumeValue').textContent=`${Math.round(state.volume*100)}%`;
     $('musicTotal').textContent=`${state.tracks.length} türkü`;
     const query=$('musicSearch').value.trim().toLocaleLowerCase('tr');
-    const key=state.tracks.map(t=>t.id+'|'+t.title).join(';')+'?'+query;
+    const key=state.tracks.map(t=>t.id+'|'+t.title).join(';')+'?'+query+'|'+expanded;
     if(key!==listKey){
       listKey=key;const matches=state.tracks.map((t,i)=>({t,i})).filter(({t})=>t.title.toLocaleLowerCase('tr').includes(query));
-      $('musicTracks').innerHTML=matches.map(({t,i})=>`<li><button class="music-track-button" type="button" data-music-index="${i}" aria-label="${esc(t.title)} dinle"><span class="music-track-number">${String(i+1).padStart(2,'0')}</span><span class="music-track-copy"><strong>${esc(t.title)}</strong><small>${esc(t.artist||'Aşık Ceyhani')}</small></span><span class="music-track-indicator" data-indicator>Dinle</span><span class="music-track-play" aria-hidden="true">▷</span></button></li>`).join('');
-      $('musicEmpty').hidden=matches.length!==0;$('musicResults').textContent=query?`${matches.length} / ${state.tracks.length} türkü`:`${state.tracks.length} türkü`;
+      const visible=query||expanded?matches:matches.slice(0,6);
+      $('musicTracks').innerHTML=visible.map(({t,i})=>`<li><button class="music-track-button" type="button" data-music-index="${i}" aria-label="${esc(t.title)} dinle"><span class="music-track-number">${String(i+1).padStart(2,'0')}</span><span class="music-track-copy"><strong>${esc(t.title)}</strong><small>${esc(t.artist||'Aşık Ceyhani')}</small></span><span class="music-track-indicator" data-indicator>Dinle</span><span class="music-track-play" aria-hidden="true">▷</span></button></li>`).join('');
+      $('musicEmpty').hidden=matches.length!==0;$('musicResults').textContent=query||visible.length<state.tracks.length?`${visible.length} / ${state.tracks.length} türkü`:`${state.tracks.length} türkü`;
+      $('musicShowAll').hidden=Boolean(query)||state.tracks.length<=6;
+      $('musicShowAll').textContent=expanded?'Daha az göster':`Tümünü göster (${state.tracks.length})`;
+      $('musicShowAll').setAttribute('aria-expanded',String(expanded));
     }
     for(const button of $('musicTracks').querySelectorAll('[data-music-index]')){
       const selected=Number(button.dataset.musicIndex)===state.index;
@@ -56,6 +60,7 @@
   $('musicVolume').addEventListener('input',()=>api?.setVolume(Number($('musicVolume').value)/100));
   $('musicSearch').addEventListener('input',()=>{if(api)render(api.getState());});
   $('musicClearSearch').addEventListener('click',()=>{$('musicSearch').value='';if(api)render(api.getState());$('musicSearch').focus();});
+  $('musicShowAll').addEventListener('click',()=>{expanded=!expanded;if(api)render(api.getState());});
   $('musicTracks').addEventListener('click',event=>{
     const button=event.target.closest('[data-music-index]');if(!button||!api)return;
     const index=Number(button.dataset.musicIndex),state=api.getState();if(!Number.isInteger(index)||index<0||index>=state.tracks.length)return;

@@ -38,6 +38,16 @@ test('controller readiness and iframe teardown are handled without retaining a d
   const h=harness({delayed:true});assert.equal(h.timers.length,1);h.window.ceyhaniMusic=h.api;h.handlers['ceyhani-music-ready']();assert.equal(h.nodes.musicPlay.disabled,false);assert.ok(h.calls.includes('clearTimer'));
   h.handlers.pagehide();assert.equal(h.unsubscribed(),1);
 });
+test('six-song preview expands and collapses while search still finds songs outside the preview',()=>{
+  const h=harness();
+  for(let i=2;i<11;i++)h.state.tracks.push({id:'track-'+i,title:'Kayıt '+i,artist:'Aşık Ceyhani'});
+  h.publish();assert.equal(h.nodes.musicTracks.rows.length,6);assert.equal(h.nodes.musicShowAll.hidden,false);assert.equal(h.nodes.musicResults.textContent,'6 / 11 türkü');
+  const calls=h.calls.length;h.click('musicShowAll');assert.equal(h.nodes.musicTracks.rows.length,11);assert.equal(h.nodes.musicShowAll.attrs['aria-expanded'],'true');assert.equal(h.calls.length,calls);
+  h.click('musicShowAll');assert.equal(h.nodes.musicTracks.rows.length,6);assert.equal(h.nodes.musicShowAll.attrs['aria-expanded'],'false');
+  h.nodes.musicSearch.value='Kayıt 10';h.nodes.musicSearch.listeners.input();assert.equal(h.nodes.musicTracks.rows.length,1);assert.equal(h.nodes.musicShowAll.hidden,true);assert.match(h.nodes.musicTracks.innerHTML,/data-music-index="10"/);
+  h.choose(10);assert.deepEqual(h.calls.at(-1),['select',10]);assert.equal(h.nodes.musicCurrent.textContent,'Kayıt 10');
+  h.click('musicClearSearch');assert.equal(h.nodes.musicTracks.rows.length,6);assert.equal(h.nodes.musicShowAll.hidden,false);assert.equal(h.nodes.musicCurrent.textContent,'Kayıt 10');
+});
 test('every page links to Türküler in the menu and frame navigation recognizes its route',()=>{
   for(const file of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,file),'utf8');assert.match(html,/href="muzikler.html">Türküler<\/a>/,file);}
   const html=fs.readFileSync(path.join(root,'muzikler.html'),'utf8');assert.match(html,/class="active" aria-current="page" href="muzikler.html"/);assert.match(fs.readFileSync(path.join(root,'site-navigation.js'),'utf8'),/'muzikler.html'/);

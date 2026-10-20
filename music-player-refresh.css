@@ -71,3 +71,25 @@
 @media(prefers-reduced-motion:reduce){.music-saz-motifs img{animation:none;transform:rotate(var(--motif-angle))}}
 .a11y-reduced-motion .music-saz-motifs img{animation:none;transform:rotate(var(--motif-angle))}
 .a11y-high-contrast .music-saz-motifs{display:none}
+/* Compact player and a six-song preview keep the page easier to scan. */
+.music-saz-art{height:200px}
+.music-saz-inscription{font-size:19px;bottom:23px}
+.music-player-body{padding:20px 24px}
+.music-player-body h2{font-size:23px}
+.music-playing-label{margin-bottom:7px}
+.music-seek-wrap{margin:19px 0 15px}
+.music-main-controls{gap:22px}.music-main-controls .music-play{width:54px;height:54px;padding:15px}
+.music-secondary-controls{margin-top:16px}.music-volume-row{margin-top:13px;padding-top:14px}
+.music-track-header{padding:20px 23px 17px}
+.music-track-heading-row h2{font-size:23px}.music-track-header>p{margin:7px 0 13px;font-size:11px}
+.music-track-labels{padding:11px 25px 6px}
+.music-tracks{gap:6px;padding:8px 13px 10px}
+.music-track-button{min-height:58px;padding:9px 13px;gap:12px;border-radius:10px}
+.music-track-number{width:26px;height:30px;font-size:10px}
+.music-track-copy strong{font-size:12px}.music-track-copy small{font-size:9px;margin-top:2px}
+.music-track-play{width:29px;height:29px}
+.music-show-all{display:block;width:calc(100% - 26px);min-height:42px;margin:0 13px 14px;padding:9px 14px;border:1px solid #cadfc0;border-radius:9px;background:#eff7e8;color:#346b3b;font:500 11px/1.6 'Poppins',sans-serif;cursor:pointer}
+.music-show-all:hover{background:#e2f0d9}.music-show-all[hidden]{display:none}
+.music-list-footer{padding:12px 21px;font-size:9px}
+@media(min-width:521px) and (max-width:760px){.music-saz-art{height:auto;min-height:255px}}
+@media(max-width:520px){.music-saz-art{height:160px;min-height:0}.music-saz-inscription{font-size:17px;bottom:23px;max-width:85px}.music-saz-side{font-size:7px}.music-player-body{padding:20px}.music-player-body h2{font-size:23px}.music-main-controls .music-play{width:54px;height:54px}.music-track-header{padding:19px 17px 15px}.music-track-heading-row h2{font-size:22px}.music-tracks{padding:7px 10px 10px}.music-track-button{padding:9px 10px;gap:9px;min-height:58px}.music-track-copy strong{font-size:12px}.music-track-copy small{font-size:9px}.music-track-number{width:25px;height:29px}.music-show-all{width:calc(100% - 20px);margin:0 10px 12px}.music-list-footer{padding:11px 17px}}
