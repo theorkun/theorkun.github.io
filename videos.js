@@ -1,7 +1,12 @@
 (() => {
   const grid = document.querySelector('#channel-video-grid');
   if (!grid) return;
-  const cards = Array.from(grid.querySelectorAll('.channel-video-card'));
+  const regularCards = Array.from(grid.querySelectorAll('.channel-video-card'));
+  const documentaryGrid = document.querySelector('#channel-documentary-grid');
+  const documentaryCards = documentaryGrid ? Array.from(documentaryGrid.querySelectorAll('.channel-video-card')) : [];
+  const documentarySection = document.querySelector('#channel-documentary');
+  const archiveHeading = document.querySelector('#channel-archive-heading');
+  const cards = [...documentaryCards, ...regularCards];
   const search = document.querySelector('#video-search');
   const more = document.querySelector('#channel-show-more');
   const count = document.querySelector('#channel-video-count');
@@ -104,11 +109,15 @@
 
   function render() {
     const query = search.value.trim().toLocaleLowerCase('tr');
-    const matches = cards.filter(card => card.dataset.videoTitle.toLocaleLowerCase('tr').includes(query));
+    const matches = regularCards.filter(card => card.dataset.videoTitle.toLocaleLowerCase('tr').includes(query));
+    const documentaryMatches = documentaryCards.filter(card => card.dataset.videoTitle.toLocaleLowerCase('tr').includes(query));
     cards.forEach(card => { card.hidden = true; });
     matches.slice(0, visibleCount).forEach(card => { card.hidden = false; });
-    count.textContent = `${Math.min(visibleCount, matches.length)} / ${matches.length} video`;
-    empty.hidden = matches.length > 0;
+    documentaryMatches.forEach(card => { card.hidden = false; });
+    if (documentarySection) documentarySection.hidden = documentaryMatches.length === 0;
+    if (archiveHeading) archiveHeading.hidden = matches.length === 0;
+    count.textContent = `${Math.min(visibleCount, matches.length) + documentaryMatches.length} / ${matches.length + documentaryMatches.length} video`;
+    empty.hidden = matches.length + documentaryMatches.length > 0;
     more.hidden = visibleCount >= matches.length;
   }
 

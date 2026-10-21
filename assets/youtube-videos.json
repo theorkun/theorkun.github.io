@@ -7,7 +7,14 @@
       "title": "YÖRÜK OBALARIMIZ - CUKUROVA ASIKLARIMIZ",
       "duration": "39:59",
       "startSeconds": 0,
-      "manual": true
+      "manual": true,
+      "category": "documentary",
+      "cover": {
+        "source": "assets/yoruk-obalarimiz.png",
+        "width": 2060,
+        "height": 763
+      },
+      "description": "Yörük kültürü ve Çukurova âşıklarına ayrılmış, belgesel tadında bir arşiv kaydı."
     },
     {
       "id": "SrtNM1QpjCk",
