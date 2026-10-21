@@ -31,6 +31,6 @@ html=html.replace('<div id="channel-video-grid" class="channel-video-grid">',fea
 html=html.replace('aria-controls="channel-video-grid"','aria-controls="channel-documentary channel-video-grid"');
 html=html.replace(/videos\.js\?v=[a-z0-9-]+/g,'videos.js?v=documentary-1');
 if(!html.includes('href="video-covers.css'))html=html.replace('<link rel="stylesheet" href="video-player.css?v=1">','<link rel="stylesheet" href="video-player.css?v=1"><link rel="stylesheet" href="video-covers.css?v=1">');
-html=html.replace(/video-covers\.css\?v=[a-z0-9-]+/g,'video-covers.css?v=editorial-cover-1');
+html=html.replace(/video-covers\.css\?v=[a-z0-9-]+/g,'video-covers.css?v=turkuaz-motif-1');
 fs.writeFileSync(file,html);
 console.log('Rendered '+catalogue.videos.length+' video covers');

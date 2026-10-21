@@ -40,3 +40,8 @@
 @media(min-width:1100px){.channel-video-card.documentary-card{grid-template-columns:480px minmax(0,1fr)}.documentary-caption{padding:40px}}
 @media(max-width:600px){.channel-video-card.documentary-card{grid-template-columns:minmax(0,1fr)}.documentary-caption{height:auto;padding:19px;gap:17px}.documentary-caption strong{font-size:20px}.documentary-caption small{font-size:7px;margin-bottom:10px}.documentary-play{left:14px;bottom:14px}}
 .a11y-high-contrast .documentary-caption{background:#111}.a11y-high-contrast .documentary-caption :is(small,strong){color:#ffdc72}
+
+/* The logo's ram-horn motif, embedded in the documentary panel. */
+.documentary-caption{position:relative;isolation:isolate;overflow:hidden}.documentary-caption:before{content:'';position:absolute;inset:0;z-index:0;background:url('assets/kocboynuzu-turkuaz.svg') center/132px 132px repeat;opacity:.17;pointer-events:none}.documentary-caption>*{position:relative;z-index:1}
+@media(max-width:600px){.documentary-caption:before{background-size:112px 112px;opacity:.14}}
+.a11y-high-contrast .documentary-caption:before{display:none}
