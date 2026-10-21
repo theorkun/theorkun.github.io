@@ -74,7 +74,7 @@ test('manual video appears once, starts at zero and has retry and external watch
   assert.equal(catalogue.videos.length,44);assert.equal((html.match(/class="channel-video-card(?: [^"]+)?"/g)||[]).length,44);
   assert.match(html,/data-video-id="fzIIszXMnaw"[^>]*data-video-start="0"/);assert.match(html,/id="channel-player-retry"/);assert.match(html,/id="channel-watch-link"/);
   assert.equal((html.match(/class="channel-video-thumbnail video-cover /g)||[]).length,43);assert.doesNotMatch(html,/data-media-src="https:\/\/i.ytimg.com/);
-  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=compact-cover-1"/);
+  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=wide-banner-1"/);
   assert.equal(entries[0].category,'documentary');assert.equal(entries[0].cover.source,'assets/yoruk-obalari-1920.jpg');
   function jpegSize(file){const bytes=fs.readFileSync(path.join(root,file));assert.equal(bytes.readUInt16BE(0),0xffd8);let offset=2;while(offset<bytes.length){if(bytes[offset]!==255){offset++;continue;}const marker=bytes[offset+1],length=bytes.readUInt16BE(offset+2);if([0xc0,0xc1,0xc2].includes(marker))return [bytes.readUInt16BE(offset+7),bytes.readUInt16BE(offset+5)];offset+=length+2;}throw Error('Missing JPEG dimensions');}
   assert.deepEqual(jpegSize('assets/yoruk-obalari-4k.jpg'),[3840,2896]);assert.deepEqual(jpegSize(entries[0].cover.source),[1920,1448]);assert.deepEqual(jpegSize('assets/yoruk-obalari-960.jpg'),[960,724]);
