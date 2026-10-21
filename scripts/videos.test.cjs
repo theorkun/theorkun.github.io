@@ -74,7 +74,7 @@ test('manual video appears once, starts at zero and has retry and external watch
   assert.equal(catalogue.videos.length,44);assert.equal((html.match(/class="channel-video-card(?: [^"]+)?"/g)||[]).length,44);
   assert.match(html,/data-video-id="fzIIszXMnaw"[^>]*data-video-start="0"/);assert.match(html,/id="channel-player-retry"/);assert.match(html,/id="channel-watch-link"/);
   assert.equal((html.match(/class="channel-video-thumbnail video-cover /g)||[]).length,43);assert.doesNotMatch(html,/data-media-src="https:\/\/i.ytimg.com/);
-  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=documentary-1"/);
+  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=play-icons-1"/);
   assert.equal(entries[0].category,'documentary');assert.equal(entries[0].cover.source,'assets/yoruk-obalarimiz.png');
   const poster=fs.readFileSync(path.join(root,entries[0].cover.source));assert.equal(poster.readUInt32BE(16),2060);assert.equal(poster.readUInt32BE(20),763);
   const feature=html.match(/<section id="channel-documentary"[\s\S]*?<\/section>/)[0];assert.match(feature,/src="assets\/yoruk-obalarimiz.png"/);assert.match(feature,/data-video-id="fzIIszXMnaw"/);
