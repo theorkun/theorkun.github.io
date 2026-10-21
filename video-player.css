@@ -1,0 +1,4 @@
+.channel-player-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;flex-shrink:0;max-width:100%}
+.channel-player-actions button{min-height:44px;padding:10px 15px;border:1px solid #08757d;border-radius:8px;background:#08757d;color:#fff;font:500 12px/1.5 'Poppins',sans-serif;cursor:pointer}
+.channel-player-actions button:hover{background:#065d64}.channel-player-actions button:focus-visible{outline:3px solid #b79960;outline-offset:3px}
+@media(max-width:600px){.channel-player-actions{justify-content:space-between;width:100%}}
