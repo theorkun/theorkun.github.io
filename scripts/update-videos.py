@@ -75,8 +75,13 @@ while True:
 
 if not videos:
     raise RuntimeError('No videos found; catalogue unchanged.')
-catalogue = {'channel': CHANNEL, 'channelId': metadata['externalId'], 'videos': list(videos.values())}
+catalogue_path = ROOT / 'assets' / 'youtube-videos.json'
+previous = json.loads(catalogue_path.read_text(encoding='utf-8')) if catalogue_path.exists() else {}
+manual = [video for video in previous.get('videos', []) if video.get('manual') is True]
+manual_ids = {video['id'] for video in manual}
+catalogue = {'channel': CHANNEL, 'channelId': metadata['externalId'],
+             'videos': manual + [video for video in videos.values() if video['id'] not in manual_ids]}
 (ROOT / 'assets' / 'youtube-videos.json').write_text(
     json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
 )
-print(f'Saved {len(videos)} videos to assets/youtube-videos.json')
+print(f'Saved {len(catalogue["videos"])} videos to assets/youtube-videos.json')

@@ -16,13 +16,16 @@
   let visibleCount = batchSize;
   let youtubePlayer = null;
   let playerReady = false;
+  const videoStart = value => Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : 0;
+  let selectedStart = videoStart(cards[0]?.dataset.videoStart);
 
-  function embedUrl(id, autoplay = false) {
+  function embedUrl(id, autoplay = false, start = 0) {
     const url = new URL(`https://www.youtube.com/embed/${id}`);
     url.searchParams.set('enablejsapi', '1');
     url.searchParams.set('playsinline', '1');
     url.searchParams.set('hl', 'tr');
     if (autoplay) url.searchParams.set('autoplay', '1');
+    if (start) url.searchParams.set('start', String(start));
     if (/^https?:$/.test(window.location.protocol)) {
       url.searchParams.set('origin', window.location.origin);
     }
@@ -41,7 +44,7 @@
   }
 
   // Identify the actual hosting origin, including local HTTP previews.
-  if (cards[0] && window.CeyhaniCookies?.allows('media')) player.src = embedUrl(cards[0].dataset.videoId);
+  if (cards[0] && window.CeyhaniCookies?.allows('media')) player.src = embedUrl(cards[0].dataset.videoId, false, selectedStart);
   if (window.location.protocol === 'file:') {
     status.textContent = 'Dosya önizlemesinde YouTube oynatıcısı çalışmayabilir. Videoları theorkun.github.io/videolar.html üzerinden açabilirsiniz.';
     status.hidden = false;
@@ -73,7 +76,7 @@
   });
   dialog.addEventListener('close', () => {
     if (playerReady && youtubePlayer) youtubePlayer.stopVideo();
-    else if (window.CeyhaniCookies?.allows('media')) player.src = embedUrl(new URL(watch.href).searchParams.get('v'));
+    else if (window.CeyhaniCookies?.allows('media')) player.src = embedUrl(new URL(watch.href).searchParams.get('v'), false, selectedStart);
     cards.forEach(card => card.setAttribute('aria-pressed', 'false'));
   });
 
@@ -99,14 +102,15 @@
     if (!window.CeyhaniCookies?.allows('media')) { window.CeyhaniCookies?.open(); return; }
     const id = card.dataset.videoId;
     if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    selectedStart = videoStart(card.dataset.videoStart);
     cards.forEach(item => item.setAttribute('aria-pressed', String(item === card)));
     status.hidden = true;
     dialog.showModal();
-    if (playerReady && youtubePlayer) youtubePlayer.loadVideoById(id);
-    else player.src = embedUrl(id, true);
+    if (playerReady && youtubePlayer) youtubePlayer.loadVideoById({ videoId: id, startSeconds: selectedStart });
+    else player.src = embedUrl(id, true, selectedStart);
     player.title = card.dataset.videoTitle;
     title.textContent = card.dataset.videoTitle;
-    watch.href = `https://www.youtube.com/watch?v=${id}`;
+    watch.href = `https://www.youtube.com/watch?v=${id}${selectedStart ? `&t=${selectedStart}s` : ''}`;
     title.focus({ preventScroll: true });
   }));
   render();
