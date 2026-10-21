@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="cookie-consent.css?v=1"><script src="cookie-consent.js?v=1"></script>
 <link rel="stylesheet" href="audio-playlist.css?v=1">
 <link rel="stylesheet" href="music-album.css?v=1">
+<link rel="stylesheet" href="music-covers.css?v=1">
 <link rel="stylesheet" href="site-menu.css?v=1">
 </head>
 <body class="subpage music-page">
@@ -26,7 +27,7 @@
   <div class="music-layout">
     <section class="music-player-column" aria-label="Müzik çalar">
       <div id="musicPlayer" class="music-feature-player">
-        <figure class="music-album-cover"><img src="assets/ceyhani-album-netlestirilmis.jpg" alt="Aşık Ceyhani sazıyla" width="600" height="653" decoding="async"></figure>
+        <figure id="musicCover" class="music-album-cover cover-tone-0"><img id="musicCoverPhoto" src="assets/ceyhani-album-netlestirilmis.jpg" alt="Aşık Ceyhani" width="600" height="653" decoding="async"><figcaption aria-hidden="true"><span>AŞIK CEYHANİ</span><strong id="musicCoverTitle">Türkleriz Biz</strong><small>SES ARŞİVİ · <b id="musicCoverNumber">01</b></small></figcaption></figure>
         <div class="music-player-body"><p id="musicPlayingLabel" class="music-playing-label">SEÇİLİ TÜRKÜ</p><h2 id="musicCurrent">Türkleriz Biz</h2><p id="musicArtist" class="music-player-artist">Aşık Ceyhani</p>
           <div class="music-seek-wrap"><input id="musicSeek" class="music-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Dinleme konumu" disabled><div class="music-time-row"><span id="musicPosition">0:00</span><span id="musicDuration">0:00</span></div></div>
           <div class="music-main-controls"><button id="musicPrevious" type="button" data-music-control aria-label="Önceki türkü" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h2v14H5zm14 0L8 12l11 7z"/></svg></button><button id="musicPlay" class="music-play" type="button" data-music-control aria-label="Müziği çal" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></button><button id="musicNext" type="button" data-music-control aria-label="Sonraki türkü" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5h2v14h-2zM5 5l11 7-11 7z"/></svg></button></div>
@@ -48,5 +49,5 @@
 <script src="accessibility.js?v=light-3"></script>
 <script src="contact.js?v=1"></script>
 <script src="back-to-top.js?v=1"></script>
-<script src="music-page.js?v=full-list-5"></script>
+<script src="music-page.js?v=covers-1"></script>
 </body></html>
