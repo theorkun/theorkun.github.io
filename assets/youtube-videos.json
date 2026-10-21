@@ -10,9 +10,23 @@
       "manual": true,
       "category": "documentary",
       "cover": {
-        "source": "assets/yoruk-obalarimiz.png",
-        "width": 2060,
-        "height": 763
+        "source": "assets/yoruk-obalari-1920.jpg",
+        "width": 1920,
+        "height": 1448,
+        "sources": [
+          {
+            "source": "assets/yoruk-obalari-960.jpg",
+            "width": 960
+          },
+          {
+            "source": "assets/yoruk-obalari-1920.jpg",
+            "width": 1920
+          },
+          {
+            "source": "assets/yoruk-obalari-4k.jpg",
+            "width": 3840
+          }
+        ]
       },
       "description": "Yörük kültürü ve Çukurova âşıklarına ayrılmış, belgesel tadında bir arşiv kaydı."
     },

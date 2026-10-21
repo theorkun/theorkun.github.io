@@ -75,9 +75,10 @@ test('manual video appears once, starts at zero and has retry and external watch
   assert.match(html,/data-video-id="fzIIszXMnaw"[^>]*data-video-start="0"/);assert.match(html,/id="channel-player-retry"/);assert.match(html,/id="channel-watch-link"/);
   assert.equal((html.match(/class="channel-video-thumbnail video-cover /g)||[]).length,43);assert.doesNotMatch(html,/data-media-src="https:\/\/i.ytimg.com/);
   assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=play-icons-1"/);
-  assert.equal(entries[0].category,'documentary');assert.equal(entries[0].cover.source,'assets/yoruk-obalarimiz.png');
-  const poster=fs.readFileSync(path.join(root,entries[0].cover.source));assert.equal(poster.readUInt32BE(16),2060);assert.equal(poster.readUInt32BE(20),763);
-  const feature=html.match(/<section id="channel-documentary"[\s\S]*?<\/section>/)[0];assert.match(feature,/src="assets\/yoruk-obalarimiz.png"/);assert.match(feature,/data-video-id="fzIIszXMnaw"/);
+  assert.equal(entries[0].category,'documentary');assert.equal(entries[0].cover.source,'assets/yoruk-obalari-1920.jpg');
+  function jpegSize(file){const bytes=fs.readFileSync(path.join(root,file));assert.equal(bytes.readUInt16BE(0),0xffd8);let offset=2;while(offset<bytes.length){if(bytes[offset]!==255){offset++;continue;}const marker=bytes[offset+1],length=bytes.readUInt16BE(offset+2);if([0xc0,0xc1,0xc2].includes(marker))return [bytes.readUInt16BE(offset+7),bytes.readUInt16BE(offset+5)];offset+=length+2;}throw Error('Missing JPEG dimensions');}
+  assert.deepEqual(jpegSize('assets/yoruk-obalari-4k.jpg'),[3840,2896]);assert.deepEqual(jpegSize(entries[0].cover.source),[1920,1448]);assert.deepEqual(jpegSize('assets/yoruk-obalari-960.jpg'),[960,724]);
+  const feature=html.match(/<section id="channel-documentary"[\s\S]*?<\/section>/)[0];assert.match(feature,/src="assets\/yoruk-obalari-1920.jpg"/);assert.match(feature,/data-video-id="fzIIszXMnaw"/);assert.match(feature,/srcset="[^"]+960w[^"]+1920w[^"]+3840w/);
   const regular=html.match(/<div id="channel-video-grid"[\s\S]*?<\/div><p id="channel-no-results"/)[0];assert.doesNotMatch(regular,/data-video-id="fzIIszXMnaw"/);
   const photos=['sahnede-saziyla','acik-havada-turku','evde-saziyla','kasetler-arasinda','sazina-dalarken'];
   assert.equal(catalogue.coverPhotos.length,6);
