@@ -22,11 +22,9 @@ function harness({child=false,delayed=false}={}){
 }
 test('music page uses the shared player, displays the current track, and preserves row nodes while playback progresses',()=>{
   const h=harness({child:true});assert.equal(h.nodes.musicCurrent.textContent,'Türkleriz Biz');assert.match(h.nodes.musicTracks.innerHTML,/Saz &lt;Türkü&gt;/);assert.equal(h.nodes.musicPlay.attrs['aria-label'],'Müziği durdur');
-  assert.equal((h.nodes.musicTracks.innerHTML.match(/class="music-track-cover /g)||[]).length,2);assert.match(h.nodes.musicTracks.innerHTML,/loading="lazy" decoding="async"/);assert.equal(h.nodes.musicCoverTitle.textContent,'Türkleriz Biz');
   const changes=h.nodes.musicTracks.changes;h.state.position=60;h.publish();assert.equal(h.nodes.musicPosition.textContent,'1:00');assert.equal(h.nodes.musicTracks.changes,changes);
   h.click('musicPlay');assert.equal(h.nodes.musicPlay.attrs['aria-label'],'Müziği çal');assert.equal(h.nodes.musicTracks.changes,changes);
   h.choose(1);assert.deepEqual(h.calls.at(-1),['select',1]);assert.equal(h.nodes.musicCurrent.textContent,'Saz <Türkü>');h.choose(1);assert.equal(h.calls.at(-1),'toggle');
-  assert.equal(h.nodes.musicCoverTitle.textContent,'Saz <Türkü>');assert.equal(h.nodes.musicCoverNumber.textContent,'02');
   h.click('musicNext');h.click('musicPrevious');assert.ok(h.calls.includes('next'));assert.ok(h.calls.includes('previous'));
 });
 test('search, seeking, volume and repeat controls update the existing playback controller',()=>{

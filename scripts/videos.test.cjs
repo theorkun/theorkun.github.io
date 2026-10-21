@@ -63,4 +63,6 @@ test('manual video appears once, starts at zero and has retry and external watch
   const entries=catalogue.videos.filter(v=>v.id==='fzIIszXMnaw');assert.equal(entries.length,1);assert.equal(entries[0].startSeconds,0);assert.equal(entries[0].manual,true);
   assert.equal(catalogue.videos.length,44);assert.equal((html.match(/class="channel-video-card"/g)||[]).length,44);
   assert.match(html,/data-video-id="fzIIszXMnaw"[^>]*data-video-start="0"/);assert.match(html,/id="channel-player-retry"/);assert.match(html,/id="channel-watch-link"/);
+  assert.equal((html.match(/class="channel-video-thumbnail video-cover /g)||[]).length,44);assert.doesNotMatch(html,/data-media-src="https:\/\/i.ytimg.com/);
+  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=1"/);
 });
