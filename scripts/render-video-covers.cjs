@@ -8,7 +8,7 @@ function card(video,index){
   const cover=video.cover;
   if(!cover||!/^assets\/yoruk-obalari-(?:960|1920|4k)\.jpg$/.test(cover.source)||!fs.existsSync(path.join(root,cover.source)))throw Error('Documentary cover missing');
   const sources=(cover.sources||[]).map(item=>{if(!/^assets\/yoruk-obalari-(?:960|1920|4k)\.jpg$/.test(item.source)||!fs.existsSync(path.join(root,item.source))||!Number.isSafeInteger(item.width))throw Error('Invalid documentary source');return esc(item.source)+' '+item.width+'w';}).join(', ');
-  const responsive=sources?` srcset="${sources}" sizes="(max-width:600px) calc(100vw - 40px), 560px"`:'';
+  const responsive=sources?` srcset="${sources}" sizes="(max-width:600px) calc(100vw - 40px), (max-width:1100px) 45vw, 480px"`:'';
   return `<button class="channel-video-card documentary-card" type="button" data-video-id="${video.id}" data-video-title="${esc(video.title)}" data-video-start="0" aria-label="Yörük Obalarımız belgesel kaydını oynat" aria-pressed="false"><span class="documentary-poster" aria-hidden="true"><img src="${cover.source}"${responsive} alt="" width="${cover.width}" height="${cover.height}" loading="lazy" decoding="async"><span class="documentary-play">${playIcon}</span></span><span class="documentary-caption"><span class="documentary-caption-copy"><small>BELGESEL NİTELİĞİNDE ARŞİV KAYDI · ${esc(video.duration)}</small><strong>Yörük Obalarımız — Çukurova Âşıklarımız</strong></span><span class="documentary-watch">Belgeseli izle <span aria-hidden="true">↗</span></span></span></button>`;
  }
  const seed=Array.from(video.id).reduce((sum,c)=>sum+c.charCodeAt(0),0);
@@ -31,6 +31,6 @@ html=html.replace('<div id="channel-video-grid" class="channel-video-grid">',fea
 html=html.replace('aria-controls="channel-video-grid"','aria-controls="channel-documentary channel-video-grid"');
 html=html.replace(/videos\.js\?v=[a-z0-9-]+/g,'videos.js?v=documentary-1');
 if(!html.includes('href="video-covers.css'))html=html.replace('<link rel="stylesheet" href="video-player.css?v=1">','<link rel="stylesheet" href="video-player.css?v=1"><link rel="stylesheet" href="video-covers.css?v=1">');
-html=html.replace(/video-covers\.css\?v=[a-z0-9-]+/g,'video-covers.css?v=wide-banner-1');
+html=html.replace(/video-covers\.css\?v=[a-z0-9-]+/g,'video-covers.css?v=editorial-cover-1');
 fs.writeFileSync(file,html);
 console.log('Rendered '+catalogue.videos.length+' video covers');
