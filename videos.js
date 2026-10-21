@@ -12,6 +12,8 @@
   const status = document.querySelector('#channel-player-status');
   const dialog = document.querySelector('#channel-video-dialog');
   const close = document.querySelector('#channel-player-close');
+  const mediaNotice = document.querySelector('#channel-media-notice');
+  if (mediaNotice) mediaNotice.hidden = window.CeyhaniCookies?.allows('media') === true;
   const batchSize = 12;
   let visibleCount = batchSize;
   let youtubePlayer = null;
@@ -106,8 +108,10 @@
     cards.forEach(item => item.setAttribute('aria-pressed', String(item === card)));
     status.hidden = true;
     dialog.showModal();
-    if (playerReady && youtubePlayer) youtubePlayer.loadVideoById({ videoId: id, startSeconds: selectedStart });
-    else player.src = embedUrl(id, true, selectedStart);
+    if (playerReady && youtubePlayer) {
+      try { youtubePlayer.loadVideoById({ videoId: id, startSeconds: selectedStart }); }
+      catch (_) { playerReady = false;youtubePlayer = null;player.src = embedUrl(id, true, selectedStart); }
+    } else player.src = embedUrl(id, true, selectedStart);
     player.title = card.dataset.videoTitle;
     title.textContent = card.dataset.videoTitle;
     watch.href = `https://www.youtube.com/watch?v=${id}${selectedStart ? `&t=${selectedStart}s` : ''}`;
