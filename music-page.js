@@ -14,7 +14,10 @@
     $('musicPlayer').classList.toggle('effects-visible',!document.hidden);
     $('musicCurrent').textContent=track.title;$('musicArtist').textContent=track.artist||'Aşık Ceyhani';
     $('musicPlayingLabel').textContent=playing?'ŞİMDİ ÇALIYOR':'SEÇİLİ TÜRKÜ';
-    $('musicPlay').innerHTML=playing?pauseIcon:playIcon;
+    if($('musicPlay').dataset.iconState!==String(playing)){
+      $('musicPlay').innerHTML=playing?pauseIcon:playIcon;
+      $('musicPlay').dataset.iconState=String(playing);
+    }
     $('musicPlay').setAttribute('aria-label',playing?'Müziği durdur':'Müziği çal');$('musicPlay').setAttribute('aria-pressed',String(playing));
     $('musicShuffle').setAttribute('aria-pressed',String(state.shuffle));
     $('musicRepeat').setAttribute('aria-pressed',String(state.repeat!=='off'));
@@ -38,7 +41,8 @@
       const selected=Number(button.dataset.musicIndex)===state.index;
       button.setAttribute('aria-current',String(selected));button.classList.toggle('is-playing',selected&&playing);
       button.querySelector('[data-indicator]').textContent=selected?(playing?'Çalınıyor':'Seçili'):'Dinle';
-      button.querySelector('.music-track-play').textContent=selected&&playing?'Ⅱ':'▷';
+      const indicator=button.querySelector('.music-track-play'),iconState=String(selected&&playing);
+      if(indicator.dataset.iconState!==iconState){indicator.textContent=selected&&playing?'Ⅱ':'▷';indicator.dataset.iconState=iconState;}
     }
   }
   function connect(){
