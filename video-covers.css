@@ -29,3 +29,7 @@
 .channel-video-card[aria-pressed=true] .channel-video-play{border-color:#fff3d5;background:#08757d;box-shadow:0 0 0 4px #e9d09b40}
 @media(max-width:600px){.video-cover .channel-video-play{left:14px;bottom:15px;width:40px;height:40px}.documentary-play{left:14px;bottom:14px;width:44px;height:44px}}
 .a11y-high-contrast .channel-video-play,.a11y-high-contrast .documentary-play{background:#111;color:#ffdc72;border:2px solid #ffdc72;box-shadow:none}
+
+/* Keep the restored 4:3 documentary cover compact without cropping it. */
+#channel-documentary-grid{max-width:560px;margin-inline:auto}.documentary-caption{padding:16px 18px;gap:14px}.documentary-caption strong{font-size:18px}
+@media(max-width:600px){#channel-documentary-grid{max-width:300px}.documentary-caption{padding:14px}.documentary-caption strong{font-size:16px}.documentary-watch{margin-top:11px}}
