@@ -148,6 +148,76 @@
       "artist": "Aşık Ceyhani",
       "source": "assets/music/vicdanin-320kbps.mp3",
       "bytes": 9479608
+    },
+    {
+      "id": "be-zalim",
+      "title": "Be Zalim",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/be-zalim.mp3",
+      "bytes": 11987317
+    },
+    {
+      "id": "deli-gonul",
+      "title": "Deli Gönül",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/deli-gonul.mp3",
+      "bytes": 6876157
+    },
+    {
+      "id": "gonul",
+      "title": "Gönül",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/gonul.mp3",
+      "bytes": 2338218
+    },
+    {
+      "id": "tabip",
+      "title": "Tabip",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/tabip.mp3",
+      "bytes": 8017192
+    },
+    {
+      "id": "bunca-gami",
+      "title": "Bunca Gamı Bunca Derdi",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/bunca-gami.mp3",
+      "bytes": 6877645
+    },
+    {
+      "id": "haz-verir-bana",
+      "title": "Haz Verir Bana",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/haz-verir-bana.mp3",
+      "bytes": 12363019
+    },
+    {
+      "id": "pinar-basindan",
+      "title": "Pınar Başından Bulanır",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/pinar-basindan.mp3",
+      "bytes": 7052457
+    },
+    {
+      "id": "vicdansiz",
+      "title": "Vicdansız",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/vicdansiz.mp3",
+      "bytes": 15029947
+    },
+    {
+      "id": "yarim-kokun-alternatif",
+      "title": "Yarim Kokun Bana Koksun (Alternatif kayıt)",
+      "artist": "Aşık Ceyhani",
+      "source": "assets/music/yarim-kokun-alternatif.mp3",
+      "bytes": 8025269
+    },
+    {
+      "id": "ela-gozlum-duet",
+      "title": "Ela Gözlüm (Düet)",
+      "artist": "Aşık Ceyhani ve Aşık Ali Yetimi",
+      "source": "assets/music/ela-gozlum-duet.mp3",
+      "bytes": 12573278
     }
   ]
 }
