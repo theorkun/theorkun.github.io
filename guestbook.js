@@ -53,8 +53,25 @@
       const message = document.querySelector('#hcb_form_content');
       if (name) name.setAttribute('aria-label', window.hcb_user.name_label);
       if (message) message.setAttribute('aria-label', 'Mesajın');
+      fillSurveyDraft();
     }
   };
+
+  function fillSurveyDraft() {
+    const message = document.querySelector('#hcb_form_content');
+    try {
+      const draft = window.top.CeyhaniSurveyDraft;
+      if (message && typeof draft === 'string' && draft.startsWith('Âşık Ceyhani — Site değerlendirmesi') && !message.value) {
+        message.value = draft.slice(0, 1000);
+        message.dispatchEvent(new Event('input', { bubbles: true }));
+        delete window.top.CeyhaniSurveyDraft;
+        status.hidden = false;
+        status.textContent = 'Anket yanıtlarınız mesaj alanına aktarıldı. Henüz yayımlanmadı. Kontrol edip Mesajı gönder düğmesiyle herkese açık paylaşabilirsiniz.';
+        message.focus();
+      }
+    } catch (_) {}
+  }
+  document.addEventListener('ceyhani-survey-draft', fillSurveyDraft);
 
   function loadGuestbook() {
     if (!window.CeyhaniCookies?.allows('comments')) {
