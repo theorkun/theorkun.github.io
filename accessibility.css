@@ -93,3 +93,4 @@ html[data-a11y-align="2"] main :is(p,li,h1,h2,h3,blockquote,figcaption){text-ali
 
 .a11y-high-contrast.a11y-reading-line .accessibility-reading-guide{background:#ffdc72!important}
 .a11y-reading-mask .accessibility-reading-guide{background:transparent!important}
+@media(max-width:600px){.accessibility-open{box-sizing:border-box;display:grid;place-items:center;width:46px;height:46px;min-height:46px;padding:0;border:1px solid #d2bf99;background:#fffdf8;box-shadow:0 3px 12px #07334820}.accessibility-open>svg{box-sizing:content-box;width:22px;height:22px;padding:8px;background:#08757d;stroke-width:1.7}}
