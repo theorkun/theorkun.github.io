@@ -1,4 +1,5 @@
 (() => {
+  const searchText=value=>String(value).toLocaleLowerCase('tr').replace(/ı/g,'i').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
   const root=document.querySelector('.music-library');if(!root)return;
   const $=id=>document.getElementById(id);
   const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -12,7 +13,7 @@
     $('musicPlayer').classList.toggle('is-playing',playing);
     $('musicPlayer').classList.toggle('effects-active',playing&&!document.hidden);
     $('musicPlayer').classList.toggle('effects-visible',!document.hidden);
-    $('musicCurrent').textContent=track.title;$('musicArtist').textContent=track.artist||'Aşık Ceyhani';
+    $('musicCurrent').textContent=track.title;$('musicArtist').textContent=track.artist||'Âşık Ceyhani';
     $('musicPlayingLabel').textContent=playing?'ŞİMDİ ÇALIYOR':'SEÇİLİ TÜRKÜ';
     if($('musicPlay').dataset.iconState!==String(playing)){
       $('musicPlay').innerHTML=playing?pauseIcon:playIcon;
@@ -28,13 +29,13 @@
     const percent=state.duration>0?Math.max(0,Math.min(100,state.position/state.duration*100)):0;
     $('musicSeek').disabled=state.duration<=0;$('musicSeek').value=percent;$('musicSeek').style.setProperty('--played',percent+'%');
     $('musicSeek').setAttribute('aria-valuetext',`${clock(state.position)} / ${clock(state.duration)}`);
-    $('musicVolume').value=Math.round(state.volume*100);$('musicVolumeValue').textContent=`${Math.round(state.volume*100)}%`;
+    $('musicVolume').value=Math.round(state.volume*100);$('musicVolumeValue').textContent=`%${Math.round(state.volume*100)}`;
     $('musicTotal').textContent=`${state.tracks.length} türkü`;
-    const query=$('musicSearch').value.trim().toLocaleLowerCase('tr');
+    const query=searchText($('musicSearch').value);
     const key=state.tracks.map(t=>t.id+'|'+t.title).join(';')+'?'+query;
     if(key!==listKey){
-      listKey=key;const matches=state.tracks.map((t,i)=>({t,i})).filter(({t})=>t.title.toLocaleLowerCase('tr').includes(query));
-      $('musicTracks').innerHTML=matches.map(({t,i})=>`<li><button class="music-track-button" type="button" data-music-index="${i}" aria-label="${esc(t.title)} dinle"><span class="music-track-number">${String(i+1).padStart(2,'0')}</span><span class="music-track-copy"><strong>${esc(t.title)}</strong><small>${esc(t.artist||'Aşık Ceyhani')}</small></span><span class="music-track-indicator" data-indicator>Dinle</span><span class="music-track-play" aria-hidden="true">▷</span></button></li>`).join('');
+      listKey=key;const matches=state.tracks.map((t,i)=>({t,i})).filter(({t})=>searchText(t.title).includes(query));
+      $('musicTracks').innerHTML=matches.map(({t,i})=>`<li><button class="music-track-button" type="button" data-music-index="${i}" aria-label="${esc(t.title)} dinle"><span class="music-track-number">${String(i+1).padStart(2,'0')}</span><span class="music-track-copy"><strong>${esc(t.title)}</strong><small>${esc(t.artist||'Âşık Ceyhani')}</small></span><span class="music-track-indicator" data-indicator>Dinle</span><span class="music-track-play" aria-hidden="true">▷</span></button></li>`).join('');
       $('musicEmpty').hidden=matches.length!==0;$('musicResults').textContent=query?`${matches.length} / ${state.tracks.length} türkü`:`${state.tracks.length} türkü`;
     }
     for(const button of $('musicTracks').querySelectorAll('[data-music-index]')){

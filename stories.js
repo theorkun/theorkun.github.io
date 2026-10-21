@@ -2,7 +2,7 @@
   const dialog = document.querySelector('#story-dialog');
   if (!dialog || typeof dialog.showModal !== 'function') return;
   const stories = [
-    { image: 'assets/ceyhani-saz.jpg', caption: 'Sazıyla, sözüyle Aşık Ceyhani.' },
+    { image: 'assets/ceyhani-saz.jpg', caption: 'Sazıyla, sözüyle Âşık Ceyhani.' },
     { image: 'assets/fotograf.jpg', caption: 'Gençlik yıllarından bir hatıra.' },
     { image: 'assets/ceyhani-portre.jpeg', caption: 'Gülüşüyle hatıralarımızda…' },
     { image: 'assets/hatira-dogada.jpeg', caption: 'Doğadan bir hatıra.' },

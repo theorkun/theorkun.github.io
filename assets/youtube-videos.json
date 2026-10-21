@@ -28,222 +28,310 @@
           }
         ]
       },
-      "description": "Yörük kültürü ve Çukurova âşıklarına ayrılmış, belgesel tadında bir arşiv kaydı."
+      "description": "Yörük kültürü ve Çukurova âşıklarına ayrılmış, belgesel tadında bir arşiv kaydı.",
+      "displayTitle": "Yörük Obalarımız — Çukurova Âşıklarımız",
+      "coverTitle": "Yörük Obalarımız — Çukurova Âşıklarımız"
     },
     {
       "id": "SrtNM1QpjCk",
       "title": "Aşık Ceyhani-Vijdanın Yokmu Senin",
-      "duration": "5:02"
+      "duration": "5:02",
+      "displayTitle": "Âşık Ceyhani — Vicdanın Yok mu Senin",
+      "coverTitle": "Vicdanın Yok mu Senin"
     },
     {
       "id": "f1yxl_hqbBk",
       "title": "Aşık Ceyhani-Benim",
-      "duration": "6:14"
+      "duration": "6:14",
+      "displayTitle": "Âşık Ceyhani — Benim",
+      "coverTitle": "Benim"
     },
     {
       "id": "5QVsdiuQvvY",
       "title": "Aşık Ceyhani- Gayrı",
-      "duration": "4:41"
+      "duration": "4:41",
+      "displayTitle": "Âşık Ceyhani — Gayrı",
+      "coverTitle": "Gayrı"
     },
     {
       "id": "OHZy003QY-s",
       "title": "Aşık Ceyhani- Bundan sonra",
-      "duration": "3:41"
+      "duration": "3:41",
+      "displayTitle": "Âşık Ceyhani — Bundan Sonra",
+      "coverTitle": "Bundan Sonra"
     },
     {
       "id": "PDnmQzsPbuY",
       "title": "Aşık Ceyhani--Aşkın beni deli eyledi",
-      "duration": "3:54"
+      "duration": "3:54",
+      "displayTitle": "Âşık Ceyhani — Aşkın Beni Deli Eyledi",
+      "coverTitle": "Aşkın Beni Deli Eyledi"
     },
     {
       "id": "d_t3HtTZKPA",
       "title": "Aşık Ceyhani-- Bir nazar eyledim hoş cemaline",
-      "duration": "4:22"
+      "duration": "4:22",
+      "displayTitle": "Âşık Ceyhani — Bir Nazar Eyledim Hoş Cemaline",
+      "coverTitle": "Bir Nazar Eyledim Hoş Cemaline"
     },
     {
       "id": "WvejU_OktX0",
       "title": "Aşık Ceyhani--Beni böyle  Yakan Güzel",
-      "duration": "3:01"
+      "duration": "3:01",
+      "displayTitle": "Âşık Ceyhani — Beni Böyle Yakan Güzel",
+      "coverTitle": "Beni Böyle Yakan Güzel"
     },
     {
       "id": "Fidg7xs8mdk",
       "title": "İkimizi bir kefine sarsınlar.",
-      "duration": "4:11"
+      "duration": "4:11",
+      "displayTitle": "Âşık Ceyhani — İkimizi Bir Kefene Sarsınlar",
+      "coverTitle": "İkimizi Bir Kefene Sarsınlar"
     },
     {
       "id": "eTZYniWtS-s",
       "title": "Aşık Ceyhani-Gayri Dayanam",
-      "duration": "4:12"
+      "duration": "4:12",
+      "displayTitle": "Âşık Ceyhani — Gayri Dayanam",
+      "coverTitle": "Gayri Dayanam"
     },
     {
       "id": "L2Wo7yzD1sI",
       "title": "Aşık Ceyhani-Açma Zülüflerin",
-      "duration": "4:35"
+      "duration": "4:35",
+      "displayTitle": "Âşık Ceyhani — Açma Zülüflerin",
+      "coverTitle": "Açma Zülüflerin"
     },
     {
       "id": "4-hb5puoNqI",
       "title": "Aşık Ceyhani--İnsan sevip sevdiğini almazssa",
-      "duration": "2:01"
+      "duration": "2:01",
+      "displayTitle": "Âşık Ceyhani — İnsan Sevip Sevdiğini Almazsa",
+      "coverTitle": "İnsan Sevip Sevdiğini Almazsa"
     },
     {
       "id": "aflMUkf31BI",
       "title": "Aşık Ceyhani--HALAY-2",
-      "duration": "2:01"
+      "duration": "2:01",
+      "displayTitle": "Âşık Ceyhani — Halay 2",
+      "coverTitle": "Halay 2"
     },
     {
       "id": "orzpNVgtgIU",
       "title": "Aşık Ceyhani--Halay 1",
-      "duration": "0:46"
+      "duration": "0:46",
+      "displayTitle": "Âşık Ceyhani — Halay 1",
+      "coverTitle": "Halay 1"
     },
     {
       "id": "6wxxnUy2d0g",
       "title": "Aşık Ceyhani--HALAY",
-      "duration": "2:01"
+      "duration": "2:01",
+      "displayTitle": "Âşık Ceyhani — Halay",
+      "coverTitle": "Halay"
     },
     {
       "id": "MDjOKRyAPDM",
       "title": "Aşık Ceyhani--İntizar",
-      "duration": "6:19"
+      "duration": "6:19",
+      "displayTitle": "Âşık Ceyhani — İntizar",
+      "coverTitle": "İntizar"
     },
     {
       "id": "zADmY9j_akg",
       "title": "Aşık Ceyhani--kokun bana koksun",
-      "duration": "3:34"
+      "duration": "3:34",
+      "displayTitle": "Âşık Ceyhani — Kokun Bana Koksun",
+      "coverTitle": "Kokun Bana Koksun"
     },
     {
       "id": "erIAw9xTFPM",
       "title": "Aşık Ceyhani--niye böyle dargın bakarsın",
-      "duration": "7:08"
+      "duration": "7:08",
+      "displayTitle": "Âşık Ceyhani — Niye Böyle Dargın Bakarsın",
+      "coverTitle": "Niye Böyle Dargın Bakarsın"
     },
     {
       "id": "CCkh3dg1R-k",
       "title": "Aşık Ceyhani--Ölme sana dayanamam  Yar",
-      "duration": "4:14"
+      "duration": "4:14",
+      "displayTitle": "Âşık Ceyhani — Ölme Sana Dayanamam Yâr",
+      "coverTitle": "Ölme Sana Dayanamam Yâr"
     },
     {
       "id": "Y_yITRDpqXU",
       "title": "Aşık Ceyhani--Sürmeli",
-      "duration": "4:05"
+      "duration": "4:05",
+      "displayTitle": "Âşık Ceyhani — Sürmeli",
+      "coverTitle": "Sürmeli"
     },
     {
       "id": "F9V0lUnczjI",
       "title": "Aşık Ceyhani--Bekle Azraili Boşa Be Zalım",
-      "duration": "6:14"
+      "duration": "6:14",
+      "displayTitle": "Âşık Ceyhani — Bekle Azrail’i Boşa Be Zalim",
+      "coverTitle": "Bekle Azrail’i Boşa Be Zalim"
     },
     {
       "id": "YNeccncbPvE",
       "title": "Aşık Ceyhani--Gözü karam Oldun yaram",
-      "duration": "4:33"
+      "duration": "4:33",
+      "displayTitle": "Âşık Ceyhani — Gözü Karam Oldun Yaram",
+      "coverTitle": "Gözü Karam Oldun Yaram"
     },
     {
       "id": "okgafjB95vk",
       "title": "Aşık Ceyhani--Yaktın Sevdiğim",
-      "duration": "6:40"
+      "duration": "6:40",
+      "displayTitle": "Âşık Ceyhani — Yaktın Sevdiğim",
+      "coverTitle": "Yaktın Sevdiğim"
     },
     {
       "id": "geVHUHHdxlQ",
       "title": "Aşık Ceyhani --Sen kanattın Yaramı Sevdiğim",
-      "duration": "6:32"
+      "duration": "6:32",
+      "displayTitle": "Âşık Ceyhani — Sen Kanattın Yaramı Sevdiğim",
+      "coverTitle": "Sen Kanattın Yaramı Sevdiğim"
     },
     {
       "id": "hoGNndA0s4Y",
       "title": "Aşık  Ceyhani -- DELİ GÖNÜL",
-      "duration": "2:52"
+      "duration": "2:52",
+      "displayTitle": "Âşık Ceyhani — Deli Gönül",
+      "coverTitle": "Deli Gönül"
     },
     {
       "id": "bubkAxUDJZU",
       "title": "Aşık  Ceyhani -- Gönül",
-      "duration": "0:58"
+      "duration": "0:58",
+      "displayTitle": "Âşık Ceyhani — Gönül",
+      "coverTitle": "Gönül"
     },
     {
       "id": "mXflhz64C-o",
       "title": "Aşık  Ceyhani - Tabip",
-      "duration": "3:20"
+      "duration": "3:20",
+      "displayTitle": "Âşık Ceyhani — Tabip",
+      "coverTitle": "Tabip"
     },
     {
       "id": "B5z2FytUZjQ",
       "title": "Aşık Ceyhani-Vijdansız",
-      "duration": "6:16"
+      "duration": "6:16",
+      "displayTitle": "Âşık Ceyhani — Vicdansız",
+      "coverTitle": "Vicdansız"
     },
     {
       "id": "ZqRk9vcK7iU",
       "title": "DÜET. Aşık Ceyhani -- Aşık  Ali  Yetimi  Ela gözlüm",
-      "duration": "5:14"
+      "duration": "5:14",
+      "displayTitle": "Âşık Ceyhani ve Âşık Ali Yetimi — Ela Gözlüm",
+      "coverTitle": "Ela Gözlüm (Âşık Ali Yetimi ile)"
     },
     {
       "id": "-gC90IM5uYI",
       "title": "Aşık Ceyhani-Pınar Başıından Bulanır",
-      "duration": "2:56"
+      "duration": "2:56",
+      "displayTitle": "Âşık Ceyhani — Pınar Başından Bulanır",
+      "coverTitle": "Pınar Başından Bulanır"
     },
     {
       "id": "zZV-wp7BhkQ",
       "title": "Aşık Ceyhani - Be zalim",
-      "duration": "5:00"
+      "duration": "5:00",
+      "displayTitle": "Âşık Ceyhani — Be Zalim",
+      "coverTitle": "Be Zalim"
     },
     {
       "id": "IpDnB2GJnqg",
       "title": "Aşık Ceyhani-Bunca Gamı Bunca Derdi",
-      "duration": "2:52"
+      "duration": "2:52",
+      "displayTitle": "Âşık Ceyhani — Bunca Gamı Bunca Derdi",
+      "coverTitle": "Bunca Gamı Bunca Derdi"
     },
     {
       "id": "0vEUbqtbmcE",
       "title": "Aşık Ceyhani-Haz Verir Bana",
-      "duration": "5:09"
+      "duration": "5:09",
+      "displayTitle": "Âşık Ceyhani — Haz Verir Bana",
+      "coverTitle": "Haz Verir Bana"
     },
     {
       "id": "xujSOUBuzUo",
       "title": "Aşık Ceyhani-Yarim Kokun Bana Koksun",
-      "duration": "3:21"
+      "duration": "3:21",
+      "displayTitle": "Âşık Ceyhani — Yârim Kokun Bana Koksun",
+      "coverTitle": "Yârim Kokun Bana Koksun"
     },
     {
       "id": "42S9OnnTwsU",
       "title": "Aşık CEYHANİ ile Aşık Hakkı--atışma",
-      "duration": "3:39"
+      "duration": "3:39",
+      "displayTitle": "Âşık Ceyhani ve Âşık Hakkı — Atışma",
+      "coverTitle": "Atışma (Âşık Hakkı ile)"
     },
     {
       "id": "5cK-nPEg8ZI",
       "title": "Aşık Ceyhani- Ağlama Gözlerim Mevlam Kerimdir",
-      "duration": "6:09"
+      "duration": "6:09",
+      "displayTitle": "Âşık Ceyhani — Ağlama Gözlerim Mevla’m Kerimdir",
+      "coverTitle": "Ağlama Gözlerim Mevla’m Kerimdir"
     },
     {
       "id": "qp03MZK3bto",
       "title": "vicdanın yoknu senin -Aşık Ceyhani",
-      "duration": "3:57"
+      "duration": "3:57",
+      "displayTitle": "Âşık Ceyhani — Vicdanın Yok mu Senin",
+      "coverTitle": "Vicdanın Yok mu Senin"
     },
     {
       "id": "Scqq5q21RKE",
       "title": "Aşık Ceyhani-Küstürdüm Gönlümü güldüremedim",
-      "duration": "5:50"
+      "duration": "5:50",
+      "displayTitle": "Âşık Ceyhani — Küstürdüm Gönlümü Güldüremedim",
+      "coverTitle": "Küstürdüm Gönlümü Güldüremedim"
     },
     {
       "id": "ufH4x9iaMkc",
       "title": "Aşık Ceyhani ahu gozlüm",
-      "duration": "5:09"
+      "duration": "5:09",
+      "displayTitle": "Âşık Ceyhani — Ahu Gözlüm",
+      "coverTitle": "Ahu Gözlüm"
     },
     {
       "id": "OUAbFf_1dCc",
       "title": "Aşık Ceyhani-\"TÜRKLERİZ\"",
-      "duration": "5:39"
+      "duration": "5:39",
+      "displayTitle": "Âşık Ceyhani — Türkleriz",
+      "coverTitle": "Türkleriz"
     },
     {
       "id": "CaJqo24N6LI",
       "title": "Aşık  CEYHANİ-- Eder İnşallah İnşallah",
-      "duration": "3:12"
+      "duration": "3:12",
+      "displayTitle": "Âşık Ceyhani — Eder İnşallah İnşallah",
+      "coverTitle": "Eder İnşallah İnşallah"
     },
     {
       "id": "g1wrEPiOFz0",
       "title": "AŞIK CEYHANİ-Yarim kokun bana koksun",
-      "duration": "2:45"
+      "duration": "2:45",
+      "displayTitle": "Âşık Ceyhani — Yârim Kokun Bana Koksun",
+      "coverTitle": "Yârim Kokun Bana Koksun"
     },
     {
       "id": "qNBHIQZF2Bs",
       "title": "Aşık Ceyhani-Ah neyleyim Gönül",
-      "duration": "2:59"
+      "duration": "2:59",
+      "displayTitle": "Âşık Ceyhani — Ah Neyleyim Gönül",
+      "coverTitle": "Ah Neyleyim Gönül"
     },
     {
       "id": "g7xHhYNRPBU",
       "title": "BAĞIŞLA SEVDİĞİM HAKKI SEVERSEN",
-      "duration": "3:00"
+      "duration": "3:00",
+      "displayTitle": "Âşık Ceyhani — Bağışla Sevdiğim Hakkı Seversen",
+      "coverTitle": "Bağışla Sevdiğim Hakkı Seversen"
     }
   ],
   "coverPhotos": [

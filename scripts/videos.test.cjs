@@ -86,3 +86,8 @@ test('manual video appears once, starts at zero and has retry and external watch
   const vicdan=html.match(/<button\b[^>]*data-video-id="SrtNM1QpjCk"[\s\S]*?<\/button>/)[0];assert.match(vicdan,/src="assets\/ceyhani-album-netlestirilmis.jpg"/);
   assert.doesNotMatch(html,/src="assets\/ceyhani-portre.jpeg"/);
 });
+
+test('video search accepts plain letters for reviewed circumflex spellings',async()=>{
+  const h=await harness();h.cards[1].dataset.videoTitle='Âşık Ceyhani — Yârim';
+  for(const query of ['asik','aşık','yarim','YÂRİM']){h.nodes['#video-search'].value=query;h.nodes['#video-search'].listeners.input();assert.equal(h.cards[1].hidden,false,query);assert.equal(h.nodes['#channel-no-results'].hidden,true);}
+});

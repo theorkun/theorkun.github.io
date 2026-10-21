@@ -1,4 +1,5 @@
 (() => {
+  const searchText=value=>String(value).toLocaleLowerCase('tr').replace(/ı/g,'i').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
   const grid = document.querySelector('#channel-video-grid');
   if (!grid) return;
   const regularCards = Array.from(grid.querySelectorAll('.channel-video-card'));
@@ -108,9 +109,9 @@
   });
 
   function render() {
-    const query = search.value.trim().toLocaleLowerCase('tr');
-    const matches = regularCards.filter(card => card.dataset.videoTitle.toLocaleLowerCase('tr').includes(query));
-    const documentaryMatches = documentaryCards.filter(card => card.dataset.videoTitle.toLocaleLowerCase('tr').includes(query));
+    const query = searchText(search.value);
+    const matches = regularCards.filter(card => searchText(card.dataset.videoTitle).includes(query));
+    const documentaryMatches = documentaryCards.filter(card => searchText(card.dataset.videoTitle).includes(query));
     cards.forEach(card => { card.hidden = true; });
     matches.slice(0, visibleCount).forEach(card => { card.hidden = false; });
     documentaryMatches.forEach(card => { card.hidden = false; });

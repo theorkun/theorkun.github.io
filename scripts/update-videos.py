@@ -77,6 +77,14 @@ if not videos:
     raise RuntimeError('No videos found; catalogue unchanged.')
 catalogue_path = ROOT / 'assets' / 'youtube-videos.json'
 previous = json.loads(catalogue_path.read_text(encoding='utf-8')) if catalogue_path.exists() else {}
+# Keep reviewed website spellings while retaining the channel's original title.
+for old in previous.get('videos', []):
+    current = videos.get(old['id'])
+    if current is not None:
+        for field in ('displayTitle', 'coverTitle'):
+            if old.get(field):
+                current[field] = old[field]
+
 manual = [video for video in previous.get('videos', []) if video.get('manual') is True]
 manual_ids = {video['id'] for video in manual}
 catalogue = {'channel': CHANNEL, 'channelId': metadata['externalId'],

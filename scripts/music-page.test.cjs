@@ -31,7 +31,7 @@ test('search, seeking, volume and repeat controls update the existing playback c
   const h=harness();h.nodes.musicSearch.value='bulunmaz';h.nodes.musicSearch.listeners.input();assert.equal(h.nodes.musicEmpty.hidden,false);assert.equal(h.nodes.musicResults.textContent,'0 / 2 türkü');
   h.click('musicClearSearch');assert.equal(h.nodes.musicEmpty.hidden,true);assert.equal(h.nodes.musicSearch.focused,true);
   h.nodes.musicSeek.value=50;h.nodes.musicSeek.listeners.input();assert.deepEqual(h.calls.at(-1),['seek',100]);assert.equal(h.nodes.musicSeek.style['--played'],'50%');
-  h.nodes.musicVolume.value=60;h.nodes.musicVolume.listeners.input();assert.deepEqual(h.calls.at(-1),['volume',0.6]);assert.equal(h.nodes.musicVolumeValue.textContent,'60%');
+  h.nodes.musicVolume.value=60;h.nodes.musicVolume.listeners.input();assert.deepEqual(h.calls.at(-1),['volume',0.6]);assert.equal(h.nodes.musicVolumeValue.textContent,'%60');
   h.click('musicShuffle');assert.equal(h.nodes.musicShuffle.attrs['aria-pressed'],'true');h.click('musicRepeat');assert.equal(h.nodes.musicRepeat.textContent,'Bu türkü');
 });
 test('controller readiness and iframe teardown are handled without retaining a dead page subscription',()=>{
@@ -41,4 +41,9 @@ test('controller readiness and iframe teardown are handled without retaining a d
 test('every page links to Türküler in the menu and frame navigation recognizes its route',()=>{
   for(const file of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,file),'utf8');assert.match(html,/href="muzikler.html">Türküler<\/a>/,file);}
   const html=fs.readFileSync(path.join(root,'muzikler.html'),'utf8');assert.match(html,/class="active" aria-current="page" href="muzikler.html"/);assert.match(fs.readFileSync(path.join(root,'site-navigation.js'),'utf8'),/'muzikler.html'/);
+});
+
+test('song search accepts a plain a for a title containing a circumflex',()=>{
+  const h=harness();h.state.tracks[1].title='Yârim Kokun Bana Koksun';h.publish();
+  h.nodes.musicSearch.value='yarim';h.nodes.musicSearch.listeners.input();assert.equal(h.nodes.musicEmpty.hidden,true);assert.equal(h.nodes.musicResults.textContent,'1 / 2 türkü');
 });

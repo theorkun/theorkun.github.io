@@ -80,7 +80,7 @@
     requestAnimationFrame(() => { pending = false; resizeText(); });
   }
   function valueLabel(name) {
-    if (name === 'size') return settings.size === 100 ? '' : `${settings.size}%`;
+    if (name === 'size') return settings.size === 100 ? '' : `%${settings.size}`;
     if (name === 'color') return ['', 'Gri tonlar', 'Mavi / sarı'][settings.color];
     if (name === 'saturation') return ['', 'Düşük', 'Yüksek', 'Renksiz'][settings.saturation];
     if (name === 'height') return ['', '1.8', '2.2', '2.6'][settings.height];

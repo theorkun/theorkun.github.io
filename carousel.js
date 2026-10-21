@@ -1,6 +1,6 @@
 (() => {
   const slides = [
-    { image: 'slide-stage', photo: 'assets/ceyhani-saz.jpg', caption: 'Aile arşivinden · Sazıyla Aşık Ceyhani' },
+    { image: 'slide-stage', photo: 'assets/ceyhani-saz.jpg', caption: 'Aile arşivinden · Sazıyla Âşık Ceyhani' },
     { image: 'slide-young', photo: 'assets/fotograf.jpg', caption: 'Aile arşivinden · Gençlik yıllarında Durmuş Ali Sayıcı' }
   ];
   const carousel = document.querySelector('.hero-carousel');
