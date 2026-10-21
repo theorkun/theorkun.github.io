@@ -73,3 +73,14 @@ test('large player API shares one audio instance and keeps subscribers synchroni
   const copy=api.getState();copy.tracks[0].title='changed';assert.notEqual(api.getState().tracks[0].title,'changed');
   off();const count=updates.length;h.nodes[0].listeners.timeupdate();assert.equal(updates.length,count);
 });
+
+test('collapsing the entire widget preserves playback and position; restoring preserves paused state too',async()=>{
+  const h=await harness(),audio=h.nodes[0];audio.currentTime=42;
+  const plays=audio.plays,pauses=audio.pauses;
+  h.$('.ap-open').listeners.click();await h.click('collapse');
+  assert.equal(h.$('.ap-panel').hidden,true);assert.equal(h.$('.ap-bar').hidden,true);assert.equal(h.$('[data-ap="restore"]').hidden,false);assert.ok(h.$('[data-ap="restore"]').focused);
+  assert.equal(audio.plays,plays);assert.equal(audio.pauses,pauses);assert.equal(audio.currentTime,42);assert.equal(h.window.ceyhaniMusic.getState().mode,'playing');
+  await h.click('restore');assert.equal(h.$('.ap-bar').hidden,false);assert.equal(h.$('[data-ap="restore"]').hidden,true);assert.equal(audio.currentTime,42);
+  await h.click('play');const pausedPlays=audio.plays,pausedPauses=audio.pauses;
+  await h.click('collapse');await h.click('restore');assert.equal(h.window.ceyhaniMusic.getState().mode,'paused');assert.equal(audio.plays,pausedPlays);assert.equal(audio.pauses,pausedPauses);
+});

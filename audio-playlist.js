@@ -25,9 +25,11 @@
   const widget=document.createElement('aside');widget.className='background-music audio-playlist';widget.setAttribute('aria-label','Ceyhani’den Türküler müzik listesi');
   widget.innerHTML='<section class="ap-panel" hidden aria-label="Çalma listesi"><div class="ap-heading"><div><p>AŞIK CEYHANİ</p><h2>Ceyhani’den Türküler</h2></div><button type="button" data-ap="minimize" aria-label="Müziği durdurmadan listeyi küçült">−</button></div><p class="ap-now"></p><div class="ap-progress"><input type="range" min="0" max="100" step="0.1" value="0" disabled aria-label="Dinleme konumu"><div><span class="ap-time">0:00</span><span class="ap-duration">0:00</span></div></div><div class="ap-options"><button type="button" data-ap="shuffle" aria-pressed="false">Karışık</button><button type="button" data-ap="repeat" aria-pressed="true">Tekrar: tümü</button><label>Ses<input class="ap-volume" type="range" min="0" max="100" value="35" aria-label="Ses düzeyi"></label></div><label class="ap-search">Listede ara<input type="search" placeholder="Türkü adı…" autocomplete="off"></label><ol class="ap-tracks"></ol><p class="ap-empty" hidden>Bu aramaya uygun kayıt bulunamadı.</p><p class="ap-count"></p></section><div class="ap-bar"><button class="ap-open" type="button" aria-expanded="false" aria-label="Çalma listesini aç"><span class="ap-music-icon" aria-hidden="true">♫</span><span><small>Ceyhani’den Türküler</small><strong class="ap-current"></strong></span></button><button type="button" data-ap="previous" aria-label="Önceki türkü">‹</button><button type="button" data-ap="play" aria-label="Müziği çal">▶</button><button type="button" data-ap="next" aria-label="Sonraki türkü">›</button></div><p class="ap-status" role="status" aria-live="polite"></p>';
   widget.innerHTML=widget.innerHTML.replace('>♫</span>', '>'+controlIcons.music+'</span>');
+  widget.innerHTML+='<button type="button" class="ap-collapse" data-ap="collapse" aria-label="Müziği durdurmadan çaları küçült" title="Müzik çaları küçült">'+controlIcons.minimize+'</button><button type="button" class="ap-restore" data-ap="restore" aria-label="Müzik çaları aç" aria-expanded="false" hidden>'+controlIcons.music+'</button>';
   document.body.appendChild(widget);
   const $=selector=>widget.querySelector(selector),control=name=>$(`[data-ap="${name}"]`),panel=$('.ap-panel'),search=$('.ap-search input'),list=$('.ap-tracks'),status=$('.ap-status'),progress=$('.ap-progress input'),volume=$('.ap-volume');
   for(const name of ['previous','next','minimize'])control(name).innerHTML=controlIcons[name];
+  let collapsed=false;
   const subscribers=new Set();
   function getState(){return {tracks:tracks.map(t=>({...t})),index,mode,shuffle,repeat,position:Number.isFinite(audio.currentTime)?audio.currentTime:0,duration:Number.isFinite(audio.duration)?audio.duration:0,volume:audio.volume,status:status.textContent||''};}
   function publish(){const state=getState();for(const callback of subscribers)try{callback(state);}catch(error){console.error('Müzik görünümü güncellenemedi.',error);}}
@@ -51,6 +53,7 @@
     const active=mode==='playing',query=search.value.trim().toLocaleLowerCase('tr');let count=0;
     list.innerHTML=tracks.map((t,i)=>{if(!t.title.toLocaleLowerCase('tr').includes(query))return '';count++;return `<li><button type="button" data-audio-index="${i}" aria-current="${i===index}"><span class="ap-track-number">${String(i+1).padStart(2,'0')}</span><span>${esc(t.title)}<small>${esc(t.artist||'Aşık Ceyhani')}</small></span><span class="ap-track-icon" aria-hidden="true">${i===index&&active?controlIcons.music:controlIcons.play}</span></button></li>`;}).join('');
     $('.ap-empty').hidden=count!==0;$('.ap-count').textContent=`${count} kayıt · MP3 arşivi`;
+    control('restore').setAttribute('aria-label',`Müzik çaları aç. ${tracks[index].title}. ${active?'Müzik çalıyor':'Müzik duraklatıldı'}`);
     $('.ap-current').textContent=tracks[index].title;$('.ap-now').textContent=tracks[index].title;
     control('play').innerHTML=active?controlIcons.pause:controlIcons.play;control('play').setAttribute('aria-label',active?'Müziği durdur':'Müziği çal');control('play').setAttribute('aria-pressed',String(active));
     control('shuffle').setAttribute('aria-pressed',String(shuffle));control('repeat').setAttribute('aria-pressed',String(repeat!=='off'));
@@ -96,6 +99,17 @@
     audio.pause();cursor=next;index=order[cursor];render();return play();
   }
   function togglePanel(open){panel.hidden=!open;$('.ap-open').setAttribute('aria-expanded',String(open));widget.classList.toggle('is-open',open);}
+  function setCollapsed(value){
+    collapsed=value;
+    if(collapsed)togglePanel(false);
+    widget.classList.toggle('is-minimized',collapsed);
+    $('.ap-bar').hidden=collapsed;status.hidden=collapsed;
+    control('collapse').hidden=collapsed;control('restore').hidden=!collapsed;
+    control('restore').setAttribute('aria-expanded',String(!collapsed));
+    (collapsed?control('restore'):control('collapse')).focus({preventScroll:true});
+  }
+  control('collapse').addEventListener('click',()=>setCollapsed(true));
+  control('restore').addEventListener('click',()=>setCollapsed(false));
   function togglePlay(){return mode==='playing'||mode==='loading'?pause():play();}
   function toggleShuffle(){shuffle=!shuffle;resetOrder();render();save();}
   function cycleRepeat(){repeat={all:'one',one:'off',off:'all'}[repeat];render();save();}

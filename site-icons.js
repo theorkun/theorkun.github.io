@@ -34,7 +34,7 @@
     const svg=make(name);
     if(old)old.replaceWith(svg);else if(glyphs[element.textContent.trim()])element.replaceChildren(svg);else if(prepend)element.prepend(svg);else element.append(svg);
   }
-  const selectors = '.channel-video-play,.documentary-play,[data-ap="play"],[data-ap="previous"],[data-ap="next"],[data-ap="minimize"],.ap-music-icon,.ap-track-icon,.music-track-play,#musicPlay,#musicPrevious,#musicNext,.mobile-turkuler>span,.back-to-top,header .menu,.accessibility-open,#daily-verse-launch button';
+  const selectors = '.channel-video-play,.documentary-play,[data-ap="play"],[data-ap="previous"],[data-ap="next"],[data-ap="minimize"],[data-ap="collapse"],[data-ap="restore"],.ap-music-icon,.ap-track-icon,.music-track-play,#musicPlay,#musicPrevious,#musicNext,.mobile-turkuler>span,.back-to-top,header .menu,.accessibility-open,#daily-verse-launch button';
   function enhance(root) {
     if(!root||root.nodeType!==1)return;
     const controls=[...(root.matches(selectors)?[root]:[]),...root.querySelectorAll(selectors)];
@@ -46,8 +46,8 @@
       else if(el.matches('.music-track-play'))name=el.closest('.music-track-button')?.classList.contains('is-playing')?'pause':'play';
       else if(el.matches('[data-ap="previous"],#musicPrevious'))name='previous';
       else if(el.matches('[data-ap="next"],#musicNext'))name='next';
-      else if(el.matches('[data-ap="minimize"]'))name='chevronDown';
-      else if(el.matches('.ap-music-icon,.mobile-turkuler>span'))name='music';
+      else if(el.matches('[data-ap="minimize"],[data-ap="collapse"]'))name='chevronDown';
+      else if(el.matches('.ap-music-icon,.mobile-turkuler>span,[data-ap="restore"]'))name='music';
       else if(el.matches('.back-to-top'))name='arrowUp';
       else if(el.matches('header .menu'))name=el.getAttribute('aria-expanded')==='true'?'close':'menu';
       else if(el.matches('.accessibility-open'))name='person';
