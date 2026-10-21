@@ -1,0 +1,20 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const catalogue=JSON.parse(fs.readFileSync(path.join(root,'assets/youtube-videos.json'),'utf8'));
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cards=catalogue.videos.map((video,index)=>{
+ const seed=Array.from(video.id).reduce((sum,c)=>sum+c.charCodeAt(0),0);
+ const cover=video.id==='SrtNM1QpjCk'?catalogue.coverPhotos.find(p=>p.source==='assets/ceyhani-album-netlestirilmis.jpg'):catalogue.coverPhotos[index%catalogue.coverPhotos.length];
+ if(!cover||!/^assets\/(?:photos\/[a-z-]+\.jpg|ceyhani-album-netlestirilmis\.jpg)$/.test(cover.source)||!fs.existsSync(path.join(root,cover.source)))throw Error('Invalid cover photo');
+ const title=video.id==='fzIIszXMnaw'?'Yörük Obalarımız · Çukurova Âşıklarımız':video.title.replace(/^a[şs][ıiİI]k\s+ceyhan[ıiİI]\s*[-–—:]*\s*/iu,'').trim();
+ const start=Number.isSafeInteger(video.startSeconds)?` data-video-start="${video.startSeconds}"`:'';
+ return `<button class="channel-video-card" type="button" data-video-id="${video.id}" data-video-title="${esc(video.title)}"${start} aria-label="${esc(video.title)} videosunu oynat" aria-pressed="false"><span class="channel-video-thumbnail video-cover video-cover-tone-${seed%4}${title.length>35?' video-cover-long':''}" aria-hidden="true"><img src="${cover.source}" alt="" loading="lazy" decoding="async" width="${cover.width}" height="${cover.height}" style="object-position:${esc(cover.position)}"><span class="video-cover-edition">${String(index+1).padStart(2,'0')} · SES VE GÖRÜNTÜ ARŞİVİ</span><span class="video-cover-copy"><span class="video-cover-artist">AŞIK CEYHANİ</span><strong class="video-cover-heading">${esc(title)}</strong><span class="video-cover-rule"></span></span><span class="channel-video-play">▶</span>${video.duration?`<span class="channel-video-duration">${esc(video.duration)}</span>`:''}</span><span class="channel-video-title">${esc(video.title)}</span></button>`;
+}).join('');
+const file=path.join(root,'videolar.html');let html=fs.readFileSync(file,'utf8');
+const grid=/(<div id="channel-video-grid" class="channel-video-grid">)[\s\S]*?(<\/div><p id="channel-no-results")/;
+if(!grid.test(html))throw Error('Video grid not found');
+html=html.replace(grid,(_,open,close)=>open+cards+close);
+if(!html.includes('href="video-covers.css'))html=html.replace('<link rel="stylesheet" href="video-player.css?v=1">','<link rel="stylesheet" href="video-player.css?v=1"><link rel="stylesheet" href="video-covers.css?v=1">');
+html=html.replace(/video-covers\.css\?v=[a-z0-9-]+/g,'video-covers.css?v=photos-2');
+fs.writeFileSync(file,html);
+console.log('Rendered '+catalogue.videos.length+' video covers');

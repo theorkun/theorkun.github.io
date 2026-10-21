@@ -81,6 +81,8 @@ manual = [video for video in previous.get('videos', []) if video.get('manual') i
 manual_ids = {video['id'] for video in manual}
 catalogue = {'channel': CHANNEL, 'channelId': metadata['externalId'],
              'videos': manual + [video for video in videos.values() if video['id'] not in manual_ids]}
+if previous.get('coverPhotos'):
+    catalogue['coverPhotos'] = previous['coverPhotos']
 (ROOT / 'assets' / 'youtube-videos.json').write_text(
     json.dumps(catalogue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
 )

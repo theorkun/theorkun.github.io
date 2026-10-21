@@ -64,5 +64,10 @@ test('manual video appears once, starts at zero and has retry and external watch
   assert.equal(catalogue.videos.length,44);assert.equal((html.match(/class="channel-video-card"/g)||[]).length,44);
   assert.match(html,/data-video-id="fzIIszXMnaw"[^>]*data-video-start="0"/);assert.match(html,/id="channel-player-retry"/);assert.match(html,/id="channel-watch-link"/);
   assert.equal((html.match(/class="channel-video-thumbnail video-cover /g)||[]).length,44);assert.doesNotMatch(html,/data-media-src="https:\/\/i.ytimg.com/);
-  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=1"/);
+  assert.match(html,/src="assets\/ceyhani-album-netlestirilmis.jpg"[^>]*loading="lazy"/);assert.match(html,/href="video-covers.css\?v=photos-2"/);
+  const photos=['sahnede-saziyla','acik-havada-turku','evde-saziyla','kasetler-arasinda','sazina-dalarken'];
+  assert.equal(catalogue.coverPhotos.length,6);
+  for(const name of photos){const source=`assets/photos/${name}.jpg`;assert.ok(catalogue.coverPhotos.some(p=>p.source===source));assert.ok(fs.existsSync(path.join(root,source)));assert.ok(html.includes(`src="${source}"`));}
+  const vicdan=html.match(/<button\b[^>]*data-video-id="SrtNM1QpjCk"[\s\S]*?<\/button>/)[0];assert.match(vicdan,/src="assets\/ceyhani-album-netlestirilmis.jpg"/);
+  assert.doesNotMatch(html,/src="assets\/ceyhani-portre.jpeg"/);
 });

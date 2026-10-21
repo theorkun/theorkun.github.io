@@ -224,5 +224,43 @@
       "title": "BAĞIŞLA SEVDİĞİM HAKKI SEVERSEN",
       "duration": "3:00"
     }
+  ],
+  "coverPhotos": [
+    {
+      "source": "assets/photos/sahnede-saziyla.jpg",
+      "width": 1920,
+      "height": 1440,
+      "position": "40% 40%"
+    },
+    {
+      "source": "assets/ceyhani-album-netlestirilmis.jpg",
+      "width": 600,
+      "height": 653,
+      "position": "50% 35%"
+    },
+    {
+      "source": "assets/photos/acik-havada-turku.jpg",
+      "width": 631,
+      "height": 473,
+      "position": "52% 40%"
+    },
+    {
+      "source": "assets/photos/evde-saziyla.jpg",
+      "width": 640,
+      "height": 674,
+      "position": "50% 35%"
+    },
+    {
+      "source": "assets/photos/kasetler-arasinda.jpg",
+      "width": 640,
+      "height": 477,
+      "position": "30% 40%"
+    },
+    {
+      "source": "assets/photos/sazina-dalarken.jpg",
+      "width": 478,
+      "height": 320,
+      "position": "43% 40%"
+    }
   ]
 }
