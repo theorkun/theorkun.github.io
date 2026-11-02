@@ -5,14 +5,14 @@
     const get = type => Number(parts.find(part => part.type === type).value);
     return Math.floor(Date.UTC(get('year'), get('month') - 1, get('day')) / 86400000);
   }
-  fetch('assets/poetry-discovery.json?v=archive-75').then(response => {
+  fetch('assets/poetry-discovery.json?v=archive-72-removed-3').then(response => {
     if (!response.ok) throw new Error('Arşiv bilgisi yüklenemedi');
     return response.json();
   }).then(archive => {
     const section = document.querySelector('#siirleri');
     const cards = section ? [...section.querySelectorAll('.poem-card')] : [];
     cards.forEach((card, index) => {
-      card.id = `siir-${index + 1}`;
+      card.id = `siir-${archive.poems[index]?.poemNo ?? index + 1}`;
       card.dataset.theme = archive.poems[index]?.theme || 'Diğer';
     });
     const search = document.querySelector('#poem-search');
@@ -48,7 +48,7 @@
       manuscriptLink.hidden = true;
       dialog.querySelector('.poem-modal-body').appendChild(manuscriptLink);
       cards.forEach(card => card.addEventListener('click', () => {
-        const item = archive.poems[Number(card.id.slice(5)) - 1];
+        const item = archive.poems.find(poem => poem.poemNo === Number(card.id.slice(5)));
         manuscriptLink.hidden = !item?.bookPage;
         if (item?.bookPage) manuscriptLink.href = `kitaplik.html#sayfa-${item.bookPage}`;
       }));

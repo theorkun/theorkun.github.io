@@ -24,22 +24,10 @@ if (poetrySection) {
       "poem": "Selvi boylu ince belli\nYar seni çok seviyorum\nİnanmıyorsan Allah’a\nSor seni çok seviyorum\n\nYoktur cihanda benzerin\nMelekler yoldaşın senin\nSol yüzünde iki benin\nVar seni çok seviyorum\n\nSevdan yapıştı canıma\nHasret kaldım cananıma\nHem dinim hem imanıma\nGör seni çok seviyorum\n\nDeme aşkın gereğine\nAtma beni ırağına\nCeyhaniyi yüreğine\nÖr seni çok seviyorum\n\n11.07.2025"
     },
     {
-      "title": "DEĞİL TABİ",
-      "author": "Âşık Ceyhani",
-      "preview": "Barış diye tutturanlar",
-      "poem": "Barış diye tutturanlar\nSinler sizden değil tabi\nPkk nın katlettiği\nBinler sizden değil tabi\n\nPusu kurup yaktıkları\nTürlü mermi sıktıkları\nMehmetçikten döktükleri\nKanlar sizden değil tabi\n\nŞehit yakını sancılı\nAğlar analı bacılı\nYaşadığı o acılı\nGünler sizden değil tabi\n\nDer Cayhani söyle neden\nDönmüyor toprağa giden\nBayrağa sarılı beden\nCanlar sizden değil tabi\n\n10.07.2025"
-    },
-    {
       "title": "BUNADA ŞÜKÜR  😀",
       "author": "Âşık Ceyhani",
       "preview": "Otuz yıl çalıştım belim büküldü",
       "poem": "Otuz yıl çalıştım belim büküldü\nHamdolsun halime bunda şükür\nYeni alamıyom pabuç söküldü\nHamdolsun halime bunada şükür.\n\nEmekli olmuştum bir heves ile\nGeçinmek dert oldu bitmiyor çile\nPazara giderim dolmuyor file\nHamdolsun halime bunada şükür.\n\nYalancıktan mutlu görünüyorum\nİnsan saymıyorlar yeriniyorum\nPadişahım için sürünüyorum\nHamdolsun halime bunada şükür\n\nBir dilim karpuzu beş kişi yerim\nSonunda yarabbi çok şükür derim\nArabaya binmem yaya giderim\nHamdolsun halime bunada şükür\n\nBU işe bir çözüm bulamıyorum\nBirileri gibi çalamıyorum\nMakarnayı bile alamıyorum\nHamdolsun halime bunada şükür.\n\nSarayımda vardır hanlar hamamlar\nCeyhani doymuyor doymaz yanyamlar\nZam yok maaşıma artıyor gamlar\nHamdolsun halime bunada şükür.\n\n03.07.2025"
-    },
-    {
-      "title": "KİME NE FAYDASI OLDU ?",
-      "author": "Âşık Ceyhani",
-      "preview": "Uzun yıllar başımızda",
-      "poem": "Uzun yıllar başımızda\nKime ne faydası oldu ?\nZehir oldu aşımızda\nKime ne faydası oldu ?\n\nDoymuyor saraya köşke\nAdaletli olsa keşke\nKendi yandaşından başka\nKime ne faydası oldu ?\n\nOrtaktı işin başında\nHocasıydı her işinde\nFetöcülerin dışında\nKime ne faydası oldu ?\n\nVarmı hukuk ve adalet\nHiç hoş değil, bu delalet\nÇıkarına eder alet\nKime ne faydası oldu ?\n\nYoksulluklar çoğalıyor\nSabır deyip oyalıyor\nEmekliler, kan ağlıyor\nKime ne faydası oldu ?\n\nCeyhaniyim budur halin\nBelli değil sağın solun\nHer yöne dönüyor dilin\nKime ne faydası oldu ?\n\n17.05.2025"
     },
     {
       "title": "güzel",
@@ -240,42 +228,6 @@ Gözlerime derin derin
 Bakma için yanar dedi
 
 10.08.2025`
-    },
-    {
-      title: 'KARAR ALDINIZ',
-      author: 'Aşık Ceyhani',
-      preview: 'Komisyon millete açık dediniz',
-      poem: `Komisyon millete açık dediniz
-On yıl açıklanmaz karar aldınız
-Halka verdiğiniz sözü yediniz
-On yıl açıklanmaz karar aldınız
-
-Sözüm hepinize değil üçüne
-Apo sizi ortak etti suçuna
-Halka gizli serbest katil piçine
-On yıl açıklanmaz karar aldınız
-
-Türklük gömleğini bir bir soydunuz
-Zehirin adını şifa koydunuz
-Teröristler ne der ise uydunuz
-On yıl açıklanmaz karar aldınız
-
-Sizden büyük millet vardır biliniz
-Kızıl arı yapmış bozuk balınız
-Eyleminiz başka başka diliniz
-On yıl açıklanmaz karar aldınız
-
-Size ne söylesem az gelir az
-Vallahi kaz sizden akıllıdır kaz
-İçiniz kapkara dışınız beyaz
-On yıl açıklanmaz karar aldınız
-
-Ceyhani şehitler ölmez diyen siz
-Şehit kanı yerde kalmaz diyen siz
-Gizli bir görüşme olmaz diyen siz
-On yıl açıklanmaz karar aldınız
-
-09.08.2025`
     },
     {
       title: 'HATIRLA',
