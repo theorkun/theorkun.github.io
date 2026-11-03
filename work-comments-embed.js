@@ -7,7 +7,7 @@
   let retryAction=()=>location.reload();retry.addEventListener('click',()=>retryAction());
   async function start(){
     if((kind!=='poem'&&kind!=='track')||!/^[a-z0-9-]{1,80}$/.test(id||''))throw Error('invalid');
-    const response=await fetch(kind==='poem'?'assets/poetry-discovery.json?v=archive-71-millet-removed-4':'assets/audio-playlist.json');
+    const response=await fetch(kind==='poem'?'assets/poetry-discovery.json?v=archive-70-diyemi-archived-5':'assets/audio-playlist.json');
     if(!response.ok)throw Error();const archive=await response.json();
     const item=kind==='poem'?archive.poems.find(p=>String(p.poemNo)===id):archive.tracks.find(t=>t.id===id);
     if(!item){status.textContent='Bu eser arşivde bulunamadı.';return;}
@@ -17,7 +17,8 @@
       retry.textContent='Hizmet izinlerini aç';retry.hidden=false;retryAction=()=>window.CeyhaniCookies?.open();return;
     }
     const settings=await fetch('assets/work-comments-settings.json',{cache:'no-store'});if(!settings.ok)throw Error();
-    if((await settings.json()).moderationConfirmed!==true){
+    const configuration=await settings.json();
+    if(configuration.enabled!==true&&configuration.moderationConfirmed!==true){
       status.textContent='Yorum alanını hazırlıyoruz. Yorum gönderimi henüz açık değil.';
       content.innerHTML='<div class="work-comments-preview"><label for="work-preview-name">Adınız veya takma adınız</label><input id="work-preview-name" placeholder="Adınız (isteğe bağlı)" disabled><label for="work-preview-message">Bu esere dair yorumlarınız</label><textarea id="work-preview-message" placeholder="Sizde bıraktığı duyguyu paylaşın…" disabled></textarea><button type="button" disabled>Yorumu yayımla</button></div>';if(!window.CeyhaniCommentPrivacy)throw Error();window.CeyhaniCommentPrivacy.attach(content,content.firstElementChild);resize();return;
     }

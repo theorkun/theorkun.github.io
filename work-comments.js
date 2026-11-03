@@ -16,7 +16,7 @@
       const button=document.createElement('button');button.type='button';button.className='work-comments-action';button.textContent='Hizmet izinlerini aç';button.onclick=()=>window.CeyhaniCookies?.open();container.append(note,button);return;
     }
     const frame=document.createElement('iframe');frame.className='work-comments-frame';frame.title=title+' — yorumlar';
-    frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id});
+    frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id,v:'enabled-6'});
     frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');container.appendChild(frame);
   }
   document.addEventListener('ceyhani-cookie-change',()=>{

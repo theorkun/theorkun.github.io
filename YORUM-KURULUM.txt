@@ -1,43 +1,28 @@
-ESER YORUMLARI — DENEME VE ONAYLI YAYIN
+ESER YORUMLARI — 4 KASIM 2026
 
-Her şiir, sabit şiir numarasıyla; her türkü, sabit kayıt kimliğiyle ayrı
-yorum başlığına sahiptir. GitHub ve özel alan adı aynı başlıkları kullanır.
-Başlık anahtarı eser-yorumlari.html?type=poem&id=1 biçimindedir.
-Mevcut ziyaretçi defterinin başlığı ve eski yorumları değiştirilmemiştir.
+Site sahibinin isteğiyle şiir ve türkü yorum gönderimi etkinleştirildi.
+assets/work-comments-settings.json: enabled=true, publicationMode="direct".
+Bu ayar, sitedeki tasarım önizlemesi kilidini kaldırır; hizmet hesabının
+sunucu tarafındaki moderasyon ayarını değiştirmez.
 
-Şu anda tasarım denemesi açıktır, yorum gönderimi KAPALIDIR.
-assets/work-comments-settings.json dosyasında moderationConfirmed=false.
-Bu, onay ayarı doğrulanmadan yorumların doğrudan yayımlanmasını önler.
+HTML Comment Box hesabında ön onay açıksa, yorumlar hizmette beklemeye
+devam eder. Onaysız yayın için hizmet hesabındaki ön onay ayarını kapatın.
+Hesap ayarına bu çalışma sırasında erişilmedi ve değiştirilmedi.
 
-CANLIYA ALMA
-1. https://www.htmlcommentbox.com/received.html sayfasında mevcut yönetici
-   hesabınızla oturum açın. Hesap ayarlarında yorumların yayımlanmadan önce
-   yönetici onayına alınmasını etkinleştirin. Bu ayar yalnızca sitedeki
-   Türkçe açıklamayı değiştirmekle etkinleşmez; hizmet hesabında yapılmalıdır.
-2. Ayarı doğruladıktan sonra moderationConfirmed değerini true yapın.
-   Eser yorumları bu ayarı önbelleksiz okur. GitHub ve hosting'de aynı ayarı
-   yayımlayın. Sadece tasarım denemesi için true yapmayın.
-3. Bir şiir ve bir türküde kendi test yorumunuzu gönderin. Yönetici panelinde
-   beklemeli, başka tarayıcıda onaylanana kadar görünmemelidir. Onaydan sonra
-   iki alan adında da doğru eserde görünmesini kontrol edin. Testi yaparken
-   başka ziyaretçiler adına mesaj göndermeyin.
-4. Hizmet HTTPS hatası veriyor veya erişilemiyorsa sertifika hatasını
-   atlamayın; gönderimi kapalı tutun. Site bu durumda hata mesajı gösterir.
+Her şiir ve türkü sabit eser kimliğiyle ayrı yorum başlığı kullanır.
+GitHub ve özel alan adı aynı yorum başlıklarını paylaşır; mevcut yorumlar
+ve ziyaretçi defterinin başlığı korunur.
 
-Yorumlar mevcut HTML Comment Box hizmetinde saklanır. Yeni bir ASP.NET
-servisi, veri tabanı veya beğeni servisinin çalışması gerekmez.
-Teşekkür bildirimi hizmetin ON_COMMENT geri çağrısına bağlıdır; sayfa
-açılışında veya gönder düğmesine basıldığında tek başına gösterilmez.
-Onay bekleyen bir yorum için "yayımlandı" iddiasında bulunmaz. Görsel
-bildirim 6,5 saniye sonra kapanır, elle kapatılabilir; hareket azaltma
-tercihinde animasyonsuz görünür. Hiçbir teşekkür testi gerçek yorum göndermez.
-Yorum alanı yalnızca kullanıcı açtığında ve yorum kategorisine izin
-verdiğinde yüklenir. Her alan bağımsız iframe içinde açılıp kapanır;
-başka eserin gecikmiş yanıtı yeni eserin yorumlarını değiştiremez.
+Yorum hizmeti yalnızca ilgili alan açılınca ve hizmet izni verilince yüklenir.
+Gönderim için aydınlatma ve yorum paylaşımı onayları ayrı ayrı işaretlenmelidir.
+Teşekkür bildirimi gönder düğmesine değil, hizmetin ON_COMMENT yanıtına bağlıdır.
+Hizmet veya sertifika hatasında başarılı gönderim iddiası gösterilmez.
 
-Yönetici hesabına buradan erişilemediği için onay ayarı ve gerçek gönderim
-doğrulanmamıştır. Yorumlar şu an tasarım önizlemesidir.
+Plesk güncellemesinde yalnızca index.html dosyasını yüklemeyin.
+Güncel ZIP içindeki tüm sayfa, betik ve assets dosyalarını birlikte çıkarın.
+App_Data içindeki mevcut beğenileri ve hosting ayarlarını koruyun.
 
-Resmî başlık ve yönetim belgeleri:
-https://www.htmlcommentbox.com/advanced.html
-https://www.htmlcommentbox.com/help.html
+Yayımlama sonrasında bir şiir ve bir türküde kendi yorumunuzla kontrol edin.
+Bu çalışmada herkese açık gerçek bir test yorumu gönderilmemiştir.
+
+Hizmet belgeleri: https://www.htmlcommentbox.com/help.html

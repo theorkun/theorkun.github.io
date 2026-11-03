@@ -1,3 +1,4 @@
 {
-  "moderationConfirmed": false
+  "enabled": true,
+  "publicationMode": "direct"
 }
