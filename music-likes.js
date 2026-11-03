@@ -1,6 +1,7 @@
 (() => {
-  const list=document.getElementById('musicTracks');if(!list)return;
-  const status=document.getElementById('musicLikesStatus'),retry=document.getElementById('musicLikesRetry'),sort=document.getElementById('musicSort');
+  const list=document.getElementById('musicTracks')||document.getElementById('poemLikes');if(!list)return;
+  const poemMode=list.id==='poemLikes';
+  const status=document.getElementById(poemMode?'poemLikesStatus':'musicLikesStatus'),retry=document.getElementById(poemMode?'poemLikesRetry':'musicLikesRetry'),sort=document.getElementById('musicSort');
   let counts=Object.create(null),liked=new Set(),ready=false,disposed=false,unavailable=false;
   const pending=new Set(),subscribers=new Set();
   // GitHub Pages and local previews share the API hosted on our own domain.
@@ -13,14 +14,15 @@
   }
   function announce(text){status.textContent=text;}
   function paint(){
-    sort.disabled=!ready;
+    if(sort)sort.disabled=!ready;
     for(const button of list.querySelectorAll('[data-music-like]')){
-      const id=button.dataset.musicLike,n=counts[id];
-      const stateText=pending.size?'Beğeniniz kaydediliyor':unavailable&&!ready?'Beğeni servisine şu anda ulaşılamıyor':'Beğeniler yükleniyor';
-      button.disabled=!ready||pending.size>0;button.setAttribute('aria-pressed',String(liked.has(id)));
-      button.setAttribute('aria-label',`${button.dataset.trackTitle}: ${liked.has(id)?'beğeniyi geri al':'beğen'}. ${ready&&!pending.size?`${n??0} beğeni`:stateText}`);
-      button.title=button.disabled?stateText:liked.has(id)?'Beğeniyi geri al':'Bu türküyü beğen';
-      button.querySelector('[data-like-count]').textContent=ready?new Intl.NumberFormat('tr-TR').format(n??0):'—';
+      const id=button.dataset.musicLike,n=counts[id],known=ready&&Object.hasOwn(counts,id);
+      const stateText=pending.size?'Beğeniniz kaydediliyor':unavailable&&!ready?'Beğeni servisine şu anda ulaşılamıyor':ready&&!known?'Bu eserin beğeni kaydına ulaşılamıyor':'Beğeniler yükleniyor';
+      button.disabled=!known||pending.size>0;button.setAttribute('aria-pressed',String(liked.has(id)));
+      button.setAttribute('aria-label',`${button.dataset.trackTitle}: ${liked.has(id)?'beğeniyi geri al':'beğen'}. ${known&&!pending.size?`${n} beğeni`:stateText}`);
+      button.title=button.disabled?stateText:liked.has(id)?'Beğeniyi geri al':poemMode?'Bu şiiri beğen':'Bu türküyü beğen';
+      button.querySelector('[data-like-count]').textContent=known?new Intl.NumberFormat('tr-TR').format(n):'—';
+      if(poemMode&&ready&&!known&&id){announce('Şiir beğenileri henüz kullanılamıyor. Ortak servisin güncellenmesi gerekiyor.');retry.hidden=false;}
     }
   }
   function publish(){if(disposed)return;for(const callback of subscribers)callback();paint();}
@@ -51,6 +53,13 @@
   }
   function animate(button){
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('a11y-reduced-motion'))return;
+    if(poemMode){
+      const dialog=document.getElementById('poem-dialog');if(!dialog?.open)return;
+      dialog.querySelector('.poem-saz-celebration')?.remove();
+      const burst=document.createElement('span');burst.className='poem-saz-celebration';burst.setAttribute('aria-hidden','true');burst.style.top=(dialog.scrollTop+dialog.clientHeight/2)+'px';
+      burst.innerHTML='<span class="poem-saz-halo"></span><img src="assets/saz-motifi.svg" alt="" width="150" height="270"><i></i><i></i><i></i><i></i><i></i><i></i>';
+      dialog.appendChild(burst);burst.addEventListener('animationend',event=>{if(event.target===burst)burst.remove();});setTimeout(()=>burst.remove(),1800);return;
+    }
     const burst=document.createElement('span');burst.className='music-saz-burst';burst.setAttribute('aria-hidden','true');
     burst.innerHTML='<img src="assets/saz-motifi.svg" alt="" width="25" height="45"><i></i><i></i><i></i>';
     button.appendChild(burst);burst.addEventListener('animationend',()=>burst.remove(),{once:true});setTimeout(()=>burst.remove(),1100);
@@ -70,8 +79,14 @@
     }catch(_){announce('Beğeniniz kaydedilemedi. Lütfen yeniden deneyin.');pending.delete(id);paint();}
   });
   retry.addEventListener('click',load);
-  window.CeyhaniTrackLikes={getCount:id=>ready?(counts[id]??0):null,paint,subscribe(callback){subscribers.add(callback);return()=>subscribers.delete(callback);}};
+  window[poemMode?'CeyhaniPoemLikes':'CeyhaniTrackLikes']={getCount:id=>ready&&Object.hasOwn(counts,id)?counts[id]:null,paint,subscribe(callback){subscribers.add(callback);return()=>subscribers.delete(callback);}};
   window.addEventListener('pagehide',()=>{disposed=true;subscribers.clear();});
-  window.addEventListener('pageshow',event=>{if(event.persisted){disposed=false;load();}});
-  load();
+  let started=!poemMode;
+  window.addEventListener('pageshow',event=>{if(event.persisted){disposed=false;if(started)load();}});
+  if(poemMode){
+    const onPoemReady=()=>{if(!started){started=true;load();}else{announce(pending.size?'Beğeniniz kaydediliyor…':ready?'Beğeniler tüm ziyaretçilerin ortak toplamıdır.':unavailable?'Ortak beğeni servisine ulaşılamıyor.':'Beğeniler yükleniyor…');paint();}};
+    document.addEventListener('ceyhani-poem-likes-ready',onPoemReady);
+    if(document.getElementById('poem-dialog')?.open&&list.querySelector('[data-music-like]')?.dataset.musicLike)onPoemReady();
+  }
+  else load();
 })();

@@ -37,7 +37,8 @@ public class CeyhaniMusicLikes : IHttpHandler {
         if (method == "POST" && (context.Request.ContentLength < 1 || context.Request.ContentLength > 1024 || !context.Request.ContentType.StartsWith("application/x-www-form-urlencoded",StringComparison.OrdinalIgnoreCase))) { Error(context,400,"request"); return; }
         try {
             string config = File.ReadAllText(context.Server.MapPath("~/assets/audio-playlist.json"));
-            var ids = Regex.Matches(config,"\"id\"\\s*:\\s*\"([a-z0-9-]{1,80})\"").Cast<Match>().Select(m=>m.Groups[1].Value).Distinct().ToArray();
+            string poetry = File.ReadAllText(context.Server.MapPath("~/assets/poetry-discovery.json"));
+            var ids = ReadIds(config,poetry);
             if (ids.Length == 0) throw new InvalidDataException();
             string track = method == "POST" ? context.Request.Form["track"] : null;
             string desired = method == "POST" ? context.Request.Form["liked"] : null;
@@ -53,6 +54,11 @@ public class CeyhaniMusicLikes : IHttpHandler {
             Trace.TraceError("Ceyhani music likes: {0}",error.GetType().Name);
             Error(context,503,"unavailable");
         }
+    }
+    public static string[] ReadIds(string audio,string poetry) {
+        var tracks = Regex.Matches(audio,"\"id\"\\s*:\\s*\"([a-z0-9-]{1,80})\"").Cast<Match>().Select(m=>m.Groups[1].Value);
+        var poems = Regex.Matches(poetry,"\"poemNo\"\\s*:\\s*([1-9][0-9]{0,7})(?=\\s*[,}])").Cast<Match>().Select(m=>"poem-"+m.Groups[1].Value);
+        return tracks.Concat(poems).Distinct().ToArray();
     }
     static bool SameOrigin(HttpRequest request) {
         Uri origin;

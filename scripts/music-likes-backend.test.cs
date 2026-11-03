@@ -32,6 +32,12 @@ public class LikesTests {
         string xml=File.ReadAllText(Path.Combine(root,"ceyhani-music-likes.xml"));
         Check(!xml.Contains("<script")&&!xml.Contains("http")&&xml.Contains("visitor=\""),"only pseudonymous vote keys stored");
         Check(Directory.GetFiles(root,"*.tmp").Length==0,"atomic writes leave no temporary data");
+        var workIds=CeyhaniMusicLikes.ReadIds("{\"id\":\"first\"},{\"id\":\"second\"}","{\"poemNo\":1},{\"poemNo\":2},{\"poemNo\":1},{\"poemNo\":0}");
+        Check(workIds.SequenceEqual(new[]{"first","second","poem-1","poem-2"}),"stable poem IDs are distinct from tracks and reject zero");
+        string combined=CeyhaniMusicLikes.UpdateStore(root,workIds,Visitor(1),"poem-1",true);
+        Check(combined.Contains("\"first\":21")&&combined.Contains("\"poem-1\":1"),"adding poetry preserves existing song votes");
+        Check(CeyhaniMusicLikes.UpdateStore(root,workIds,Visitor(1),"poem-1",true).Contains("\"poem-1\":1"),"poem like is idempotent");
+        Check(CeyhaniMusicLikes.UpdateStore(root,workIds,Visitor(1),"poem-1",false).Contains("\"poem-1\":0"),"poem unlike preserves other works");
         var sameOrigin=typeof(CeyhaniMusicLikes).GetMethod("SameOrigin",BindingFlags.NonPublic|BindingFlags.Static);
         Check((bool)sameOrigin.Invoke(null,new object[]{new HttpContext(new OriginRequest("https://example.test")).Request}),"same-origin POST accepted");
         Check(!(bool)sameOrigin.Invoke(null,new object[]{new HttpContext(new OriginRequest("https://evil.test")).Request}),"cross-origin POST rejected");
@@ -44,7 +50,7 @@ public class LikesTests {
             Check(CeyhaniMusicLikes.AllowedOrigin(allowed,server),"CORS allows "+allowed);
         foreach (string denied in new[]{"null","https://evil.test","https://theorkun.github.io.evil.test","https://theorkun.github.io:444","https://evil.test@theorkun.github.io","https://theorkun.github.io/path","http://192.168.1.1:8080"})
             Check(!CeyhaniMusicLikes.AllowedOrigin(denied,server),"CORS rejects "+denied);
-        Console.WriteLine("28 backend checks passed.");return 0;
+        Console.WriteLine("32 backend checks passed.");return 0;
     }
     class OriginRequest : SimpleWorkerRequest {
         readonly string origin;

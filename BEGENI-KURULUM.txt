@@ -1,5 +1,14 @@
 ﻿TÜRKÜ BEĞENİLERİ — ORTAK SERVİS KURULUMU
 
+ŞİİR DESTEĞİ GÜNCELLEMESİ
+Güncel music-likes.ashx dosyasını da httpdocs içine yükleyin. Eski servis
+yalnızca türkü kimliklerini tanır. assets/poetry-discovery.json dosyası da
+bulunmalıdır. Şiir oyları poem-1 gibi kalıcı şiir numaralarıyla aynı XML
+deposunda ayrı tutulur. Mevcut türkü oyları korunur; App_Data'yı silmeyin.
+Şiir penceresindeki Beğen düğmesi yalnızca başarılı sunucu kaydından sonra
+büyük saz animasyonu gösterir. Geri alma, hata ve azaltılmış hareket
+tercihinde animasyon gösterilmez. İlk şiir açılana kadar ek servis isteği yoktur.
+
 GitHub Pages ve yerel statik önizleme ASP.NET çalıştırmaz.
 Bütün sürümler tek HTTPS servisine bağlanır:
 https://asikceyhani.com.tr/music-likes.ashx
