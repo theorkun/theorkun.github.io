@@ -7,7 +7,10 @@
   }
   try {
     if (window.parent!==window && window.parent.ceyhaniNavigation) {
-      document.addEventListener('pointerdown',gesture,{passive:true});document.addEventListener('keydown',gesture);return;
+      document.addEventListener('pointerdown',gesture,{passive:true});
+      document.addEventListener('pointerup',gesture,{passive:true});
+      document.addEventListener('touchend',gesture,{passive:true});
+      document.addEventListener('click',gesture);document.addEventListener('keydown',gesture);return;
     }
   } catch (_) {}
   let config,tracks;
@@ -133,8 +136,10 @@
   window.ceyhaniMusic={startIfWanted:()=>{if(autoWanted&&mode==='blocked')return play(true);},pause,getState,select,togglePlay,next:()=>advance(1),previous:()=>advance(-1),toggleShuffle,cycleRepeat,seek,setVolume,subscribe(callback){subscribers.add(callback);callback(getState());return()=>subscribers.delete(callback);}};
   document.dispatchEvent(new Event('ceyhani-music-ready'));
   document.addEventListener('pointerdown',gesture,{passive:true});document.addEventListener('keydown',gesture);
+  document.addEventListener('pointerup',gesture,{passive:true});
+  document.addEventListener('touchend',gesture,{passive:true});
   document.addEventListener('ceyhani-pause-music',()=>pause('Video için müzik durduruldu'));
-  document.addEventListener('click',event=>{if(event.target.closest('.channel-video-card'))pause('Video için müzik durduruldu');});
+  document.addEventListener('click',event=>{gesture(event);if(event.target.closest('.channel-video-card'))pause('Video için müzik durduruldu');});
   window.addEventListener('pagehide',save);document.addEventListener('ceyhani-page-change',save);
   resetOrder();render();if(autoWanted)await play(true);else{status.textContent='Dinlemek için Çal’a basın.';publish();}
 })();

@@ -33,6 +33,24 @@ test('blocked autoplay starts with a gesture, while an explicit pause prevents r
   h.listeners.pointerdown({type:'pointerdown',target:{closest:()=>null}});await settle();assert.equal(h.nodes[0].plays,2);
   await h.click('play');h.listeners.pointerdown({type:'pointerdown',target:{closest:()=>null}});await settle();assert.equal(h.nodes[0].plays,2);assert.match(h.$('.ap-status').textContent,/durduruldu/);
 });
+
+test('touch release and click recover blocked autoplay without restarting deliberately paused music',async()=>{
+  for(const type of ['pointerup','touchend','click']){
+    const h=await harness({blockFirst:true});
+    const event={type,pointerType:'touch',target:{closest:()=>null}};
+    h.listeners[type](event);await settle();
+    assert.equal(h.nodes[0].plays,2,type);assert.equal(h.window.ceyhaniMusic.getState().mode,'playing');
+    await h.click('play');h.listeners[type](event);await settle();
+    assert.equal(h.nodes[0].plays,2,type);assert.equal(h.window.ceyhaniMusic.getState().mode,'paused');
+  }
+});
+
+test('touch gestures inside navigation frames start the shared parent player only',async()=>{
+  const h=await harness({child:true});
+  for(const type of ['pointerup','touchend','click'])h.listeners[type]({type,target:{closest:()=>null}});
+  assert.equal(h.nodes.length,0);assert.equal(h.fetches(),0);
+  assert.equal(h.events.filter(e=>e==='parent-play').length,3);
+});
 test('track selection, next and previous replace the same audio source; minimizing preserves playback',async()=>{
   const h=await harness();await h.select(1);assert.equal(h.nodes[0].src,tracks[1].source);await h.click('next');assert.equal(h.nodes[0].src,tracks[2].source);await h.click('previous');assert.equal(h.nodes[0].src,tracks[1].source);
   h.nodes[0].currentTime=20;await h.click('previous');assert.equal(h.nodes[0].currentTime,0);assert.equal(h.nodes[0].src,tracks[1].source);
