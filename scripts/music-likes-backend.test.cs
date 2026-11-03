@@ -39,7 +39,12 @@ public class LikesTests {
         string malicious=Path.Combine(root,"invalid");Directory.CreateDirectory(malicious);
         File.WriteAllText(Path.Combine(malicious,"ceyhani-music-likes.xml"),"<!DOCTYPE likes [<!ENTITY x SYSTEM 'file:///C:/Windows/win.ini'>]><likes>&x;</likes>");
         rejected=false;try{CeyhaniMusicLikes.UpdateStore(malicious,ids,null,null,null);}catch(System.Xml.XmlException){rejected=true;}Check(rejected,"XML external entities are forbidden");
-        Console.WriteLine("15 backend checks passed.");return 0;
+        var server = new Uri("https://asikceyhani.com.tr/music-likes.ashx");
+        foreach (string allowed in new[]{"https://theorkun.github.io","https://asikceyhani.com.tr","https://www.asikceyhani.com.tr","http://localhost:8089","http://127.0.0.1:18269","http://[::1]:3000"})
+            Check(CeyhaniMusicLikes.AllowedOrigin(allowed,server),"CORS allows "+allowed);
+        foreach (string denied in new[]{"null","https://evil.test","https://theorkun.github.io.evil.test","https://theorkun.github.io:444","https://evil.test@theorkun.github.io","https://theorkun.github.io/path","http://192.168.1.1:8080"})
+            Check(!CeyhaniMusicLikes.AllowedOrigin(denied,server),"CORS rejects "+denied);
+        Console.WriteLine("28 backend checks passed.");return 0;
     }
     class OriginRequest : SimpleWorkerRequest {
         readonly string origin;

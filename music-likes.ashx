@@ -13,7 +13,6 @@ using System.Xml;
 using System.Xml.Linq;
 
 public class CeyhaniMusicLikes : IHttpHandler {
-    const string CookieName = "ceyhani_music_likes_v1";
     public bool IsReusable { get { return true; } }
     public void ProcessRequest(HttpContext context) {
         context.Response.ContentType = "application/json";
@@ -23,6 +22,16 @@ public class CeyhaniMusicLikes : IHttpHandler {
         context.Response.TrySkipIisCustomErrors = true;
         context.Response.Headers["X-Content-Type-Options"] = "nosniff";
         string method = context.Request.HttpMethod;
+        string origin = context.Request.Headers["Origin"];
+        if (!String.IsNullOrEmpty(origin)) {
+            if (!AllowedOrigin(origin,context.Request.Url)) { Error(context,403,"origin"); return; }
+            context.Response.Headers["Access-Control-Allow-Origin"] = origin;
+            context.Response.Headers["Vary"] = "Origin";
+            context.Response.Headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS";
+            context.Response.Headers["Access-Control-Allow-Headers"] = "Content-Type, X-Ceyhani-Visitor";
+            context.Response.Headers["Access-Control-Max-Age"] = "600";
+        }
+        if (method == "OPTIONS") { context.Response.StatusCode = 204; return; }
         if (method != "GET" && method != "POST") { Error(context,405,"method"); return; }
         if (method == "POST" && !SameOrigin(context.Request)) { Error(context,403,"origin"); return; }
         if (method == "POST" && (context.Request.ContentLength < 1 || context.Request.ContentLength > 1024 || !context.Request.ContentType.StartsWith("application/x-www-form-urlencoded",StringComparison.OrdinalIgnoreCase))) { Error(context,400,"request"); return; }
@@ -33,16 +42,12 @@ public class CeyhaniMusicLikes : IHttpHandler {
             string track = method == "POST" ? context.Request.Form["track"] : null;
             string desired = method == "POST" ? context.Request.Form["liked"] : null;
             if (method == "POST" && (!ids.Contains(track) || (desired != "1" && desired != "0"))) { Error(context,400,"track"); return; }
-            string token = context.Request.Cookies[CookieName] == null ? null : context.Request.Cookies[CookieName].Value;
-            bool newToken = !Regex.IsMatch(token ?? "","^[a-f0-9]{32}$");
-            if (newToken) token = method == "POST" ? Guid.NewGuid().ToString("N") : null;
+            string token = context.Request.Headers["X-Ceyhani-Visitor"];
+            if (token != null && !Regex.IsMatch(token,"^[a-f0-9]{32}$")) { Error(context,400,"visitor"); return; }
+            if (method == "POST" && token == null) { Error(context,400,"visitor"); return; }
             string visitor = null;
             if (token != null) using (var hash = SHA256.Create()) visitor = BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes("ceyhani-like:"+token))).Replace("-","").ToLowerInvariant();
             string result = UpdateStore(context.Server.MapPath("~/App_Data"),ids,visitor,track,method == "POST" ? (bool?)(desired == "1") : null);
-            if (method == "POST" && newToken) {
-                string path = context.Request.ApplicationPath == "/" ? "/" : context.Request.ApplicationPath.TrimEnd('/')+"/";
-                context.Response.AppendHeader("Set-Cookie",CookieName+"="+token+"; Path="+path+"; Max-Age=31536000; HttpOnly; SameSite=Lax"+(context.Request.IsSecureConnection ? "; Secure" : ""));
-            }
             context.Response.Write(result);
         } catch (Exception error) {
             Trace.TraceError("Ceyhani music likes: {0}",error.GetType().Name);
@@ -55,7 +60,16 @@ public class CeyhaniMusicLikes : IHttpHandler {
         if (!String.IsNullOrEmpty(supplied)) {
             if (!Uri.TryCreate(supplied,UriKind.Absolute,out origin)) return false;
         } else origin = request.UrlReferrer;
-        return origin != null && String.Equals(origin.GetLeftPart(UriPartial.Authority),request.Url.GetLeftPart(UriPartial.Authority),StringComparison.OrdinalIgnoreCase);
+        return origin != null && AllowedOrigin(origin.GetLeftPart(UriPartial.Authority),request.Url);
+    }
+    public static bool AllowedOrigin(string supplied,Uri server) {
+        Uri origin;
+        if (!Uri.TryCreate(supplied,UriKind.Absolute,out origin) || origin.UserInfo.Length > 0 || origin.AbsolutePath != "/" || origin.Query.Length > 0 || origin.Fragment.Length > 0) return false;
+        if (String.Equals(origin.GetLeftPart(UriPartial.Authority),server.GetLeftPart(UriPartial.Authority),StringComparison.OrdinalIgnoreCase)) return true;
+        if (origin.Scheme == "https" && origin.IsDefaultPort && (origin.Host == "theorkun.github.io" || origin.Host == "asikceyhani.com.tr" || origin.Host == "www.asikceyhani.com.tr")) return true;
+        System.Net.IPAddress address;
+        bool ipv6Loopback = System.Net.IPAddress.TryParse(origin.DnsSafeHost,out address) && System.Net.IPAddress.IPv6Loopback.Equals(address);
+        return origin.Scheme == "http" && (origin.Host == "localhost" || origin.Host == "127.0.0.1" || ipv6Loopback);
     }
     static void Error(HttpContext context,int status,string code) {
         context.Response.StatusCode = status;

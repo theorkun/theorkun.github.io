@@ -3,6 +3,14 @@
   const status=document.getElementById('musicLikesStatus'),retry=document.getElementById('musicLikesRetry'),sort=document.getElementById('musicSort');
   let counts=Object.create(null),liked=new Set(),ready=false,disposed=false,unavailable=false;
   const pending=new Set(),subscribers=new Set();
+  // GitHub Pages and local previews share the API hosted on our own domain.
+  const endpoint='https://asikceyhani.com.tr/music-likes.ashx',identityKey='ceyhani-like-visitor-v2';
+  let identity=null;
+  try{const saved=localStorage.getItem(identityKey);if(/^[a-f0-9]{32}$/.test(saved||''))identity=saved;}catch(_){}
+  function visitor(){
+    if(!identity){identity=Array.from(crypto.getRandomValues(new Uint8Array(16)),n=>n.toString(16).padStart(2,'0')).join('');try{localStorage.setItem(identityKey,identity);}catch(_){}}
+    return identity;
+  }
   function announce(text){status.textContent=text;}
   function paint(){
     sort.disabled=!ready;
@@ -29,7 +37,8 @@
   async function request(options={}){
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
     try{
-      const response=await fetch('music-likes.ashx',{...options,credentials:'same-origin',cache:'no-store',signal:controller.signal});
+      const headers={...options.headers};if(identity)headers['X-Ceyhani-Visitor']=identity;
+      const response=await fetch(endpoint,{...options,headers,credentials:'omit',mode:'cors',cache:'no-store',signal:controller.signal});
       if(!response.ok)throw Error('Likes unavailable');
       accept(await response.json());
     }finally{clearTimeout(timer);}
@@ -37,7 +46,7 @@
   async function load(){
     unavailable=false;retry.hidden=true;announce('Beğeniler yükleniyor…');paint();
     try{await request();announce('Beğeniler tüm ziyaretçilerin ortak toplamıdır.');}
-    catch(_){unavailable=true;announce('Beğeniler şu anda yüklenemiyor. Biraz sonra yeniden deneyebilirsiniz.');retry.hidden=false;}
+    catch(_){unavailable=true;announce('Ortak beğeni servisine ulaşılamıyor. Beğeniler şu anda kullanılamıyor.');retry.hidden=false;}
     publish();
   }
   function animate(button){
@@ -52,6 +61,7 @@
     const desired=!liked.has(id),hadFocus=document.activeElement===button;
     pending.add(id);paint();announce('Beğeniniz kaydediliyor…');
     try{
+      visitor();
       await request({method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:new URLSearchParams({track:id,liked:desired?'1':'0'}).toString()});
       announce(desired?'Beğeniniz kaydedildi. Teşekkür ederiz.':'Beğeniniz geri alındı.');
       pending.delete(id);publish();
