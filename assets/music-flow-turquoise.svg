@@ -1,21 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none">
+  <!-- Single-color line interpretation of the supplied kam drum references. -->
   <defs>
-    <g id="drum" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
-      <circle r="40"/><circle r="35"/><circle r="37.5" stroke-dasharray="1 5"/>
-      <path d="M-33 11-21-4-9 11 2-1 16 11 24 3 33 11M-30 19Q0 12 30 19M-25 25Q0 19 25 25"/>
-      <path d="M-15-24a8 8 0 1 0 8 12 9 9 0 0 1-8-12ZM1-18q7-8 14 0 7-8 14 0"/>
-      <circle cx="21" cy="-25" r="2"/>
-      <path d="M-10 39q-4 13-1 20M0 40q5 10 0 22M10 39q-1 9 5 16M-11 49l-5 4M1 50l5 5M12 48l5 1"/>
-      <path d="m-39 32 53 30" stroke-width="2"/><ellipse cx="-42" cy="30" rx="4" ry="7" transform="rotate(-60 -42 30)"/>
+    <g id="person" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="1.7" fill="#62efe0" stroke="none"/>
+      <path d="M0 3v10m0-8-5 7m5-7 5 7m-5 1-4 10m4-10 4 10"/>
+    </g>
+    <g id="deer" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-15 0q8-5 17-2 7 1 8 6v7M-12 2v11m5-9-1 9M5 5v8M-14 0l-7-5 8-1q5 0 8 3M-18-5q7-10 21-13M-15-5q7-9 21-11"/>
+    </g>
+    <g id="horse" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m-19 5 2-18 9 6 4 6 19 4 3 9-5-5-2 14-6-13-10-3-3 14-5-16-4-5-1 7zM15 3l6 5 1 7"/>
     </g>
   </defs>
-  <g stroke="#13cfc5" stroke-width="1" opacity=".22">
-    <path d="M-80 80C80-40 160 200 320 80S560-40 720 80M-80 96C80-24 160 216 320 96S560-24 720 96M-80 112C80-8 160 232 320 112S560-8 720 112M-80 128C80 8 160 248 320 128S560 8 720 128"/>
-    <path d="M-80 240C80 120 160 360 320 240S560 120 720 240M-80 256C80 136 160 376 320 256S560 136 720 256M-80 272C80 152 160 392 320 272S560 152 720 272"/>
+  <g transform="translate(320)" stroke="#62efe0" stroke-width="1.8" opacity=".17" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="160" cy="160" r="140"/>
+    <path d="M160 56v188M20 102h280M144 72a28 28 0 1 1 32 0M128 62a40 40 0 0 1 3-34M192 62a40 40 0 0 0-3-34M120 61a48 48 0 0 1 4-35M200 61a48 48 0 0 0-4-35M160 244q-41 9-41 34v16M160 244q41 9 41 34v16" stroke-width="2.8"/>
+    <path d="m160 50-9 10h18z" fill="#62efe0" stroke="none"/>
+    <path d="m48 103-2 13m11-13-2 16m11-16-3 16m12-16-2 17m11-17-2 18m11-18-2 15m11-15-1 12m91-12-2 13m11-13-1 17m10-17-1 17m10-17-1 18m10-18-1 18m10-18-1 16m10-16-1 13"/>
+    <use href="#horse" transform="translate(111 155) scale(.8)"/>
+    <use href="#horse" transform="translate(85 172) scale(.58)"/>
+    <g stroke-width="2"><use href="#person" transform="translate(207 151)"/><use href="#person" transform="translate(217 151)"/><use href="#person" transform="translate(227 151)"/><use href="#person" transform="translate(237 151)"/><use href="#person" transform="translate(247 151)"/><use href="#person" transform="translate(257 151)"/></g>
+    <use href="#deer" transform="translate(218 204) scale(.85)"/>
+    <use href="#deer" transform="translate(260 197) scale(.7)"/>
+    <use href="#deer" transform="translate(239 240) scale(.8)"/>
+    <path d="M135 197v29m0-13-10-10m10 5 9-9m-9 5-6-10m6 4 4-10M80 230q27-15 62-14M80 236q30-15 65-14M80 242q32-15 68-14M58 203q3 5 7 0m4-10q3 5 7 0m6 9q3 5 7 0m3-12q3 5 7 0m-46 24q3 5 7 0m14-1q3 5 7 0m11 4q3 5 7 0m-28-33q3 5 7 0"/>
+    <path d="m206 67 3 5 6-1-4 5 2 5-5-3-5 4 1-6-4-3 6-1zM232 78l2-5 3 5 5 2-5 2-3 5-2-5-5-2zM103 86q-7-6-10-1 7-1 9 4 4-7 10-3-1-6-9 0"/>
+    <g fill="#62efe0" stroke="none"><circle cx="63" cy="83" r="1.6"/><circle cx="74" cy="77" r="1.6"/><circle cx="84" cy="91" r="1.6"/><circle cx="252" cy="93" r="1.6"/><circle cx="266" cy="88" r="1.6"/></g>
   </g>
-  <g color="#62efe0" opacity=".23">
-    <use href="#drum" transform="translate(115 58) rotate(-12)"/>
-    <use href="#drum" transform="translate(435 218) rotate(12)"/>
-  </g>
-  <g fill="#62efe0" opacity=".25"><circle cx="260" cy="38" r="2"/><circle cx="580" cy="198" r="2"/><circle cx="54" cy="205" r="1.5"/><circle cx="374" cy="45" r="1.5"/></g>
 </svg>
