@@ -68,3 +68,11 @@ test('echo switch and amount update the parent player and show the current state
   h.nodes.musicEchoAmount.value=40;h.nodes.musicEchoAmount.listeners.input();assert.deepEqual(h.calls.at(-1),['echo',true,40]);assert.equal(h.nodes.musicEchoValue.textContent,'%40');
   h.click('musicEchoToggle');assert.equal(h.nodes.musicEchoAmount.disabled,true);assert.equal(h.state.equalizer.echo.amount,40);
 });
+
+test('popularity order uses shared counts while play buttons retain original track indices',()=>{
+  const h=harness();h.window.CeyhaniTrackLikes={getCount:id=>id==='other'?5:1,paint(){}};
+  h.nodes.musicSort.value='popular';h.nodes.musicSort.listeners.change();
+  assert.ok(h.nodes.musicTracks.innerHTML.indexOf('data-music-index="1"')<h.nodes.musicTracks.innerHTML.indexOf('data-music-index="0"'));
+  assert.match(h.nodes.musicTracks.innerHTML,/data-music-like="other"/);h.choose(1);assert.deepEqual(h.calls.at(-1),['select',1]);
+  h.nodes.musicSort.value='archive';h.nodes.musicSort.listeners.change();assert.ok(h.nodes.musicTracks.innerHTML.indexOf('data-music-index="0"')<h.nodes.musicTracks.innerHTML.indexOf('data-music-index="1"'));
+});

@@ -1,0 +1,27 @@
+TÜRKÜ BEĞENİLERİ — PLESK / WINDOWS
+
+1. Güncel paketi httpdocs içine çıkarın. music-likes.ashx dosyası index.html
+   ile aynı klasörde olmalıdır. Mevcut web.config dosyanızı koruyun.
+2. Alan adı > Barındırma Ayarları bölümünde Microsoft ASP.NET desteği açık
+   ve .NET Framework sürümü 4.x olmalıdır. Paket veritabanı gerektirmez.
+3. Sitenin uygulama havuzunun httpdocs/App_Data klasöründe dosya oluşturma,
+   değiştirme ve silme izni bulunmalıdır. Tüm siteyi herkese yazılabilir yapmayın.
+4. https://asikceyhani.com.tr/music-likes.ashx adresini açın. JSON biçiminde
+   ok:true, counts ve liked alanları görünüyorsa servis çalışıyor demektir.
+5. Türküler sayfasında bir kaydı beğenin, sayfayı yenileyin; toplam ve seçiminiz
+   korunmalıdır. Başka bir tarayıcı aynı ortak toplamları görmelidir.
+
+Beğeniler sunucuda App_Data/ceyhani-music-likes.xml dosyasına kaydedilir.
+Bu dosyayı yedekleyin; güncellemelerde silmeyin veya boş bir dosyayla değiştirmeyin.
+Yayın paketi mevcut oy verisini içermez ve üzerine yazmaz.
+
+GitHub Pages statik barındırmasında ASP.NET çalışmaz; ortak beğeni özelliği
+Plesk'teki asikceyhani.com.tr adresinde çalışacak biçimde hazırlanmıştır.
+Servis kullanılamıyorsa müzik çalmaya devam eder; beğeni alanında durum gösterilir.
+
+Kayıtlar tarayıcıya aittir, doğrulanmış kişi sayısı değildir. Aynı tarayıcıda
+tekrarlanan istek aynı oyu artırmaz. Çerezleri silmek veya farklı tarayıcı kullanmak
+yeni bir oy kimliği oluşturabilir. Bu bir giriş veya kimlik doğrulama sistemi değildir.
+
+ASP.NET ayarları:
+https://docs.plesk.com/en-US/obsidian/customer-guide/websites-and-domains/hosting-settings.69455/

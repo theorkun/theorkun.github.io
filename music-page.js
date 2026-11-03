@@ -50,10 +50,12 @@
     $('musicEchoAmount').setAttribute('aria-valuetext',`yüzde ${echo?.amount??25}`);$('musicEchoValue').textContent=`%${echo?.amount??25}`;
     $('musicTotal').textContent=`${state.tracks.length} türkü`;
     const query=searchText($('musicSearch').value);
-    const key=state.tracks.map(t=>t.id+'|'+t.title).join(';')+'?'+query;
+    const matches=state.tracks.map((t,i)=>({t,i})).filter(({t})=>searchText(t.title).includes(query));
+    if($('musicSort').value==='popular')matches.sort((a,b)=>(window.CeyhaniTrackLikes?.getCount(b.t.id)??0)-(window.CeyhaniTrackLikes?.getCount(a.t.id)??0)||a.i-b.i);
+    const key=matches.map(({t})=>t.id+'|'+t.title).join(';')+'?'+query;
     if(key!==listKey){
-      listKey=key;const matches=state.tracks.map((t,i)=>({t,i})).filter(({t})=>searchText(t.title).includes(query));
-      $('musicTracks').innerHTML=matches.map(({t,i})=>`<li><button class="music-track-button" type="button" data-music-index="${i}" aria-label="${esc(t.title)} dinle"><span class="music-track-number">${String(i+1).padStart(2,'0')}</span><span class="music-track-copy"><strong>${esc(t.title)}</strong><small>${esc(t.artist||'Âşık Ceyhani')}</small></span><span class="music-track-indicator" data-indicator>Dinle</span><span class="music-track-play" aria-hidden="true">▷</span></button></li>`).join('');
+      listKey=key;
+      $('musicTracks').innerHTML=matches.map(({t,i})=>`<li class="music-track-row"><button class="music-track-button" type="button" data-music-index="${i}" aria-label="${esc(t.title)} dinle"><span class="music-track-number">${String(i+1).padStart(2,'0')}</span><span class="music-track-copy"><strong>${esc(t.title)}</strong><small>${esc(t.artist||'Âşık Ceyhani')}</small></span><span class="music-track-indicator" data-indicator>Dinle</span><span class="music-track-play" aria-hidden="true">▷</span></button><button class="music-like" type="button" data-music-like="${esc(t.id)}" data-track-title="${esc(t.title)}" aria-label="${esc(t.title)} beğen" aria-pressed="false" disabled><svg class="music-like-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.2 5.8a5 5 0 0 0-7.1 0L12 6.9l-1.1-1.1a5 5 0 0 0-7.1 7.1L12 21l8.2-8.1a5 5 0 0 0 0-7.1Z"/></svg><span data-like-count>—</span></button></li>`).join('');
       $('musicEmpty').hidden=matches.length!==0;$('musicResults').textContent=query?`${matches.length} / ${state.tracks.length} türkü`:`${state.tracks.length} türkü`;
     }
     for(const button of $('musicTracks').querySelectorAll('[data-music-index]')){
@@ -63,6 +65,7 @@
       const indicator=button.querySelector('.music-track-play'),iconState=String(selected&&playing);
       if(indicator.dataset.iconState!==iconState){indicator.textContent=selected&&playing?'Ⅱ':'▷';indicator.dataset.iconState=iconState;}
     }
+    window.CeyhaniTrackLikes?.paint();
   }
   function connect(){
     if(api)return;
@@ -70,6 +73,7 @@
     if(!api?.subscribe||!api?.getState){api=null;return;}
     if(timer){clearInterval(timer);timer=null;}
     for(const control of root.querySelectorAll('[data-music-control]'))control.disabled=false;
+    if(!stopLikes)stopLikes=window.CeyhaniTrackLikes?.subscribe(()=>{if(api)render(api.getState());});
     unsubscribe=api.subscribe(render);
   }
   $('musicPlay').addEventListener('click',()=>api?.togglePlay());
@@ -82,6 +86,8 @@
   $('musicEchoToggle').addEventListener('click',()=>api?.setEcho(!model?.equalizer?.echo?.enabled));
   $('musicEchoAmount').addEventListener('input',()=>api?.setEcho(true,Number($('musicEchoAmount').value)));
   $('musicSearch').addEventListener('input',()=>{if(api)render(api.getState());});
+  $('musicSort').addEventListener('change',()=>{if(api)render(api.getState());});
+  let stopLikes=window.CeyhaniTrackLikes?.subscribe(()=>{if(api)render(api.getState());});
   $('musicClearSearch').addEventListener('click',()=>{$('musicSearch').value='';if(api)render(api.getState());$('musicSearch').focus();});
   $('musicTracks').addEventListener('click',event=>{
     const button=event.target.closest('[data-music-index]');if(!button||!api)return;
@@ -91,7 +97,7 @@
   $('musicReload').addEventListener('click',()=>window.location.reload());
   document.addEventListener('ceyhani-music-ready',connect);window.addEventListener('pageshow',connect);
   document.addEventListener('visibilitychange',()=>{if(api)render(api.getState());});
-  window.addEventListener('pagehide',()=>{unsubscribe?.();unsubscribe=null;api=null;if(timer)clearInterval(timer);timer=null;});
+  window.addEventListener('pagehide',()=>{stopLikes?.();stopLikes=null;unsubscribe?.();unsubscribe=null;api=null;if(timer)clearInterval(timer);timer=null;});
   connect();
   if(!api)timer=setInterval(()=>{connect();if(++attempts>=150&&!api){clearInterval(timer);timer=null;$('musicStatus').textContent='Müzik listesi yüklenemedi. Bağlantınızı kontrol edip yeniden deneyin.';$('musicReload').hidden=false;}},100);
 })();
