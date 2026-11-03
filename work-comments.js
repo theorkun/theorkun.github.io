@@ -19,8 +19,11 @@
     frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');container.appendChild(frame);
   }
   window.addEventListener('message',event=>{
-    if(event.origin!==location.origin||event.data?.type!=='ceyhani-work-comments-size'||!Number.isFinite(event.data.height))return;
-    for(const frame of document.querySelectorAll('.work-comments-frame'))if(event.source===frame.contentWindow)frame.style.height=Math.min(1200,Math.max(350,event.data.height))+'px';
+    if(event.origin!==location.origin)return;
+    for(const frame of document.querySelectorAll('.work-comments-frame'))if(event.source===frame.contentWindow){
+      if(event.data?.type==='ceyhani-work-comments-size'&&Number.isFinite(event.data.height))frame.style.height=Math.min(1200,Math.max(350,event.data.height))+'px';
+      if(event.data?.type==='ceyhani-comment-thanks')window.CeyhaniCommentThanks?.show();
+    }
   });
   const poemDialog=document.querySelector('#poem-dialog');
   if(poemDialog&&document.querySelector('#siirleri')){

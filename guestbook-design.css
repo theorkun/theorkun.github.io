@@ -1,0 +1,16 @@
+#ziyaretci-defteri.guestbook{position:relative;isolation:isolate;box-sizing:border-box;padding:clamp(22px,4vw,42px);border:1px solid #c7ded6;border-radius:26px;background:radial-gradient(ellipse at 0 0,#d4eee7b8,transparent 65%),linear-gradient(145deg,#f5faf6,#edf6f1 60%,#fffdf8);box-shadow:0 16px 44px -26px #075f6c45}
+#ziyaretci-defteri.guestbook:before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:url('assets/guestbook-strings.svg') right top/auto 100% no-repeat;opacity:.28;pointer-events:none}
+#ziyaretci-defteri .section-heading{margin-bottom:22px}
+#ziyaretci-defteri .guestbook-intro{padding:4px 0 20px;border:0;border-radius:0;background:none;box-shadow:none}
+#ziyaretci-defteri .guestbook-intro-cta{border-top-color:#a7cdc14d;padding-top:18px;text-align:left}
+#ziyaretci-defteri .guestbook-panel{position:relative;box-sizing:border-box;max-width:100%;padding:clamp(20px,3vw,32px);border:1px solid #b7d6cb;border-radius:20px;background:#fffdf8f5;box-shadow:0 8px 28px -20px #087c8350}
+#ziyaretci-defteri .guestbook-panel:before{content:'';display:block;width:56px;height:3px;margin-bottom:22px;border-radius:3px;background:linear-gradient(90deg,#087c83,#81cfc1)}
+#ziyaretci-defteri #HCB_comment_box .comment{padding:22px 0;border-bottom-color:#c8ded354}
+#ziyaretci-defteri .guestbook-note{line-height:1.8}
+.work-comments-page{background:linear-gradient(145deg,#f5faf6,#edf6f1)}
+.work-comments-page main{box-sizing:border-box;position:relative;isolation:isolate;min-height:240px;background:radial-gradient(ellipse at 0 0,#d4eee780,transparent 70%),url('assets/guestbook-strings.svg') right top/auto 100% no-repeat}
+.work-comments-preview{border-color:#b7d6cb;background:#fffdf8e8;box-shadow:0 8px 24px -22px #087c8340}
+.work-comments-page footer{background:#f0f6f0}
+.a11y-high-contrast #ziyaretci-defteri.guestbook,.a11y-high-contrast #ziyaretci-defteri .guestbook-panel,.a11y-high-contrast.work-comments-page,.a11y-high-contrast.work-comments-page main{background:#111;border-color:#ffdc72}
+.a11y-high-contrast #ziyaretci-defteri.guestbook:before{display:none}
+@media(max-width:520px){#ziyaretci-defteri.guestbook{padding:22px 16px;border-radius:20px}#ziyaretci-defteri .guestbook-panel{padding:20px 16px;border-radius:15px}}

@@ -28,5 +28,5 @@ test('unknown, removed and malformed work IDs never initialize the service',asyn
   for(const options of [{id:'12'},{id:'4'},{id:'99999'},{id:'../bad'},{type:'track',id:'unknown'},{type:'bad'}]){const h=await embed({...options,confirmed:true});assert.equal(h.head.children.length,0);}
 });
 test('provider errors expose retry and never claim a comment was saved',async()=>{
-  const h=await embed({confirmed:true});h.head.children[0].onerror();assert.match(h.nodes['work-comment-status'].textContent,/ulaşılamıyor/);assert.equal(h.nodes['work-comment-retry'].hidden,false);
+  const h=await embed({confirmed:true});let received=0;h.window.CeyhaniCommentThanks={received:()=>received++};h.head.children[0].onerror();assert.match(h.nodes['work-comment-status'].textContent,/ulaşılamıyor/);assert.equal(h.nodes['work-comment-retry'].hidden,false);assert.equal(received,0);h.window.hcb_user.ON_COMMENT();assert.equal(received,1);
 });

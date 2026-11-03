@@ -26,6 +26,11 @@ CANLIYA ALMA
 
 Yorumlar mevcut HTML Comment Box hizmetinde saklanır. Yeni bir ASP.NET
 servisi, veri tabanı veya beğeni servisinin çalışması gerekmez.
+Teşekkür bildirimi hizmetin ON_COMMENT geri çağrısına bağlıdır; sayfa
+açılışında veya gönder düğmesine basıldığında tek başına gösterilmez.
+Onay bekleyen bir yorum için "yayımlandı" iddiasında bulunmaz. Görsel
+bildirim 6,5 saniye sonra kapanır, elle kapatılabilir; hareket azaltma
+tercihinde animasyonsuz görünür. Hiçbir teşekkür testi gerçek yorum göndermez.
 Yorum alanı yalnızca kullanıcı açtığında ve yorum kategorisine izin
 verdiğinde yüklenir. Her alan bağımsız iframe içinde açılıp kapanır;
 başka eserin gecikmiş yanıtı yeni eserin yorumlarını değiştiremez.

@@ -45,6 +45,7 @@
     err_spam: 'Mesaj spam filtresine takıldı.',
     err_blocked: 'Mesaj yorum servisi tarafından engellendi.',
     are_you_sure: 'Bu mesajı uygunsuz olarak bildirmek istiyor musun?',
+    ON_COMMENT() { window.CeyhaniCommentThanks?.received(); },
     onload() {
       loading = false;
       status.hidden = true;
