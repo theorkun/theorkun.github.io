@@ -30,6 +30,19 @@
     $('musicSeek').disabled=state.duration<=0;$('musicSeek').value=percent;$('musicSeek').style.setProperty('--played',percent+'%');
     $('musicSeek').setAttribute('aria-valuetext',`${clock(state.position)} / ${clock(state.duration)}`);
     $('musicVolume').value=Math.round(state.volume*100);$('musicVolumeValue').textContent=`%${Math.round(state.volume*100)}`;
+    const eq=state.equalizer,eqNames={balanced:'Dengeli',bass:'Bas',vocal:'Vokal',custom:'Özel'};
+    $('musicEqCurrent').textContent=eqNames[eq?.preset]||'Dengeli';
+    $('musicEqBands').hidden=eq?.preset!=='custom';
+    $('musicEqNotice').textContent=eq?.supported?(eq.notice||'Ses rengini seçin; Dengeli ile özgün kayda dönün.'):'Bu tarayıcıda ekolayzır kullanılamıyor; normal sesle dinleyebilirsiniz.';
+    for(const name of ['balanced','bass','vocal','custom']){
+      const button=$('musicEq'+name[0].toUpperCase()+name.slice(1));
+      button.disabled=!eq?.supported;button.setAttribute('aria-pressed',String(eq?.preset===name));
+    }
+    for(const name of ['bass','mid','treble']){
+      const input=$('musicEqBand'+name),value=eq?.bands[name]||0;
+      input.disabled=!eq?.supported;input.value=value;input.setAttribute('aria-valuetext',`${value>0?'+':''}${value} desibel`);
+      $('musicEqValue'+name).textContent=`${value>0?'+':''}${value} dB`;
+    }
     $('musicTotal').textContent=`${state.tracks.length} türkü`;
     const query=searchText($('musicSearch').value);
     const key=state.tracks.map(t=>t.id+'|'+t.title).join(';')+'?'+query;
@@ -59,6 +72,8 @@
   $('musicShuffle').addEventListener('click',()=>api?.toggleShuffle());$('musicRepeat').addEventListener('click',()=>api?.cycleRepeat());
   $('musicSeek').addEventListener('input',()=>{if(api&&model)api.seek(model.duration*Number($('musicSeek').value)/100);});
   $('musicVolume').addEventListener('input',()=>api?.setVolume(Number($('musicVolume').value)/100));
+  for(const name of ['balanced','bass','vocal','custom'])$('musicEq'+name[0].toUpperCase()+name.slice(1)).addEventListener('click',()=>api?.setEqualizerPreset(name));
+  for(const name of ['bass','mid','treble'])$('musicEqBand'+name).addEventListener('input',()=>api?.setEqualizerBand(name,Number($('musicEqBand'+name).value)));
   $('musicSearch').addEventListener('input',()=>{if(api)render(api.getState());});
   $('musicClearSearch').addEventListener('click',()=>{$('musicSearch').value='';if(api)render(api.getState());$('musicSearch').focus();});
   $('musicTracks').addEventListener('click',event=>{

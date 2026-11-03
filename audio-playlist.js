@@ -35,10 +35,11 @@
   for(const name of ['previous','next','minimize'])control(name).innerHTML=controlIcons[name];
   let collapsed=false;
   const subscribers=new Set();
-  function getState(){return {tracks:tracks.map(t=>({...t})),index,mode,shuffle,repeat,position:Number.isFinite(audio.currentTime)?audio.currentTime:0,duration:Number.isFinite(audio.duration)?audio.duration:0,volume:audio.volume,status:status.textContent||''};}
+  const equalizer=window.createCeyhaniEqualizer?.(audio,stored.equalizer,()=>{publish();save();});
+  function getState(){return {tracks:tracks.map(t=>({...t})),index,mode,shuffle,repeat,position:Number.isFinite(audio.currentTime)?audio.currentTime:0,duration:Number.isFinite(audio.duration)?audio.duration:0,volume:audio.volume,status:status.textContent||'',equalizer:equalizer?.getState()};}
   function publish(){const state=getState();for(const callback of subscribers)try{callback(state);}catch(error){console.error('Müzik görünümü güncellenemedi.',error);}}
   const time=value=>{const n=Number.isFinite(value)&&value>=0?Math.floor(value):0;return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;};
-  function save(){window.CeyhaniCookies?.write('sessionStorage','ceyhani-background-music',JSON.stringify({kind:'mp3',id:tracks[index].id,position:loaded===tracks[index].id?audio.currentTime||0:0,volume:audio.volume,shuffle,repeat,mode:mode==='paused'||mode==='ended'?'paused':'playing'}));}
+  function save(){window.CeyhaniCookies?.write('sessionStorage','ceyhani-background-music',JSON.stringify({kind:'mp3',id:tracks[index].id,position:loaded===tracks[index].id?audio.currentTime||0:0,volume:audio.volume,shuffle,repeat,equalizer:equalizer?.getState(),mode:mode==='paused'||mode==='ended'?'paused':'playing'}));}
   function resetOrder(keepCurrent=true){
     order=tracks.map((_,i)=>i);
     if(shuffle){
@@ -75,6 +76,7 @@
     const retry=mode==='error',token=++generation;autoWanted=automatic;mode='loading';status.textContent='Türkü hazırlanıyor…';publish();
     if(loaded!==tracks[index].id||retry){loaded=tracks[index].id;audio.src=tracks[index].source;updateProgress();}
     stopOtherVideo();
+    equalizer?.resume();
     try{
       await audio.play();if(token!==generation)return;
       mode='playing';autoWanted=false;status.textContent='Şimdi çalıyor';render();save();
@@ -134,6 +136,8 @@
   audio.addEventListener('ended',()=>advance(1,true));
   audio.addEventListener('error',()=>{generation++;mode='error';autoWanted=false;status.textContent='Bu kayıt yüklenemedi. Çal’a basarak tekrar deneyebilir veya sonraki türküyü seçebilirsiniz.';render();});
   window.ceyhaniMusic={startIfWanted:()=>{if(autoWanted&&mode==='blocked')return play(true);},pause,getState,select,togglePlay,next:()=>advance(1),previous:()=>advance(-1),toggleShuffle,cycleRepeat,seek,setVolume,subscribe(callback){subscribers.add(callback);callback(getState());return()=>subscribers.delete(callback);}};
+  window.ceyhaniMusic.setEqualizerPreset=name=>equalizer?.select(name);
+  window.ceyhaniMusic.setEqualizerBand=(name,value)=>equalizer?.setBand(name,value);
   document.dispatchEvent(new Event('ceyhani-music-ready'));
   document.addEventListener('pointerdown',gesture,{passive:true});document.addEventListener('keydown',gesture);
   document.addEventListener('pointerup',gesture,{passive:true});

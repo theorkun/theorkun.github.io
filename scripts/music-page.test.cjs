@@ -47,3 +47,15 @@ test('song search accepts a plain a for a title containing a circumflex',()=>{
   const h=harness();h.state.tracks[1].title='Yârim Kokun Bana Koksun';h.publish();
   h.nodes.musicSearch.value='yarim';h.nodes.musicSearch.listeners.input();assert.equal(h.nodes.musicEmpty.hidden,true);assert.equal(h.nodes.musicResults.textContent,'1 / 2 türkü');
 });
+
+test('equalizer controls delegate to the shared player and reflect its presets and custom bands',()=>{
+  const h=harness({child:true});
+  h.state.equalizer={supported:true,preset:'balanced',bands:{bass:0,mid:0,treble:0},notice:''};
+  h.api.setEqualizerPreset=name=>{h.calls.push(['preset',name]);h.state.equalizer.preset=name;h.publish();};
+  h.api.setEqualizerBand=(name,value)=>{h.calls.push(['band',name,value]);h.state.equalizer.preset='custom';h.state.equalizer.bands[name]=value;h.publish();};
+  h.publish();assert.equal(h.nodes.musicEqBands.hidden,true);
+  h.click('musicEqBass');assert.deepEqual(h.calls.at(-1),['preset','bass']);assert.equal(h.nodes.musicEqBass.attrs['aria-pressed'],'true');
+  h.click('musicEqCustom');assert.equal(h.nodes.musicEqBands.hidden,false);
+  h.nodes.musicEqBandmid.value=3;h.nodes.musicEqBandmid.listeners.input();assert.deepEqual(h.calls.at(-1),['band','mid',3]);assert.equal(h.nodes.musicEqValuemid.textContent,'+3 dB');
+  h.state.equalizer.supported=false;h.publish();assert.equal(h.nodes.musicEqBass.disabled,true);
+});

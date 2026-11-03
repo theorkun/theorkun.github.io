@@ -3,7 +3,7 @@ body.music-page{background:#f4f1e9}
 .music-page .music-page-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:0;margin:0;padding:0 0 25px;border:0;background:none;box-shadow:none}.music-page-heading:before,.music-page-heading:after{content:none}
 .music-eyebrow{margin:0 0 8px;color:#69766d;font:500 9px/1.7 'Poppins',sans-serif;letter-spacing:2px}.music-page-heading h1{margin:0 0 10px;color:#073348;font:500 clamp(29px,4vw,42px)/1.25 'Cinzel',Georgia,serif}.music-page-heading p:last-child{margin:0;color:#66766f;font:400 12px/1.8 'Poppins',sans-serif}.music-total{flex-shrink:0;font:400 11px/1.5 'Poppins',sans-serif;color:#536d63}
 .music-library .music-layout{display:block;border:1px solid #d9d9c8;border-radius:20px;overflow:hidden;background:#fffdf8;box-shadow:0 12px 30px #07334809}
-.music-player-column{position:static;padding:25px 28px 14px;background:url('assets/music-flow-turquoise.svg?v=kam-reference-1') right center/auto 92% no-repeat,linear-gradient(115deg,#073348,#0b5c60);color:#fffdf3}
+.music-player-column{position:static;padding:25px 28px 14px;background:url('assets/music-flow-turquoise.svg?v=kam-reference-1') right center/auto min(92%,300px) no-repeat,linear-gradient(115deg,#073348,#0b5c60);color:#fffdf3}
 .music-feature-player{display:grid;grid-template-columns:132px minmax(0,1fr);gap:27px;align-items:center}
 .music-album-cover{position:relative;margin:0;padding:6px;background:#e6d5b1;border:1px solid #dfc48f;border-radius:8px;box-shadow:0 8px 17px #001d2d30;transform:rotate(-3deg)}.music-album-cover img{display:block;width:100%;height:130px;object-fit:cover;border-radius:3px}.music-album-cover:after{content:'';position:absolute;inset:auto 6px 6px;height:5px;background:url('assets/kilim-bordur.svg') center/100px 30px}
 .music-player-body{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:20px;align-items:center;min-width:0}
@@ -27,3 +27,43 @@ body.music-page{background:#f4f1e9}
 .music-main-controls button{box-sizing:border-box;padding:0;line-height:1}
 .music-main-controls .music-play{padding:0}
 .music-main-controls button>svg,.music-main-controls button>.site-icon{display:block;margin:0}
+/* Fine lines and soft turquoise highlights frame the archive without extra images. */
+.music-page .music-page-heading{position:relative;padding-top:30px;padding-bottom:30px}
+.music-page .music-page-heading:after{content:'';display:block;position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,#c7ad76,#11b7b05c,transparent)}
+.music-eyebrow{display:flex;align-items:center;gap:9px;color:#08757d}
+.music-eyebrow:before{content:'';width:6px;height:6px;flex:none;border-radius:50%;background:#12a9a4;box-shadow:0 0 0 4px #12a9a412}
+.music-total{padding:9px 14px;border:1px solid #b6d4cc;border-radius:30px;color:#08757d;background:#edf5f0}
+.music-library .music-layout{margin-top:24px;border-color:#bbd2c8;box-shadow:0 18px 45px -25px #07334860}
+.music-player-column{position:relative;border-top:3px solid #4bc9c0}
+.music-album-cover{box-shadow:0 12px 30px #001d2d50,0 0 0 5px #ffffff08}
+.music-playing-label{display:flex;align-items:center;gap:7px}
+.music-playing-label:before{content:'';width:5px;height:5px;border-radius:50%;background:#7bb5b0;flex:none}
+.is-playing .music-playing-label:before{background:#79f0d6;box-shadow:0 0 0 3px #79f0d61a}
+.music-equalizer{margin:20px 0 4px;border:1px solid #8cddd236;border-radius:12px;background:#043c454d;overflow:hidden}
+.music-equalizer>summary{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 15px;box-sizing:border-box;cursor:pointer;list-style:none;color:#ecf6ef;font:500 12px/1.5 'Quicksand',sans-serif}
+.music-equalizer>summary::-webkit-details-marker{display:none}
+.music-equalizer>summary>svg{width:19px;height:19px;flex:none;color:#83d8cd}
+.music-equalizer .music-eq-chevron{width:16px;height:16px}
+.music-equalizer[open] .music-eq-chevron{transform:rotate(180deg)}
+.music-eq-current{margin-left:auto;color:#9cddd1;font:400 10px 'Poppins',sans-serif}
+.music-eq-content{padding:0 15px 14px;border-top:1px solid #8cddd21c}
+.music-eq-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding-top:14px}
+.music-eq-presets button{min-height:40px;border:1px solid #88c7bd55;border-radius:8px;background:#ffffff08;color:#d9eee7;font:500 12px 'Quicksand',sans-serif;cursor:pointer;padding:8px 4px}
+.music-eq-presets button:hover{background:#ffffff15}
+.music-eq-presets button[aria-pressed=true]{background:#bcece0;color:#083d46;border-color:#bcece0}
+.music-eq-bands{border:0;padding:0;margin:16px 0 0;min-width:0}
+.music-eq-bands legend{color:#b2d8cf;font:400 10px 'Poppins',sans-serif;margin-bottom:10px}
+.music-eq-bands label{display:grid;grid-template-columns:66px minmax(0,1fr) 45px;align-items:center;gap:12px;min-height:46px;color:#e7f3ec;font:500 12px 'Quicksand',sans-serif}
+.music-eq-bands small{display:block;font:400 9px 'Poppins',sans-serif;color:#aacdc4;margin-top:3px}
+.music-eq-bands input{width:100%;margin:0;accent-color:#8edccc;min-height:26px;cursor:pointer}
+.music-eq-bands output{text-align:right;color:#a8e5d6;font:400 10px 'Poppins',sans-serif;font-variant-numeric:tabular-nums}
+.music-eq-notice{margin:12px 0 0;color:#b6d5cc;font:400 10px/1.8 'Poppins',sans-serif}
+.music-eq-bands[hidden]{display:none}
+.music-track-header{border-bottom-color:#d1dfd5;background:linear-gradient(110deg,#f2f5ec,#fffdf8)}
+.music-track-button[aria-current=true]{background:linear-gradient(100deg,#dcefe6,#f5f8ef);box-shadow:inset 3px 0 #14878a}
+.music-list-footer{display:flex;align-items:center;justify-content:center;gap:12px}
+.music-list-footer:before,.music-list-footer:after{content:'';height:1px;width:34px;background:#b5c6b5;flex:0 0 auto}
+.a11y-high-contrast .music-equalizer,.a11y-high-contrast .music-eq-presets button{background:#111;color:#ffdc72;border-color:#ffdc72}
+.a11y-high-contrast .music-eq-presets button[aria-pressed=true]{background:#ffdc72;color:#111}
+.a11y-high-contrast .music-eq-bands :is(small,output),.a11y-high-contrast .music-eq-notice{color:#ffdc72}
+@media(max-width:520px){.music-page .music-page-heading{padding-top:20px;padding-bottom:24px}.music-library .music-layout{margin-top:18px}.music-equalizer{margin-top:17px}.music-eq-presets{gap:6px}.music-eq-bands label{grid-template-columns:54px minmax(0,1fr) 40px;gap:8px}.music-list-footer{gap:8px}.music-list-footer:before,.music-list-footer:after{width:16px}}
