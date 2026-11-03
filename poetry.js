@@ -60,12 +60,6 @@ if (poetrySection) {
       "poem": "Anamdan doğalı düştüm bu yola\nYürürüm yürürüm sonu bitmiyor\nUykular dışında vermedim mola\nYürürüm yürürüm sonu bitmiyor\n\nAman dilediğim oldu ellerden\nÇok taşlandım yamuk yumuk dillerden\nGahı çamur gahı tozlu yollardan\nYürürüm yürürüm sonu bitmiyor\n\nAra sıra kaderime darıldım\nBulanıktım aka aka duruldum\nYüce yüce dağ aşmaktan yoruldum\nYürürüm yürürüm sonu bitmiyor\n\nCeyhani  salından kimler tutacak\nVakit akşam üstü güneş batacak\nÇok yaklaştım bugün yarın bitecek\nYürürüm yürürüm sonu bitmiyor\n\n08.09.2024"
     },
     {
-      "title": "MİLLET",
-      "author": "Âşık Ceyhani",
-      "preview": "Yalanım var ise vurun yüzüme",
-      "poem": "Yalanım var ise vurun yüzüme\nSizden öncesini arıyor millet\nİtirazı olan varsa sözüme\nYaşıyor olanı görüyor millet\n\nHadi ben yalanım doğruyu sen de\nGerçeği bileyim sayende bende\nDaha ucuz almak için, şimdide\nEkmek kuyruğuna giriyor millet\n.\nSadaka verirsin bize yılda bir\nDertlerimiz aynı bizde çile bir\nGit pazara halkı dinle hele bir\nArkandan beddua veriyor millet\n\nEmekli toruna açar oldu el\nCeyhani seslenir gel insafa gel\nNe kemer kalmıştır ne sıkacak bel\nYokluğun altında eriyor millet\n\n29.08.2024"
-    },
-    {
       "title": "GÖZÜMSÜN",
       "author": "Âşık Ceyhani",
       "preview": "Bulanıktım duruldum",
