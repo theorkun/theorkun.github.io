@@ -1,12 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none">
+  <defs>
+    <g id="drum" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+      <circle r="40"/><circle r="35"/><circle r="37.5" stroke-dasharray="1 5"/>
+      <path d="M-33 11-21-4-9 11 2-1 16 11 24 3 33 11M-30 19Q0 12 30 19M-25 25Q0 19 25 25"/>
+      <path d="M-15-24a8 8 0 1 0 8 12 9 9 0 0 1-8-12ZM1-18q7-8 14 0 7-8 14 0"/>
+      <circle cx="21" cy="-25" r="2"/>
+      <path d="M-10 39q-4 13-1 20M0 40q5 10 0 22M10 39q-1 9 5 16M-11 49l-5 4M1 50l5 5M12 48l5 1"/>
+      <path d="m-39 32 53 30" stroke-width="2"/><ellipse cx="-42" cy="30" rx="4" ry="7" transform="rotate(-60 -42 30)"/>
+    </g>
+  </defs>
   <g stroke="#13cfc5" stroke-width="1" opacity=".22">
     <path d="M-80 80C80-40 160 200 320 80S560-40 720 80M-80 96C80-24 160 216 320 96S560-24 720 96M-80 112C80-8 160 232 320 112S560-8 720 112M-80 128C80 8 160 248 320 128S560 8 720 128"/>
     <path d="M-80 240C80 120 160 360 320 240S560 120 720 240M-80 256C80 136 160 376 320 256S560 136 720 256M-80 272C80 152 160 392 320 272S560 152 720 272"/>
   </g>
-  <g stroke="#62efe0" stroke-width="1" opacity=".18">
-    <circle cx="115" cy="58" r="22"/><circle cx="115" cy="58" r="30" stroke-dasharray="1 7"/>
-    <circle cx="435" cy="218" r="22"/><circle cx="435" cy="218" r="30" stroke-dasharray="1 7"/>
-    <path d="M100 58h30m-15-15v30M420 218h30m-15-15v30" stroke-linecap="round"/>
+  <g color="#62efe0" opacity=".23">
+    <use href="#drum" transform="translate(115 58) rotate(-12)"/>
+    <use href="#drum" transform="translate(435 218) rotate(12)"/>
   </g>
   <g fill="#62efe0" opacity=".25"><circle cx="260" cy="38" r="2"/><circle cx="580" cy="198" r="2"/><circle cx="54" cy="205" r="1.5"/><circle cx="374" cy="45" r="1.5"/></g>
 </svg>
