@@ -1,3 +1,4 @@
+// The isolated comment iframe has no navigation, player or survey shell.
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
@@ -79,7 +80,7 @@ test('all 31 recordings include the original Turkleriz first and distinct suppli
   const data=JSON.parse(fs.readFileSync(path.join(root,'assets/audio-playlist.json'),'utf8'));assert.equal(data.tracks.length,31);assert.equal(new Set(data.tracks.map(t=>t.id)).size,31);
   assert.equal(data.tracks[0].title,'Türkleriz Biz');assert.equal(data.tracks[0].source,'assets/ceyhani-turkleriz.mp3');
   for(const t of data.tracks){const bytes=fs.readFileSync(path.join(root,t.source));assert.equal(bytes.length,t.bytes);assert.ok(bytes.length>100000);assert.ok(bytes.subarray(0,3).toString()==='ID3'||bytes[0]===255);}
-  for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="audio-playlist.js\?v=[^"]+"/);assert.doesNotMatch(html,/src="youtube-playlist.js/);}
+  for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html')&&n!=='eser-yorumlari.html')){const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="audio-playlist.js\?v=[^"]+"/);assert.doesNotMatch(html,/src="youtube-playlist.js/);}
 });
 test('large player API shares one audio instance and keeps subscribers synchronized with compact controls',async()=>{
   const h=await harness(),api=h.window.ceyhaniMusic,updates=[];

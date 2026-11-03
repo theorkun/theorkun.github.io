@@ -1,0 +1,38 @@
+ESER YORUMLARI — DENEME VE ONAYLI YAYIN
+
+Her şiir, sabit şiir numarasıyla; her türkü, sabit kayıt kimliğiyle ayrı
+yorum başlığına sahiptir. GitHub ve özel alan adı aynı başlıkları kullanır.
+Başlık anahtarı eser-yorumlari.html?type=poem&id=1 biçimindedir.
+Mevcut ziyaretçi defterinin başlığı ve eski yorumları değiştirilmemiştir.
+
+Şu anda tasarım denemesi açıktır, yorum gönderimi KAPALIDIR.
+assets/work-comments-settings.json dosyasında moderationConfirmed=false.
+Bu, onay ayarı doğrulanmadan yorumların doğrudan yayımlanmasını önler.
+
+CANLIYA ALMA
+1. https://www.htmlcommentbox.com/received.html sayfasında mevcut yönetici
+   hesabınızla oturum açın. Hesap ayarlarında yorumların yayımlanmadan önce
+   yönetici onayına alınmasını etkinleştirin. Bu ayar yalnızca sitedeki
+   Türkçe açıklamayı değiştirmekle etkinleşmez; hizmet hesabında yapılmalıdır.
+2. Ayarı doğruladıktan sonra moderationConfirmed değerini true yapın.
+   Eser yorumları bu ayarı önbelleksiz okur. GitHub ve hosting'de aynı ayarı
+   yayımlayın. Sadece tasarım denemesi için true yapmayın.
+3. Bir şiir ve bir türküde kendi test yorumunuzu gönderin. Yönetici panelinde
+   beklemeli, başka tarayıcıda onaylanana kadar görünmemelidir. Onaydan sonra
+   iki alan adında da doğru eserde görünmesini kontrol edin. Testi yaparken
+   başka ziyaretçiler adına mesaj göndermeyin.
+4. Hizmet HTTPS hatası veriyor veya erişilemiyorsa sertifika hatasını
+   atlamayın; gönderimi kapalı tutun. Site bu durumda hata mesajı gösterir.
+
+Yorumlar mevcut HTML Comment Box hizmetinde saklanır. Yeni bir ASP.NET
+servisi, veri tabanı veya beğeni servisinin çalışması gerekmez.
+Yorum alanı yalnızca kullanıcı açtığında ve yorum kategorisine izin
+verdiğinde yüklenir. Her alan bağımsız iframe içinde açılıp kapanır;
+başka eserin gecikmiş yanıtı yeni eserin yorumlarını değiştiremez.
+
+Yönetici hesabına buradan erişilemediği için onay ayarı ve gerçek gönderim
+doğrulanmamıştır. Yorumlar şu an tasarım önizlemesidir.
+
+Resmî başlık ve yönetim belgeleri:
+https://www.htmlcommentbox.com/advanced.html
+https://www.htmlcommentbox.com/help.html

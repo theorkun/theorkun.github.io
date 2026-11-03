@@ -1,3 +1,4 @@
+// The isolated comment iframe has no navigation, player or survey shell.
 const {test}=require('node:test');const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');const root=path.join(__dirname,'..');
 class Node{
@@ -39,7 +40,7 @@ test('controller readiness and iframe teardown are handled without retaining a d
   h.handlers.pagehide();assert.equal(h.unsubscribed(),1);
 });
 test('every page links to Türküler in the menu and frame navigation recognizes its route',()=>{
-  for(const file of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,file),'utf8');assert.match(html,/href="muzikler.html">Türküler<\/a>/,file);}
+  for(const file of fs.readdirSync(root).filter(n=>n.endsWith('.html')&&n!=='eser-yorumlari.html')){const html=fs.readFileSync(path.join(root,file),'utf8');assert.match(html,/href="muzikler.html">Türküler<\/a>/,file);}
   const html=fs.readFileSync(path.join(root,'muzikler.html'),'utf8');assert.match(html,/class="active" aria-current="page" href="muzikler.html"/);assert.match(fs.readFileSync(path.join(root,'site-navigation.js'),'utf8'),/'muzikler.html'/);
 });
 

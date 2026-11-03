@@ -1,3 +1,4 @@
+// The isolated comment iframe has no navigation, player or survey shell.
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.join(__dirname,'..');
@@ -19,7 +20,7 @@ test('scroll reveal colours visible photographs once and disconnects on navigati
  vm.runInNewContext(fs.readFileSync(path.join(root,'photo-gallery.js'),'utf8'),{window:{},document:{querySelectorAll:()=>cards}});
 });
 test('every page exposes Türküler on mobile; only relevant pages load poetry and YouTube code',()=>{
- for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){const html=fs.readFileSync(path.join(root,name),'utf8');
+ for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html')&&n!=='eser-yorumlari.html')){const html=fs.readFileSync(path.join(root,name),'utf8');
   assert.match(html,/<a class="mobile-turkuler" href="muzikler.html"/);assert.match(html,/href="muzikler.html">Türküler<\/a>/);
   assert.equal(html.includes('src="poetry.js?'),html.includes('id="siirleri"'),name);
   if(html.includes('src="poetry.js?'))assert.ok(html.indexOf('src="poetry.js?')<html.indexOf('src="app.js?'));

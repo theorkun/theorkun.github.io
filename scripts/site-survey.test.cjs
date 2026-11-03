@@ -1,3 +1,4 @@
+// The isolated comment iframe has no navigation, player or survey shell.
 ﻿const {test}=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path');
 const root=path.join(__dirname,'..');
 function harness(value=''){
@@ -8,5 +9,5 @@ function harness(value=''){
 }
 test('survey draft prefills only an empty guestbook, never publishes and consumes its in-memory handoff',()=>{const h=harness();h.window.top.CeyhaniSurveyDraft='Âşık Ceyhani — Site değerlendirmesi\nGenel puan: 5 / 5';h.events['ceyhani-survey-draft']();assert.match(h.message.value,/5 \/ 5/);assert.ok(h.message.changed&&h.message.focused);assert.equal(h.window.top.CeyhaniSurveyDraft,undefined);assert.match(h.status.textContent,/Henüz yayımlanmadı/);});
 test('existing visitor message is preserved and an unrelated handoff is ignored',()=>{const h=harness('Kendi hatıram');h.window.top.CeyhaniSurveyDraft='Âşık Ceyhani — Site değerlendirmesi';h.window.hcb_user.onload();assert.equal(h.message.value,'Kendi hatıram');assert.ok(h.window.top.CeyhaniSurveyDraft);h.message.value='';h.window.top.CeyhaniSurveyDraft='İlgisiz metin';h.events['ceyhani-survey-draft']();assert.equal(h.message.value,'');});
-test('all site pages expose the survey with the same controller and stylesheet',()=>{for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){const html=fs.readFileSync(path.join(root,f),'utf8');assert.equal((html.match(/data-site-survey/g)||[]).length,1,f);assert.match(html,/site-survey\.js\?v=1/,f);assert.match(html,/site-survey\.css\?v=1/,f);}});
+test('all site pages expose the survey with the same controller and stylesheet',()=>{for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='eser-yorumlari.html')){const html=fs.readFileSync(path.join(root,f),'utf8');assert.equal((html.match(/data-site-survey/g)||[]).length,1,f);assert.match(html,/site-survey\.js\?v=1/,f);assert.match(html,/site-survey\.css\?v=1/,f);}});
 
