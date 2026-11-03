@@ -9,20 +9,8 @@
 .poetry-archive #siirleri .poem-card p{font-size:12px;line-height:1.6;max-height:3.2em}
 .poetry-archive #siirleri .poem-card__manuscript{right:14px;bottom:14px;width:45px;height:67px}
 .poetry-archive #siirleri .poem-card--manuscript strong,.poetry-archive #siirleri .poem-card--manuscript p{max-width:calc(100% - 51px)}
-/* Shared by the home selection and the full archive. */
-#siirleri .poem-card{background:linear-gradient(145deg,#35cec4,#02b5af 65%,#0ca1a8);border-color:#07939b;box-shadow:0 8px 24px -14px #077d8555;color:#063743}
-#siirleri .poem-card:before{border-color:#e2fff66b}
-#siirleri .poem-card strong,#siirleri .poem-card__tag{color:#063743}
-#siirleri .poem-card p{color:#08434c}
-#siirleri .poem-card__saz{filter:drop-shadow(0 1px 2px #06454b20)}
-#siirleri .poem-card:focus-visible{background:linear-gradient(145deg,#087f87,#075f6c);border-color:#075f6c;box-shadow:0 10px 24px -12px #075f6c70;outline:3px solid #075f6c;outline-offset:3px}
-#siirleri .poem-card:focus-visible :is(strong,p,.poem-card__tag){color:#f0fffa}
-@media(hover:hover){
-  #siirleri .poem-card:hover{background:linear-gradient(145deg,#087f87,#075f6c);border-color:#075f6c;box-shadow:0 10px 24px -12px #075f6c70}
-  #siirleri .poem-card:hover :is(strong,p,.poem-card__tag){color:#f0fffa}
-}
-.a11y-high-contrast #siirleri .poem-card{background:#111;border-color:#ffdc72}
-.a11y-high-contrast #siirleri .poem-card :is(strong,p,.poem-card__tag){color:#ffdc72}
+#siirleri .poem-card:focus-visible{background:linear-gradient(145deg,#f3e7ce,#e6d2ad);border-color:#96723d;box-shadow:0 8px 20px -12px #68471d70}
+@media(hover:hover){#siirleri .poem-card:hover{background:linear-gradient(145deg,#f3e7ce,#e6d2ad);border-color:#96723d;box-shadow:0 8px 20px -12px #68471d70}}
 .poetry-archive #poem-dialog{background-color:#fffdf8;background-image:linear-gradient(110deg,rgba(255,253,248,.94),rgba(255,253,248,.87)),url('assets/ceyhani-album-netlestirilmis.jpg');background-size:100% 100%,cover;background-position:center,center 35%;background-repeat:no-repeat}
 .poetry-archive #poem-dialog .poem-modal-content{color:#253d3d}
 @media(max-width:520px){.poetry-archive #siirleri .poem-grid{grid-template-columns:minmax(0,1fr);gap:12px}.poetry-archive #siirleri .poem-card{min-height:155px;padding:18px}.poetry-archive #siirleri .poem-card__tag{margin-bottom:11px}.poetry-archive #siirleri .poem-card strong{font-size:18px;margin-bottom:9px}}
