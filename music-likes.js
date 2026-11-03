@@ -1,15 +1,17 @@
 (() => {
   const list=document.getElementById('musicTracks');if(!list)return;
   const status=document.getElementById('musicLikesStatus'),retry=document.getElementById('musicLikesRetry'),sort=document.getElementById('musicSort');
-  let counts=Object.create(null),liked=new Set(),ready=false,disposed=false;
+  let counts=Object.create(null),liked=new Set(),ready=false,disposed=false,unavailable=false;
   const pending=new Set(),subscribers=new Set();
   function announce(text){status.textContent=text;}
   function paint(){
     sort.disabled=!ready;
     for(const button of list.querySelectorAll('[data-music-like]')){
       const id=button.dataset.musicLike,n=counts[id];
+      const stateText=pending.size?'Beğeniniz kaydediliyor':unavailable&&!ready?'Beğeni servisine şu anda ulaşılamıyor':'Beğeniler yükleniyor';
       button.disabled=!ready||pending.size>0;button.setAttribute('aria-pressed',String(liked.has(id)));
-      button.setAttribute('aria-label',`${button.dataset.trackTitle}: ${liked.has(id)?'beğeniyi geri al':'beğen'}. ${ready?`${n??0} beğeni`:'Beğeniler yükleniyor'}`);
+      button.setAttribute('aria-label',`${button.dataset.trackTitle}: ${liked.has(id)?'beğeniyi geri al':'beğen'}. ${ready&&!pending.size?`${n??0} beğeni`:stateText}`);
+      button.title=button.disabled?stateText:liked.has(id)?'Beğeniyi geri al':'Bu türküyü beğen';
       button.querySelector('[data-like-count]').textContent=ready?new Intl.NumberFormat('tr-TR').format(n??0):'—';
     }
   }
@@ -33,9 +35,9 @@
     }finally{clearTimeout(timer);}
   }
   async function load(){
-    retry.hidden=true;announce('Beğeniler yükleniyor…');
+    unavailable=false;retry.hidden=true;announce('Beğeniler yükleniyor…');paint();
     try{await request();announce('Beğeniler tüm ziyaretçilerin ortak toplamıdır.');}
-    catch(_){announce('Beğeniler şu anda yüklenemiyor. Biraz sonra yeniden deneyebilirsiniz.');retry.hidden=false;}
+    catch(_){unavailable=true;announce('Beğeniler şu anda yüklenemiyor. Biraz sonra yeniden deneyebilirsiniz.');retry.hidden=false;}
     publish();
   }
   function animate(button){

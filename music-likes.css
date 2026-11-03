@@ -11,7 +11,7 @@
 .music-like:hover{background:#e6f2e9;border-color:#8bbfb1}
 .music-like[aria-pressed=true]{background:#dcefe7;border-color:#8bbfb1;color:#086e70}
 .music-like[aria-pressed=true] .music-like-icon{fill:#149b92;stroke:#08757d}
-.music-like:disabled{cursor:default}
+.music-library .music-like:disabled{cursor:default}
 .music-saz-burst{position:absolute;left:50%;bottom:16px;width:44px;height:55px;pointer-events:none;z-index:5;animation:music-saz-lift .95s ease-out both}
 .music-saz-burst img{display:block;width:25px;height:45px;margin:3px auto;transform:rotate(-15deg);filter:drop-shadow(0 2px 3px #07334825)}
 .music-saz-burst i{position:absolute;width:4px;height:4px;border-radius:50%;background:#15bcb3;left:0;top:20px}

@@ -26,6 +26,7 @@ test('shared counts load once; like and unlike follow the server and animate onl
 });
 test('offline backend shows no fabricated counts and disables ranking and voting',async()=>{
   const h=await harness({offline:true});assert.equal(h.button.count.textContent,'—');assert.equal(h.sort.disabled,true);assert.equal(h.button.disabled,true);assert.equal(h.retry.hidden,false);
+  assert.match(h.button.title,/ulaşılamıyor/);assert.doesNotMatch(h.button.attrs['aria-label'],/yükleniyor/);
   await h.click();assert.equal(h.requests.length,1);assert.equal(h.animations(),0);
 });
 test('failed saves keep the previous count and do not show a success animation',async()=>{
