@@ -81,8 +81,8 @@
     if(!privacy){status.hidden=false;status.textContent='Yorum gizlilik kontrolleri yüklenemedi. Lütfen sayfayı yenileyin.';retry.hidden=true;return;}
     if (!window.CeyhaniCookies?.allows('comments')) {
       status.hidden = false;
-      status.textContent = 'Ziyaretçi mesajlarını görmek veya yazmak için çerez tercihlerinden Ziyaretçi defteri kategorisine izin verebilirsiniz.';
-      retry.textContent = 'Çerez tercihlerini aç';
+      status.textContent = 'Ziyaretçi mesajlarını görmek veya yazmak için hizmet izinlerinden Ziyaretçi defteri kategorisine izin verebilirsiniz.';
+      retry.textContent = 'Hizmet izinlerini aç';
       retry.hidden = false;
       return;
     }

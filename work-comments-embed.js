@@ -14,7 +14,7 @@
     document.getElementById('work-title').textContent=item.title;document.title=item.title+' — yorumlar';
     if(!window.CeyhaniCookies?.allows('comments')){
       status.textContent='Yorumları açmak için Ziyaretçi defteri ve eser yorumları iznini verebilirsiniz.';
-      retry.textContent='Çerez tercihlerini aç';retry.hidden=false;retryAction=()=>window.CeyhaniCookies?.open();return;
+      retry.textContent='Hizmet izinlerini aç';retry.hidden=false;retryAction=()=>window.CeyhaniCookies?.open();return;
     }
     const settings=await fetch('assets/work-comments-settings.json',{cache:'no-store'});if(!settings.ok)throw Error();
     if((await settings.json()).moderationConfirmed!==true){

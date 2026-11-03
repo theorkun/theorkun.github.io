@@ -6,6 +6,7 @@
 .work-comment-icon{width:21px;height:21px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .work-comments-note{font-size:13px;line-height:1.7;color:#536c78;margin:8px 0 15px}
 .work-comments-frame{display:block;width:100%;height:530px;border:0;border-radius:12px;background:#fffdf8}
+.poem-modal-body>.work-comments{grid-column:1/-1;scroll-margin-top:12px}
 .work-comments-action{padding:11px 16px;border:1px solid #087c83;border-radius:9px;background:#087c83;color:#fff;font:700 14px 'Quicksand',sans-serif;cursor:pointer}
 .work-comments-action:focus-visible,.work-comments summary:focus-visible,.music-work-comment:focus-visible{outline:3px solid #087c83;outline-offset:3px}
 .work-comments-dialog{box-sizing:border-box;width:min(700px,94vw);max-height:88dvh;padding:24px;background:#fffdf8;color:#173e48;border:1px solid #c9b68f;border-radius:18px;overflow:auto}

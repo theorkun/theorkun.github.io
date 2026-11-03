@@ -12,7 +12,7 @@
     comments.addEventListener('toggle',()=>toggle.setAttribute('aria-expanded',String(comments.open)));
   }
   const button=panel.querySelector('[data-music-like]'),status=panel.querySelector('[role=status]');let archive,version=0;
-  function getArchive(){return archive||(archive=fetch('assets/poetry-discovery.json?v=archive-71-millet-removed-4').then(r=>{if(!r.ok)throw Error();return r.json();}).catch(e=>{archive=null;throw e;}));}
+  function getArchive(){return archive||(archive=fetch('assets/poetry-discovery.json?v=archive-70-diyemi-archived-5').then(r=>{if(!r.ok)throw Error();return r.json();}).catch(e=>{archive=null;throw e;}));}
   async function select(card){
     const current=++version;button.disabled=true;button.dataset.musicLike='';button.dataset.trackTitle=card.dataset.title;button.setAttribute('aria-pressed','false');button.querySelector('[data-like-count]').textContent='—';
     dialog.querySelector('.poem-saz-celebration')?.remove();status.textContent='Beğeniler yükleniyor…';

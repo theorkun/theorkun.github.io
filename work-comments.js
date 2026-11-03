@@ -1,7 +1,7 @@
 (() => {
   const icon='<svg class="work-comment-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 1-8 8H5l-4 3V11a9 9 0 0 1 19 0Z"/><path d="M6 9h8M6 13h5"/></svg>';
   let archive;
-  const poems=()=>archive||(archive=fetch('assets/poetry-discovery.json?v=archive-71-millet-removed-4').then(r=>{if(!r.ok)throw Error();return r.json();}).catch(error=>{archive=null;throw error;}));
+  const poems=()=>archive||(archive=fetch('assets/poetry-discovery.json?v=archive-70-diyemi-archived-5').then(r=>{if(!r.ok)throw Error();return r.json();}).catch(error=>{archive=null;throw error;}));
   function whenClosed(dialog,cleanup){
     const check=()=>{if(!dialog.open)cleanup();};
     dialog.addEventListener('close',check);
@@ -12,8 +12,8 @@
     container.dataset.commentMount=kind;container.dataset.commentId=id;container.dataset.commentTitle=title;
     container.replaceChildren();
     if(!window.CeyhaniCookies?.allows('comments')){
-      const note=document.createElement('p');note.className='work-comments-note';note.textContent='Yorumları görmek ve yazmak için çerez tercihlerindeki Ziyaretçi defteri ve eser yorumları kategorisine izin verebilirsiniz.';
-      const button=document.createElement('button');button.type='button';button.className='work-comments-action';button.textContent='Çerez tercihlerini aç';button.onclick=()=>window.CeyhaniCookies?.open();container.append(note,button);return;
+      const note=document.createElement('p');note.className='work-comments-note';note.textContent='Yorumları görmek ve yazmak için hizmet izinlerindeki Ziyaretçi defteri ve eser yorumları kategorisine izin verebilirsiniz.';
+      const button=document.createElement('button');button.type='button';button.className='work-comments-action';button.textContent='Hizmet izinlerini aç';button.onclick=()=>window.CeyhaniCookies?.open();container.append(note,button);return;
     }
     const frame=document.createElement('iframe');frame.className='work-comments-frame';frame.title=title+' — yorumlar';
     frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id});
@@ -48,6 +48,7 @@
     });
     details.addEventListener('toggle',async()=>{
       const current=++version;body.replaceChildren();if(!details.open||!selected)return;
+      requestAnimationFrame(()=>{if(details.open&&poemDialog.open){details.setAttribute('tabindex','-1');details.focus({preventScroll:true});details.scrollIntoView({block:'start',behavior:'instant'});}});
       body.textContent='Yorum alanı hazırlanıyor…';
       try{
         const data=await poems();if(current!==version||!details.open)return;

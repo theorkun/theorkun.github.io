@@ -29,13 +29,13 @@ test('optional storage is off before a valid decision; malformed and expired dec
     const h=harness(value);for(const c of categories)assert.equal(h.window.CeyhaniCookies.allows(c),false);
     assert.equal(h.data.has('ceyhani-accessibility'),false);assert.equal(h.session.has('ceyhani-visitor-counted-v1'),false);
     h.window.CeyhaniCookies.write('localStorage','example','value');assert.equal(h.data.has('example'),false);
-    const ui=h.ui();assert.equal(ui.banner.hidden,false);assert.equal(h.images[0].src,undefined);
+    const ui=h.ui();assert.equal(ui.banner,undefined);assert.equal(ui.panel,undefined);assert.equal(h.images[0].src,undefined);
   }
 });
 test('initial choices persist without a reload; revoking an external permission reloads once',()=>{
   for(const action of ['accept','reject']){
-    const h=harness(null),ui=h.ui();ui.banner.listeners.click({target:{closest:()=>({dataset:{cookie:action}})}});
-    const saved=JSON.parse(h.data.get(key));for(const c of categories)assert.equal(saved[c],action==='accept');assert.equal(h.reloads(),0);assert.equal(ui.panel,undefined);
+    const h=harness(null),ui=h.ui();h.window.CeyhaniCookies.open();ui.panel.listeners.click({target:{closest:()=>({dataset:{cookie:action}})}});
+    const saved=JSON.parse(h.data.get(key));for(const c of categories)assert.equal(saved[c],action==='accept');assert.equal(h.reloads(),0);assert.equal(ui.panel.open,false);
   }
   const h=harness(choice({functional:true,media:true})),ui=h.ui();h.window.CeyhaniCookies.open();const form=ui.panel.querySelector('form');
   assert.equal(form.elements.media.checked,true);assert.equal(form.elements.statistics.checked,false);
@@ -44,8 +44,8 @@ test('initial choices persist without a reload; revoking an external permission 
   const after=harness(next);assert.equal(after.window.CeyhaniCookies.allows('media'),false);assert.equal(after.window.CeyhaniCookies.allows('comments'),true);
 });
 test('storage failure stays visible without recording a fictitious acceptance',()=>{
-  const h=harness(null,{blocked:true}),ui=h.ui();ui.banner.listeners.click({target:{closest:()=>({dataset:{cookie:'accept'}})}});
-  assert.equal(h.window.CeyhaniCookies.decided(),false);assert.equal(h.reloads(),0);assert.equal(ui.panel.querySelector('.cookie-error').hidden,false);
+  const h=harness(null,{blocked:true}),ui=h.ui();h.window.CeyhaniCookies.open();ui.panel.listeners.click({target:{closest:()=>({dataset:{cookie:'accept'}})}});
+  assert.equal(h.window.CeyhaniCookies.allows('comments'),false);assert.equal(h.reloads(),0);assert.equal(ui.panel.querySelector('.cookie-error').hidden,false);
 });
 test('saved preferences create no banner or dialog; settings are built once on demand',()=>{
   const h=harness(choice({})),ui=h.ui();assert.equal(h.document.body.children.length,0);h.window.CeyhaniCookies.open();assert.equal(h.document.body.children.length,1);assert.ok(ui.panel.open);h.window.CeyhaniCookies.open();assert.equal(h.document.body.children.length,1);
@@ -56,7 +56,7 @@ test('navigation and comment frames delegate settings without duplicating the UI
 test('granting statistics starts the counter once without a reload',async()=>{
   const h=harness(null),legal=new Node();let requests=0;
   h.document.querySelector=selector=>selector==='.footer-legal'?legal:null;h.context.fetch=async()=>{requests++;return {ok:true,json:async()=>({value:12})};};h.run('visitor-counter.js');assert.equal(requests,0);
-  const ui=h.ui();const event={target:{closest:()=>({dataset:{cookie:'accept'}})}};ui.banner.listeners.click(event);await new Promise(resolve=>setImmediate(resolve));assert.equal(requests,1);assert.equal(h.reloads(),0);ui.banner.listeners.click(event);assert.equal(requests,1);
+  const ui=h.ui();h.window.CeyhaniCookies.open();const event={target:{closest:()=>({dataset:{cookie:'accept'}})}};ui.panel.listeners.click(event);await new Promise(resolve=>setImmediate(resolve));assert.equal(requests,1);assert.equal(h.reloads(),0);ui.panel.listeners.click(event);assert.equal(requests,1);
 });
 test('counter, YouTube API, thumbnails and comments make no external request without their category',()=>{
   const h=harness(null);let opens=0;h.window.CeyhaniCookies.open=()=>opens++;
@@ -70,7 +70,7 @@ test('counter, YouTube API, thumbnails and comments make no external request wit
 });
 test('all HTML entry pages have consent controls and no eager external resource URLs',()=>{
   for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){
-    const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="cookie-consent.js\?v=privacy-2"/);assert.match(html,/data-cookie-settings/);
+    const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="cookie-consent.js\?v=on-demand-3"/);assert.match(html,/data-cookie-settings/);
     assert.doesNotMatch(html,/<(?:img|iframe|script)\b[^>]*\ssrc="https?:/i);
   }
 });
