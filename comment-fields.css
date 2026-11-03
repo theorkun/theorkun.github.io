@@ -1,0 +1,20 @@
+/* Shared by the comment service and the moderation setup preview. */
+#HCB_comment_box #hcb_form_content,
+#HCB_comment_box #hcb_form_email,
+#HCB_comment_box #hcb_form_name,
+#HCB_comment_box #hcb_form_website,
+#work-preview-name,
+#work-preview-message{
+  background-color:#00CED1!important;
+  color:#073348!important;
+  -webkit-text-fill-color:#073348;
+  opacity:1;
+}
+#HCB_comment_box :is(#hcb_form_content,#hcb_form_email,#hcb_form_name,#hcb_form_website)::placeholder,
+:is(#work-preview-name,#work-preview-message)::placeholder{color:#164d58;opacity:1}
+.a11y-high-contrast #HCB_comment_box :is(#hcb_form_content,#hcb_form_email,#hcb_form_name,#hcb_form_website),
+.a11y-high-contrast :is(#work-preview-name,#work-preview-message){background-color:#111!important;color:#ffdc72!important;-webkit-text-fill-color:#ffdc72}
+@media(forced-colors:active){
+  #HCB_comment_box :is(#hcb_form_content,#hcb_form_email,#hcb_form_name,#hcb_form_website),
+  :is(#work-preview-name,#work-preview-message){background-color:Canvas!important;color:CanvasText!important;-webkit-text-fill-color:CanvasText}
+}
