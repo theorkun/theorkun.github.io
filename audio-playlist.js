@@ -66,7 +66,7 @@
     volume.value=Math.round(audio.volume*100);updateProgress();
   }
   function pause(message='Müzik durduruldu'){
-    generation++;autoWanted=false;mode='paused';audio.pause();status.textContent=message;render();save();
+    generation++;autoWanted=false;mode='paused';equalizer?.setPlaying(false);audio.pause();status.textContent=message;render();save();
   }
   function stopOtherVideo(){
     document.dispatchEvent(new Event('ceyhani-pause-video'));
@@ -91,7 +91,7 @@
   }
   function select(next){
     if(!Number.isInteger(next)||next<0||next>=tracks.length)return;
-    generation++;audio.pause();index=next;pendingPosition=0;resetOrder();render();return play();
+    generation++;equalizer?.setPlaying(false);audio.pause();index=next;pendingPosition=0;resetOrder();render();return play();
   }
   function advance(direction,automatic=false){
     pendingPosition=0;
@@ -102,7 +102,7 @@
       if(automatic&&repeat==='off'){pause('Liste tamamlandı. Yeniden dinlemek için bir türkü seçebilirsiniz.');mode='ended';return;}
       if(shuffle&&direction>0){resetOrder(false);next=0;}else next=(next+order.length)%order.length;
     }
-    audio.pause();cursor=next;index=order[cursor];render();return play();
+    equalizer?.setPlaying(false);audio.pause();cursor=next;index=order[cursor];render();return play();
   }
   function togglePanel(open){panel.hidden=!open;$('.ap-open').setAttribute('aria-expanded',String(open));widget.classList.toggle('is-open',open);}
   function setCollapsed(value){
@@ -131,13 +131,14 @@
   volume.addEventListener('input',()=>setVolume(Number(volume.value)/100));
   audio.addEventListener('loadedmetadata',()=>{if(pendingPosition&&pendingPosition<audio.duration){audio.currentTime=pendingPosition;pendingPosition=0;}updateProgress();});
   audio.addEventListener('timeupdate',updateProgress);
-  audio.addEventListener('playing',()=>{if(mode==='paused'||mode==='ended'){audio.pause();return;}mode='playing';autoWanted=false;status.textContent='Şimdi çalıyor';render();});
+  audio.addEventListener('playing',()=>{if(mode==='paused'||mode==='ended'){audio.pause();return;}equalizer?.setPlaying(true);mode='playing';autoWanted=false;status.textContent='Şimdi çalıyor';render();});
   audio.addEventListener('waiting',()=>{if(mode==='playing'||mode==='loading'){status.textContent='Türkü yükleniyor…';publish();}});
   audio.addEventListener('ended',()=>advance(1,true));
-  audio.addEventListener('error',()=>{generation++;mode='error';autoWanted=false;status.textContent='Bu kayıt yüklenemedi. Çal’a basarak tekrar deneyebilir veya sonraki türküyü seçebilirsiniz.';render();});
+  audio.addEventListener('error',()=>{generation++;equalizer?.setPlaying(false);mode='error';autoWanted=false;status.textContent='Bu kayıt yüklenemedi. Çal’a basarak tekrar deneyebilir veya sonraki türküyü seçebilirsiniz.';render();});
   window.ceyhaniMusic={startIfWanted:()=>{if(autoWanted&&mode==='blocked')return play(true);},pause,getState,select,togglePlay,next:()=>advance(1),previous:()=>advance(-1),toggleShuffle,cycleRepeat,seek,setVolume,subscribe(callback){subscribers.add(callback);callback(getState());return()=>subscribers.delete(callback);}};
   window.ceyhaniMusic.setEqualizerPreset=name=>equalizer?.select(name);
   window.ceyhaniMusic.setEqualizerBand=(name,value)=>equalizer?.setBand(name,value);
+  window.ceyhaniMusic.setEcho=(enabled,amount)=>equalizer?.setEcho(enabled,amount);
   document.dispatchEvent(new Event('ceyhani-music-ready'));
   document.addEventListener('pointerdown',gesture,{passive:true});document.addEventListener('keydown',gesture);
   document.addEventListener('pointerup',gesture,{passive:true});

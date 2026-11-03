@@ -59,3 +59,12 @@ test('equalizer controls delegate to the shared player and reflect its presets a
   h.nodes.musicEqBandmid.value=3;h.nodes.musicEqBandmid.listeners.input();assert.deepEqual(h.calls.at(-1),['band','mid',3]);assert.equal(h.nodes.musicEqValuemid.textContent,'+3 dB');
   h.state.equalizer.supported=false;h.publish();assert.equal(h.nodes.musicEqBass.disabled,true);
 });
+
+test('echo switch and amount update the parent player and show the current state',()=>{
+  const h=harness({child:true});h.state.equalizer={supported:true,preset:'balanced',bands:{bass:0,mid:0,treble:0},echo:{enabled:false,amount:25},notice:''};
+  h.api.setEcho=(enabled,amount)=>{h.calls.push(['echo',enabled,amount]);h.state.equalizer.echo={enabled,amount:amount??h.state.equalizer.echo.amount};h.publish();};
+  h.publish();assert.equal(h.nodes.musicEchoAmountRow.hidden,true);
+  h.click('musicEchoToggle');assert.equal(h.nodes.musicEchoToggle.attrs['aria-checked'],'true');assert.equal(h.nodes.musicEchoAmountRow.hidden,false);
+  h.nodes.musicEchoAmount.value=40;h.nodes.musicEchoAmount.listeners.input();assert.deepEqual(h.calls.at(-1),['echo',true,40]);assert.equal(h.nodes.musicEchoValue.textContent,'%40');
+  h.click('musicEchoToggle');assert.equal(h.nodes.musicEchoAmount.disabled,true);assert.equal(h.state.equalizer.echo.amount,40);
+});

@@ -33,7 +33,7 @@
     const eq=state.equalizer,eqNames={balanced:'Dengeli',bass:'Bas',vocal:'Vokal',custom:'Özel'};
     $('musicEqCurrent').textContent=eqNames[eq?.preset]||'Dengeli';
     $('musicEqBands').hidden=eq?.preset!=='custom';
-    $('musicEqNotice').textContent=eq?.supported?(eq.notice||'Ses rengini seçin; Dengeli ile özgün kayda dönün.'):'Bu tarayıcıda ekolayzır kullanılamıyor; normal sesle dinleyebilirsiniz.';
+    $('musicEqNotice').textContent=eq?.supported?(eq.notice||'Hazır ayarlardan seçin veya kendi ses dengenizi oluşturun.'):'Bu tarayıcıda ekolayzır kullanılamıyor; normal sesle dinleyebilirsiniz.';
     for(const name of ['balanced','bass','vocal','custom']){
       const button=$('musicEq'+name[0].toUpperCase()+name.slice(1));
       button.disabled=!eq?.supported;button.setAttribute('aria-pressed',String(eq?.preset===name));
@@ -43,6 +43,11 @@
       input.disabled=!eq?.supported;input.value=value;input.setAttribute('aria-valuetext',`${value>0?'+':''}${value} desibel`);
       $('musicEqValue'+name).textContent=`${value>0?'+':''}${value} dB`;
     }
+    const echo=eq?.echo,echoOn=echo?.enabled===true;
+    $('musicEchoToggle').disabled=!eq?.supported;$('musicEchoToggle').setAttribute('aria-checked',String(echoOn));
+    $('musicEchoToggle').textContent=echoOn?'Açık':'Kapalı';$('musicEchoAmountRow').hidden=!echoOn;
+    $('musicEchoAmount').disabled=!eq?.supported||!echoOn;$('musicEchoAmount').value=echo?.amount??25;
+    $('musicEchoAmount').setAttribute('aria-valuetext',`yüzde ${echo?.amount??25}`);$('musicEchoValue').textContent=`%${echo?.amount??25}`;
     $('musicTotal').textContent=`${state.tracks.length} türkü`;
     const query=searchText($('musicSearch').value);
     const key=state.tracks.map(t=>t.id+'|'+t.title).join(';')+'?'+query;
@@ -74,6 +79,8 @@
   $('musicVolume').addEventListener('input',()=>api?.setVolume(Number($('musicVolume').value)/100));
   for(const name of ['balanced','bass','vocal','custom'])$('musicEq'+name[0].toUpperCase()+name.slice(1)).addEventListener('click',()=>api?.setEqualizerPreset(name));
   for(const name of ['bass','mid','treble'])$('musicEqBand'+name).addEventListener('input',()=>api?.setEqualizerBand(name,Number($('musicEqBand'+name).value)));
+  $('musicEchoToggle').addEventListener('click',()=>api?.setEcho(!model?.equalizer?.echo?.enabled));
+  $('musicEchoAmount').addEventListener('input',()=>api?.setEcho(true,Number($('musicEchoAmount').value)));
   $('musicSearch').addEventListener('input',()=>{if(api)render(api.getState());});
   $('musicClearSearch').addEventListener('click',()=>{$('musicSearch').value='';if(api)render(api.getState());$('musicSearch').focus();});
   $('musicTracks').addEventListener('click',event=>{

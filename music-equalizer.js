@@ -6,13 +6,26 @@
     const Context = window.AudioContext || window.webkitAudioContext;
     let preset = Object.hasOwn(presets,saved?.preset) ? saved.preset : saved?.preset==='custom' ? 'custom' : 'balanced';
     let values = preset==='custom' ? bands.map(b=>clamp(saved?.bands?.[b])) : [...presets[preset]];
+    const echo={enabled:saved?.echo?.enabled===true,amount:Number.isFinite(saved?.echo?.amount)?Math.max(0,Math.min(100,saved.echo.amount)):25};
+    let playing=false;
     let graph=null, building=null, notice='';
-    const getState=()=>({preset,bands:Object.fromEntries(bands.map((b,i)=>[b,values[i]])),supported:!!Context,active:!!graph,notice});
+    const getState=()=>({preset,bands:Object.fromEntries(bands.map((b,i)=>[b,values[i]])),echo:{...echo},supported:!!Context,active:!!graph,notice});
     function apply(){
       if(!graph)return;
       values.forEach((v,i)=>graph.filters[i].gain.setTargetAtTime(v,graph.context.currentTime,.025));
+      if(echo.enabled&&!graph.echo){
+        const delay=graph.context.createDelay(1),tone=graph.context.createBiquadFilter(),wet=graph.context.createGain(),feedback=graph.context.createGain();
+        delay.delayTime.value=.24;tone.type='lowpass';tone.frequency.value=3200;wet.gain.value=0;feedback.gain.value=0;
+        graph.filters[2].connect(delay);delay.connect(tone);tone.connect(wet);wet.connect(graph.output);tone.connect(feedback);feedback.connect(delay);
+        graph.echo={delay,tone,wet,feedback};
+      }
+      const wet=echo.enabled?echo.amount/100*.35:0;
+      if(graph.echo){
+        graph.echo.wet.gain.setTargetAtTime(playing?wet:0,graph.context.currentTime,.025);
+        graph.echo.feedback.gain.setTargetAtTime(playing&&echo.enabled ? .28 : 0,graph.context.currentTime,.025);
+      }
       // Leave headroom when a band is boosted, rather than increasing peak volume.
-      graph.output.gain.setTargetAtTime(Math.pow(10,-Math.max(0,...values)/20),graph.context.currentTime,.025);
+      graph.output.gain.setTargetAtTime(Math.pow(10,-Math.max(0,...values)/20)/(1+wet/(1-.28)),graph.context.currentTime,.025);
     }
     async function ensureGraph(){
       if(!Context)return false;
@@ -51,6 +64,11 @@
       const i=bands.indexOf(name);if(!Context||i<0||!Number.isFinite(value))return Promise.resolve(false);
       preset='custom';values[i]=clamp(value);notice='';apply();changed();return ensureGraph();
     }
-    return {getState,select,setBand,resume:()=>graph||preset!=='balanced'?ensureGraph():Promise.resolve(true)};
+    function setEcho(enabled,amount=echo.amount){
+      if(!Context||typeof enabled!=='boolean'||!Number.isFinite(amount))return Promise.resolve(false);
+      echo.enabled=enabled;echo.amount=Math.max(0,Math.min(100,amount));notice='';apply();changed();
+      return graph||enabled?ensureGraph():Promise.resolve(true);
+    }
+    return {getState,select,setBand,setEcho,setPlaying(value){playing=value===true;apply();},resume:()=>graph||preset!=='balanced'||echo.enabled?ensureGraph():Promise.resolve(true)};
   };
 })();

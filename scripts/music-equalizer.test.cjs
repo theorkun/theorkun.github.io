@@ -5,11 +5,12 @@ function harness({unsupported=false,fail=false,saved}={}){
   const param=()=>({value:0,setTargetAtTime(value){this.value=value;}});
   const node=()=>{const n={gain:param(),frequency:param(),Q:param(),targets:[],connect(target){this.targets.push(target);},disconnect(){this.targets=[];}};nodes.push(n);return n;};
   class Context{
-    constructor(){contexts.push(this);this.currentTime=1;this.destination={};this.filters=[];}
+    constructor(){contexts.push(this);this.currentTime=1;this.destination={};this.filters=[];this.gains=[];this.delays=[];}
     async resume(){if(fail)throw Error('denied');this.state='running';}
     async close(){this.closed=true;}
     createBiquadFilter(){const n=node();this.filters.push(n);return n;}
-    createGain(){return this.output=node();}
+    createGain(){this.output=node();this.gains.push(this.output);return this.output;}
+    createDelay(){const n=node();n.delayTime=param();this.delays.push(n);return n;}
     createMediaElementSource(element){assert.equal(element,audio);return this.source=node();}
   }
   const window={AudioContext:unsupported?undefined:Context};vm.runInNewContext(source,{window});
@@ -37,4 +38,28 @@ test('custom gains are bounded, copied in state and restored without early conte
 test('unsupported or denied Web Audio leaves the original audio unclaimed',async()=>{
   const absent=harness({unsupported:true});assert.equal(absent.eq.getState().supported,false);assert.equal(await absent.eq.select('bass'),false);assert.equal(absent.nodes.length,0);
   const failed=harness({fail:true});assert.equal(await failed.eq.select('bass'),false);assert.equal(failed.contexts[0].source,undefined);assert.equal(failed.contexts[0].closed,true);assert.ok(failed.eq.getState().notice);
+});
+
+test('echo creates a bounded filtered feedback path once and can be completely muted',async()=>{
+  const h=harness();assert.equal(h.eq.getState().echo.enabled,false);await h.eq.select('balanced');assert.equal(h.contexts[0].delays.length,0);
+  h.eq.setPlaying(true);await h.eq.setEcho(true,100);
+  const c=h.contexts[0];assert.equal(c.delays.length,1);assert.equal(c.delays[0].delayTime.value,.24);
+  assert.equal(c.filters[3].type,'lowpass');assert.equal(c.gains[1].gain.value,.35);assert.equal(c.gains[2].gain.value,.28);
+  assert.ok(c.gains[0].gain.value<1);assert.equal(c.gains[2].targets[0],c.delays[0]);
+  await h.eq.setEcho(true,50);assert.equal(c.delays.length,1);assert.equal(c.gains[1].gain.value,.175);
+  await h.eq.setEcho(false);assert.equal(c.gains[1].gain.value,0);assert.equal(c.gains[2].gain.value,0);assert.equal(c.gains[0].gain.value,1);
+});
+
+test('pause silences echo tails while preserving the selected amount for resumed playback',async()=>{
+  const h=harness();await h.eq.setEcho(true,40);const c=h.contexts[0];assert.equal(c.gains[1].gain.value,0);
+  h.eq.setPlaying(true);assert.ok(c.gains[1].gain.value>0);
+  h.eq.setPlaying(false);assert.equal(c.gains[1].gain.value,0);assert.equal(c.gains[2].gain.value,0);assert.equal(h.eq.getState().echo.amount,40);
+  h.eq.setPlaying(true);assert.ok(c.gains[1].gain.value>0);
+});
+
+test('saved echo remains lazy until playback and rejects invalid amounts',async()=>{
+  const h=harness({saved:{preset:'balanced',echo:{enabled:true,amount:150}}});assert.equal(h.contexts.length,0);assert.equal(h.eq.getState().echo.amount,100);
+  await h.eq.resume();assert.equal(h.contexts.length,1);
+  assert.equal(await h.eq.setEcho(true,NaN),false);await h.eq.setEcho(true,-10);assert.equal(h.eq.getState().echo.amount,0);
+  const state=h.eq.getState();state.echo.enabled=false;assert.equal(h.eq.getState().echo.enabled,true);
 });
