@@ -1,11 +1,11 @@
 /* Flag motif appears on desktop controls only. */
-body:not(.subpage) :is(header nav a,main .button,main .outline-button){position:relative;isolation:isolate;overflow:hidden}
-body:not(.subpage) :is(header nav a,main .button,main .outline-button)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('assets/flags/tr.svg') center/cover no-repeat;opacity:0;transition:opacity .2s ease}
-@media(hover:hover){body:not(.subpage) :is(header nav a,main .button,main .outline-button):hover::before{opacity:.16}}
-body:not(.subpage) :is(header nav a,main .button,main .outline-button):focus-visible::before{opacity:.16}
+:is(header nav a,body:not(.subpage) main .button,body:not(.subpage) main .outline-button){position:relative;isolation:isolate;overflow:hidden}
+:is(header nav a,body:not(.subpage) main .button,body:not(.subpage) main .outline-button)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('assets/flags/tr.svg') center/cover no-repeat;opacity:0;transition:opacity .2s ease}
+@media(hover:hover){:is(header nav a,body:not(.subpage) main .button,body:not(.subpage) main .outline-button):hover::before{opacity:.16}}
+:is(header nav a,body:not(.subpage) main .button,body:not(.subpage) main .outline-button):focus-visible::before{opacity:.16}
 @media(max-width:760px),(hover:none){
-  body:not(.subpage) :is(header nav a,main .button,main .outline-button)::before{display:none}
+  :is(header nav a,body:not(.subpage) main .button,body:not(.subpage) main .outline-button)::before{display:none}
 }
-@media(prefers-reduced-motion:reduce){body:not(.subpage) :is(header nav a,main .button,main .outline-button)::before{transition:none}}
+@media(prefers-reduced-motion:reduce){:is(header nav a,body:not(.subpage) main .button,body:not(.subpage) main .outline-button)::before{transition:none}}
 .a11y-reduced-motion :is(header nav a,main .button,main .outline-button)::before{transition:none}
 .a11y-high-contrast :is(header nav a,main .button,main .outline-button)::before{display:none}
