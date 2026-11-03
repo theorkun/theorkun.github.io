@@ -9,6 +9,7 @@
     new MutationObserver(check).observe(dialog,{attributes:true,attributeFilter:['open']});
   }
   function mount(container,kind,id,title){
+    container.dataset.commentMount=kind;container.dataset.commentId=id;container.dataset.commentTitle=title;
     container.replaceChildren();
     if(!window.CeyhaniCookies?.allows('comments')){
       const note=document.createElement('p');note.className='work-comments-note';note.textContent='Yorumları görmek ve yazmak için çerez tercihlerindeki Ziyaretçi defteri ve eser yorumları kategorisine izin verebilirsiniz.';
@@ -18,6 +19,15 @@
     frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id});
     frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');container.appendChild(frame);
   }
+  document.addEventListener('ceyhani-cookie-change',()=>{
+    if(!window.CeyhaniCookies?.allows('comments'))return;
+    for(const container of document.querySelectorAll('[data-comment-mount]')){
+      if(container.querySelector('.work-comments-frame'))continue;
+      const dialog=container.closest('dialog'),details=container.closest('details');
+      if((dialog&&!dialog.open)||(details&&!details.open))continue;
+      mount(container,container.dataset.commentMount,container.dataset.commentId,container.dataset.commentTitle);
+    }
+  });
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin)return;
     for(const frame of document.querySelectorAll('.work-comments-frame'))if(event.source===frame.contentWindow){

@@ -4,7 +4,7 @@ class Node{constructor(){this.classList={add(){}};this.children=[];this.hidden=f
 async function embed({type='poem',id='1',consent=true,confirmed=false}={}){
   const nodes=Object.fromEntries(['work-title','work-comment-status','work-comment-content','work-comment-retry'].map(id=>[id,new Node()])),head=new Node(),requests=[];
   const document={body:new Node(),documentElement:{scrollHeight:500},head,getElementById:id=>nodes[id],createElement:()=>new Node()};
-  const window={parent:{postMessage(){}},CeyhaniCookies:{allows:()=>consent,open(){}},addEventListener(){}};
+  const window={CeyhaniCommentPrivacy:{attach:()=>({reset(){}})},parent:{postMessage(){}},CeyhaniCookies:{allows:()=>consent,open(){}},addEventListener(){}};
   // The consent-denied branch replaces its retry listener before opening settings.
   nodes['work-comment-retry'].cloneNode=()=>nodes['work-comment-retry'];nodes['work-comment-retry'].replaceWith=()=>{};
   vm.runInNewContext(source,{window,document,location:{search:'?'+new URLSearchParams({type,id}),origin:'https://example.test',reload(){}},ResizeObserver:class{observe(){}disconnect(){}},URL,URLSearchParams,Number,setTimeout:()=>1,clearTimeout(){},fetch:async url=>{

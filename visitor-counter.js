@@ -1,5 +1,9 @@
 (() => {
+  let started=false;
+  function start(){
+  if(started)return;
   if (!window.CeyhaniCookies?.allows('statistics')) return;
+  started=true;
   const legal = document.querySelector('.footer-legal');
   const copyright = legal?.querySelector('.copyright');
   if (!legal || !copyright) {
@@ -53,4 +57,6 @@
       console.error('Ziyaretçi sayısı alınamadı.', error);
       display.textContent = 'Ziyaretçi sayısı şu anda alınamıyor.';
     });
+  }
+  document.addEventListener('ceyhani-cookie-change',start);start();
 })();

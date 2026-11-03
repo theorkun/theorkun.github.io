@@ -81,11 +81,6 @@
       "theme": "Aşk"
     },
     {
-      "title": "DİYEMİ",
-      "poemNo": 20,
-      "theme": "Toplumsal"
-    },
-    {
       "title": "DEDİ",
       "poemNo": 21,
       "theme": "Aşk"
@@ -392,6 +387,11 @@
       "title": "Olur",
       "verse": "Ahlâğın bittiği yerde,",
       "poemNo": 40
+    }
+  ],
+  "archived": [
+    {
+      "poemNo": 20
     }
   ]
 }

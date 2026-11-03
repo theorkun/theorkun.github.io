@@ -67,7 +67,7 @@
       document.querySelectorAll('dialog[open]').forEach(dialog => dialog.close());
       returnFocus = document.activeElement;
       hiddenElements = [...document.body.children]
-        .filter(element => !element.matches('.background-music, script, style, link'))
+        .filter(element => !element.matches('.background-music, .cookie-panel, .cookie-banner, script, style, link'))
         .map(element => ({ element, display: element.style.display, inert: element.inert }));
       hiddenElements.forEach(({ element }) => { element.style.display = 'none'; element.inert = true; });
       frame = document.createElement('iframe');

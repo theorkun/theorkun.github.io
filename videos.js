@@ -22,6 +22,7 @@
   const retry = document.querySelector('#channel-player-retry');
   const mediaNotice = document.querySelector('#channel-media-notice');
   if (mediaNotice) mediaNotice.hidden = window.CeyhaniCookies?.allows('media') === true;
+  document.addEventListener('ceyhani-cookie-change',()=>{if(mediaNotice)mediaNotice.hidden=window.CeyhaniCookies?.allows('media')===true;});
   const batchSize = 12;
   let visibleCount = batchSize;
   let youtubePlayer = null;

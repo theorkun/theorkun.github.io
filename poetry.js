@@ -162,47 +162,6 @@ Bir tek sende olsa yarama şifa
 11-08-2025`
     },
     {
-      title: 'DİYEMİ',
-      author: 'Aşık Ceyhani',
-      preview: 'Sorarım siz niye vekil oldunuz',
-      poem: `Sorarım siz niye vekil oldunuz
-Ceylan koltuklarda yatın diyemi ?
-Birer birer o meclise doldunuz
-Ballı maaşları yutun diyemi ?
-
-Yazık ulan size vallahi yazık
-Sayenizde halkın geçimi bozuk
-Gençler ve yaşlımız canından bezik
-Bu millete kazık atın diyemi ?
-
-Emekli can çeker artar çilesi
-İsyan eder çoğu gelir ölesi
-Olmuşsunuz genel başkan kölesi
-Milleti kenara itin diyemi ?
-
-Ettiniz ülkeyi oldu harabe
-Talihsiz milletiz çaldık garebe
-Sahiller madenler gitti araba
-Parsel parsel bölüp satın diyemi ?
-
-Olmamalı sizden millet vekili
-Hepiniz bir yerden alır akılı
-Fransız markası parfüm kokulu
-Burcu burcu kokup tütün diyemi ?
-
-Türkiyeli değil Türktür özümüz
-Korkunç ihaneti görür gözümüz
-Hepinize gelsin budur sözümüz
-Terörle el ele tutun diyemi ?
-
-Ceyhani velkelam sözün kısası
-Firavun oldunuz yok bir musası
-Sanki gazi meclis kumar masası
-Yalan ile halkı ütün diyemi?
-
-10-08-2025`
-    },
-    {
       title: 'DEDİ',
       author: 'Aşık Ceyhani',
       preview: 'Bugün ben bir güzel gördüm',

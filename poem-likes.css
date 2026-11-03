@@ -1,5 +1,14 @@
 .poem-likes{margin-top:28px;padding:22px 0;border-top:1px solid #cbded7;color:#17434b;font-family:'Quicksand',sans-serif}
 .poem-likes-heading{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.poem-likes-heading.has-comments{gap:10px;align-items:stretch}
+.poem-likes-heading.has-comments .poem-like-button{flex:1 1 0;min-width:0}
+.poem-comment-toggle{display:inline-flex;flex:1 1 0;min-width:0;align-items:center;justify-content:center;gap:9px;padding:11px 14px;min-height:48px;border:1px solid #85c5bd;border-radius:26px;background:#fffdf8;color:#096c75;font:700 14px 'Quicksand',sans-serif;cursor:pointer}
+.poem-comment-toggle .work-comment-icon{width:21px;height:21px;flex-shrink:0}
+.poem-comment-toggle[aria-expanded=true]{background:#e8f5ee}
+.poem-comment-toggle:focus-visible{outline:3px solid #087c83;outline-offset:3px}
+.poem-likes-heading.has-comments .poem-likes-caption{flex-basis:100%}
+.work-comments.is-poem-actions>summary{display:none}
+.work-comments.is-poem-actions:not([open]){display:none}
 .poem-like-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:11px 16px;border:1px solid #85c5bd;border-radius:26px;background:#e8f5ee;color:#096c75;font:700 14px 'Quicksand',sans-serif;cursor:pointer}
 .poem-like-button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .poem-like-button [data-like-count]{padding:2px 7px;border-radius:12px;background:#ffffffa6;font-variant-numeric:tabular-nums}
@@ -23,7 +32,7 @@
 .poem-saz-celebration i:nth-of-type(6){left:62%;top:91%;width:5px;height:5px}
 @keyframes poem-saz-celebrate{0%{opacity:0;transform:translate(-50%,-38%) scale(.45)}22%{opacity:1;transform:translate(-50%,-50%) scale(1.04)}65%{opacity:1;transform:translate(-50%,-52%) scale(1)}100%{opacity:0;transform:translate(-50%,-65%) scale(1.12)}}
 @keyframes poem-saz-sway{0%{transform:rotate(-24deg)}35%{transform:rotate(10deg)}65%{transform:rotate(-6deg)}100%{transform:rotate(9deg)}}
-@media(max-width:520px){.poem-saz-celebration{height:280px}.poem-saz-celebration img{width:120px;height:216px}.poem-likes-caption{font-size:11px}}
+@media(max-width:520px){.poem-saz-celebration{height:280px}.poem-saz-celebration img{width:120px;height:216px}.poem-likes-caption{font-size:11px}.poem-likes-heading.has-comments{gap:8px}.poem-likes-heading.has-comments :is(.poem-like-button,.poem-comment-toggle){font-size:12px;gap:6px;padding:10px 8px;min-height:52px}.poem-likes-heading.has-comments .poem-like-button svg{width:18px;height:18px;flex-shrink:0}}
 @media(prefers-reduced-motion:reduce){.poem-saz-celebration{display:none}}
 .a11y-reduced-motion .poem-saz-celebration{display:none}
 .a11y-high-contrast :is(.poem-like-button,.poem-likes-retry){background:#111;color:#ffdc72;border-color:#ffdc72}

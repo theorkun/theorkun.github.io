@@ -26,7 +26,7 @@ test('guestbook acknowledgement is hooked to the provider callback, never page l
   const status=new Node(),retry=new Node(),section=new Node(),head=new Node();let received=0;
   section.querySelector=selector=>selector==='[role="status"]'?status:retry;
   const document={querySelector:selector=>selector==='#ziyaretci-defteri'?section:null,createElement:()=>new Node(),head,addEventListener(){}};
-  const window={CeyhaniCookies:{allows:()=>true},CeyhaniCommentThanks:{received:()=>received++},top:{}};
+  const window={CeyhaniCommentPrivacy:{attach:()=>({reset(){}})},CeyhaniCookies:{allows:()=>true},CeyhaniCommentThanks:{received:()=>received++},top:{}};
   vm.runInNewContext(fs.readFileSync(path.join(root,'guestbook.js'),'utf8'),{window,document,URL});
   assert.equal(received,0);head.children[0].onerror();assert.equal(received,0);window.hcb_user.onload();assert.equal(received,0);window.hcb_user.ON_COMMENT();assert.equal(received,1);
 });

@@ -38,3 +38,6 @@
 .a11y-high-contrast .work-comments{color:#ffdc72;border-color:#ffdc72}
 .a11y-high-contrast .work-comments summary,.a11y-high-contrast .work-comments-note{color:#ffdc72}
 @media(max-width:520px){.work-comments-dialog{padding:16px}.work-comments-dialog .dialog-top{top:-16px}.work-comments-dialog h2{font-size:20px}.work-comments{margin-top:20px;padding-top:16px}.work-comments-page main{padding:14px}}
+.archive-update-note{display:flex;align-items:center;gap:10px;max-width:fit-content;margin:18px 0 26px;padding:10px 15px;border:1px solid #b9d5cb;border-radius:24px;background:#edf6f0;color:#426d6a;font:500 12px/1.7 'Quicksand',sans-serif}
+.archive-update-note:before{content:'';flex:0 0 6px;width:6px;height:6px;background:#079b9b;border-radius:50%}
+.a11y-high-contrast .archive-update-note{background:#111;color:#ffdc72;border-color:#ffdc72}

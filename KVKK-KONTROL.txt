@@ -1,0 +1,58 @@
+KVKK / ÇEREZ / YORUM KONTROLÜ — 3 KASIM 2026
+
+UYGULANAN TEKNİK KONTROLLER
+- İsteğe bağlı hizmetler başlangıçta kapalıdır. Politika sürümü 2 olduğu
+  için eski sürümün tercihleri yeni aydınlatmanın kabulü sayılmaz.
+- Çerez paneli yalnızca istendiğinde oluşturulur. İç gezinme ve eser
+  iframe'leri ayrı panel/bant oluşturmaz; üst pencerenin panelini açar.
+- İlk seçim ve izin verme sayfayı yenilemez. Önceden izin verilmiş dış
+  hizmetin izni kaldırıldığında, yüklü üçüncü taraf kodunu durdurmak için
+  üst sayfa bir kez yenilenir. Reddet ve kabul et eşit erişilebilirliktedir.
+- Yorumlarda aydınlatma okuma beyanı ve yorumun işlenip herkese açık
+  yayımlanmasına açık rıza ayrı ve başlangıçta işaretsiz kutulardır.
+  Form gönderimi, gönder düğmesi ve Enter kısayolu bu arayüzde kontrol edilir.
+  Başarılı yorum sonrası kutular sıfırlanır; onay sonraki yoruma taşınmaz.
+- Şiir/türkü yorumlarının moderationConfirmed=false durumu korunmuştur.
+  KVKK kutuları, yönetici onay ayarı doğrulanmış gibi göstermez.
+- Kullanıcı ücretli planını bildirdiğinden hizmetin marka bağlantısı
+  arayüzde gizlenmiştir. Bize ait açık yönetim/tanıtım bağlantıları kaldırıldı.
+  Bir bağlantıyı gizlemek, yönetim hesabına erişim güvenliği sağlamaz.
+
+DOĞRULANMASI GEREKEN GERÇEK İŞLETİM KOŞULLARI
+1. Kullanıcı ana hosting'in Türkiye'de olduğunu bildirdi. Hosting şirketi,
+   sunucu/log/yedek konumları, alt işleyenler ve saklama süreleri sözleşmeyle
+   teyit edilmelidir. GitHub Pages kopyası ve dış hizmetler bundan ayrıdır.
+2. HTML Comment Box, YouTube/Google ve CountAPI yurt dışı veri işleme
+   oluşturabilir. Sürekli aktarımların yalnız bir açık rıza kutusuyla hukuka
+   uygun hale geldiği varsayılmamalıdır. KVKK madde 9 kapsamında uygulanacak
+   aktarım mekanizması, sağlayıcı sözleşmeleri ve gerekli bildirimler uzman
+   tarafından kontrol edilmelidir. Bu çalışma bir standart sözleşme imzalamaz.
+3. Yorum kutuları istemci tarafındadır. Yorum sağlayıcısının doğrudan API'si
+   ve sunucu tarafı kuralları bu kodla değişmez. Rıza metninin sürümünü, zamanı
+   ve ilgili yorumla ilişkiyi kanıtlayacak sağlayıcı/sunucu kayıt mekanizması
+   ayrıca kurulup doğrulanmalıdır. Bu çalışma sahte bir rıza kaydı üretmez ve
+   rızanın sunucuda kanıtlanabildiğini iddia etmez.
+4. Sağlayıcıdaki yorum/log/yedek saklama ve silme süreleri, veri sahibi
+   başvuru/kimlik doğrulama süreci ve silmenin alıcılara iletilmesi operasyonu
+   netleştirilmelidir. Bir çerez kutusunu kapatmak eski sunucu verisini silmez.
+5. VERBİS yükümlülüğü/istisnası, yayın hakkı, çocuklara ve özel nitelikli
+   verilere ilişkin önlemler somut faaliyet ve sağlayıcı ilişkisine göre
+   hukukçu tarafından değerlendirilmelidir. Yalnızca bu site koduna bakarak
+   tüm hukuki yükümlülüklerin yerine getirildiği söylenemez.
+6. Yorum hizmetinin HTTPS sertifikasıyla ilgili bağlantı hatası önceki
+   kontrollerde görülmüştür; gerçek gönderim ve yönetici onayı canlıda ayrıca
+   doğrulanmalıdır. Tarayıcının sertifika uyarısı atlanmamalıdır.
+
+Bu dosya site sahibinin kontrol notudur; hukuki uygunluk belgesi değildir.
+Mevcut yorumlar/oylar silinmez. App_Data'yı paketle değiştirmeyin.
+
+RESMÎ KAYNAKLAR
+KVKK Çerez Uygulamaları Hakkında Rehber, Temmuz 2025:
+https://www.kvkk.gov.tr/Icerik/7353/Cerez-Uygulamalari-Hakkinda-Rehber
+Aydınlatma Tebliği ve aydınlatma/açık rızanın ayrı yürütülmesi:
+https://www.kvkk.gov.tr/Icerik/4132/aydinlatma-yukumlulugunun-yerine-getirilmesinde-uyulacak-usul-ve-esaslar-hakkinda-teblig
+https://www.kvkk.gov.tr/Icerik/5420/2018-90
+Yurt dışı aktarımı, 2024 sonrası düzenleme:
+https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim
+Ücretli planlarda marka bağlantısının kaldırılması:
+https://www.htmlcommentbox.com/help.html

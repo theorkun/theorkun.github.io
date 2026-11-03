@@ -3,7 +3,9 @@
   if (!section) return;
   const status = section.querySelector('[role="status"]');
   const retry = section.querySelector('.guestbook-retry');
-  let loading = false;
+  const box=section.querySelector('#HCB_comment_box');
+  const privacy=window.CeyhaniCommentPrivacy?.attach(box.parentElement||section,box);
+  let loading = false,visible=false,loaded=false;
 
   // Keep a single thread across index.html, anchors and query strings.
   window.hcb_user = {
@@ -45,9 +47,10 @@
     err_spam: 'Mesaj spam filtresine takıldı.',
     err_blocked: 'Mesaj yorum servisi tarafından engellendi.',
     are_you_sure: 'Bu mesajı uygunsuz olarak bildirmek istiyor musun?',
-    ON_COMMENT() { window.CeyhaniCommentThanks?.received(); },
+    ON_COMMENT() { privacy?.reset();window.CeyhaniCommentThanks?.received(); },
     onload() {
       loading = false;
+      loaded=true;
       status.hidden = true;
       retry.hidden = true;
       const name = document.querySelector('#hcb_form_name');
@@ -75,6 +78,7 @@
   document.addEventListener('ceyhani-survey-draft', fillSurveyDraft);
 
   function loadGuestbook() {
+    if(!privacy){status.hidden=false;status.textContent='Yorum gizlilik kontrolleri yüklenemedi. Lütfen sayfayı yenileyin.';retry.hidden=true;return;}
     if (!window.CeyhaniCookies?.allows('comments')) {
       status.hidden = false;
       status.textContent = 'Ziyaretçi mesajlarını görmek veya yazmak için çerez tercihlerinden Ziyaretçi defteri kategorisine izin verebilirsiniz.';
@@ -82,8 +86,9 @@
       retry.hidden = false;
       return;
     }
-    if (loading) return;
+    if (loading||loaded) return;
     loading = true;
+    retry.textContent='Tekrar dene';
     status.hidden = false;
     status.textContent = 'Ziyaretçi defteri yükleniyor…';
     retry.hidden = true;
@@ -113,15 +118,18 @@
     if (!window.CeyhaniCookies?.allows('comments')) window.CeyhaniCookies?.open();
     else loadGuestbook();
   });
+  document.addEventListener('ceyhani-cookie-change',()=>{if(visible&&window.CeyhaniCookies?.allows('comments'))loadGuestbook();});
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {
         observer.disconnect();
+        visible=true;
         loadGuestbook();
       }
     }, { rootMargin: '200px' });
     observer.observe(section);
   } else {
+    visible=true;
     loadGuestbook();
   }
 })();
