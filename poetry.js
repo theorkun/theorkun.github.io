@@ -42,12 +42,6 @@ if (poetrySection) {
       "poem": "Sen yoksun yarim burada\nGeçmiyor günler geçmiyor\nDoğmaz güneş bu arada\nGeçmiyor günler geçmiyor\nHasretin veriyor çile\nÇekiyorum bile bile\nBir günüm bedel bir yıla\nGeçmiyor günler geçmiyor\nYıla dönüyor bir ayım\nBen bende değilim zayım\nSanki sensiz zindandayım\nGeçmiyor günler geçmiyor\nCeyhani çekmeyen bilmez\nAh ederim yüzüm gülmez\nBeklerim selamın gelmez\nGeçmiyor günler geçmiyor\n\n29.09.2024"
     },
     {
-      "title": "BUNLAR",
-      "author": "Âşık Ceyhani",
-      "preview": "Hırsızlar kılıktan kılığa girdi",
-      "poem": "Hırsızlar kılıktan kılığa girdi\nKuzu postu giymiş çakaldır onlar\nHak etmeden alıp yutmaktır derdi\nKuzu postu giymiş çakaldır bunlar\n\nHiç insandan çakal olurmu deme\nYaptıklarına bak oluyor ama\nYeterki süt olsun fark etmez meme\nKuzu postu giymiş çakaldır onlar\n\nKarınları doyar açtır gözleri\nBaşından sonuna yalan sözleri\nHiç utanma  olmaz pişkin yüzleri\nKuzu postu giymiş çakaldır bunlar\n\nCeyhani söyleme sözü boşuna\nMundar olanların gitmez hoşuna\nTakılmış  giderler  birin peşine\nKuzu postu giymiş çakaldır bunlar\n\n10.09.2024"
-    },
-    {
       "title": "SONU BİTMİYOR",
       "author": "Âşık Ceyhani",
       "preview": "Anamdan doğalı düştüm bu yola",

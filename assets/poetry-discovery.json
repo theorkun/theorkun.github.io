@@ -31,11 +31,6 @@
       "theme": "Özlem"
     },
     {
-      "title": "BUNLAR",
-      "poemNo": 10,
-      "theme": "Toplumsal"
-    },
-    {
       "title": "SONU BİTMİYOR",
       "poemNo": 11,
       "theme": "Hayat ve Kader"
@@ -390,6 +385,9 @@
     },
     {
       "poemNo": 5
+    },
+    {
+      "poemNo": 10
     }
   ]
 }
