@@ -4,7 +4,7 @@ class Node{constructor(){this.classList={add(){}};this.children=[];this.hidden=f
 async function embed({type='poem',id='1',consent=true,confirmed=false,enabled=false}={}){
   const nodes=Object.fromEntries(['work-title','work-comment-status','work-comment-content','work-comment-retry'].map(id=>[id,new Node()])),head=new Node(),requests=[];
   const document={body:new Node(),documentElement:{scrollHeight:500},head,getElementById:id=>nodes[id],createElement:()=>new Node()};
-  const window={CeyhaniCommentPrivacy:{attach:()=>({reset(){}})},parent:{postMessage(){}},CeyhaniCookies:{allows:()=>consent,open(){}},addEventListener(){}};
+  const window={CeyhaniCommentPrivacy:{attach:()=>({reset(){}})},parent:{postMessage(){}},CeyhaniCookies:{allows:()=>consent,grantComments(){consent=true;return true;},open(){throw Error('General settings must not open');}},addEventListener(){}};
   // The consent-denied branch replaces its retry listener before opening settings.
   nodes['work-comment-retry'].cloneNode=()=>nodes['work-comment-retry'];nodes['work-comment-retry'].replaceWith=()=>{};
   vm.runInNewContext(source,{window,document,location:{search:'?'+new URLSearchParams({type,id}),origin:'https://example.test',reload(){}},ResizeObserver:class{observe(){}disconnect(){}},URL,URLSearchParams,Number,setTimeout:()=>1,clearTimeout(){},fetch:async url=>{
@@ -24,7 +24,8 @@ test('direct publication explicitly enables poem and track forms without asserti
   }
 });
 test('no comment-service request is made before comments consent',async()=>{
-  const h=await embed({consent:false,confirmed:true});assert.equal(h.head.children.length,0);assert.equal(h.requests.length,1);assert.match(h.nodes['work-comment-status'].textContent,/iznini/);
+  const h=await embed({consent:false,confirmed:true});assert.equal(h.head.children.length,0);assert.equal(h.requests.length,1);assert.match(h.nodes['work-comment-status'].textContent,/bağlantı bilgileriniz/);
+  h.nodes['work-comment-retry'].listeners.click();for(let i=0;i<5;i++)await new Promise(r=>setImmediate(r));assert.equal(h.head.children.length,1);assert.ok(h.window.hcb_user);
 });
 test('different works have distinct canonical threads that do not depend on the current hosting domain',async()=>{
   const first=await embed({confirmed:true}),second=await embed({id:'2',confirmed:true}),track=await embed({type:'track',id:'turkleriz-biz',confirmed:true});
@@ -36,4 +37,10 @@ test('unknown, removed and malformed work IDs never initialize the service',asyn
 });
 test('provider errors expose retry and never claim a comment was saved',async()=>{
   const h=await embed({confirmed:true});let received=0;h.window.CeyhaniCommentThanks={received:()=>received++};h.head.children[0].onerror();assert.match(h.nodes['work-comment-status'].textContent,/ulaşılamıyor/);assert.equal(h.nodes['work-comment-retry'].hidden,false);assert.equal(received,0);h.window.hcb_user.ON_COMMENT();assert.equal(received,1);
+});
+
+test('a rendered provider form clears loading even when its custom onload callback is absent',async()=>{
+  const h=await embed({enabled:true}),box=h.nodes['work-comment-content'].children[0];
+  box.querySelector=selector=>selector==='#hcb_form'?{}:null;h.head.children[0].onload();
+  assert.equal(h.nodes['work-comment-status'].hidden,true);assert.equal(h.nodes['work-comment-retry'].hidden,true);
 });

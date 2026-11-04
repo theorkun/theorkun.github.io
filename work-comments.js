@@ -12,11 +12,11 @@
     container.dataset.commentMount=kind;container.dataset.commentId=id;container.dataset.commentTitle=title;
     container.replaceChildren();
     if(!window.CeyhaniCookies?.allows('comments')){
-      const note=document.createElement('p');note.className='work-comments-note';note.textContent='Yorumları görmek ve yazmak için hizmet izinlerindeki Ziyaretçi defteri ve eser yorumları kategorisine izin verebilirsiniz.';
-      const button=document.createElement('button');button.type='button';button.className='work-comments-action';button.textContent='Hizmet izinlerini aç';button.onclick=()=>window.CeyhaniCookies?.open();container.append(note,button);return;
+      const note=document.createElement('p');note.className='work-comments-note';note.textContent='Yorum alanını açtığınızda HTML Comment Box hizmetine bağlanılır; bağlantı bilgileriniz sağlayıcıya iletilir. Bu izin yalnızca yorumlar içindir. Göndermeden önce KVKK ve paylaşım onaylarını ayrıca seçebilirsiniz.';
+      const button=document.createElement('button');button.type='button';button.className='work-comments-action';button.textContent='Yorum alanını aç';button.onclick=()=>{if(window.CeyhaniCookies?.grantComments())mount(container,kind,id,title);};container.append(note,button);return;
     }
     const frame=document.createElement('iframe');frame.className='work-comments-frame';frame.title=title+' — yorumlar';
-    frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id,v:'enabled-6'});
+    frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id,v:'comment-access-7'});
     frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');container.appendChild(frame);
   }
   document.addEventListener('ceyhani-cookie-change',()=>{

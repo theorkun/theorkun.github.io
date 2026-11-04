@@ -81,8 +81,8 @@
     if(!privacy){status.hidden=false;status.textContent='Yorum gizlilik kontrolleri yüklenemedi. Lütfen sayfayı yenileyin.';retry.hidden=true;return;}
     if (!window.CeyhaniCookies?.allows('comments')) {
       status.hidden = false;
-      status.textContent = 'Ziyaretçi mesajlarını görmek veya yazmak için hizmet izinlerinden Ziyaretçi defteri kategorisine izin verebilirsiniz.';
-      retry.textContent = 'Hizmet izinlerini aç';
+      status.textContent = 'Yorum alanını açtığınızda HTML Comment Box hizmetine bağlanılır ve bağlantı bilgileriniz sağlayıcıya iletilir. Bu izin yalnızca yorumlar içindir; mesaj göndermek için KVKK ve paylaşım onayları ayrıca seçilir.';
+      retry.textContent = 'Yorum alanını aç';
       retry.hidden = false;
       return;
     }
@@ -105,7 +105,13 @@
     script.id = 'guestbook-service';
     script.src = url.href;
     script.async = true;
+    let formObserver;
+    const ready=()=>{if(!box.querySelector?.('#hcb_form'))return;window.hcb_user.onload();formObserver?.disconnect();};
+    if(typeof MutationObserver==='function'){formObserver=new MutationObserver(ready);formObserver.observe(box,{childList:true,subtree:true});}
+    script.onload=ready;
+    window.addEventListener('pagehide',()=>formObserver?.disconnect());
     script.onerror = () => {
+      formObserver?.disconnect();
       loading = false;
       status.hidden = false;
       status.textContent = 'Ziyaretçi defteri yüklenemedi. Lütfen tekrar dene.';
@@ -115,8 +121,8 @@
   }
 
   retry.addEventListener('click', () => {
-    if (!window.CeyhaniCookies?.allows('comments')) window.CeyhaniCookies?.open();
-    else loadGuestbook();
+    if (!window.CeyhaniCookies?.allows('comments')&&!window.CeyhaniCookies?.grantComments()) return;
+    visible=true;loadGuestbook();
   });
   document.addEventListener('ceyhani-cookie-change',()=>{if(visible&&window.CeyhaniCookies?.allows('comments'))loadGuestbook();});
   if ('IntersectionObserver' in window) {

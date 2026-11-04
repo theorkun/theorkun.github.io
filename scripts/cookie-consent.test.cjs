@@ -53,24 +53,33 @@ test('saved preferences create no banner or dialog; settings are built once on d
 test('navigation and comment frames delegate settings without duplicating the UI',()=>{
   const h=harness(null,{delegated:true});h.ui();assert.equal(h.document.body.children.length,0);h.window.CeyhaniCookies.open();assert.equal(h.delegatedOpens(),1);assert.equal(h.document.body.children.length,0);
 });
+
+test('opening comments grants only tab-scoped comments access even when storage is blocked, and can be revoked',()=>{
+  for(const blocked of [false,true]){
+    const h=harness(null,{blocked});h.ui();assert.equal(h.window.CeyhaniCookies.grantComments(),true);
+    assert.equal(h.window.CeyhaniCookies.allows('comments'),true);for(const c of ['functional','media','statistics'])assert.equal(h.window.CeyhaniCookies.allows(c),false);
+    assert.equal(h.reloads(),0);assert.equal(h.document.body.children.length,0);
+    if(!blocked){h.window.CeyhaniCookies.open();const form=h.document.body.children[0].querySelector('form');form.elements.comments.checked=false;form.listeners.submit({preventDefault(){}});assert.equal(h.window.CeyhaniCookies.allows('comments'),false);assert.equal(h.session.has('ceyhani-comments-open-v1'),false);assert.equal(h.reloads(),1);}
+  }
+});
 test('granting statistics starts the counter once without a reload',async()=>{
   const h=harness(null),legal=new Node();let requests=0;
   h.document.querySelector=selector=>selector==='.footer-legal'?legal:null;h.context.fetch=async()=>{requests++;return {ok:true,json:async()=>({value:12})};};h.run('visitor-counter.js');assert.equal(requests,0);
   const ui=h.ui();h.window.CeyhaniCookies.open();const event={target:{closest:()=>({dataset:{cookie:'accept'}})}};ui.panel.listeners.click(event);await new Promise(resolve=>setImmediate(resolve));assert.equal(requests,1);assert.equal(h.reloads(),0);ui.panel.listeners.click(event);assert.equal(requests,1);
 });
 test('counter, YouTube API, thumbnails and comments make no external request without their category',()=>{
-  const h=harness(null);let opens=0;h.window.CeyhaniCookies.open=()=>opens++;
+  const h=harness(null);let opens=0;h.window.CeyhaniCookies.open=()=>opens++;h.window.CeyhaniCookies.grantComments=()=>false;
   h.context.fetch=()=>{throw Error('Unexpected network request');};h.run('visitor-counter.js');
   const nodes=Object.fromEntries(['channel-video-grid','video-search','channel-show-more','channel-video-count','channel-no-results','channel-player','channel-now-playing','channel-watch-link','channel-player-status','channel-video-dialog','channel-player-close'].map(id=>['#'+id,new Node()]));
   const card=new Node();card.dataset={videoId:'abcdefghijk',videoTitle:'Türkü'};nodes['#channel-video-grid'].querySelectorAll=()=>[card];nodes['#video-search'].value='';
   h.document.querySelector=id=>nodes[id]||null;h.run('videos.js');assert.equal(h.document.head.children.length,0);assert.equal(nodes['#channel-player'].src,undefined);
   card.listeners.click();assert.equal(opens,1);assert.equal(nodes['#channel-video-dialog'].open,false);
-  const section=new Node();h.document.querySelector=id=>id==='#ziyaretci-defteri'?section:null;h.run('guestbook.js');assert.equal(h.document.head.children.length,0);section.querySelector('.guestbook-retry').listeners.click();assert.equal(opens,2);
+  const section=new Node();h.document.querySelector=id=>id==='#ziyaretci-defteri'?section:null;h.run('guestbook.js');assert.equal(h.document.head.children.length,0);section.querySelector('.guestbook-retry').listeners.click();assert.equal(opens,1);
   const accepted=harness(choice({media:true}));accepted.ui();assert.match(accepted.images[0].src,/i.ytimg.com/);
 });
 test('all HTML entry pages have consent controls and no eager external resource URLs',()=>{
   for(const name of fs.readdirSync(root).filter(n=>n.endsWith('.html'))){
-    const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="cookie-consent.js\?v=on-demand-3"/);assert.match(html,/data-cookie-settings/);
+    const html=fs.readFileSync(path.join(root,name),'utf8');assert.match(html,/src="cookie-consent.js\?v=comment-access-4"/);assert.match(html,/data-cookie-settings/);
     assert.doesNotMatch(html,/<(?:img|iframe|script)\b[^>]*\ssrc="https?:/i);
   }
 });

@@ -58,3 +58,5 @@ https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim
 https://www.htmlcommentbox.com/help.html
 
 3 Kasım 2026 arayüz güncellemesi: Açılış çerez bandı ve ayrı çerez politikası kaldırıldı. KVKK aydınlatması korundu. İsteğe bağlı dış hizmetler izin verilmeden yüklenmez; Hizmet izinleri ekranı yalnızca istendiğinde açılır.
+
+4 Kasım 2026: Yorumları açmak için genel hizmet ayarlarına yönlendirme kaldırıldı. Açıklama altındaki Yorum alanını aç düğmesi yalnızca yorum hizmetine sekme oturumu boyunca erişim verir (ceyhani-comments-open-v1). Video ve istatistik izinleri açılmaz. Gönderim için ayrı KVKK ve paylaşım onayları korunur.

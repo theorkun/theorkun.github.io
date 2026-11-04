@@ -2,9 +2,16 @@
   const key='ceyhani-cookie-consent-v1',version=2,lifetime=180*86400000;
   const categories=['functional','statistics','media','comments'];
   let saved=null,panel=null,form=null,notice=null,error=null,previousFocus=null,manager=null;
+  const commentKey='ceyhani-comments-open-v1';let commentsRequested=false;
+  try{commentsRequested=sessionStorage.getItem(commentKey)==='1';}catch(_){}
   try{if(window.parent&&window.parent!==window&&window.top.CeyhaniCookies)manager=window.top.CeyhaniCookies;}catch(_){}
   function readChoice(){try{const value=JSON.parse(localStorage.getItem(key));return value?.version===version&&Number.isFinite(value.at)&&value.at<=Date.now()&&Date.now()-value.at<lifetime&&categories.every(c=>typeof value[c]==='boolean')?value:null;}catch(_){return null;}}
-  const allows=category=>saved?.[category]===true;
+  const allows=category=>category==='comments'?(commentsRequested||manager?.allows?.('comments')===true||saved?.comments===true):saved?.[category]===true;
+  function grantComments(){
+    if(manager?.grantComments)return manager.grantComments();
+    commentsRequested=true;try{sessionStorage.setItem(commentKey,'1');}catch(_){}
+    return true;
+  }
   function remove(storage,name){try{if(window[storage].getItem(name)!==null)window[storage].removeItem(name);}catch(_){}}
   function clean(){if(!allows('functional')){remove('localStorage','ceyhani-accessibility');remove('sessionStorage','ceyhani-background-music');}if(!allows('statistics'))remove('sessionStorage','ceyhani-visitor-counted-v1');}
   function images(){if(allows('media'))for(const image of document.querySelectorAll('img[data-media-src]'))if(image.src!==image.dataset.mediaSrc)image.src=image.dataset.mediaSrc;}
@@ -27,12 +34,12 @@
     panel.inert=false;if(panel.style)panel.style.display='';if(!panel.open)panel.showModal();
   }
   function save(values){
-    const before=saved,next={version,at:Date.now()};for(const category of categories)next[category]=values[category]===true;
+    const before=Object.fromEntries(categories.map(c=>[c,allows(c)])),next={version,at:Date.now()};for(const category of categories)next[category]=values[category]===true;
     try{localStorage.setItem(key,JSON.stringify(next));}catch(_){open();error.hidden=false;error.textContent='Tercihleriniz kaydedilemedi. Taray\u0131c\u0131n\u0131z\u0131n bu site i\u00e7in depolamaya izin verdi\u011fini kontrol edin. Mevcut tercihleriniz de\u011fi\u015ftirilmedi.';return;}
-    saved=next;clean();if(panel?.open)panel.close();if(notice)notice.hidden=true;
+    saved=next;if(!next.comments){commentsRequested=false;remove('sessionStorage',commentKey);}clean();if(panel?.open)panel.close();if(notice)notice.hidden=true;
     if(revoked(before)){reload();return;}images();emit();
   }
-  window.CeyhaniCookies={allows,decided:()=>true,open,
+  window.CeyhaniCookies={allows,decided:()=>true,open,grantComments,
     read(storage,name){if(!allows('functional'))return null;try{return window[storage].getItem(name);}catch(_){return null;}},
     write(storage,name,value){if(allows('functional'))try{window[storage].setItem(name,value);}catch(_){}}
   };

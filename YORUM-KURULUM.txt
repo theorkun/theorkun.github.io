@@ -26,3 +26,5 @@ Yayımlama sonrasında bir şiir ve bir türküde kendi yorumunuzla kontrol edin
 Bu çalışmada herkese açık gerçek bir test yorumu gönderilmemiştir.
 
 Hizmet belgeleri: https://www.htmlcommentbox.com/help.html
+
+4 Kasım 2026: Yorumları açmak için genel hizmet ayarlarına yönlendirme kaldırıldı. Açıklama altındaki Yorum alanını aç düğmesi yalnızca yorum hizmetine sekme oturumu boyunca erişim verir (ceyhani-comments-open-v1). Video ve istatistik izinleri açılmaz. Gönderim için ayrı KVKK ve paylaşım onayları korunur.
