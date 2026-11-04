@@ -2,15 +2,7 @@
   const dialog=document.getElementById('poem-dialog'),section=document.getElementById('siirleri');if(!dialog||!section)return;
   const panel=document.createElement('section');panel.id='poemLikes';panel.className='poem-likes';panel.setAttribute('aria-label','Şiiri beğen');
   panel.innerHTML='<div class="poem-likes-heading"><button class="poem-like-button" type="button" data-music-like="" data-track-title="Şiir" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 5.8a5 5 0 0 0-7.1 0L12 6.9l-1.1-1.1a5 5 0 0 0-7.1 7.1L12 21l8.2-8.1a5 5 0 0 0 0-7.1Z"/></svg><span>Bu şiiri beğen</span><span data-like-count>—</span></button><span class="poem-likes-caption">Bir dize, bir gönül bağı.</span></div><p id="poemLikesStatus" role="status" aria-live="polite">Beğeniler yükleniyor…</p><button id="poemLikesRetry" class="poem-likes-retry" type="button" hidden>Yeniden dene</button>';
-  const body=dialog.querySelector('.poem-modal-body'),comments=body.querySelector('.work-comments');body.insertBefore(panel,comments||null);
-  if(comments){
-    comments.id='poem-work-comments';comments.classList.add('is-poem-actions');
-    const toggle=document.createElement('button');toggle.type='button';toggle.className='poem-comment-toggle';toggle.setAttribute('aria-controls',comments.id);toggle.setAttribute('aria-expanded','false');
-    toggle.innerHTML=comments.querySelector('summary').innerHTML;
-    const heading=panel.querySelector('.poem-likes-heading');heading.classList.add('has-comments');heading.insertBefore(toggle,panel.querySelector('.poem-likes-caption'));
-    toggle.addEventListener('click',()=>{comments.open=true;comments.setAttribute('tabindex','-1');comments.focus({preventScroll:true});comments.scrollIntoView({block:'start',behavior:'instant'});});
-    comments.addEventListener('toggle',()=>toggle.setAttribute('aria-expanded',String(comments.open)));
-  }
+  const body=dialog.querySelector('.poem-modal-body');body.appendChild(panel);
   const button=panel.querySelector('[data-music-like]'),status=panel.querySelector('[role=status]');let archive,version=0;
   function getArchive(){return archive||(archive=fetch('assets/poetry-discovery.json?v=archive-70-diyemi-archived-5').then(r=>{if(!r.ok)throw Error();return r.json();}).catch(e=>{archive=null;throw e;}));}
   async function select(card){

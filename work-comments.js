@@ -1,7 +1,5 @@
 (() => {
   const icon='<svg class="work-comment-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 1-8 8H5l-4 3V11a9 9 0 0 1 19 0Z"/><path d="M6 9h8M6 13h5"/></svg>';
-  let archive;
-  const poems=()=>archive||(archive=fetch('assets/poetry-discovery.json?v=archive-70-diyemi-archived-5').then(r=>{if(!r.ok)throw Error();return r.json();}).catch(error=>{archive=null;throw error;}));
   function whenClosed(dialog,cleanup){
     const check=()=>{if(!dialog.open)cleanup();};
     dialog.addEventListener('close',check);
@@ -35,30 +33,6 @@
       if(event.data?.type==='ceyhani-comment-thanks')window.CeyhaniCommentThanks?.show();
     }
   });
-  const poemDialog=document.querySelector('#poem-dialog');
-  if(poemDialog&&document.querySelector('#siirleri')){
-    const details=document.createElement('details');details.className='work-comments';
-    const summary=document.createElement('summary');summary.innerHTML=icon+'Bu şiire yorum yap';
-    const heading=document.createElement('h4');heading.className='poem-comments-title';heading.textContent='Bu şiire yapılan yorumlar';
-    const note=document.createElement('p');note.className='work-comments-note';note.textContent='Dizelerin sizde bıraktığı duyguyu paylaşın. Bu şiire eklenen yorumları burada okuyabilirsiniz.';
-    const body=document.createElement('div');details.append(summary,heading,note,body);poemDialog.querySelector('.poem-modal-body').appendChild(details);
-    let selected=null,version=0;
-    document.querySelector('#siirleri').addEventListener('click',event=>{
-      const card=event.target.closest('.poem-card');if(!card)return;
-      selected={title:card.dataset.title};details.open=true;loadSelected();
-    });
-    async function loadSelected(){
-      const current=++version;body.replaceChildren();if(!details.open||!selected)return;
-      body.textContent='Yorum alanı hazırlanıyor…';
-      try{
-        const data=await poems();if(current!==version||!details.open)return;
-        const item=data.poems.find(p=>p.title===selected.title);
-        if(!item)throw Error();mount(body,'poem',String(item.poemNo),selected.title);
-      }catch(_){if(current===version)body.textContent='Yorum alanı açılamadı. Kapatıp yeniden deneyebilirsiniz.';}
-    }
-    summary.addEventListener('click',event=>{event.preventDefault();details.open=true;details.scrollIntoView({block:'start',behavior:'instant'});});
-    whenClosed(poemDialog,()=>{version++;details.open=false;body.replaceChildren();});
-  }
   const tracks=document.getElementById('musicTracks');
   if(tracks){
     const dialog=document.createElement('dialog');dialog.className='work-comments-dialog';dialog.setAttribute('aria-labelledby','work-comments-title');
