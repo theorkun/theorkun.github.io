@@ -18,6 +18,19 @@
       }
     }
     function paint(){
+      // Keep the form text-only, including controls inserted later by the provider.
+      for(const control of box.querySelectorAll('#hcb_file,#hcb_file_label,input[type="file"],label[for="hcb_file"]')){
+        control.hidden=true;if(control.type==='file'){control.disabled=true;control.value='';}
+      }
+      const form=box.querySelector?.('#hcb_form'),submit=box.querySelector?.('#hcb_submit');
+      const list=box.querySelector?.('#comments_list');
+      if(form&&list&&form.previousElementSibling!==list)form.parentElement.insertBefore(list,form);
+      if(form&&submit&&gate.parentElement!==form)form.insertBefore(gate,submit.parentElement===form?submit:submit.parentElement);
+      for(const [selector,text] of [['#hcb_form_name','Adınız veya takma adınız (isteğe bağlı)'],['#hcb_form_content',box.closest?.('#ziyaretci-defteri')?'Mesajınız':'Bu esere dair yorumunuz']]){
+        const field=box.querySelector?.(selector);if(!field)continue;
+        field.setAttribute('aria-label',text);field.setAttribute('placeholder',selector==='#hcb_form_name'?'Size nasıl hitap edelim?':'Düşüncelerinizi birkaç satırla paylaşın…');
+        if(!form.querySelector('label[data-comment-field="'+field.id+'"]')){const label=document.createElement('label');label.className='comment-field-label';label.dataset.commentField=field.id;label.setAttribute('for',field.id);label.textContent=text;field.parentElement.insertBefore(label,field);}
+      }
       for(const button of box.querySelectorAll('#hcb_submit,#hcb_form [type=submit]')){
         button.classList.toggle('is-privacy-blocked',!ready());
         if(!ready()){button.setAttribute('aria-disabled','true');button.dataset.privacyBlocked='true';}

@@ -3,11 +3,11 @@ const source=fs.readFileSync(path.join(__dirname,'../comment-privacy.js'),'utf8'
 class Node{constructor(){this.checked=false;this.hidden=false;this.attrs={};this.dataset={};this.listeners={};this.classes=new Set();this.classList={toggle:(k,on)=>on?this.classes.add(k):this.classes.delete(k)};}setAttribute(k,v){this.attrs[k]=v;}removeAttribute(k){delete this.attrs[k];}addEventListener(k,fn){this.listeners[k]=fn;}focus(){this.focused=true;}}
 function harness(){
   const ack=new Node(),consent=new Node(),error=new Node(),button=new Node(),gate=new Node(),root=new Node(),box=new Node();let observer;
-  const links=[];gate.querySelector=s=>s==='[data-notice-ack]'?ack:s==='[data-public-consent]'?consent:error;root.insertBefore=n=>root.gate=n;box.querySelectorAll=s=>s==='a[href]'?links:[button];
+  const links=[],files=[];gate.querySelector=s=>s==='[data-notice-ack]'?ack:s==='[data-public-consent]'?consent:error;root.insertBefore=n=>root.gate=n;box.querySelectorAll=s=>s==='a[href]'?links:s.includes('input[type="file"]')?files:[button];
   const window={addEventListener(){}};vm.runInNewContext(source,{window,document:{createElement:()=>gate},location:{href:'https://asikceyhani.com.tr/'},URL,MutationObserver:class{constructor(fn){observer=fn;}observe(){}disconnect(){}}});
   const api=window.CeyhaniCommentPrivacy.attach(root,box);
   function click(){const e={target:{closest:s=>s==='#HCB_comment_box'?box:button},preventDefault(){this.blocked=true;},stopImmediatePropagation(){this.stopped=true;}};root.listeners.click(e);return e;}
-  return {ack,consent,error,button,gate,root,box,links,api,click,update:()=>observer()};
+  return {ack,consent,error,button,gate,root,box,links,files,api,click,update:()=>observer()};
 }
 test('notice acknowledgement and publication consent start separately unchecked and both are required',()=>{
   const h=harness();assert.equal(h.api.ready(),false);assert.equal(h.click().blocked,true);assert.match(h.error.textContent,/Aydınlatma/);assert.ok(h.ack.focused);
@@ -17,6 +17,12 @@ test('notice acknowledgement and publication consent start separately unchecked 
 });
 test('the guard does not undo a provider disabled state or bypass unconfirmed moderation',()=>{
   const h=harness();h.button.disabled=true;h.ack.checked=h.consent.checked=true;h.gate.listeners.change();assert.equal(h.button.disabled,true);
+});
+
+test('photo controls inserted by the provider stay hidden and file inputs are disabled and cleared',()=>{
+  const h=harness(),file=new Node(),label=new Node();file.type='file';file.value='selected.jpg';h.files.push(file,label);h.update();
+  assert.equal(file.hidden,true);assert.equal(file.disabled,true);assert.equal(file.value,'');assert.equal(label.hidden,true);
+  assert.notEqual(h.button.hidden,true);assert.notEqual(h.box.hidden,true);
 });
 test('native submit and keyboard submission are blocked without both choices',()=>{
   const h=harness();

@@ -8,7 +8,7 @@
     const toggle=document.createElement('button');toggle.type='button';toggle.className='poem-comment-toggle';toggle.setAttribute('aria-controls',comments.id);toggle.setAttribute('aria-expanded','false');
     toggle.innerHTML=comments.querySelector('summary').innerHTML;
     const heading=panel.querySelector('.poem-likes-heading');heading.classList.add('has-comments');heading.insertBefore(toggle,panel.querySelector('.poem-likes-caption'));
-    toggle.addEventListener('click',()=>{comments.open=!comments.open;});
+    toggle.addEventListener('click',()=>{comments.open=true;comments.setAttribute('tabindex','-1');comments.focus({preventScroll:true});comments.scrollIntoView({block:'start',behavior:'instant'});});
     comments.addEventListener('toggle',()=>toggle.setAttribute('aria-expanded',String(comments.open)));
   }
   const button=panel.querySelector('[data-music-like]'),status=panel.querySelector('[role=status]');let archive,version=0;

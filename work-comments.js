@@ -16,7 +16,7 @@
       const button=document.createElement('button');button.type='button';button.className='work-comments-action';button.textContent='Yorum alanını aç';button.onclick=()=>{if(window.CeyhaniCookies?.grantComments())mount(container,kind,id,title);};container.append(note,button);return;
     }
     const frame=document.createElement('iframe');frame.className='work-comments-frame';frame.title=title+' — yorumlar';
-    frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id,v:'comment-access-7'});
+    frame.src='eser-yorumlari.html?'+new URLSearchParams({type:kind,id,v:'comment-design-8'});
     frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');container.appendChild(frame);
   }
   document.addEventListener('ceyhani-cookie-change',()=>{
@@ -39,23 +39,24 @@
   if(poemDialog&&document.querySelector('#siirleri')){
     const details=document.createElement('details');details.className='work-comments';
     const summary=document.createElement('summary');summary.innerHTML=icon+'Bu şiire yorum yap';
-    const note=document.createElement('p');note.className='work-comments-note';note.textContent='Bu dizelerin sizde bıraktığı duyguyu veya bir hatıranızı paylaşın.';
-    const body=document.createElement('div');details.append(summary,note,body);poemDialog.querySelector('.poem-modal-body').appendChild(details);
+    const heading=document.createElement('h4');heading.className='poem-comments-title';heading.textContent='Bu şiire yapılan yorumlar';
+    const note=document.createElement('p');note.className='work-comments-note';note.textContent='Dizelerin sizde bıraktığı duyguyu paylaşın. Bu şiire eklenen yorumları burada okuyabilirsiniz.';
+    const body=document.createElement('div');details.append(summary,heading,note,body);poemDialog.querySelector('.poem-modal-body').appendChild(details);
     let selected=null,version=0;
     document.querySelector('#siirleri').addEventListener('click',event=>{
       const card=event.target.closest('.poem-card');if(!card)return;
-      version++;details.open=false;body.replaceChildren();selected={title:card.dataset.title};
+      selected={title:card.dataset.title};details.open=true;loadSelected();
     });
-    details.addEventListener('toggle',async()=>{
+    async function loadSelected(){
       const current=++version;body.replaceChildren();if(!details.open||!selected)return;
-      requestAnimationFrame(()=>{if(details.open&&poemDialog.open){details.setAttribute('tabindex','-1');details.focus({preventScroll:true});details.scrollIntoView({block:'start',behavior:'instant'});}});
       body.textContent='Yorum alanı hazırlanıyor…';
       try{
         const data=await poems();if(current!==version||!details.open)return;
         const item=data.poems.find(p=>p.title===selected.title);
         if(!item)throw Error();mount(body,'poem',String(item.poemNo),selected.title);
       }catch(_){if(current===version)body.textContent='Yorum alanı açılamadı. Kapatıp yeniden deneyebilirsiniz.';}
-    });
+    }
+    summary.addEventListener('click',event=>{event.preventDefault();details.open=true;details.scrollIntoView({block:'start',behavior:'instant'});});
     whenClosed(poemDialog,()=>{version++;details.open=false;body.replaceChildren();});
   }
   const tracks=document.getElementById('musicTracks');
