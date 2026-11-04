@@ -24,12 +24,6 @@ if (poetrySection) {
       "poem": "Selvi boylu ince belli\nYar seni çok seviyorum\nİnanmıyorsan Allah’a\nSor seni çok seviyorum\n\nYoktur cihanda benzerin\nMelekler yoldaşın senin\nSol yüzünde iki benin\nVar seni çok seviyorum\n\nSevdan yapıştı canıma\nHasret kaldım cananıma\nHem dinim hem imanıma\nGör seni çok seviyorum\n\nDeme aşkın gereğine\nAtma beni ırağına\nCeyhaniyi yüreğine\nÖr seni çok seviyorum\n\n11.07.2025"
     },
     {
-      "title": "BUNADA ŞÜKÜR  😀",
-      "author": "Âşık Ceyhani",
-      "preview": "Otuz yıl çalıştım belim büküldü",
-      "poem": "Otuz yıl çalıştım belim büküldü\nHamdolsun halime bunda şükür\nYeni alamıyom pabuç söküldü\nHamdolsun halime bunada şükür.\n\nEmekli olmuştum bir heves ile\nGeçinmek dert oldu bitmiyor çile\nPazara giderim dolmuyor file\nHamdolsun halime bunada şükür.\n\nYalancıktan mutlu görünüyorum\nİnsan saymıyorlar yeriniyorum\nPadişahım için sürünüyorum\nHamdolsun halime bunada şükür\n\nBir dilim karpuzu beş kişi yerim\nSonunda yarabbi çok şükür derim\nArabaya binmem yaya giderim\nHamdolsun halime bunada şükür\n\nBU işe bir çözüm bulamıyorum\nBirileri gibi çalamıyorum\nMakarnayı bile alamıyorum\nHamdolsun halime bunada şükür.\n\nSarayımda vardır hanlar hamamlar\nCeyhani doymuyor doymaz yanyamlar\nZam yok maaşıma artıyor gamlar\nHamdolsun halime bunada şükür.\n\n03.07.2025"
-    },
-    {
       "title": "güzel",
       "author": "Âşık Ceyhani",
       "preview": "Türkiyeyi gezeli",

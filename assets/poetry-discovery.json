@@ -16,11 +16,6 @@
       "theme": "Aşk"
     },
     {
-      "title": "BUNADA ŞÜKÜR  😀",
-      "poemNo": 5,
-      "theme": "Toplumsal"
-    },
-    {
       "title": "güzel",
       "poemNo": 7,
       "theme": "Aşk"
@@ -392,6 +387,9 @@
   "archived": [
     {
       "poemNo": 20
+    },
+    {
+      "poemNo": 5
     }
   ]
 }

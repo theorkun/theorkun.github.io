@@ -5,7 +5,7 @@
     const get = type => Number(parts.find(part => part.type === type).value);
     return Math.floor(Date.UTC(get('year'), get('month') - 1, get('day')) / 86400000);
   }
-  fetch('assets/poetry-discovery.json?v=archive-70-diyemi-archived-5').then(response => {
+  fetch('assets/poetry-discovery.json?v=archive-69-mixed-6').then(response => {
     if (!response.ok) throw new Error('Arşiv bilgisi yüklenemedi');
     return response.json();
   }).then(archive => {
@@ -13,11 +13,13 @@
     const cards = section ? [...section.querySelectorAll('.poem-card')] : [];
     cards.forEach((card, index) => {
       card.id = `siir-${archive.poems[index]?.poemNo ?? index + 1}`;
-      card.dataset.theme = archive.poems[index]?.theme || 'Diğer';
     });
     const search = document.querySelector('#poem-search');
     if (search) {
-      const category = document.querySelector('#poem-category');
+      // Shuffle the archive only after stable poem IDs have been assigned.
+      const mixed=cards.slice();
+      for(let i=mixed.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[mixed[i],mixed[j]]=[mixed[j],mixed[i]];}
+      const grid=section.querySelector('.poem-grid');mixed.forEach(card=>grid.appendChild(card));
       const count = document.querySelector('#poem-result-count');
       const empty = document.querySelector('#poem-no-results');
       const reset = document.querySelector('#poem-search-reset');
@@ -26,17 +28,16 @@
         let visible = 0;
         cards.forEach(card => {
           const text = normalize(`${card.dataset.title} ${card.dataset.poem}`);
-          const match = (!query || text.includes(query)) && (!category.value || card.dataset.theme === category.value);
+          const match = !query || text.includes(query);
           card.hidden = !match;
           if (match) visible++;
         });
         count.textContent = `${cards.length} şiirden ${visible} tanesi gösteriliyor.`;
         empty.hidden = visible !== 0;
-        reset.disabled = !search.value && !category.value;
+        reset.disabled = !search.value;
       }
       search.addEventListener('input', filter);
-      category.addEventListener('change', filter);
-      reset.addEventListener('click', () => { search.value = ''; category.value = ''; filter(); search.focus(); });
+      reset.addEventListener('click', () => { search.value = ''; filter(); search.focus(); });
       filter();
       document.querySelector('#poem-discovery-controls').hidden = false;
     }
@@ -58,7 +59,7 @@
       if (!match) return;
       const card = cards.find(item => item.id === `siir-${Number(match[1])}`);
       if (!card) return;
-      if (search) { search.value = ''; document.querySelector('#poem-category').value = ''; search.dispatchEvent(new Event('input')); }
+      if (search) { search.value = ''; search.dispatchEvent(new Event('input')); }
       card.scrollIntoView({ block: 'center' });
       card.click();
     }

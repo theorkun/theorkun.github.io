@@ -7,7 +7,7 @@
   let retryAction=()=>location.reload();retry.addEventListener('click',()=>retryAction());
   async function start(){
     if((kind!=='poem'&&kind!=='track')||!/^[a-z0-9-]{1,80}$/.test(id||''))throw Error('invalid');
-    const response=await fetch(kind==='poem'?'assets/poetry-discovery.json?v=archive-70-diyemi-archived-5':'assets/audio-playlist.json');
+    const response=await fetch(kind==='poem'?'assets/poetry-discovery.json?v=archive-69-mixed-6':'assets/audio-playlist.json');
     if(!response.ok)throw Error();const archive=await response.json();
     const item=kind==='poem'?archive.poems.find(p=>String(p.poemNo)===id):archive.tracks.find(t=>t.id===id);
     if(!item){status.textContent='Bu eser arşivde bulunamadı.';return;}
