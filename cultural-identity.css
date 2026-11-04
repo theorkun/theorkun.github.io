@@ -13,5 +13,8 @@
 
 .motif-preview.culture-preview--kam{gap:12px;background:radial-gradient(circle at 50% 40%,#12626a,#073348 76%)}
 .motif-preview.culture-preview--kam img{width:190px;height:190px}
-.motif-preview.culture-preview--kam figcaption{max-width:300px;text-align:center;color:#b4d8d3;font:400 11px/1.7 Poppins,sans-serif}
 .motif-guide-copy .culture-kam-caption{padding-top:14px;border-top:1px solid #d8e4dc;font-size:12px}
+.culture-instrument>.motif-preview{display:flex;align-items:center;justify-content:center;height:250px;min-height:250px;padding:28px}
+.culture-instrument>.motif-preview img{width:auto;height:190px;max-width:100%;object-fit:contain}
+.culture-instrument .motif-kind{display:block;min-height:32px;line-height:1.6}
+@media(max-width:760px){.culture-instrument>.motif-preview{height:220px;min-height:220px;padding:24px}.culture-instrument>.motif-preview img{height:170px}}
